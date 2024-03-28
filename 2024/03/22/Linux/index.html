@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="马浩珍在 Github 上的个人博客">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Haojen" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        Haojen&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://haojen.github.io/2024/03/22/Linux/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Haojen
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1></h1>
+                    
+                    <span class="meta">
+                         作者 Haojen Ma
+                        <span>
+                          日期 2024-03-22
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="Linux面试题"><a href="#Linux面试题" class="headerlink" title="Linux面试题"></a>Linux面试题</h1><h2 id="001什么是Linux？"><a href="#001什么是Linux？" class="headerlink" title="001什么是Linux？"></a>001什么是Linux？</h2><p>Linux是一套免费使用和自由传播的类似Unix操作系统，一般的WEB项目都是部署都是放在Linux操作系统上面。 Linux是一个基于POSIX和Unix的多用户、多任务、支持多线程和多CPU的操作系统。它能运行主要的Unix工具软件、应用程序和网络协议。它支持32位和64位硬件。Linux继承了Unix以网络为核心的设计思想，是一个性能稳定的多用户网络操作系统。</p>
+<h2 id="002Windows和Linux的区别"><a href="#002Windows和Linux的区别" class="headerlink" title="002Windows和Linux的区别?"></a>002Windows和Linux的区别?</h2><p>Windows是微软开发的操作系统，民用操作系统，可用于娱乐、影音、上网。 Windows操作系统具有强大的日志记录系统和强大的桌面应用。好处是它可以帮我们实现非常多绚丽多彩的效果，可以非常方便去进行娱乐、影音、上网。<br>Linux的应用相对单纯很多，没有什么绚丽多彩的效果，因此Linux的性能是非常出色的，可以完全针对机器的配置有针对性的优化，<br>简单来说Windows适合普通用户进行娱乐办公使用，Linux适合软件开发部署。</p>
+<h2 id="003Linux和Unix有什么区别？"><a href="#003Linux和Unix有什么区别？" class="headerlink" title="003Linux和Unix有什么区别？"></a>003Linux和Unix有什么区别？</h2><table>
+<thead>
+<tr>
+<th>Linux</th>
+<th>Unix系统</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>提供付费和免费分发。</td>
+<td>不同级别的Unix使用不同的付费结构。</td>
+</tr>
+<tr>
+<td>Linux主要使用带有可选命令行界面的GUI</td>
+<td>Unix使用命令行界面</td>
+</tr>
+<tr>
+<td>Linux OS是便携式的，可以在不同的硬盘中执行</td>
+<td>Unix OS不可移植。</td>
+</tr>
+<tr>
+<td>Linux由全球Linux社区开发。</td>
+<td>Unix由AT＆T开发人员开发。</td>
+</tr>
+<tr>
+<td>Linux是免费的。它是在GNU许可下通过互联网下载的。</td>
+<td>大多数类似Unix的操作系统不是免费的。</td>
+</tr>
+<tr>
+<td>Linux用于家用PC，电话等。</td>
+<td>Unix用于服务器系统。</td>
+</tr>
+</tbody></table>
+<h2 id="004什么是BASH？"><a href="#004什么是BASH？" class="headerlink" title="004什么是BASH？"></a>004什么是BASH？</h2><p>Bash是Brian Fox为GNU项目编写的Unix shell和命令处理器。它是免费软件，可以代替Bourne Shell。这是一个解释后的未编译过程，也可以在终端窗口中运行。这使用户可以编写命令并引起动作。Bash能够从Shell脚本读取命令。</p>
+<h2 id="005BASH-和-DOS-之间的基本区别是什么？"><a href="#005BASH-和-DOS-之间的基本区别是什么？" class="headerlink" title="005BASH 和 DOS 之间的基本区别是什么？"></a>005BASH 和 DOS 之间的基本区别是什么？</h2><p>1)BASH 命令区分大小写，而 DOS 命令则不区分;<br>2)在 BASH 下，&#x2F; character 是目录分隔符，\作为转义字符。在 DOS 下，&#x2F;用作命令参数分隔符，\是目录分隔符<br>3)DOS 遵循命名文件中的约定，即 8 个字符的文件名后跟一个点，扩展名为 3 个字符。BASH 没有遵循这样的惯例。</p>
+<h2 id="006什么是GUI？"><a href="#006什么是GUI？" class="headerlink" title="006什么是GUI？"></a>006什么是GUI？</h2><p>图形用户界面（Graphical User Interface，简称 GUI，又称图形用户接口）是指采用图形方式显示的计算机操作用户界面。<br>图形用户界面是一种人与计算机通信的界面显示格式，允许用户使用鼠标等输入设备操纵屏幕上的图标或菜单选项，以选择命令、调用文件、启动程序或执行其它一些日常任务。与通过键盘输入文本或字符命令来完成例行任务的字符界面相比，图形用户界面有许多优点。</p>
+<h2 id="007什么是CLI？"><a href="#007什么是CLI？" class="headerlink" title="007什么是CLI？"></a>007什么是CLI？</h2><p>CLI是命令行界面（英语<strong>：command-line interface</strong>，缩写]）,是在图形用户界面得到普及之前使用最为广泛的用户界面，它通常不支持鼠标。用户通过键盘输入指令，计算机接收到指令后，予以执行。也有人称之为字符用户界面（CUI）。<br>通常认为，命令行界面（CLI）没有图形用户界面（GUI）那么方便用户操作。因为，命令行界面的软件通常需要用户记忆操作的命令，但是，由于其本身的特点，命令行界面要较图形用户界面节约计算机系统的资源。在熟记命令的前提下，使用命令行界面往往要较使用图形用户界面的操作速度要快。所以，图形用户界面的操作系统中，都保留着可选的命令行界面。</p>
+<h2 id="008开源的优势是什么？"><a href="#008开源的优势是什么？" class="headerlink" title="008开源的优势是什么？"></a>008开源的优势是什么？</h2><p>开源允许你将软件（包括源代码）免费分发给任何感兴趣的人。然后，人们可以添加功能，甚至可以调试和更正源代码中的错误。它们甚至可以让它运行得更好，然后再次自由地重新分配这些增强的源代码。这最终使社区中的每个人受益。</p>
+<h2 id="009Linux的基本组件是什么？"><a href="#009Linux的基本组件是什么？" class="headerlink" title="009Linux的基本组件是什么？"></a>009Linux的基本组件是什么？</h2><p>内核：内核是操作系统的心脏。它充当软件和硬件之间的桥梁。如果软件请求硬件，则内核将在软件和硬件之间传递数据。例如，如果您想播放一首歌曲，则应启动默认播放器，它会请求内核播放一首歌曲。大多数Android手机使用Linux内核。<br>Shell：Shell是一个计算机程序，充当用户和内核之间的接口。用户可以通过在Shell上编写程序，命令和脚本来与内核进行通信。它接受人类可读的命令，并将其转换为内核可理解的语言。<br>GUI： 表示图形用户界面。它是一种人机界面，使用可以通过鼠标操作的窗口，图像，图标和菜单。电子产品中的大多数现代应用程序都通过GUI与用户通信。GUI是使用按钮，菜单，消息框等的图形和文本交互的组合。<br>系统实用程序：这些是允许用户管理计算机的软件功能。<br>应用程序：旨在执行一组任务的一组功能。</p>
+<h2 id="010解释Linux中的文件权限类型？"><a href="#010解释Linux中的文件权限类型？" class="headerlink" title="010解释Linux中的文件权限类型？"></a>010解释Linux中的文件权限类型？</h2><p>每个文件或目录都具有3个权限<br>Read–它是指只有他们可以读取该文件。<br>Write–这是指他们可以写入文件或修改目录的文件。<br>Execute–影响用户执行文件或查看目录文件的能力。</p>
+<h2 id="011解释Linux中的文件权限组？"><a href="#011解释Linux中的文件权限组？" class="headerlink" title="011解释Linux中的文件权限组？"></a>011解释Linux中的文件权限组？</h2><p>每个文件和目录都有三个基于用户的权限组。<br>所有者：所有者只需要访问文件或目录，就不会影响其他用户的操作。<br>组：这些权限仅适用于已分配给文件或目录的组。它们不会影响其他用户的操作。<br>所有用户：这些权限适用于系统上的所有用户。</p>
+<h2 id="012解释Linux中不同的文件系统类型吗？"><a href="#012解释Linux中不同的文件系统类型吗？" class="headerlink" title="012解释Linux中不同的文件系统类型吗？"></a>012解释Linux中不同的文件系统类型吗？</h2><p>ext，ext2，ext3，ext4，jfs，xfs，btrfs，ufs，autofs，devpts，ntfs和交换。</p>
+<h2 id="013使用vi编辑器时有哪些不同的模式？"><a href="#013使用vi编辑器时有哪些不同的模式？" class="headerlink" title="013使用vi编辑器时有哪些不同的模式？"></a>013使用vi编辑器时有哪些不同的模式？</h2><p>vi编辑器中有三种模式。他们是<br>● 命令模式&#x2F;常规模式<br>● 插入模式&#x2F;编辑模式。<br>● 防爆模式&#x2F;更换模式。</p>
+<h2 id="014Linux中的进程状态是什么？"><a href="#014Linux中的进程状态是什么？" class="headerlink" title="014Linux中的进程状态是什么？"></a>014Linux中的进程状态是什么？</h2><p>Linux中的五个过程状态。他们是<br>新建&#x2F;就绪：已创建一个新进程并准备运行。<br>正在运行：正在执行该进程。<br>阻止&#x2F;等待：进程正在等待用户输入。<br>终止&#x2F;完成：进程已完成执行或被操作系统终止。<br>僵尸：进程已删除，但仍在进程表中存在有关该进程的信息。</p>
+<h2 id="015Linux-使用的进程间通信方式？"><a href="#015Linux-使用的进程间通信方式？" class="headerlink" title="015Linux 使用的进程间通信方式？"></a>015Linux 使用的进程间通信方式？</h2><p>管道(pipe)、流管道(s_pipe)、有名管道(FIFO)<br>信号(signal)<br>消息队列<br>共享内存<br>信号量<br>套接字(socket)</p>
+<h2 id="016什么是-root-帐户"><a href="#016什么是-root-帐户" class="headerlink" title="016什么是 root 帐户?"></a>016什么是 root 帐户?</h2><p>root 帐户就像一个系统管理员帐户，允许你完全控制系统。你可以在此处创建和维护用户帐户，为每个帐户分配不同的权限。每次安装 Linux 时都是默认帐户。</p>
+<h2 id="017Linux-的目录结构是怎样的？"><a href="#017Linux-的目录结构是怎样的？" class="headerlink" title="017Linux 的目录结构是怎样的？"></a>017Linux 的目录结构是怎样的？</h2><p><img src="http://www.bjpowernode.com/Public/Uploads/article/20220905/1662357417@0d90bea96e12cf9655a6924654f73961.png" alt="img"></p>
+<p>● &#x2F;bin：存放二进制可执行文件(ls,cat,mkdir 等)，常用命令一般都在这里；<br>● &#x2F;boot：存放用于系统引导时使用的各种文件；<br>● &#x2F;dev：用于存放设备文件；<br>● &#x2F;etc：存放系统管理和配置文件；<br>● &#x2F;home：存放所有用户文件的根目录，是用户主目录的基点，比如用户 user 的主目录就是&#x2F;home&#x2F;user，可以用~user 表示；<br>● &#x2F;lib ：存放着和系统运行相关的库文件 ；<br>● &#x2F;lost+found：这个目录平时是空的，系统非正常关机而留下“无家可归”的文件（windows 下叫什么.chk）就在这里。<br>● &#x2F;mnt：系统管理员安装临时文件系统的安装点，系统提供这个目录是让用户临时挂载其他的文件系统；<br>● &#x2F;proc：虚拟文件系统目录，是系统内存的映射。可直接访问这个目录来获取系统信息；<br>● &#x2F;root：超级用户（系统管理员）的主目录（特权阶级 o）；<br>● &#x2F;sbin: 存放二进制可执行文件，只有 root 才能访问。这里存放的是系统管理员使用的系统级别的管理命令和程序。如 ifconfig 等；<br>● &#x2F;tmp：用于存放各种临时文件，是公用的临时文件存储点；<br>● &#x2F;usr：用于存放系统应用程序&#x2F;opt：额外安装的可选应用程序包所放置的位置。一般情况下，我们可以把 tomcat 等都安装到这里；<br>● &#x2F;var：用于存放运行时需要改变数据的文件，也是某些大文件的溢出区，比方说各种服务的日志文件（系统启动日志等。）等；</p>
+<h2 id="018pwd命令。"><a href="#018pwd命令。" class="headerlink" title="018pwd命令。"></a>018pwd命令。</h2><p>功能：显示用户当前所在的目录<br>格式：pwd</p>
+<h2 id="019ls-命令"><a href="#019ls-命令" class="headerlink" title="019ls 命令"></a>019ls 命令</h2><p>功能：对于目录，该命令列出该目录下的所有子目录与文件。对于文件，将列出文件名以及其他信息<br>格式：ls [选项] [目录或文件]<br>常用选项表：</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-a</td>
+<td>查看当前目录下的文件，包括隐藏文件</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>长格式显示文件</td>
+</tr>
+<tr>
+<td>-lh</td>
+<td>以方便阅读的长格式显示</td>
+</tr>
+</tbody></table>
+<h2 id="020cd-命令"><a href="#020cd-命令" class="headerlink" title="020cd 命令"></a>020cd 命令</h2><p>功能：改变工作目录。将当前工作目录改变到指定的目录下<br>格式：cd 目录名<br>常用命令：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cd ..</td>
+<td>返回上一级目录</td>
+</tr>
+<tr>
+<td>cd ..&#x2F;..</td>
+<td>返回上两级目录</td>
+</tr>
+<tr>
+<td>cd ~</td>
+<td>切换到家目录</td>
+</tr>
+<tr>
+<td>cd &#x2F;</td>
+<td>切换到根目录</td>
+</tr>
+<tr>
+<td>cd &#x2F;home&#x2F;lx&#x2F;linux1&#x2F;</td>
+<td>绝对路径：从家目录出发，直到想要去的目录</td>
+</tr>
+<tr>
+<td>cd …&#x2F;lx&#x2F;</td>
+<td>相对路径：从当前目录出发，直到想去的目录</td>
+</tr>
+</tbody></table>
+<h2 id="021man-命令"><a href="#021man-命令" class="headerlink" title="021man 命令"></a>021man 命令</h2><p>Linux的命令有很多参数，我们不可能全记住，我们可以通过查看联机手册获取帮助。访问Linux手册页的命令是man<br>格式：man 其他命令</p>
+<h2 id="022grep-命令"><a href="#022grep-命令" class="headerlink" title="022grep 命令"></a>022grep 命令</h2><p>功能：用于查找文件里符合条件的字符串<br>格式：grep [选项] ‘查找字符串’ 文件名<br>常用选项：</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-a</td>
+<td>将binary文件以text文件的方式查找数据</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>计算找到 ‘查找字符串’ 的次数</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>忽略大小写的区别，即把大小写视为相同</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>反向选择，即显示出没有 ‘查找字符串’ 内容的那一行</td>
+</tr>
+</tbody></table>
+<h2 id="023find-命令"><a href="#023find-命令" class="headerlink" title="023find 命令"></a>023find 命令</h2><p>功能：用来在指定目录下查找文件<br>格式：find [路径] [选项] 操作<br>常用选项：</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-name test</td>
+<td>查询指定目录下,命名为test的文件</td>
+</tr>
+<tr>
+<td>-size +100k</td>
+<td>查询指定目录下，文件大于100K的文件</td>
+</tr>
+<tr>
+<td>-ctime n</td>
+<td>查询指定目录下，在过去n天内被修改过的文件</td>
+</tr>
+</tbody></table>
+<h2 id="024ps-命令"><a href="#024ps-命令" class="headerlink" title="024ps 命令"></a>024ps 命令</h2><p>功能：用来列出系统中当前正在运行的那些进程，类似于 windows 的任务管理器。<br>格式：ps [选项]<br>常用选项：</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-A</td>
+<td>列出所有的进程 （重要）</td>
+</tr>
+<tr>
+<td>-ef</td>
+<td>查看全格式的全部进程 （重要）</td>
+</tr>
+<tr>
+<td>-w</td>
+<td>显示加宽可以显示较多的资讯</td>
+</tr>
+<tr>
+<td>-au</td>
+<td>显示较详细的资讯</td>
+</tr>
+<tr>
+<td>-aux</td>
+<td>显示所有包含其他使用者的行程</td>
+</tr>
+</tbody></table>
+<h2 id="025kill-命令"><a href="#025kill-命令" class="headerlink" title="025kill 命令"></a>025kill 命令</h2><p>功能：用于删除执行中的程序或工作<br>格式：kill [选项]&#x2F;[信号] 进程号<br>常用选项：</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-l</td>
+<td>force 强制的意思，如果目标文件已经存在，不会询问而直接覆盖</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>若目标文件 (destination) 已经存在时，就会询问是否覆盖</td>
+</tr>
+</tbody></table>
+<p>常用信号：</p>
+<table>
+<thead>
+<tr>
+<th>信号</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-1(HUP)</td>
+<td>重新加载进程</td>
+</tr>
+<tr>
+<td>-9(KILL)</td>
+<td>杀死一个进程。(重点)</td>
+</tr>
+<tr>
+<td>-15(TERM)</td>
+<td>正常停止一个进程。</td>
+</tr>
+</tbody></table>
+<h2 id="026tail-命令"><a href="#026tail-命令" class="headerlink" title="026tail 命令"></a>026tail 命令</h2><p>功能：查看测试项目的日志<br>说明：一般测试的项目里面，有个logs的目录文件，会存放日志文件，有个xxx.out的文件，可以用tail -f 动态实时查看后端日志<br>格式：tail [选项] 文件名<br>常用选项：</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-f</td>
+<td>实时读取</td>
+</tr>
+<tr>
+<td>-1000</td>
+<td>查看最近1000行日志</td>
+</tr>
+</tbody></table>
+<h2 id="027netstat-命令"><a href="#027netstat-命令" class="headerlink" title="027netstat 命令"></a>027netstat 命令</h2><p>功能：查看端口<br>格式：netstat -anp | grep 端口号</p>
+<h2 id="028ifconfig命令"><a href="#028ifconfig命令" class="headerlink" title="028ifconfig命令"></a>028ifconfig命令</h2><p>功能：用于查看和更改网络接口的地址和参数，包括IP地址、网络掩码、广播地址，使用权限是超级用户。</p>
+<h2 id="029ping命令"><a href="#029ping命令" class="headerlink" title="029ping命令"></a>029ping命令</h2><p>功能：检测是否与主机连通<br>格式：ping 地址</p>
+<h2 id="030解压命令。"><a href="#030解压命令。" class="headerlink" title="030解压命令。"></a>030解压命令。</h2><p>tar -zxvf redis-3.2.8.tar.gz ；解压到当前文件夹<br>tar -zxvf redis-3.2.8.tar.gz -C &#x2F;opt&#x2F;java&#x2F; ；-C指解压到指定目录</p>
+<h2 id="031压缩命令"><a href="#031压缩命令" class="headerlink" title="031压缩命令"></a>031压缩命令</h2><p>tar -zcvf redis-3.2.8.tar.gz  redis-3.2.8&#x2F;  ;语法 tar -zcvf  压缩后的名称  要压缩的文件<br>tar -zcvf 压缩后的文件（可指定目录）  要压缩的文件（可指定目录） </p>
+<h2 id="032遇到一个不认识的命令式怎么办"><a href="#032遇到一个不认识的命令式怎么办" class="headerlink" title="032遇到一个不认识的命令式怎么办?"></a>032遇到一个不认识的命令式怎么办?</h2><p>1.man 命令名<br>2.命令名 – help<br>3.info cat 命令名 （查看命令的功能，来源，选项等）<br>4.whatis 命令名<br>5.通过网络途径</p>
+<h2 id="033机器的启动-关闭命令。"><a href="#033机器的启动-关闭命令。" class="headerlink" title="033机器的启动&#x2F;关闭命令。"></a>033机器的启动&#x2F;关闭命令。</h2><p>关机命令：shutdown -h 【now | 10(分钟) | 20：25】<br>重启命令：reboot</p>
+<h2 id="034列出已经安装的包？安装软件？更新软件？卸载"><a href="#034列出已经安装的包？安装软件？更新软件？卸载" class="headerlink" title="034列出已经安装的包？安装软件？更新软件？卸载?"></a>034列出已经安装的包？安装软件？更新软件？卸载?</h2><p>列出已经安装的包: yum list installed<br>安装软件: yum install package_name<br>更新软件: yum update package_name<br>卸载软件:yum remove package_name &#x2F;&#x2F;只删除软件包保留数据文件和配置文件<br>可以执行:yum erase package_name</p>
+<h2 id="035mkdir-命令"><a href="#035mkdir-命令" class="headerlink" title="035mkdir 命令"></a>035mkdir 命令</h2><p>功能：创建空目录<br>格式：mkdir [选项] [路径] 文件名<br>常用选项表：</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-p</td>
+<td>层级创建</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>显示创建顺序</td>
+</tr>
+</tbody></table>
+<h2 id="036rmdir-命令"><a href="#036rmdir-命令" class="headerlink" title="036rmdir 命令"></a>036rmdir 命令</h2><p>功能：删除空目录 不能删除非空目录，不能删除文件<br>格式：rmdir [-p] [路径] 目录名<br>常用选项表：</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-p</td>
+<td>当子目录被删除后如果父目录也变成空目录的话，就连带父目录一起删除</td>
+</tr>
+</tbody></table>
+<h2 id="037touch-命令"><a href="#037touch-命令" class="headerlink" title="037touch 命令"></a>037touch 命令</h2><p>功能：新建空文件<br>格式：touch [路径] 文件名 （可以多个）</p>
+<h2 id="038rm-命令"><a href="#038rm-命令" class="headerlink" title="038rm 命令"></a>038rm 命令</h2><p>功能：删除文件或目录<br>格式：rm [选项] 文件名<br>常用选项表：</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-f</td>
+<td>强制删除</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>多级删除</td>
+</tr>
+<tr>
+<td>-rf</td>
+<td>强制删除给定目录下所有文件和目录</td>
+</tr>
+</tbody></table>
+<p>rm 和 rmdir 的区别：<br>rm 有选项， rmdir 没有选项<br>rmdir 只能删除空目录，不能删文件<br>rm 带上选项-r可以删除非空目录</p>
+<h2 id="039mv-命令"><a href="#039mv-命令" class="headerlink" title="039mv 命令"></a>039mv 命令</h2><p>功能：mv命令是move的缩写，可以用来移动文件或者将文件改名（move(rename)files），是Linux系统下常用的命令，经常用来备份文件或者目录。<br>格式：mv [选项] [路径] 旧文件名 [新路径][新文件名]<br>常用选项：</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-f</td>
+<td>force 强制的意思，如果目标文件已经存在，不会询问而直接覆盖</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>若目标文件 (destination) 已经存在时，就会询问是否覆盖</td>
+</tr>
+</tbody></table>
+<p>注意：<br>如果只移动不改名字，新名字可以不写<br>如果移动的同时改名字，新名字一定要写</p>
+<h2 id="040cp-命令"><a href="#040cp-命令" class="headerlink" title="040cp 命令"></a>040cp 命令</h2><p>功能: 复制文件或目录<br>说明：cp指令用于复制文件或目录，如同时指定两个以上的文件或目录，且最后的目的地是一个已经存在的目录，则它会把前面指定的所有文件或目录复制到此目录中。若同时指定多个文件或目录，而最后的目的地并非一个已存在的目录，则会出现错误信息<br>格式：cp [选项] [路径] 旧文件名 [新路径][新文件名]<br>常用选项表：</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-f 或 –force</td>
+<td>强行复制文件或目录， 不论目的文件或目录是否已经存在</td>
+</tr>
+<tr>
+<td>-i 或 –interactive</td>
+<td>覆盖文件之前先询问用户</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>递归处理，将指定目录下的文件与子目录一并处理。若源文件或目录的形态，不属于目录或符号链接，则一律视为普通文件处理</td>
+</tr>
+<tr>
+<td>-R 或 –recursive</td>
+<td>递归处理，将指定目录下的文件及子目录一并处理</td>
+</tr>
+</tbody></table>
+<h2 id="041cat-命令"><a href="#041cat-命令" class="headerlink" title="041cat 命令"></a>041cat 命令</h2><p>功能： 查看目标文件的内容<br>格式：cat [选项] 文件名<br>常用选项表：</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-b</td>
+<td>对非空输出行编号</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>对输出的所有行编号</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>不输出多行空行</td>
+</tr>
+</tbody></table>
+<h2 id="042vi-vim-的使用"><a href="#042vi-vim-的使用" class="headerlink" title="042vi&#x2F;vim 的使用"></a>042vi&#x2F;vim 的使用</h2><dl><dt>基本上 vi&#x2F;vim 共分为三种模式，分别是命令模式（Command mode），输入模式（Insert mode）和底线命令模式（Lastline mode）。<br>常用的几个命令：<br>i 切换到输入模式，以输入字符。</dt><dd>切换到底线命令模式，以在最底一行输入命令。<br>ESC：退出输入模式，切换到命令模式<br>q 退出程序<br>w 保存文件</dd></dl><h2 id="043文件权限修改用什么命令"><a href="#043文件权限修改用什么命令" class="headerlink" title="043文件权限修改用什么命令?"></a>043文件权限修改用什么命令?</h2><p>chmod命令主要用于修改、设置文件权限,chmod 修改文件权限主要有两种方式： 字母法与数字法<br>1)字母法<br>u user 表示该文件的所有者<br>g group 表示与该文件的所有者属于同一组( group )者，即用户组<br>o other 表示其它用户组<br>a all 表示这三者皆是<br>-——————————<br>+增加权限<br>- 撤销权限<br>&#x3D; 设定权限<br>-—————————-<br>r read 表示可读取，对于一个目录，如果没有r权限，那么就意味着不能通过ls查看这个目录的内容。<br>w write 表示可写入，对于一个目录，如果没有w权限，那么就意味着不能在目录下创建新的文件。<br>x excute 表示可执行，对于一个目录，如果没有x权限，那么就意味着不能通过cd进入这个目录。<br>-————————<br>用法：chmod + 设置模式 + 文件名<br>中间的设置模式，要分别对u(user), g(group), o(other)设置权限。<br>chmod u+rwx, g+rwx, o+rwx filename 改命令说明对filename文件， 赋予user、group、other均有read、write、excute的权限。<br>2)数字法<br>数字法是基于字母法的表示，如果字母法懂了，数字法就好懂，并且易于使用。<br>r (read) —————-&gt; 4<br>w (write) —————-&gt; 2<br>x (excute) —————-&gt; 1<br>如：数字法：chmod 777 文件名 &lt;———–对应————–&gt; 字母法： chmod u+rwx, g+rwx, o+rwx 文件名<br>第一个数字7：代表用户 u 的权限 rwx， 4 ® + 2 (w) + 1 (x) &#x3D; 7<br>第二个数字7：代表用户 g 的权限 rwx, 4 ® + 2 (w) + 1 (x) &#x3D; 7<br>第三个数字7：代表用户 o 的权限 rwx, 4 ® + 2 (w) + 1 (x) &#x3D; 7<br>再次举例说明：<br>数字法：chmod 755 filename 对应 字母法： chmod u+rwx, g+rx, o+rx filename<br>数字法：chmod 751 filename 对应 字母法： chmod u+rwx, g+rx, o+x filename<br>数字法：chmod 765 filename 对应 字母法： chmod u+rwx, g+rw, o+rx filename</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2024/03/22/Mybatis/" data-toggle="tooltip" data-placement="top"
+                           title="">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2024/03/22/JVM/" data-toggle="tooltip" data-placement="top"
+                           title="">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-text">Linux面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#001%E4%BB%80%E4%B9%88%E6%98%AFLinux%EF%BC%9F"><span class="toc-text">001什么是Linux？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#002Windows%E5%92%8CLinux%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">002Windows和Linux的区别?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#003Linux%E5%92%8CUnix%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">003Linux和Unix有什么区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#004%E4%BB%80%E4%B9%88%E6%98%AFBASH%EF%BC%9F"><span class="toc-text">004什么是BASH？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#005BASH-%E5%92%8C-DOS-%E4%B9%8B%E9%97%B4%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">005BASH 和 DOS 之间的基本区别是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#006%E4%BB%80%E4%B9%88%E6%98%AFGUI%EF%BC%9F"><span class="toc-text">006什么是GUI？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#007%E4%BB%80%E4%B9%88%E6%98%AFCLI%EF%BC%9F"><span class="toc-text">007什么是CLI？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#008%E5%BC%80%E6%BA%90%E7%9A%84%E4%BC%98%E5%8A%BF%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">008开源的优势是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#009Linux%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">009Linux的基本组件是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#010%E8%A7%A3%E9%87%8ALinux%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%B1%BB%E5%9E%8B%EF%BC%9F"><span class="toc-text">010解释Linux中的文件权限类型？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#011%E8%A7%A3%E9%87%8ALinux%E4%B8%AD%E7%9A%84%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E7%BB%84%EF%BC%9F"><span class="toc-text">011解释Linux中的文件权限组？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#012%E8%A7%A3%E9%87%8ALinux%E4%B8%AD%E4%B8%8D%E5%90%8C%E7%9A%84%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%B1%BB%E5%9E%8B%E5%90%97%EF%BC%9F"><span class="toc-text">012解释Linux中不同的文件系统类型吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#013%E4%BD%BF%E7%94%A8vi%E7%BC%96%E8%BE%91%E5%99%A8%E6%97%B6%E6%9C%89%E5%93%AA%E4%BA%9B%E4%B8%8D%E5%90%8C%E7%9A%84%E6%A8%A1%E5%BC%8F%EF%BC%9F"><span class="toc-text">013使用vi编辑器时有哪些不同的模式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#014Linux%E4%B8%AD%E7%9A%84%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">014Linux中的进程状态是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#015Linux-%E4%BD%BF%E7%94%A8%E7%9A%84%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-text">015Linux 使用的进程间通信方式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#016%E4%BB%80%E4%B9%88%E6%98%AF-root-%E5%B8%90%E6%88%B7"><span class="toc-text">016什么是 root 帐户?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#017Linux-%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E6%98%AF%E6%80%8E%E6%A0%B7%E7%9A%84%EF%BC%9F"><span class="toc-text">017Linux 的目录结构是怎样的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#018pwd%E5%91%BD%E4%BB%A4%E3%80%82"><span class="toc-text">018pwd命令。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#019ls-%E5%91%BD%E4%BB%A4"><span class="toc-text">019ls 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#020cd-%E5%91%BD%E4%BB%A4"><span class="toc-text">020cd 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#021man-%E5%91%BD%E4%BB%A4"><span class="toc-text">021man 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#022grep-%E5%91%BD%E4%BB%A4"><span class="toc-text">022grep 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#023find-%E5%91%BD%E4%BB%A4"><span class="toc-text">023find 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#024ps-%E5%91%BD%E4%BB%A4"><span class="toc-text">024ps 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#025kill-%E5%91%BD%E4%BB%A4"><span class="toc-text">025kill 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#026tail-%E5%91%BD%E4%BB%A4"><span class="toc-text">026tail 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#027netstat-%E5%91%BD%E4%BB%A4"><span class="toc-text">027netstat 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#028ifconfig%E5%91%BD%E4%BB%A4"><span class="toc-text">028ifconfig命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#029ping%E5%91%BD%E4%BB%A4"><span class="toc-text">029ping命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#030%E8%A7%A3%E5%8E%8B%E5%91%BD%E4%BB%A4%E3%80%82"><span class="toc-text">030解压命令。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#031%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4"><span class="toc-text">031压缩命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#032%E9%81%87%E5%88%B0%E4%B8%80%E4%B8%AA%E4%B8%8D%E8%AE%A4%E8%AF%86%E7%9A%84%E5%91%BD%E4%BB%A4%E5%BC%8F%E6%80%8E%E4%B9%88%E5%8A%9E"><span class="toc-text">032遇到一个不认识的命令式怎么办?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#033%E6%9C%BA%E5%99%A8%E7%9A%84%E5%90%AF%E5%8A%A8-%E5%85%B3%E9%97%AD%E5%91%BD%E4%BB%A4%E3%80%82"><span class="toc-text">033机器的启动&#x2F;关闭命令。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#034%E5%88%97%E5%87%BA%E5%B7%B2%E7%BB%8F%E5%AE%89%E8%A3%85%E7%9A%84%E5%8C%85%EF%BC%9F%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%EF%BC%9F%E6%9B%B4%E6%96%B0%E8%BD%AF%E4%BB%B6%EF%BC%9F%E5%8D%B8%E8%BD%BD"><span class="toc-text">034列出已经安装的包？安装软件？更新软件？卸载?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#035mkdir-%E5%91%BD%E4%BB%A4"><span class="toc-text">035mkdir 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#036rmdir-%E5%91%BD%E4%BB%A4"><span class="toc-text">036rmdir 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#037touch-%E5%91%BD%E4%BB%A4"><span class="toc-text">037touch 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#038rm-%E5%91%BD%E4%BB%A4"><span class="toc-text">038rm 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#039mv-%E5%91%BD%E4%BB%A4"><span class="toc-text">039mv 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#040cp-%E5%91%BD%E4%BB%A4"><span class="toc-text">040cp 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#041cat-%E5%91%BD%E4%BB%A4"><span class="toc-text">041cat 命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#042vi-vim-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">042vi&#x2F;vim 的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#043%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%BF%AE%E6%94%B9%E7%94%A8%E4%BB%80%E4%B9%88%E5%91%BD%E4%BB%A4"><span class="toc-text">043文件权限修改用什么命令?</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/ehazon">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/megahertz">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Haojen 2024
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://haojen.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
+</body>
+
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="马浩珍在 Github 上的个人博客">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Haojen" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        Haojen&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://haojen.github.io/2024/03/22/高并发/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Haojen
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1></h1>
+                    
+                    <span class="meta">
+                         作者 Haojen Ma
+                        <span>
+                          日期 2024-03-22
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="高并发面试题"><a href="#高并发面试题" class="headerlink" title="高并发面试题"></a>高并发面试题</h1><h2 id="001什么是高并发？"><a href="#001什么是高并发？" class="headerlink" title="001什么是高并发？"></a>001什么是高并发？</h2><p>高并发（High Concurrency）是一种系统运行过程中遇到的一种“短时间内遇到大量操作请求”的情况，主要发生在web系统集中大量访问收到大量请求（例如：12306的抢票情况；天猫双十一活动）。该情况的发生会导致系统在这段时间内执行大量操作，例如对资源的请求，数据库的操作等。高并发（High Concurrency）是互联网分布式系统架构设计中必须考虑的因素之一，它通常是指，通过设计保证系统能够同时并行处理很多请求。我们所说的高并发指两方面，第一个方面指的是同一时刻有大量的请求访问系统 第二个方面指的是有大量的请求在一个时间段内访问系统，一般时间段有个指标，是一秒内能处理的请求数量。</p>
+<h2 id="002高并发的处理指标？"><a href="#002高并发的处理指标？" class="headerlink" title="002高并发的处理指标？"></a>002高并发的处理指标？</h2><p>高并发相关常用的一些指标有:<br>1.响应时间（Response Time）：系统对请求做出响应的时间。例如系统处理一个HTTP请求需要200ms，这个200ms就是系统的响应时间。<br>2.吞吐量（Throughput）：单位时间内处理的请求数量。<br>3.每秒查询率QPS（Query Per Second）：每秒响应请求数。在互联网领域，这个指标和吞吐量区分的没有这么明显。<br>4.并发用户数：同时承载正常使用系统功能的用户数量。例如一个即时通讯系统，同时在线量一定程度上代表了系统的并发用户数。</p>
+<h2 id="003高并发和多线程的关系和区别？"><a href="#003高并发和多线程的关系和区别？" class="headerlink" title="003高并发和多线程的关系和区别？"></a>003高并发和多线程的关系和区别？</h2><p>“高并发和多线程”总是被一起提起，给人感觉两者好像相等，实则高并发 ≠ 多线程<br>1.多线程<br>多线程是java的特性，因为现在cpu都是多核多线程的，可以同时执行几个任务，为了提高jvm的执行效率，java提供了这种多线程的机制，以增强数据处理效率。多线程对应的是cpu，高并发对应的是访问请求，可以用单线程处理所有访问请求，也可以用多线程同时处理访问请求。<br>在过去单CPU时代，单任务在一个时间点只能执行单一程序。之后发展到多任务阶段，计算机能在同一时间点并行执行多任务或多进程。虽然并不是真正意义上的“同一时间点”，而是多个任务或进程共享一个CPU，并交由操作系统来完成多任务间对CPU的运行切换，以使得每个任务都有机会获得一定的时间片运行。<br>再后来发展到多线程技术，使得在一个程序内部能拥有多个线程并行执行。一个线程的执行可以被认为是一个CPU在执行该程序。当一个程序运行在多线程下，就好像有多个CPU在同时执行该程序。<br>总之，多线程即可以这么理解：多线程是处理高并发的一种编程方法，即并发需要用多线程实现。<br>2.高并发<br>高并发不是JAVA的专有的东西，是语言无关的广义的，为提供更好互联网服务而提出的概念。<br>典型的场景，例如：12306抢火车票，天猫双十一秒杀活动等。该情况的发生会导致系统在这段时间内执行大量操作，例如对资源的请求，数据库的操作等。如果高并发处理不好，不仅仅降低了用户的体验度（请求响应时间过长），同时可能导致系统宕机，严重的甚至导致OOM异常，系统停止工作等。<br>如果要想系统能够适应高并发状态，则需要从各个方面进行系统优化，包括，硬件、网络、系统架构、开发语言的选取、数据结构的运用、算法优化、数据库优化等……而多线程只是其中解决方法之一。</p>
+<h2 id="004如何提升系统的并发能力？"><a href="#004如何提升系统的并发能力？" class="headerlink" title="004如何提升系统的并发能力？"></a>004如何提升系统的并发能力？</h2><p>互联网分布式架构设计，提高系统并发能力的方式，方法论上主要有两种：垂直扩展（Scale Up）与水平扩展（Scale Out）。<br>垂直扩展：提升单机处理能力。垂直扩展的方式又有两种：<br>(1)增强单机硬件性能，例如：增加CPU核数如32核，升级更好的网卡如万兆，升级更好的硬盘如SSD，扩充硬盘容量如2T，扩充系统内存如128G；<br>(2)提升单机架构性能，例如：使用Cache来减少IO次数，使用异步来增加单服务吞吐量，使用无锁数据结构来减少响应时间；<br>水平扩展：只要增加服务器数量，就能线性扩充系统性能。<br>总结：在互联网业务发展非常迅猛的早期，如果预算不是问题，强烈建议使用“增强单机硬件性能”的方式提升系统并发能力，因为这个阶段，公司的战略往往是发展业务抢时间，而“增强单机硬件性能”往往是最快的方法。不管是提升单机硬件性能，还是提升单机架构性能，都有一个致命的不足：单机性能总是有极限的。所以互联网分布式架构设计高并发终极解决方案还是水平扩展。</p>
+<h2 id="005高并发系统设计的宏观目标？"><a href="#005高并发系统设计的宏观目标？" class="headerlink" title="005高并发系统设计的宏观目标？"></a>005高并发系统设计的宏观目标？</h2><p>从宏观角度看，高并发系统设计的目标有三个：高性能、高可用，以及高可扩展。这3个目标是需要通盘考虑的，因为它们互相关联、甚至也会相互影响。<br>1.高性能：性能体现了系统的并行处理能力，在有限的硬件投入下，提高性能意味着节省成本。同时，性能也反映了用户体验，响应时间分别是100毫秒和1秒,给用户的感受是完全不同的。<br>2.高可用：表示系统可以正常服务的时间。一个全年不停机、无故障；另一个隔三差五出线上事故、宕机，用户肯定选择前者。另外，如果系统只能做到90%可用，也会大大拖累业务。<br>3.高扩展：表示系统的扩展能力，流量高峰时能否在短时间内完成扩容，更平稳地承接峰值流量，比如双11活动、明星离婚等热点事件。</p>
+<h2 id="006高性能的指标有哪些？"><a href="#006高性能的指标有哪些？" class="headerlink" title="006高性能的指标有哪些？"></a>006高性能的指标有哪些？</h2><p>1.平均响应时间：最常用，但是缺陷很明显，对于慢请求不敏感。比如1万次请求，其中9900次是1ms，100次是100ms，则平均响应时间为1.99ms，虽然平均耗时仅增加了0.99ms，但是1%请求的响应时间已经增加了100倍。<br>2.TP90、TP99等分位值：将响应时间按照从小到大排序，TP90表示排在第90分位的响应时间， 分位值越大，对慢请求越敏感。<br>3.吞吐量：和响应时间呈反比，比如响应时间是1ms，则吞吐量为每秒1000次。</p>
+<h2 id="007高可用性的指标有哪些？"><a href="#007高可用性的指标有哪些？" class="headerlink" title="007高可用性的指标有哪些？"></a>007高可用性的指标有哪些？</h2><p>高可用性是指系统具有较高的无故障运行能力，可用性 &#x3D; 正常运行时间 &#x2F; 系统总运行时间，一般使用几个9来描述系统的可用性。对于高并发系统来说，最基本的要求是：保证3个9或者4个9。原因很简单，如果你只能做到2个9，意味着有1%的故障时间，像一些大公司每年动辄千亿以上的GMV或者收入，1%就是10亿级别的业务影响。</p>
+<h2 id="008高可扩展性的指标有哪些？"><a href="#008高可扩展性的指标有哪些？" class="headerlink" title="008高可扩展性的指标有哪些？"></a>008高可扩展性的指标有哪些？</h2><p>面对突发流量，不可能临时改造架构，最快的方式就是增加机器来线性提高系统的处理能力。对于业务集群或者基础组件来说，扩展性 &#x3D; 性能提升比例 &#x2F; 机器增加比例，理想的扩展能力是：资源增加几倍，性能提升几倍。通常来说，扩展能力要维持在70%以上。但是从高并发系统的整体架构角度来看，扩展的目标不仅仅是把服务设计成无状态就行了，因为当流量增加10倍，业务服务可以快速扩容10倍，但是数据库可能就成为了新的瓶颈。像MySQL这种有状态的存储服务通常是扩展的技术难点，如果架构上没提前做好规划（垂直和水平拆分），就会涉及到大量数据的迁移。因此，高扩展性需要考虑：服务集群、数据库、缓存和消息队列等中间件、负载均衡、带宽、依赖的第三方等，当并发达到某一个量级后，上述每个因素都可能成为扩展的瓶颈点。</p>
+<h2 id="009高并发技术方案"><a href="#009高并发技术方案" class="headerlink" title="009高并发技术方案?"></a>009高并发技术方案?</h2><p>1.分布式缓存：redis、memcached等，结合CDN来解决图片文件等访问。<br>2.消息队列中间件：activeMQ等，解决大量消息的异步处理能力。<br>3.应用拆分:一个工程被拆分为多个工程部署，利用dubbo解决多工程之间的通信。<br>4.数据库垂直拆分和水平拆分(分库分表)等。<br>5.数据库读写分离，解决大数据的查询问题。<br>6.还可以利用nosql ，例如mongoDB配合mysql组合使用。<br>7.还需要建立大数据访问情况下的服务降级以及限流机制等。</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2024/03/22/基础/" data-toggle="tooltip" data-placement="top"
+                           title="面试题">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2024/03/22/分布式/" data-toggle="tooltip" data-placement="top"
+                           title="">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%AB%98%E5%B9%B6%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-text">高并发面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#001%E4%BB%80%E4%B9%88%E6%98%AF%E9%AB%98%E5%B9%B6%E5%8F%91%EF%BC%9F"><span class="toc-text">001什么是高并发？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#002%E9%AB%98%E5%B9%B6%E5%8F%91%E7%9A%84%E5%A4%84%E7%90%86%E6%8C%87%E6%A0%87%EF%BC%9F"><span class="toc-text">002高并发的处理指标？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#003%E9%AB%98%E5%B9%B6%E5%8F%91%E5%92%8C%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%85%B3%E7%B3%BB%E5%92%8C%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">003高并发和多线程的关系和区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#004%E5%A6%82%E4%BD%95%E6%8F%90%E5%8D%87%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B9%B6%E5%8F%91%E8%83%BD%E5%8A%9B%EF%BC%9F"><span class="toc-text">004如何提升系统的并发能力？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#005%E9%AB%98%E5%B9%B6%E5%8F%91%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%AE%8F%E8%A7%82%E7%9B%AE%E6%A0%87%EF%BC%9F"><span class="toc-text">005高并发系统设计的宏观目标？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#006%E9%AB%98%E6%80%A7%E8%83%BD%E7%9A%84%E6%8C%87%E6%A0%87%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">006高性能的指标有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#007%E9%AB%98%E5%8F%AF%E7%94%A8%E6%80%A7%E7%9A%84%E6%8C%87%E6%A0%87%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">007高可用性的指标有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#008%E9%AB%98%E5%8F%AF%E6%89%A9%E5%B1%95%E6%80%A7%E7%9A%84%E6%8C%87%E6%A0%87%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">008高可扩展性的指标有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#009%E9%AB%98%E5%B9%B6%E5%8F%91%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88"><span class="toc-text">009高并发技术方案?</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/ehazon">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/megahertz">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Haojen 2024
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://haojen.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
+</body>
+
+</html>

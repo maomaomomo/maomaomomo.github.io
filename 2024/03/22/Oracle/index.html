@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="马浩珍在 Github 上的个人博客">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Haojen" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        Haojen&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://haojen.github.io/2024/03/22/Oracle/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Haojen
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1></h1>
+                    
+                    <span class="meta">
+                         作者 Haojen Ma
+                        <span>
+                          日期 2024-03-22
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="Oracle面试题"><a href="#Oracle面试题" class="headerlink" title="Oracle面试题"></a>Oracle面试题</h1><h2 id="001Oracle中数字函数有哪些？"><a href="#001Oracle中数字函数有哪些？" class="headerlink" title="001Oracle中数字函数有哪些？"></a>001Oracle中数字函数有哪些？</h2><p>NVL( string1, replace_with) ：如果string1为NULL，则NVL函数返回replace_with的值，否则返回string1的值，如果两个参数都为NULL ，则返回NULL。<br>SIGN(n) ：该函数用于检测数字的正负.如果数字n小于0，则函数的返回值位-1；如果数字n的值等于0，则函数的返回值等于0，如果数字n大于0，则函数的返回值等于1。<br>CEIL(n) ：该函数用于返回大于等于数字n的最小整数。<br>FLOOR(n):该函数用于返回小于等于数字n的最大整数。<br>MOD(m,n) ：该函数用于返回两个数字相除后的余数.如果数字n为0，则返回结果为m。<br>ROUND(n,[m]) ：该函数用于执行四舍五入运算；如果省略m，则四舍五入至整数位；如果m是负数，则四舍五入到小数点前m位；如果m是整数，则四舍五入至小数点后m位。<br>TRUNC(n,[m]) ：该函数用于截取数字。如果省略数字m，则将数字n的小数部分截去;如果数字m是正数，则将数字n截取到小数点后的第m位；如果数字m是负数，则将数字n截取到小数点前m位。</p>
+<h2 id="002Oracle中字符函数有哪些？"><a href="#002Oracle中字符函数有哪些？" class="headerlink" title="002Oracle中字符函数有哪些？"></a>002Oracle中字符函数有哪些？</h2><p>TRIM([ { { LEADING | TRAILING | BOTH }，截取特定字符串。<br>ASCII(char)：该函数用于返回字符串首字符的ASCII值。<br>CHR(char) ：该函数用于将ASCII码值转变为字符。<br>CONCAT：该函数用于连接字符串，其作用于连接操作符(||)完全相同。<br>LENGTH(char):该函数用于返回字符串的长度，如果字符串的类型为CHAR，则其长度包括所有的后缀空格：如果char是null，则返回null。</p>
+<h2 id="003Oracle中日期时间函数有哪些？"><a href="#003Oracle中日期时间函数有哪些？" class="headerlink" title="003Oracle中日期时间函数有哪些？"></a>003Oracle中日期时间函数有哪些？</h2><p>ADD_MONTHS(d,n)：该函数用于返回特定日期时间 d 之后（或之前）的n个月所对应的日期时间（n为正整数表示之后，n为负整数表示之前）。<br>TRUNC(d,[fmt]) ：该函数用于截取日期时间数据.如果fmt指定年度，则结果为本年度的1月1日；如果fmt指定月，则结果为本月1日。<br>MOTNS_BETWEEN(d1,d2)：该函数用于返回d1和d2之间相差的月数.如果d1小于d2，则返回负数；如果d1和d2的天数相同，或都是月底，则返回整数；否则Oracle以每月31天为准来计算结果的小数部分。<br>NEXT_DAY(d,char)：该函数用于返回指定日期后的第一个工作日（由char指定）所对应的日期。</p>
+<h2 id="004Oracle中转换函数有哪些？"><a href="#004Oracle中转换函数有哪些？" class="headerlink" title="004Oracle中转换函数有哪些？"></a>004Oracle中转换函数有哪些？</h2><p>TO_CHAR(data[,fmt[,nls_param]]) ：该函数用于将日期值转变为字符串，其中fmt用于指定日期格式，nls_param用于指定nls参数。<br>TO_CHAR(n[,fmt[,nls_param]])：用于将数字值转换为VARCHAR2数据类型。<br>TO_DATE(char[,fmt[,nls_param]])：该函数用于将符合指定日期的函数转变为DATE类型的数值。</p>
+<h2 id="005Oracle中解码函数？"><a href="#005Oracle中解码函数？" class="headerlink" title="005Oracle中解码函数？"></a>005Oracle中解码函数？</h2><p>DECODE函数为Oracle专属。</p>
+<h2 id="006Oracle中字符串用什么符号链接？"><a href="#006Oracle中字符串用什么符号链接？" class="headerlink" title="006Oracle中字符串用什么符号链接？"></a>006Oracle中字符串用什么符号链接？</h2><p>1)使用符号“||”</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT &#x27;工号为&#x27;||FNumber || &#x27;的员工姓名为&#x27; || FName FROM T_Employee WHERE FName IS NOT NULL </span><br></pre></td></tr></table></figure>
+
+<p>2)使用CONCAT（）函数进行拼接，Oracle中的concat函数仅支持两个字符串进行拼接，如果要再多，可以嵌套使用。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT CONCAT(&#x27;工号:&#x27;,FNumber) FROM T_Employee </span><br></pre></td></tr></table></figure>
+
+<h2 id="007Oracle是怎样分页的？"><a href="#007Oracle是怎样分页的？" class="headerlink" title="007Oracle是怎样分页的？"></a>007Oracle是怎样分页的？</h2><p>Oracle中使用rownum来进行分页, 这个是效率最好的分页方法，hibernate也是使用rownum来进行oralce分页的</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select * from ( select rownum r,a from tabName where rownum &lt;= 20 ) where r &gt; 10</span><br></pre></td></tr></table></figure>
+
+<h2 id="008Oracle中数据类型？"><a href="#008Oracle中数据类型？" class="headerlink" title="008Oracle中数据类型？"></a>008Oracle中数据类型？</h2><p><strong>字符类型：</strong>CHAR, VARCHAR2, NVARCHAR2<br>   CHAR(12)表示包含12个字节的信息，CHAR字段最多可存储2000字节信息，如果创建表时不指定CHAR长 度，则默认为1。Oracle一个汉字占3个字节，一个字母或数字占1个字节，CHAR(12)可存储4个汉字。<br>   VARCHAR2最多可存储4000字节的信息，VARCHAR2(n)中的n表示的是字节<br>   NVARCHAR2也是最多4000字节信息，NVARCHAR2(n)中的n表示的是字符长度。<br><strong>数字类型：</strong>NUMBER、 INTEGER<br>   NUMBER(P, S)中P表示的是有效数字的位数，最多不超过38，S表示小数的位数。<br>   INTEGER是NUMBER的子类型，等于NUMBER(38, 0)，用来存储整数。<br><strong>浮点数：</strong>BINARY_FLOAT类型、BINARY_DOUBLE类型<br>**日期类型:**DATE、TIMESTAMP<br><strong>LOB类型：</strong>CLOB、BLOB、NCLOB<br>   CLOB, 最大长度4G<br>   BLOB, 存储二进制文件，如图像、声音、视频等，最大长度4G<br>   NCLOB, 存储UNICODE类型数据，最大长度4G<br><strong>LONG, RAW, LONG RAW类型</strong><br>   LONG存储变长字符串，最多2G字符数据<br>   LONG RAW存储2G二进制数据<br>   RAW存储二进制或字符类型数据</p>
+<h2 id="009Oracle中数据类型间相互转换？"><a href="#009Oracle中数据类型间相互转换？" class="headerlink" title="009Oracle中数据类型间相互转换？"></a>009Oracle中数据类型间相互转换？</h2><p>–转换日期型：to_date(x,y) –y的长度要和x保持一致<br>  eg: to_date(sysdate,’yyyy-mm-dd hh24:mi:ss’)<br>–转换字符型：to_char()   –可以单独去’yyyy’’mm’’dd’…<br>–转换数字型：to_number()</p>
+<h2 id="010删除重复行的rowid写法"><a href="#010删除重复行的rowid写法" class="headerlink" title="010删除重复行的rowid写法?"></a>010删除重复行的rowid写法?</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">delete from grade t2</span><br><span class="line">where rowid != (select max(rowid)</span><br><span class="line">                   from grade t</span><br><span class="line">                  where t.name = &#x27;张三&#x27;</span><br><span class="line">                    and t.subject = &#x27;chinese&#x27;)</span><br><span class="line">   and t2.name = &#x27;张三&#x27;</span><br><span class="line">   and t2.subject = &#x27;chinese&#x27;;</span><br><span class="line">commit;</span><br></pre></td></tr></table></figure>
+
+<h2 id="011比较truncate和delete命令-？"><a href="#011比较truncate和delete命令-？" class="headerlink" title="011比较truncate和delete命令 ？"></a>011比较truncate和delete命令 ？</h2><p>Truncate 和delete都可以将数据实体删掉，truncate 的操作并不记录到 rollback日志，所以操作速度较快，但同时这个数据不能恢复<br>Delete操作不腾出表空间的空间<br>Truncate 不能对视图等进行删除<br>Truncate是数据定义语言（DDL），而delete是数据操纵语言(DML)</p>
+<h2 id="012表空间是什么？"><a href="#012表空间是什么？" class="headerlink" title="012表空间是什么？"></a>012表空间是什么？</h2><p>tablespace –表空间对应用户数据的存储，在创建用户时一般会指定表空间，如果没，默认为users.存储用户的所有对象。<br>表空间包括：数据段segemnet –数据区extents –数据块data block，一个数据文件只能存储在一个表空间中。</p>
+<h2 id="013Oracle中function和procedure的区别？"><a href="#013Oracle中function和procedure的区别？" class="headerlink" title="013Oracle中function和procedure的区别？"></a>013Oracle中function和procedure的区别？</h2><p>function为函数，procedure为存储过程。<br>1)函数是存储过程的一种。<br>2)函数可以没有参数,但是一定需要一个返回值，存储过程可以没有参数,不需要返回值<br>3)函数return返回值没有返回参数模式，存储过程通过out参数返回值, 如果需要返回多个参数则建议使用存储过程<br>4)在sql数据操纵语句中只能调用函数而不能调用存储过程。</p>
+<h2 id="014PL-SQL语法结构？"><a href="#014PL-SQL语法结构？" class="headerlink" title="014PL&#x2F;SQL语法结构？"></a>014PL&#x2F;SQL语法结构？</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">declare</span><br><span class="line">    --声明变量</span><br><span class="line">    变量 数据类型 := 初始值;</span><br><span class="line">    变量 数据类型 := &amp;提示字段;--自定义输入数据</span><br><span class="line">    变量 表名.列名%type := 初始值;--使用某表的列定义数据类型</span><br><span class="line">    变量 表名%type := 初始值;--将整个表的数据拿到自身，需要使用其中的数据类型时，表名.列名调用即可。</span><br><span class="line">begin</span><br><span class="line">    select...--sql取数语句</span><br><span class="line">    into...--对应变量</span><br><span class="line">    dbms_output.put_line();--数据输出格式</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+
+<h2 id="015PL-SQL系列之if-esle语句结构？"><a href="#015PL-SQL系列之if-esle语句结构？" class="headerlink" title="015PL&#x2F;SQL系列之if-esle语句结构？"></a>015PL&#x2F;SQL系列之if-esle语句结构？</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">declare</span><br><span class="line">   --声明部分</span><br><span class="line">begin</span><br><span class="line">   --逻辑/操作部分</span><br><span class="line">   select...</span><br><span class="line">   </span><br><span class="line">   if 条件1 and/or  条件2 then </span><br><span class="line">     操作1;</span><br><span class="line">   elsif 条件3 and/OR 条件4 then </span><br><span class="line">     操作2;</span><br><span class="line">   ...</span><br><span class="line">   else</span><br><span class="line">     其他操作;</span><br><span class="line">   end if;   </span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+
+<h2 id="016PL-SQL系列之case-when语法结构"><a href="#016PL-SQL系列之case-when语法结构" class="headerlink" title="016PL&#x2F;SQL系列之case-when语法结构"></a>016PL&#x2F;SQL系列之case-when语法结构</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">declare</span><br><span class="line">   --声明部分</span><br><span class="line">begin</span><br><span class="line">   --逻辑/操作部分</span><br><span class="line">   case</span><br><span class="line">     when 条件1 and/or 条件2 then </span><br><span class="line">       操作1;</span><br><span class="line">     when 条件3 and/OR 条件4 then </span><br><span class="line">       操作2;</span><br><span class="line">     ...</span><br><span class="line">     else</span><br><span class="line">       其他操作;</span><br><span class="line">   end case; </span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+
+<h2 id="017PL-SQL系列之loop语法结构"><a href="#017PL-SQL系列之loop语法结构" class="headerlink" title="017PL&#x2F;SQL系列之loop语法结构"></a>017PL&#x2F;SQL系列之loop语法结构</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">declare</span><br><span class="line">  --声明部分</span><br><span class="line">begin</span><br><span class="line">  --逻辑部分</span><br><span class="line">  loop</span><br><span class="line">    --循环体</span><br><span class="line">    </span><br><span class="line">    if 退出循环的条件 then</span><br><span class="line">      exit;</span><br><span class="line">    end if;   </span><br><span class="line">    </span><br><span class="line">    --退出循环的简写</span><br><span class="line">    exit when 退出循环的条件;   </span><br><span class="line">  end loop;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+
+<h2 id="018PL-SQL系列之while语法结构"><a href="#018PL-SQL系列之while语法结构" class="headerlink" title="018PL&#x2F;SQL系列之while语法结构"></a>018PL&#x2F;SQL系列之while语法结构</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">declare</span><br><span class="line">    --声明部分</span><br><span class="line">begin</span><br><span class="line">    while 进入循环的条件 loop</span><br><span class="line">        --循环体</span><br><span class="line">    endloop;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+
+<h2 id="019PL-SQL系列之for语法结构"><a href="#019PL-SQL系列之for语法结构" class="headerlink" title="019PL&#x2F;SQL系列之for语法结构"></a>019PL&#x2F;SQL系列之for语法结构</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">declare</span><br><span class="line">--声明部分</span><br><span class="line">begin</span><br><span class="line">    --逻辑部分</span><br><span class="line">    for 循环变量 in 循环下限 .. 循环上限 loop</span><br><span class="line">        --循环体</span><br><span class="line">    endloop;</span><br><span class="line">end;</span><br></pre></td></tr></table></figure>
+
+<h2 id="020PL-SQL系列之显示游标"><a href="#020PL-SQL系列之显示游标" class="headerlink" title="020PL&#x2F;SQL系列之显示游标"></a>020PL&#x2F;SQL系列之显示游标</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">--声明显示游标的语法结构</span><br><span class="line">declare</span><br><span class="line">	--声明部分</span><br><span class="line">  cursor 游标名 is</span><br><span class="line">  select查询结果集; </span><br><span class="line">begin</span><br><span class="line">  --使用显示游标（其实就是 使用这个游标中的数据）：结合循环，依次获取到游标指向的结果集的每一行</span><br><span class="line">  for 循环变量 in 游标名 loop</span><br><span class="line">    --循环体</span><br><span class="line">    --在循环体内可以依次使用结果集的每一行数据，使用的方式就是：循环变量.游标指向的结果集的列名</span><br><span class="line">  end loop;</span><br><span class="line">end;</span><br><span class="line">--开发规范：游标名以 c_ 开头</span><br></pre></td></tr></table></figure>
+
+<h2 id="021PL-SQL系列之存储过程"><a href="#021PL-SQL系列之存储过程" class="headerlink" title="021PL&#x2F;SQL系列之存储过程"></a>021PL&#x2F;SQL系列之存储过程</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create [or replace]  procedure 存储过程名[(参数1 [参数类型] 数据类型[,参数2 [参数类型] 数据类型,...])]</span><br><span class="line">is/* / as*/</span><br><span class="line">  --声明/定义部分</span><br><span class="line">begin</span><br><span class="line">  --操作/逻辑部分</span><br><span class="line">end;</span><br><span class="line">--开发规范：存储过程名以 sp_ 开头</span><br></pre></td></tr></table></figure>
+
+<h2 id="022PL-SQL系列之自定义函数"><a href="#022PL-SQL系列之自定义函数" class="headerlink" title="022PL&#x2F;SQL系列之自定义函数"></a>022PL&#x2F;SQL系列之自定义函数</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE OR REPLACE FUNCTION FUN_函数名(参数1 [IN|OUT|IN OUT] 数据类型，参数2 [IN|OUT|IN OUT] 数据类型……)</span><br><span class="line">  RETURN  返回结果的数据类型 </span><br><span class="line">IS  /*|AS*/</span><br><span class="line">BEGIN </span><br><span class="line">  自定义函数的的计算逻辑。</span><br><span class="line">  RETURN  计算结果 ;   -- 函数的执行体中一定要包含 返回值 </span><br><span class="line">END ;</span><br></pre></td></tr></table></figure>
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2024/03/22/Redis/" data-toggle="tooltip" data-placement="top"
+                           title="">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2024/03/22/MySQL/" data-toggle="tooltip" data-placement="top"
+                           title="">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Oracle%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-text">Oracle面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#001Oracle%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BD%E6%95%B0%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">001Oracle中数字函数有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#002Oracle%E4%B8%AD%E5%AD%97%E7%AC%A6%E5%87%BD%E6%95%B0%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">002Oracle中字符函数有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#003Oracle%E4%B8%AD%E6%97%A5%E6%9C%9F%E6%97%B6%E9%97%B4%E5%87%BD%E6%95%B0%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">003Oracle中日期时间函数有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#004Oracle%E4%B8%AD%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">004Oracle中转换函数有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#005Oracle%E4%B8%AD%E8%A7%A3%E7%A0%81%E5%87%BD%E6%95%B0%EF%BC%9F"><span class="toc-text">005Oracle中解码函数？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#006Oracle%E4%B8%AD%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%94%A8%E4%BB%80%E4%B9%88%E7%AC%A6%E5%8F%B7%E9%93%BE%E6%8E%A5%EF%BC%9F"><span class="toc-text">006Oracle中字符串用什么符号链接？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#007Oracle%E6%98%AF%E6%80%8E%E6%A0%B7%E5%88%86%E9%A1%B5%E7%9A%84%EF%BC%9F"><span class="toc-text">007Oracle是怎样分页的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#008Oracle%E4%B8%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%9F"><span class="toc-text">008Oracle中数据类型？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#009Oracle%E4%B8%AD%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E9%97%B4%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2%EF%BC%9F"><span class="toc-text">009Oracle中数据类型间相互转换？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#010%E5%88%A0%E9%99%A4%E9%87%8D%E5%A4%8D%E8%A1%8C%E7%9A%84rowid%E5%86%99%E6%B3%95"><span class="toc-text">010删除重复行的rowid写法?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#011%E6%AF%94%E8%BE%83truncate%E5%92%8Cdelete%E5%91%BD%E4%BB%A4-%EF%BC%9F"><span class="toc-text">011比较truncate和delete命令 ？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#012%E8%A1%A8%E7%A9%BA%E9%97%B4%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">012表空间是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#013Oracle%E4%B8%ADfunction%E5%92%8Cprocedure%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">013Oracle中function和procedure的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#014PL-SQL%E8%AF%AD%E6%B3%95%E7%BB%93%E6%9E%84%EF%BC%9F"><span class="toc-text">014PL&#x2F;SQL语法结构？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#015PL-SQL%E7%B3%BB%E5%88%97%E4%B9%8Bif-esle%E8%AF%AD%E5%8F%A5%E7%BB%93%E6%9E%84%EF%BC%9F"><span class="toc-text">015PL&#x2F;SQL系列之if-esle语句结构？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#016PL-SQL%E7%B3%BB%E5%88%97%E4%B9%8Bcase-when%E8%AF%AD%E6%B3%95%E7%BB%93%E6%9E%84"><span class="toc-text">016PL&#x2F;SQL系列之case-when语法结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#017PL-SQL%E7%B3%BB%E5%88%97%E4%B9%8Bloop%E8%AF%AD%E6%B3%95%E7%BB%93%E6%9E%84"><span class="toc-text">017PL&#x2F;SQL系列之loop语法结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#018PL-SQL%E7%B3%BB%E5%88%97%E4%B9%8Bwhile%E8%AF%AD%E6%B3%95%E7%BB%93%E6%9E%84"><span class="toc-text">018PL&#x2F;SQL系列之while语法结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#019PL-SQL%E7%B3%BB%E5%88%97%E4%B9%8Bfor%E8%AF%AD%E6%B3%95%E7%BB%93%E6%9E%84"><span class="toc-text">019PL&#x2F;SQL系列之for语法结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#020PL-SQL%E7%B3%BB%E5%88%97%E4%B9%8B%E6%98%BE%E7%A4%BA%E6%B8%B8%E6%A0%87"><span class="toc-text">020PL&#x2F;SQL系列之显示游标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#021PL-SQL%E7%B3%BB%E5%88%97%E4%B9%8B%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B"><span class="toc-text">021PL&#x2F;SQL系列之存储过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#022PL-SQL%E7%B3%BB%E5%88%97%E4%B9%8B%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0"><span class="toc-text">022PL&#x2F;SQL系列之自定义函数</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/ehazon">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/megahertz">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Haojen 2024
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://haojen.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
+</body>
+
+</html>

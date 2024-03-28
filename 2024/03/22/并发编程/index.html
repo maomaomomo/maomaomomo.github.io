@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="马浩珍在 Github 上的个人博客">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Haojen" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        Haojen&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://haojen.github.io/2024/03/22/并发编程/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Haojen
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1></h1>
+                    
+                    <span class="meta">
+                         作者 Haojen Ma
+                        <span>
+                          日期 2024-03-22
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="并发编程面试题"><a href="#并发编程面试题" class="headerlink" title="并发编程面试题"></a>并发编程面试题</h1><h2 id="001为什么要使用并发编程"><a href="#001为什么要使用并发编程" class="headerlink" title="001为什么要使用并发编程?"></a>001为什么要使用并发编程?</h2><p>从计算机底层来说： 线程可以比作是轻量级的进程，是程序执行的最小单位,线程间的切换和调度的成本远远小于进程。另外，多核 CPU 时代意味着多个线程可以同时运行，这减少了线程上下文切换的开销。<br>从当代互联网发展趋势来说： 现在的系统动不动就要求百万级甚至千万级的并发量，而多线程并发编程正是开发高并发系统的基础，利用好多线程机制可以大大提高系统整体的并发能力以及性能。<br>总结：并发编程的目的就是为了能提高程序的执行效率提高程序运行速度，充分的利用多核CPU资源。</p>
+<h2 id="002并发编程的三要素？"><a href="#002并发编程的三要素？" class="headerlink" title="002并发编程的三要素？"></a>002并发编程的三要素？</h2><p>原子性（Atomicity）：在一次或多次操作中，要么所有的操作都执行并且不会受其他因素干扰而中断，要么所有的操作都不执行<br>可见性：一个线程对共享变量的修改,其他线程能够立刻看到。（synchronized,volatile）<br>有序性：程序执行的顺序按照代码的先后顺序执行。（指令重排：处理器为了提高程序运行效率，处理器根据指令之间的数据依赖性，可能会对指令进行重排序，单线程下可以保证程序最终执行结果和代码顺序执行的结果是一致的，但是多线程下有可能出现问题）。</p>
+<h2 id="003可见性怎么理解？"><a href="#003可见性怎么理解？" class="headerlink" title="003可见性怎么理解？"></a>003可见性怎么理解？</h2><p>可见性是指当多个线程访问同一个变量时，一个线程修改了这个变量的值，其他线程能够立即看得到修改的值。<br>举个简单的例子，看下面这段代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//线程1执行的代码</span><br><span class="line">int i = 0;</span><br><span class="line">i = 10;</span><br><span class="line">//线程2执行的代码</span><br><span class="line">j = i;</span><br></pre></td></tr></table></figure>
+
+<p>假若执行线程1的是CPU1，执行线程2的是CPU2。由上面的分析可知，当线程1执行 i &#x3D; 10这句时，会先把i的初始值加载到CPU1的高速缓存中，然后赋值为10，那么在CPU1的高速缓存当中i的值变为10了，却没有立即写入到主存当中。此时线程2执行 j &#x3D; i，它会先去主存读取i的值并加载到CPU2的缓存当中，注意此时内存当中i的值还是0，那么就会使得j的值为0，而不是10。线程1对变量i修改了之后，线程2没有立即看到线程1修改的值。在多线程环境下，一个线程对共享变量的操作对其他线程是不可见的。这就是可见性问题。<br>对于可见性，Java提供了volatile关键字来保证可见性。当一个共享变量被volatile修饰时，它会保证修改的值会立即被更新到主存，当有其他线程需要读取时，它会去内存中读取新值。而普通的共享变量不能保证可见性，因为普通共享变量被修改之后，什么时候被写入主存是不确定的，当其他线程去读取时，此时内存中可能还是原来的旧值，因此无法保证可见性。<br>另外，通过synchronized和Lock也能够保证可见性，synchronized和Lock能保证同一时刻只有一个线程获取锁然后执行同步代码，并且在释放锁之前会将对变量的修改刷新到主存当中。因此可以保证可见性。</p>
+<h2 id="004有序性怎么理解？"><a href="#004有序性怎么理解？" class="headerlink" title="004有序性怎么理解？"></a>004有序性怎么理解？</h2><p>即程序执行的顺序按照代码的先后顺序执行。<br>举个简单的例子，看下面这段代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">int i = 0;              </span><br><span class="line">boolean flag = false;</span><br><span class="line">i = 1;                //语句1  </span><br><span class="line">flag = true;          //语句2</span><br></pre></td></tr></table></figure>
+
+<p>上面代码定义了一个int型变量，定义了一个boolean类型变量，然后分别对两个变量进行赋值操作。从代码顺序上看，语句1是在语句2前面的，那么JVM在真正执行这段代码的时候会保证语句1一定会在语句2前面执行吗？不一定，为什么呢？这里可能会发生指令重排序（Instruction Reorder）。<br>下面解释一下什么是指令重排序，一般来说，处理器为了提高程序运行效率，可能会对输入代码进行优化，它不保证程序中各个语句的执行先后顺序同代码中的顺序一致，但是它会保证程序最终执行结果和代码顺序执行的结果是一致的。<br>比如上面的代码中，语句1和语句2谁先执行对最终的程序结果并没有影响，那么就有可能在执行过程中，语句2先执行而语句1后执行。那么它靠什么保证的呢？进行重排序时是会考虑指令之间的数据依赖性。虽然重排序不会影响单个线程内程序执行的结果，但是多线程呢？下面看一个例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//线程1:</span><br><span class="line">context = loadContext();   //语句1</span><br><span class="line">inited = true;             //语句2</span><br><span class="line">//线程2:</span><br><span class="line">while(!inited )&#123;</span><br><span class="line">    sleep()</span><br><span class="line">&#125;</span><br><span class="line">doSomethingwithconfig(context);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码中，由于语句1和语句2没有数据依赖性，因此可能会被重排序。假如发生了重排序，在线程1执行过程中先执行语句2，而此是线程2会以为初始化工作已经完成，那么就会跳出while循环，去执行doSomethingwithconfig(context)方法，而此时context并没有被初始化，就会导致程序出错。<br>从上面可以看出，在Java内存模型中，允许编译器和处理器对指令进行重排序，<br>但是重排序过程不会影响到单线程程序的执行，却会影响到多线程并发执行的正确性。</p>
+<h2 id="005说说并发与并行的区别"><a href="#005说说并发与并行的区别" class="headerlink" title="005说说并发与并行的区别?"></a>005说说并发与并行的区别?</h2><p>你吃饭吃到一半，电话来了，你一直到吃完了以后才去接，这就说明你不支持并发也不支持并行。<br>你吃饭吃到一半，电话来了，你停了下来接了电话，接完后继续吃饭，这说明你支持并发。  （不一定是同时的）<br>你吃饭吃到一半，电话来了，你一边打电话一边吃饭，这说明你支持并行。<br>并发的关键是你有处理多个任务的能力，不一定要同时。<br>并行的关键是你有同时处理多个任务的能力。</p>
+<h2 id="006并发编程的缺点？"><a href="#006并发编程的缺点？" class="headerlink" title="006并发编程的缺点？"></a>006并发编程的缺点？</h2><p>1)Java 中的线程对应是操作系统级别的线程，线程数量控制不好，频繁的创建、销毁线程和线程间的切换，比较消耗内存和时间。<br>2)容易带来线程安全问题。如线程的可见性、有序性、原子性问题，会导致程序出现的结果与预期结果不一致。<br>3)多线程容易造成死锁、活锁、线程饥饿等问题。此类问题往往只能通过手动停止线程、甚至是进程才能解决，影响严重。<br>4)对编程人员的技术要求较高，编写出正确的并发程序并不容易。<br>5)并发程序易出问题，且难调试和排查；问题常常诡异地出现，又诡异地消失。</p>
+<h2 id="007JUC具体是什么"><a href="#007JUC具体是什么" class="headerlink" title="007JUC具体是什么?"></a>007JUC具体是什么?</h2><p>Java 5.0 提供了java.util.concurrent(简称JUC)包，在此包中增加了在并发编程中很常见的实用工具类，用于定义类似于编程的自定义子系统，包括线程池、异步IO和轻量级任务框架。提供可调的、灵活的线程池。还提供了设计用于多线程上下文的Collection实现等。</p>
+<h2 id="008什么是Java内存模型-JMM-？"><a href="#008什么是Java内存模型-JMM-？" class="headerlink" title="008什么是Java内存模型(JMM)？"></a>008什么是Java内存模型(JMM)？</h2><p>JMM其实并不像JVM内存模型一样是真实存在的，它只是一个抽象的规范。在不同的硬件或者操作系统下，对内存的访问逻辑都有一定的差异，而这种差异会导致同一套代码在不同操作系统或者硬件下，得到了不同的结果，而JMM的存在就是为了解决这个问题，通过JMM的规范，保证Java程序在各种平台下对内存的访问都能得到一致的效果。</p>
+<h2 id="009什么是CPU和缓存一致性？"><a href="#009什么是CPU和缓存一致性？" class="headerlink" title="009什么是CPU和缓存一致性？"></a>009什么是CPU和缓存一致性？</h2><p>计算机在执行程序的时候，每条指令都是在 CPU 中执行的，而执行的时候，又免不了和数据打交道，而计算机上面的数据，是存放在计算机的物理内存上的。当内存的读取速度和CPU的执行速度相比差别不大的时候，这样的机制是没有任何问题的，可是随着CPU的技术的发展，CPU的执行速度和内存的读取速度差距越来越大，导致CPU每次操作内存都要耗费很多等待时间。<br>为了解决这个问题，初代程序员大佬们想到了一个的办法，就是在CPU和物理内存上新增高速缓存，这样程序在运行过程中，会将运算所需要的数据从主内存复制一份到CPU的高速缓存中，当CPU进行计算时就可以直接从高速缓存中读数据和写数据了，当运算结束再将数据刷新到主内存就可以了。<br>随着时代的变迁，CPU开始出现了多核的概念，每个核都有一套自己的缓存，并且随着计算机能力不断提升，还开始支持多线程，最终演变成多个线程访问进程中的某个共享内存，且这多个线程分别在不同的核心上执行，则每个核心都会在各自的 Cache 中保留一份共享内存的缓冲，我们知道多核是可以并行的，这样就会出现多个线程同时写各自的缓存的情况，导致各自的 Cache 之间的数据可能不同。<br>总结下来就是：在多核 CPU 中，每个核的自己的缓存，关于同一个数据的缓存内容可能不一致。</p>
+<h2 id="010什么是重排序？"><a href="#010什么是重排序？" class="headerlink" title="010什么是重排序？"></a>010什么是重排序？</h2><p>重排序指的是在执行程序时，为了提高性能，从源代码到最终执行指令的过程中，编译器和处理器会对指令进行重排的一种手段。<br>下图为从源代码到最终指令示意图</p>
+<p><img src="http://www.bjpowernode.com/Public/Uploads/article/20220901/1662002742@46a9651c19c368751b8cafb425d4d525.png" alt="img"></p>
+<p>重排序的分为3种<br>1)编译器优化的重排序：编译器在不改变单线程程序语义（as-if-serial）的的前提下，可以重新安排语句的执行顺序。<br>2)指令级并行的重排序：现在处理器采用指令级并行技术（Instruction-Level Parallelism， ILP）来将多条指令重叠执行。如果不存在数据依赖性，处理器可以改变语句对应机器指令的执行顺序。<br>3)内存系统的重排序：由于处理器使用了存储和读写缓冲区，这使得加载和存储操作看上去乱序执行。</p>
+<h2 id="011重排序实际执行的指令步骤？"><a href="#011重排序实际执行的指令步骤？" class="headerlink" title="011重排序实际执行的指令步骤？"></a>011重排序实际执行的指令步骤？</h2><p><img src="http://www.bjpowernode.com/Public/Uploads/article/20220901/1662003010@4ea192eb55d4edfef511d8ae85c03850.png" alt="img"><br>1.编译器优化的重排序。编译器在不改变单线程程序语义的前提下，可以重新安排语句的执行顺序。<br>2.指令级并行的重排序。现代处理器采用了指令级并行技术（ILP）来将多条指令重叠执行。如果不存在数据依赖性，处理器可以改变语句对应机器指令的执行顺序。<br>3.内存系统的重排序。由于处理器使用缓存和读&#x2F;写缓冲区，这使得加载和存储操作看上去可能是在乱序执行。<br>4.这些重排序对于单线程没问题，但是多线程都可能会导致多线程程序出现内存可见性问题。</p>
+<h2 id="012重排序遵守的规则？"><a href="#012重排序遵守的规则？" class="headerlink" title="012重排序遵守的规则？"></a>012重排序遵守的规则？</h2><p>数据依赖性:编译器和处理器在重排序时，针对单个处理器中执行的指令序列和单个线程中执行的操作会遵守数据依赖性，编译器和处理器不会改变存在数据依赖关系的两个操作的执行顺序。<br>遵守as-if-serial 语义:不管编译器和处理器为了提高并行度怎么重排序，（单线程）程序的执行结果不能被改变。</p>
+<h2 id="013as-if-serial规则和happens-before规则的区别？"><a href="#013as-if-serial规则和happens-before规则的区别？" class="headerlink" title="013as-if-serial规则和happens-before规则的区别？"></a>013as-if-serial规则和happens-before规则的区别？</h2><p>区别：<br>as-if-serial定义：无论编译器和处理器如何进行重排序，单线程程序的执行结果不会改变。<br>happens-before定义：一个操作happens-before另一个操作，表示第一个的操作结果对第二个操作可见，并且第一个操作的执行顺序也在第二个操作之前。但这并不意味着Java虚拟机必须按照这个顺序来执行程序。如果重排序的后的执行结果与按happens-before关系执行的结果一致，Java虚拟机也会允许重排序的发生。<br>happens-before关系保证了同步的多线程程序的执行结果不被改变，as-if-serial保证了单线程内程序的执行结果不被改变。<br>相同点：happens-before和as-if-serial的作用都是在不改变程序执行结果的前提下，提高程序执行的并行度。</p>
+<h2 id="014final不可变对象，它对写并发应用有什么帮助？"><a href="#014final不可变对象，它对写并发应用有什么帮助？" class="headerlink" title="014final不可变对象，它对写并发应用有什么帮助？"></a>014final不可变对象，它对写并发应用有什么帮助？</h2><p>不可变对象即对象一旦被创建,它的状态(对象属性值)就不能改变。<br>不可变对象的类即为不可变类。Java 平台类库中包含许多不可变类，如 String、基本类型的包装类、BigInteger 和 BigDecimal 等。<br>不可变对象保证了对象的内存可见性，对不可变对象的读取不需要进行额外的同步手段，提升了代码执行效率。</p>
+<h2 id="015volatile-关键字的作用？"><a href="#015volatile-关键字的作用？" class="headerlink" title="015volatile 关键字的作用？"></a>015volatile 关键字的作用？</h2><p>1.保证变量写操作的可见性；<br>2.保证变量前后代码的执行顺序；</p>
+<h2 id="016volatile能保证线程安全吗？"><a href="#016volatile能保证线程安全吗？" class="headerlink" title="016volatile能保证线程安全吗？"></a>016volatile能保证线程安全吗？</h2><p>不能。volatile不能保证原子性，只能保证线程可见性，可见性表现在当一个共享变量被volatile修饰时，它会保证修改的值会立即被更新到主存，当有其他线程需要读取时，它会去内存中读取新值。<br>从实践角度而言，volatile的一个重要作用就是和CAS结合，保证了原子性，详细的可以参见java.util.concurrent.atomic包下的类，比如AtomicInteger。</p>
+<h2 id="017volatile的底层原理？"><a href="#017volatile的底层原理？" class="headerlink" title="017volatile的底层原理？"></a>017volatile的底层原理？</h2><p>被volatile修饰的变量被修改时，会将修改后的变量直接写入主存中，并且将其他线程中该变量的缓存置为无效，从而让其它线程对该变量的引用直接从主存中获取数据，这样就保证了变量的可见性。<br>但是volatile修饰的变量在自增时由于该操作分为读写两个步骤，所以当一个线程的读操作被阻塞时，另一个线程同时也进行了自增操作，此时由于第一个线程的写操作没有进行所以主存中仍旧是之前的原数据，所以当两个线程自增完成后，该变量可能只加了1。因而volatile是无法保证对变量的任何操作都是原子性的。</p>
+<h2 id="018volatile-数组在Java中能创建吗？"><a href="#018volatile-数组在Java中能创建吗？" class="headerlink" title="018volatile 数组在Java中能创建吗？"></a>018volatile 数组在Java中能创建吗？</h2><p>能，Java 中可以创建 volatile 类型数组，但如果多个线程改变引用指向的数组，将会受到 volatile 的保护，如果多个线程改变数组的元素内容，volatile 标示符就不能起到之前的保护作用了。</p>
+<h2 id="019volatile-变量和-atomic-变量有什么不同？"><a href="#019volatile-变量和-atomic-变量有什么不同？" class="headerlink" title="019volatile 变量和 atomic 变量有什么不同？"></a>019volatile 变量和 atomic 变量有什么不同？</h2><p>volatile变量可以确保先行关系,即写操作会发生在后续的读操作之前,但它并不能保证原子性。例如用volatile修饰count变量那么count++操作就不是原子性的。<br>而AtomicInteger类提供的atomic方法可以让这种操作具有原子性如getAndIncrement( )方法会原子性的进行增量操作把当前值加- ,其它数据类型和引用变量也可以进行相似操作。</p>
+<h2 id="020什么是原子类？"><a href="#020什么是原子类？" class="headerlink" title="020什么是原子类？"></a>020什么是原子类？</h2><p>原子操作是指不会被线程调度机制打断的操作，这种操作一旦开始，就一直运行到结束，中间不会有任何线程上下文切换。原子操作可以是一个步骤，也可以是多个操作步骤，但是其顺序不可以被打乱，也不可以被切割而只执行其中的一部分，将整个操作视作一个整体是原子性的核心特征。<br>而 java.util.concurrent.atomic 下的类，就是具有原子性的类，可以原子性地执行添加、递增、递减等操作。比如之前多线程下的线程不安全的 i++ 问题，到了原子类这里，就可以用功能相同且线程安全的 getAndIncrement 方法来优雅地解决。</p>
+<h2 id="021原子类的作用？"><a href="#021原子类的作用？" class="headerlink" title="021原子类的作用？"></a>021原子类的作用？</h2><p>原子类的作用和锁有类似之处，是为了保证并发情况下线程安全。不过原子类相比于锁，有一定的优势：<br>粒度更细：原子变量可以把竞争范围缩小到变量级别，通常情况下，锁的粒度都要大于原子变量的粒度。<br>效率更高：除了高度竞争的情况之外，使用原子类的效率通常会比使用同步互斥锁的效率更高，因为原子类底层利用了 CAS 操作，不会阻塞线程。原子类的作用和锁有类似之处，是为了保证并发情况下线程安全。不过原子类相比于锁，有一定的优势：<br>粒度更细：原子变量可以把竞争范围缩小到变量级别，通常情况下，锁的粒度都要大于原子变量的粒度。<br>效率更高：除了高度竞争的情况之外，使用原子类的效率通常会比使用同步互斥锁的效率更高，因为原子类底层利用了 CAS 操作，不会阻塞线程。</p>
+<h2 id="022原子类的常用类？"><a href="#022原子类的常用类？" class="headerlink" title="022原子类的常用类？"></a>022原子类的常用类？</h2><p>AtomicInteger与AtomicLong:它们的底层实现使用了CAS锁，不同点在于AtomicInteger包装了一个Integer型变量，而AtomicLong包装了一个Long型变量。<br>LongAdder：它的底层实现是分段锁+CAS锁。</p>
+<h2 id="023说一下-Atomic的原理？"><a href="#023说一下-Atomic的原理？" class="headerlink" title="023说一下 Atomic的原理？"></a>023说一下 Atomic的原理？</h2><p>atomic代表的是concurrent包下Atomic开头的类，如AtomicBoolean、AtomicInteger、AtomicLong等都是用原子的方式来实现指定类型的值的更新，它的底层通过CAS原理解决并发情况下原子性的问题，在jdk中CAS是Unsafe类中的api来实现的。</p>
+<h2 id="024什么是CAS"><a href="#024什么是CAS" class="headerlink" title="024什么是CAS?"></a>024什么是CAS?</h2><p>CAS，全称为Compare and Swap，即比较-替换,实现并发算法时常用到的一种技术。假设有三个操作数：内存值V、旧的预期值A、要修改的值B，当且仅当预期值A和内存值V相同时，才会将内存值修改为B并返回true，否则什么都不做并返回false。当然CAS一定要volatile变量配合，这样才能保证每次拿到的变量是主内存中最新的那个值，否则旧的预期值A对某条线程来说，永远是一个不会变的值A，只要某次CAS操作失败，永远都不可能成功。</p>
+<h2 id="025CAS的具体实现"><a href="#025CAS的具体实现" class="headerlink" title="025CAS的具体实现?"></a>025CAS的具体实现?</h2><p>以AtomicInteger为例,说明CAS的使用与原理。首先atomicIngeter初始化为5，调用对象的compareAndSet方法来对比当前值与内存中的值，是否相等，相等则更新为2019，不相等则不会更新，compareAndSet方法返回的是boolean类型。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import java.util.concurrent.atomic.AtomicInteger;</span><br><span class="line"> </span><br><span class="line">public class CASDemo &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        AtomicInteger atomicInteger = new AtomicInteger(5);</span><br><span class="line">        System.out.println(atomicInteger.compareAndSet(5,2019)+&quot; \t current  &quot;+atomicInteger.get());</span><br><span class="line">        System.out.println(atomicInteger.compareAndSet(5,2014)+&quot; \t current  &quot;+atomicInteger.get());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>分析：第一次调用，内存中的值是5，通过对比相等更新为2019，输出  true  current  2019,第二次调用时，内存重点的值已经更新为2019，不相等不更新内存中的值,输出  false  current  2019。</p>
+<h2 id="026CAS缺点？"><a href="#026CAS缺点？" class="headerlink" title="026CAS缺点？"></a>026CAS缺点？</h2><p>1)CAS存在一个很明显的问题，即ABA问题。<br>如果变量V初次读取的时候是A，并且在准备赋值的时候检查到它仍然是A，那能说明它的值没有被其他线程修改过了吗？如果在这段期间曾经被改成B，然后又改回A，那CAS操作就会误认为它从来没有被修改过。针对这种情况，java并发包中提供了一个带有标记的原子引用类AtomicStampedReference，它可以通过控制变量值的版本来保证CAS的正确性。<br>2)只能保证一个共享变量的原子性。当对一个共享变量执行操作时，我们可以使用循环CAS的方式来保证原子操作，但是对多个共享变量操作时，循环CAS就无 法保证操作的原子性，这个时候就可以使用锁来保证原子性。</p>
+<h2 id="027java中有哪些锁？"><a href="#027java中有哪些锁？" class="headerlink" title="027java中有哪些锁？"></a>027java中有哪些锁？</h2><p>多线程访问共享资源的时候，避免不了资源竞争而导致数据错乱的问题，所以我们通常为了解决这一问题，都会在访问共享资源之前加锁。不同种类有不同的成本开销，不同的锁适用于不同的场景。<br>从资源已被锁定，线程是否阻塞可以分为 自旋锁（spinlock）和互斥锁（mutexlock）；<br>从线程是否需要对资源加锁可以分为 悲观锁 和 乐观锁；<br>从多个线程并发访问资源，也就是 Synchronized 可以分为 无锁、偏向锁、 轻量级锁 和 重量级锁；<br>从锁的公平性进行区分，可以分为公平锁 和 非公平锁；<br>从根据锁是否重复获取可以分为可重入锁（自己获得锁以后，自己还可以进入锁之中） 和 不可重入锁；<br>从那个多个线程能否获取同一把锁分为共享锁和 排他锁；  </p>
+<h2 id="028互斥锁与自旋锁怎么理解？"><a href="#028互斥锁与自旋锁怎么理解？" class="headerlink" title="028互斥锁与自旋锁怎么理解？"></a>028互斥锁与自旋锁怎么理解？</h2><p>互斥锁是在访问共享资源之前对其进行加锁操作，在访问完成之后进行解锁操作。加锁后，任何其它试图再次加锁的线程都会被阻塞，直到当前线程解锁。在这种方式下，只有一个线程能够访问被互斥锁保护的资源。如synchronized&#x2F;Lock 这些方式都是互斥锁，不同线程不能同时进入 synchronized Lock 设定锁的范围<br>自旋锁是一种特殊的互斥锁，当资源被加锁后，其它线程想要再次加锁，此时该线程不会被阻塞睡眠而是陷入循环等待状态(CPU不能做其它事情)，循环检查资源持有者是否已经释放了资源，这样做的好处是减少了线程从睡眠到唤醒的资源消耗，但会一直占用CPU的资源。<br>区别：互斥锁的起始开销要高于自旋锁，但是基本上是一劳永逸，临界区持锁时间的大小并不会对互斥锁的开销造成影响，而自旋锁是死循环检测，加锁全程消耗cpu，起始开销虽然低于互斥锁，但是随着持锁时间，加锁的开销是线性增长。</p>
+<h2 id="029读写锁是什么？"><a href="#029读写锁是什么？" class="headerlink" title="029读写锁是什么？"></a>029读写锁是什么？</h2><p>读写锁将对一个资源（比如文件）的访问分成了2个锁，一个读锁和一个写锁。<br>ReadWriteLock就是读写锁，它是一个接口，ReentrantReadWriteLock实现了这个接口。可以通过readLock()获取读锁，通过writeLock()获取写锁。<br>读写锁也叫共享锁。其共享是在读数据的时候，可以让多个线程同时进行读操作的。在写的时候具有排他性，其他读或者写操作都要被阻塞。</p>
+<h2 id="030多线程中乐观锁和悲观锁区别？"><a href="#030多线程中乐观锁和悲观锁区别？" class="headerlink" title="030多线程中乐观锁和悲观锁区别？"></a>030多线程中乐观锁和悲观锁区别？</h2><p>\1. 悲观锁<br>线程对一个共享变量进行访问，它就自动加锁，所以只能有一个线程访问它<br>悲观锁适合写操作多的场景，先加锁可以保证写操作时数据正确。<br>缺点：只有一个线程对它操作时，没有必要加锁，造成了性能浪费<br>2.乐观锁<br>线程访问共享变量时不加锁，当执行完后，同步值到内存时，使用旧值和内存中的值进行判断，如果相同，那么写入，如果不相同，重新使用新值执行。乐观锁适合读操作多的场景，不加锁的特点能够使其读操作的性能大幅提升。<br>缺点：值相同的情况，可能被其他线程执行过；操作变量频繁时，重新执行次数多，造成性能浪费；完成比较后，写入前，被其他线程修改了值，导致不同步问题</p>
+<h2 id="031讲一下-synchronized-关键字的底层原理-JVM层面-。"><a href="#031讲一下-synchronized-关键字的底层原理-JVM层面-。" class="headerlink" title="031讲一下 synchronized 关键字的底层原理(JVM层面)。"></a>031讲一下 synchronized 关键字的底层原理(JVM层面)。</h2><p>1)synchronized 同步语句块的情况</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class SynchronizedDemo &#123;</span><br><span class="line">    public void method() &#123;</span><br><span class="line">        synchronized (this) &#123;</span><br><span class="line">            System.out.println(&quot;synchronized 代码块&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过 JDK 自带的 javap 命令查看 SynchronizedDemo 类的相关字节码信息：首先切换到类的对应目录执行 javac SynchronizedDemo.java 命令生成编译后的 .class 文件，然后执行javap -c -s -v -l SynchronizedDemo.class。</p>
+<p><img src="http://www.bjpowernode.com/Public/Uploads/article/20220830/1661829462@8bb56c18a22eca0d0031e8122ca1b0d1.jpg" alt="img"></p>
+<p>从上面我们可以看出：synchronized 同步语句块的实现使用的是 monitorenter 和 monitorexit 指令，其中 monitorenter 指令指向同步代码块的开始位置，monitorexit 指令则指明同步代码块的结束位置。当执行 monitorenter 指令时，线程试图获取锁也就是获取 对象监视器 monitor 的持有权。<br>在 Java 虚拟机(HotSpot)中，Monitor 是基于 C++实现的，由ObjectMonitor实现的。每个对象中都内置了一个 ObjectMonitor对象。另外，wait&#x2F;notify等方法也依赖于monitor对象，这就是为什么只有在同步的块或者方法中才能调用wait&#x2F;notify等方法，否则会抛出java.lang.IllegalMonitorStateException的异常的原因。<br>在执行monitorenter时，会尝试获取对象的锁，如果锁的计数器为 0 则表示锁可以被获取，获取后将锁计数器设为 1 也就是加 1。<br>在执行 monitorexit 指令后，将锁计数器设为 0，表明锁被释放。如果获取对象锁失败，那当前线程就要阻塞等待，直到锁被另外一个线程释放为止。<br>\2) synchronized 修饰方法的的情况</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class SynchronizedDemo2 &#123;</span><br><span class="line">    public synchronized void method() &#123;</span><br><span class="line">        System.out.println(&quot;synchronized 方法&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>通过 JDK 自带的 javap 命令查看 SynchronizedDemo 类的相关字节码信息：首先切换到类的对应目录执行 javac SynchronizedDemo2.java 命令生成编译后的 .class 文件，然后执行javap -c -s -v -l SynchronizedDemo2.class。</p>
+<p><img src="http://www.bjpowernode.com/Public/Uploads/article/20220830/1661829493@1077db68d74d61efbc235b2f889fdb90.jpg" alt="img"></p>
+<p>synchronized 修饰的方法并没有 monitorenter 指令和 monitorexit 指令，取得代之的确实是 ACC_SYNCHRONIZED 标识，该标识指明了该方法是一个同步方法。JVM 通过该 ACC_SYNCHRONIZED 访问标志来辨别一个方法是否声明为同步方法，从而执行相应的同步调用。</p>
+<h2 id="032volatile修饰的双重校验锁实现对象单例（线程安全-。"><a href="#032volatile修饰的双重校验锁实现对象单例（线程安全-。" class="headerlink" title="032volatile修饰的双重校验锁实现对象单例（线程安全)。"></a>032volatile修饰的双重校验锁实现对象单例（线程安全)。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class Singleton &#123;</span><br><span class="line">	// 这里为什么需要加上volatile 后面会讲解</span><br><span class="line">    private volatile static Singleton uniqueInstance;</span><br><span class="line">	// 私有化构造方法</span><br><span class="line">    private Singleton() &#123;</span><br><span class="line">    &#125;</span><br><span class="line">	// 提供getInstance方法</span><br><span class="line">    public  static Singleton getInstance() &#123;</span><br><span class="line">       //先判断对象是否已经实例过，没有实例化过才进入加锁代码</span><br><span class="line">        if (uniqueInstance == null) &#123;</span><br><span class="line">            //类对象加锁</span><br><span class="line">            synchronized (Singleton.class) &#123;</span><br><span class="line">                if (uniqueInstance == null) &#123;</span><br><span class="line">                    uniqueInstance = new Singleton();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return uniqueInstance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中uniqueInstance 变量采用 volatile 关键字修饰，分析如下：<br>uniqueInstance &#x3D; new Singleton(); 这段代码其实是分为三步执行：<br>1.为 uniqueInstance 分配内存空间<br>2.初始化 uniqueInstance<br>3.将 uniqueInstance 指向分配的内存地址<br>但是由于 JVM 具有指令重排的特性，执行顺序有可能变成 1-&gt;3-&gt;2。指令重排在单线程环境下不会出现问题，但是在多线程环境下会导致一个线程获得还没有初始化的实例。例如，线程 T1 执行了 1 和 3，此时 T2 调用 getUniqueInstance() 后发现 uniqueInstance 不为空，因此返回 uniqueInstance，但此时 uniqueInstance 还未被初始化。</p>
+<h2 id="033synchronized可重入的原理"><a href="#033synchronized可重入的原理" class="headerlink" title="033synchronized可重入的原理?"></a>033synchronized可重入的原理?</h2><p>可重入原理即加锁次数计数器。一个线程拿到锁之后，可以继续地持有锁，如果想再次进入由这把锁控制的方法，那么它可以直接进入。它的原理是利用加锁次数计数器来实现的。<br>1.每重入一次，计数器+1<br>每个对象自动含有一把锁，JVM负责跟踪对象被加锁的次数。<br>线程第一次给对象加锁的时候，计数器&#x3D;0+1&#x3D;1，每当这个相同的线程在此对象上再次获得锁时，计数器再+1。只有首先获取这把锁的线程，才能继续在这个对象上多次地获取这把锁<br>2.计数器-1<br>每当任务结束离开时，计数递减，当计数器减为0，锁被完全释放。<br>利用这个计数器可以得知这把锁是被当前多次持有，还是如果&#x3D;0的话就是完全释放了。 </p>
+<h2 id="034当一个线程进入一个对象的-synchronized-方法-A-之后，其它线程是否可进入此对象的-synchronized-方法-B？"><a href="#034当一个线程进入一个对象的-synchronized-方法-A-之后，其它线程是否可进入此对象的-synchronized-方法-B？" class="headerlink" title="034当一个线程进入一个对象的 synchronized 方法 A 之后，其它线程是否可进入此对象的 synchronized 方法 B？"></a>034当一个线程进入一个对象的 synchronized 方法 A 之后，其它线程是否可进入此对象的 synchronized 方法 B？</h2><p>不能。其它线程只能访问该对象的非同步方法，同步方法则不能进入。因为非静态方法上的 synchronized 修饰符要求执行方法时要获得对象的锁，如果已经进入A 方法说明对象锁已经被取走，那么试图进入 B 方法的线程就只能在等锁池（注意不是等待池哦）中等待对象的锁。</p>
+<h2 id="035synchronized-和-Lock-有什么区别？"><a href="#035synchronized-和-Lock-有什么区别？" class="headerlink" title="035synchronized 和 Lock 有什么区别？"></a>035synchronized 和 Lock 有什么区别？</h2><p>1)lock是一个接口，而synchronized是java的一个关键字。<br>2)synchronized在发生异常时会自动释放占有的锁，因此不会出现死锁；而lock发生异常时，不会主动释放占有的锁，必须手动来释放锁，可能引起死锁的发生。</p>
+<h2 id="036synchronized和ReentrantLock的区别？"><a href="#036synchronized和ReentrantLock的区别？" class="headerlink" title="036synchronized和ReentrantLock的区别？"></a>036synchronized和ReentrantLock的区别？</h2><p>synchronized是和if、else、for、while一样的关键字，ReentrantLock是类，这是二者的本质区别。既然ReentrantLock是类，那么它就提供了比synchronized更多更灵活的特性，可以被继承、可以有方法、可以有各种各样的类变量，ReentrantLock比synchronized的扩展性体现在几点上：<br>(1)ReentrantLock可以对获取锁的等待时间进行设置，这样就避免了死锁<br>(2)ReentrantLock可以获取各种锁的信息<br>(3)ReentrantLock可以灵活地实现多路通知<br>另外，二者的锁机制其实也是不一样的。ReentrantLock底层调用的是Unsafe的park方法加锁，synchronized操作的应该是对象头中mark word，这点我不能确定。</p>
+<h2 id="037synchronized-和-volatile的区别是什么？"><a href="#037synchronized-和-volatile的区别是什么？" class="headerlink" title="037synchronized 和 volatile的区别是什么？"></a>037synchronized 和 volatile的区别是什么？</h2><p>1)synchronized保证内存可见性和操作的原子性<br>2)volatile只能保证内存可见性<br>3)volatile不需要加锁，比Synchronized更轻量级，并不会阻塞线程（volatile不会造成线程的阻塞；synchronized可能会造成线程的阻塞。）<br>4)volatile标记的变量不会被编译器优化,而synchronized标记的变量可以被编译器优化（如编译器重排序的优化）.<br>5)volatile是变量修饰符，仅能用于变量，而synchronized是一个方法或块的修饰符。<br> volatile本质是在告诉JVM当前变量在寄存器中的值是不确定的，使用前，需要先从主存中读取，因此可以实现可见性。而对n&#x3D;n+1,n++等操作时，volatile关键字将失效，不能起到像synchronized一样的线程同步（原子性）的效果。</p>
+<h2 id="038线程-B-怎么知道线程-A-修改了变量"><a href="#038线程-B-怎么知道线程-A-修改了变量" class="headerlink" title="038线程 B 怎么知道线程 A 修改了变量 ?"></a>038线程 B 怎么知道线程 A 修改了变量 ?</h2><p>\1. volatile 修饰变量<br>\2. synchronized 修饰修改变量的方法<br>\3. wait&#x2F;notify<br>\4. 轮询</p>
+<h2 id="039在监视器-Monitor-内部，是如何做线程同步的？程序应该做哪种级别的同步？"><a href="#039在监视器-Monitor-内部，是如何做线程同步的？程序应该做哪种级别的同步？" class="headerlink" title="039在监视器(Monitor)内部，是如何做线程同步的？程序应该做哪种级别的同步？"></a>039在监视器(Monitor)内部，是如何做线程同步的？程序应该做哪种级别的同步？</h2><p>监视器和锁在Java虚拟机中是一块使用的。监视器监视一块同步代码块，确保一次只有一个线程执行同步代码块。每一个监视器都和一个对象引用相关联。线程在获取锁之前不允许执行同步代码。<br>在 java 虚拟机中, 每个对象( Object 和 class )通过某种逻辑关联监视器,每个监视器和一个对象引用相关联, 为了实现监视器的互斥功能, 每个对象都关联着一把锁.一旦方法或者代码块被 synchronized 修饰, 那么这个部分就放入了监视器的监视区域, 确保一次只能有一个线程执行该部分的代码, 线程在获取锁之前不允许执行该部分的代码。另外 java 还提供了显式监视器( Lock )和隐式监视器( synchronized )两种锁方案。</p>
+<h2 id="040线程死锁概念以及发生的必要条件？"><a href="#040线程死锁概念以及发生的必要条件？" class="headerlink" title="040线程死锁概念以及发生的必要条件？"></a>040线程死锁概念以及发生的必要条件？</h2><p>死锁 : 指多个线程在运行过程中因争夺资源而造成的一种僵局。比如有一个线程A，按照先锁a再获得锁b的的顺序获得锁，而在此同时又有另外一个线程B，按照先锁b再锁a的顺序获得锁。<br>死锁发生的必要条件<br>(1) 互斥，同一时刻只能有一个线程访问。<br>(2) 持有且等待，当线程持有资源A时，再去竞争资源B并不会释放资源A。<br>(3) 不可抢占，线程T1占有资源A，其他线程不能强制抢占。<br>(4) 循环等待，线程T1占有资源A，再去抢占资源B如果没有抢占到会一直等待下去。</p>
+<h2 id="041如何避免线程死锁？"><a href="#041如何避免线程死锁？" class="headerlink" title="041如何避免线程死锁？"></a>041如何避免线程死锁？</h2><p>想要破坏死锁那么上诉条件只要不满足一个即可，那么分析如下<br>(1) 互斥条件，不可破坏，如果破坏那么并发安全就不存在了。<br>(2) 持有且等待，可以破坏，可以一次性申请所有的资源。<br>(3) 不可抢占，当线程T1持有资源A再次获取资源B时，发现资源B被占用那么主动释放资源A。<br>(4) 循环等待，可以将资源排序，可以按照排序顺序的资源申请，这样就不会存在环形资源申请了。</p>
+<h2 id="042什么是活锁？"><a href="#042什么是活锁？" class="headerlink" title="042什么是活锁？"></a>042什么是活锁？</h2><p>活锁：是指线程1可以使用资源，但它很礼貌，让其他线程先使用资源，线程2也可以使用资源，但它很绅士，也让其他线程先使用资源。这样你让我，我让你，最后两个线程都无法使用资源。<br>就类似马路中间有条小桥，只能容纳一辆车经过，桥两头开来两辆车A和B，A比较礼貌，示意B先过，B也比较礼貌，示意A先过，结果两人一直谦让谁也过不去。</p>
+<h2 id="043什么是饥饿？"><a href="#043什么是饥饿？" class="headerlink" title="043什么是饥饿？"></a>043什么是饥饿？</h2><p>饥饿：是指如果线程T1占用了资源R，线程T2又请求封锁R，于是T2等待。T3也请求资源R，当T1释放了R上的封锁后，系统首先批准了T3的请求，T2仍然等待。然后T4又请求封锁R，当T3释放了R上的封锁之后，系统又批准了T4的请求…，T2可能永远等待。<br>类似有两条道A和B上都堵满了车辆，其中A道堵的时间最长，B相对相对堵的时间较短，这时，前面道路已疏通，交警按照最佳分配原则，示意B道上车辆先过，B道路上过了一辆又一辆，A道上排队时间最长的确没法通过，只能等B道上没有车辆通过的时候再等交警发指令让A道依次通过。</p>
+<h2 id="044死锁与活锁的区别？"><a href="#044死锁与活锁的区别？" class="headerlink" title="044死锁与活锁的区别？"></a>044死锁与活锁的区别？</h2><p>活锁和死锁类似，不同之处在于处于活锁的线程或进程的状态是不断改变的，活锁可以认为是一种特殊的饥饿。一个现实的活锁例子是两个人在狭小的走廊碰到，两个人都试着避让对方好让彼此通过，但是因为避让的方向都一样导致最后谁都不能通过走廊。简单的说就是，活锁和死锁的主要区别是前者进程的状态可以改变但是却不能继续执行。</p>
+<h2 id="045死锁与饥饿的区别？"><a href="#045死锁与饥饿的区别？" class="headerlink" title="045死锁与饥饿的区别？"></a>045死锁与饥饿的区别？</h2><p>饥饿与死锁有一定联系：二者都是由于竞争资源而引起的，但又有明显差别，主要表现在如下几个方面：<br>(1)从进程状态考虑，死锁进程都处于等待状态，忙式等待(处于运行或就绪状态)的进程并非处于等待状态，但却可能被饿死；<br>(2)死锁进程等待永远不会被释放的资源，饿死进程等待会被释放但却不会分配给自己的资源，表现为等待时限没有上界(排队等待或忙式等待)；<br>(3)死锁一定发生了循环等待，而饿死则不然。这也表明通过资源分配图可以检测死锁存在与否，但却不能检测是否有进程饿死；<br>(4)死锁一定涉及多个进程，而饥饿或被饿死的进程可能只有一个。饥饿和饿死与资源分配策略有关，因而防止饥饿与饿死可从公平性考虑，确保所有进程不被忽视，如FCFS分配算法。</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2024/03/22/多线程/" data-toggle="tooltip" data-placement="top"
+                           title="">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2024/03/22/Web前端/" data-toggle="tooltip" data-placement="top"
+                           title="">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-text">并发编程面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#001%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B"><span class="toc-text">001为什么要使用并发编程?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#002%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E4%B8%89%E8%A6%81%E7%B4%A0%EF%BC%9F"><span class="toc-text">002并发编程的三要素？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#003%E5%8F%AF%E8%A7%81%E6%80%A7%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3%EF%BC%9F"><span class="toc-text">003可见性怎么理解？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#004%E6%9C%89%E5%BA%8F%E6%80%A7%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3%EF%BC%9F"><span class="toc-text">004有序性怎么理解？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#005%E8%AF%B4%E8%AF%B4%E5%B9%B6%E5%8F%91%E4%B8%8E%E5%B9%B6%E8%A1%8C%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">005说说并发与并行的区别?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#006%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E7%9A%84%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="toc-text">006并发编程的缺点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#007JUC%E5%85%B7%E4%BD%93%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">007JUC具体是什么?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#008%E4%BB%80%E4%B9%88%E6%98%AFJava%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B-JMM-%EF%BC%9F"><span class="toc-text">008什么是Java内存模型(JMM)？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#009%E4%BB%80%E4%B9%88%E6%98%AFCPU%E5%92%8C%E7%BC%93%E5%AD%98%E4%B8%80%E8%87%B4%E6%80%A7%EF%BC%9F"><span class="toc-text">009什么是CPU和缓存一致性？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#010%E4%BB%80%E4%B9%88%E6%98%AF%E9%87%8D%E6%8E%92%E5%BA%8F%EF%BC%9F"><span class="toc-text">010什么是重排序？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#011%E9%87%8D%E6%8E%92%E5%BA%8F%E5%AE%9E%E9%99%85%E6%89%A7%E8%A1%8C%E7%9A%84%E6%8C%87%E4%BB%A4%E6%AD%A5%E9%AA%A4%EF%BC%9F"><span class="toc-text">011重排序实际执行的指令步骤？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#012%E9%87%8D%E6%8E%92%E5%BA%8F%E9%81%B5%E5%AE%88%E7%9A%84%E8%A7%84%E5%88%99%EF%BC%9F"><span class="toc-text">012重排序遵守的规则？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#013as-if-serial%E8%A7%84%E5%88%99%E5%92%8Chappens-before%E8%A7%84%E5%88%99%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">013as-if-serial规则和happens-before规则的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#014final%E4%B8%8D%E5%8F%AF%E5%8F%98%E5%AF%B9%E8%B1%A1%EF%BC%8C%E5%AE%83%E5%AF%B9%E5%86%99%E5%B9%B6%E5%8F%91%E5%BA%94%E7%94%A8%E6%9C%89%E4%BB%80%E4%B9%88%E5%B8%AE%E5%8A%A9%EF%BC%9F"><span class="toc-text">014final不可变对象，它对写并发应用有什么帮助？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#015volatile-%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-text">015volatile 关键字的作用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#016volatile%E8%83%BD%E4%BF%9D%E8%AF%81%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E5%90%97%EF%BC%9F"><span class="toc-text">016volatile能保证线程安全吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#017volatile%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%EF%BC%9F"><span class="toc-text">017volatile的底层原理？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#018volatile-%E6%95%B0%E7%BB%84%E5%9C%A8Java%E4%B8%AD%E8%83%BD%E5%88%9B%E5%BB%BA%E5%90%97%EF%BC%9F"><span class="toc-text">018volatile 数组在Java中能创建吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#019volatile-%E5%8F%98%E9%87%8F%E5%92%8C-atomic-%E5%8F%98%E9%87%8F%E6%9C%89%E4%BB%80%E4%B9%88%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="toc-text">019volatile 变量和 atomic 变量有什么不同？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#020%E4%BB%80%E4%B9%88%E6%98%AF%E5%8E%9F%E5%AD%90%E7%B1%BB%EF%BC%9F"><span class="toc-text">020什么是原子类？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#021%E5%8E%9F%E5%AD%90%E7%B1%BB%E7%9A%84%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-text">021原子类的作用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#022%E5%8E%9F%E5%AD%90%E7%B1%BB%E7%9A%84%E5%B8%B8%E7%94%A8%E7%B1%BB%EF%BC%9F"><span class="toc-text">022原子类的常用类？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#023%E8%AF%B4%E4%B8%80%E4%B8%8B-Atomic%E7%9A%84%E5%8E%9F%E7%90%86%EF%BC%9F"><span class="toc-text">023说一下 Atomic的原理？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#024%E4%BB%80%E4%B9%88%E6%98%AFCAS"><span class="toc-text">024什么是CAS?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#025CAS%E7%9A%84%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0"><span class="toc-text">025CAS的具体实现?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#026CAS%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="toc-text">026CAS缺点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#027java%E4%B8%AD%E6%9C%89%E5%93%AA%E4%BA%9B%E9%94%81%EF%BC%9F"><span class="toc-text">027java中有哪些锁？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#028%E4%BA%92%E6%96%A5%E9%94%81%E4%B8%8E%E8%87%AA%E6%97%8B%E9%94%81%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3%EF%BC%9F"><span class="toc-text">028互斥锁与自旋锁怎么理解？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#029%E8%AF%BB%E5%86%99%E9%94%81%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">029读写锁是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#030%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B8%AD%E4%B9%90%E8%A7%82%E9%94%81%E5%92%8C%E6%82%B2%E8%A7%82%E9%94%81%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">030多线程中乐观锁和悲观锁区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#031%E8%AE%B2%E4%B8%80%E4%B8%8B-synchronized-%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86-JVM%E5%B1%82%E9%9D%A2-%E3%80%82"><span class="toc-text">031讲一下 synchronized 关键字的底层原理(JVM层面)。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#032volatile%E4%BF%AE%E9%A5%B0%E7%9A%84%E5%8F%8C%E9%87%8D%E6%A0%A1%E9%AA%8C%E9%94%81%E5%AE%9E%E7%8E%B0%E5%AF%B9%E8%B1%A1%E5%8D%95%E4%BE%8B%EF%BC%88%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8-%E3%80%82"><span class="toc-text">032volatile修饰的双重校验锁实现对象单例（线程安全)。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#033synchronized%E5%8F%AF%E9%87%8D%E5%85%A5%E7%9A%84%E5%8E%9F%E7%90%86"><span class="toc-text">033synchronized可重入的原理?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#034%E5%BD%93%E4%B8%80%E4%B8%AA%E7%BA%BF%E7%A8%8B%E8%BF%9B%E5%85%A5%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1%E7%9A%84-synchronized-%E6%96%B9%E6%B3%95-A-%E4%B9%8B%E5%90%8E%EF%BC%8C%E5%85%B6%E5%AE%83%E7%BA%BF%E7%A8%8B%E6%98%AF%E5%90%A6%E5%8F%AF%E8%BF%9B%E5%85%A5%E6%AD%A4%E5%AF%B9%E8%B1%A1%E7%9A%84-synchronized-%E6%96%B9%E6%B3%95-B%EF%BC%9F"><span class="toc-text">034当一个线程进入一个对象的 synchronized 方法 A 之后，其它线程是否可进入此对象的 synchronized 方法 B？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#035synchronized-%E5%92%8C-Lock-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">035synchronized 和 Lock 有什么区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#036synchronized%E5%92%8CReentrantLock%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">036synchronized和ReentrantLock的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#037synchronized-%E5%92%8C-volatile%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">037synchronized 和 volatile的区别是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#038%E7%BA%BF%E7%A8%8B-B-%E6%80%8E%E4%B9%88%E7%9F%A5%E9%81%93%E7%BA%BF%E7%A8%8B-A-%E4%BF%AE%E6%94%B9%E4%BA%86%E5%8F%98%E9%87%8F"><span class="toc-text">038线程 B 怎么知道线程 A 修改了变量 ?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#039%E5%9C%A8%E7%9B%91%E8%A7%86%E5%99%A8-Monitor-%E5%86%85%E9%83%A8%EF%BC%8C%E6%98%AF%E5%A6%82%E4%BD%95%E5%81%9A%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5%E7%9A%84%EF%BC%9F%E7%A8%8B%E5%BA%8F%E5%BA%94%E8%AF%A5%E5%81%9A%E5%93%AA%E7%A7%8D%E7%BA%A7%E5%88%AB%E7%9A%84%E5%90%8C%E6%AD%A5%EF%BC%9F"><span class="toc-text">039在监视器(Monitor)内部，是如何做线程同步的？程序应该做哪种级别的同步？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#040%E7%BA%BF%E7%A8%8B%E6%AD%BB%E9%94%81%E6%A6%82%E5%BF%B5%E4%BB%A5%E5%8F%8A%E5%8F%91%E7%94%9F%E7%9A%84%E5%BF%85%E8%A6%81%E6%9D%A1%E4%BB%B6%EF%BC%9F"><span class="toc-text">040线程死锁概念以及发生的必要条件？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#041%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E7%BA%BF%E7%A8%8B%E6%AD%BB%E9%94%81%EF%BC%9F"><span class="toc-text">041如何避免线程死锁？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#042%E4%BB%80%E4%B9%88%E6%98%AF%E6%B4%BB%E9%94%81%EF%BC%9F"><span class="toc-text">042什么是活锁？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#043%E4%BB%80%E4%B9%88%E6%98%AF%E9%A5%A5%E9%A5%BF%EF%BC%9F"><span class="toc-text">043什么是饥饿？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#044%E6%AD%BB%E9%94%81%E4%B8%8E%E6%B4%BB%E9%94%81%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">044死锁与活锁的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#045%E6%AD%BB%E9%94%81%E4%B8%8E%E9%A5%A5%E9%A5%BF%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">045死锁与饥饿的区别？</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/ehazon">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/megahertz">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Haojen 2024
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://haojen.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
+</body>
+
+</html>

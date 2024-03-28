@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="马浩珍在 Github 上的个人博客">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Haojen" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        Haojen&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://haojen.github.io/2024/03/22/设计模式/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Haojen
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1></h1>
+                    
+                    <span class="meta">
+                         作者 Haojen Ma
+                        <span>
+                          日期 2024-03-22
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="设计模式面试题"><a href="#设计模式面试题" class="headerlink" title="设计模式面试题"></a>设计模式面试题</h1><h2 id="001什么是单例模式？"><a href="#001什么是单例模式？" class="headerlink" title="001什么是单例模式？"></a>001什么是单例模式？</h2><p>单例设计模式（singleton）最常用、最简单的设计模式。单例模式的目的是保证在整个应用中某一个类有且只有一个实例(一个类在堆内存只存在一个对象)。怎么样让一个类一个类有且只有一个实例呢？最核心的就是一句话就是构造方法私有化。单例模式的编写有很多种写法。比如饿汉式、懒汉式、双重加锁机制静态内部类、枚举。</p>
+<h2 id="002单例模式中的饿汉式是什么？"><a href="#002单例模式中的饿汉式是什么？" class="headerlink" title="002单例模式中的饿汉式是什么？"></a>002单例模式中的饿汉式是什么？</h2><p>饿汉式，从名字上理解像是有个人很容易饿，所以他每次不管自己饿不饿，没事就提前把要吃的东西先准备出来，也就是 “比较勤”，所以实例在初始化的时候就已经建好了，不管你有没有用到，都先建好了再说。</p>
+<h2 id="003饿汉式如何实现？"><a href="#003饿汉式如何实现？" class="headerlink" title="003饿汉式如何实现？"></a>003饿汉式如何实现？</h2><p>[1] 构造方法私有化，防止外界通过构造器创建新的工具类对象；<br>[2] 必须在该类中，自己先创建出一个对象；<br>[3] 向外暴露一个公共的静态方法用于返回自身的对象；</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 单例模式（饿汉式）</span><br><span class="line">public class Singleton1 &#123;</span><br><span class="line">    // [1]构造方法私有化，防止外界通过构造器创建新的工具类对象</span><br><span class="line">    private Singleton1() &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    // [2] 必须在该类中，自己先创建出一个对象（这行代码在类加载的时候就执行了）</span><br><span class="line">    private static Singleton1 instance = new Singleton1();</span><br><span class="line">    // [3] 向外暴露一个公共的静态方法用于返回自身的对象</span><br><span class="line">    public static Singleton1 getSingleton() &#123;</span><br><span class="line">        return instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：我们知道，类加载的方式是按需加载，且加载一次。因此，在上述单例类被加载时，就会实例化一个对象并交给自己的引用，供系统使用；而且，由于这个类在整个生命周期中只会被加载一次，因此只会创建一个实例，即能够充分保证单例。</p>
+<h2 id="004饿汉模式的优缺点？"><a href="#004饿汉模式的优缺点？" class="headerlink" title="004饿汉模式的优缺点？"></a>004饿汉模式的优缺点？</h2><p>好处：这种写法比较简单，就是在类装载的时候就完成实例化。避免了线程同步问题。<br>坏处：在类装载的时候就完成实例化，没有达到Lazy Loading（懒加载）的效果。 如果从始至终从未使用过这个实例，则会造成内存的浪费。</p>
+<h2 id="005什么是单例的懒汉式？"><a href="#005什么是单例的懒汉式？" class="headerlink" title="005什么是单例的懒汉式？"></a>005什么是单例的懒汉式？</h2><p>懒汉式，顾名思义就像一个人比较懒，平时不爱动，事情火烧眉毛了才迫不得已去做，“比较懒”，用的时候才去检查有没有实例，如果有则返回，没有则新建。有线程安全和线程不安全两种写法，区别就是synchronized关键字。</p>
+<h2 id="006线程不安全懒汉式实现方式？"><a href="#006线程不安全懒汉式实现方式？" class="headerlink" title="006线程不安全懒汉式实现方式？"></a>006线程不安全懒汉式实现方式？</h2><p>[1] 构造方法私有化，防止外界通过构造器创建新的工具类对象<br>[2] 事先创建好当前类的一个私有静态对象<br>[3] 向外暴露一个公共的静态方法用于返回自身的对象</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 单例模式（懒汉式）</span><br><span class="line">public class Singleton2 &#123;</span><br><span class="line">    // [1]私有化构造方法。</span><br><span class="line">    private Singleton2() &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // [2] 事先创建好当前类的一个私有静态对象</span><br><span class="line">    private static Singleton2 instance = null;</span><br><span class="line">    </span><br><span class="line">    // [3] 向外暴露一个公共的静态方法用于返回自身的对象</span><br><span class="line">    public static Singleton2 getInstance() &#123;</span><br><span class="line">        // 被动创建，在真正需要使用时才去创建</span><br><span class="line">        if (null == instance) &#123;</span><br><span class="line">            instance= new Singleton2();</span><br><span class="line">        &#125;</span><br><span class="line">        return instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：我们从懒汉式单例可以看到，单例实例被延迟加载，即只有在真正使用的时候才会实例化一个对象并交给自己的引用。</p>
+<h2 id="007线程不安全懒汉式优缺点？"><a href="#007线程不安全懒汉式优缺点？" class="headerlink" title="007线程不安全懒汉式优缺点？"></a>007线程不安全懒汉式优缺点？</h2><p>优缺点：这种写法起到了Lazy Loading（懒加载）的效果，但是只能在单线程下使用。如果在多线程下，一个线程进入了if (singleton &#x3D;&#x3D; null)判断语句块，还未来得及往下执行，另一个线程也通过了这个判断语句，这时便会产生多个实例。所以在多线程环境下不可使用这种方式。</p>
+<h2 id="008线程安全懒汉式实现方法？"><a href="#008线程安全懒汉式实现方法？" class="headerlink" title="008线程安全懒汉式实现方法？"></a>008线程安全懒汉式实现方法？</h2><p>为了解决上面的问题，最简单的方法是将整个 getInstance() 方法设为同步（synchronized）。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 单例模式（懒汉式）</span><br><span class="line">public class Singleton2 &#123;</span><br><span class="line">    //  [1]私有化构造方法。</span><br><span class="line">    private Singleton2() &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // [2] 事先创建好当前类的一个私有静态对象</span><br><span class="line">    private static Singleton2 instance = null;</span><br><span class="line"></span><br><span class="line">    // [3] 向外暴露一个公共的静态方法用于返回自身的对象</span><br><span class="line">    public static synchronized Singleton2 getInstance() &#123;</span><br><span class="line">    	// 被动创建，在真正需要使用时才去创建</span><br><span class="line">        if (null == instance) &#123;</span><br><span class="line">            instance= new Singleton2();</span><br><span class="line">        &#125;</span><br><span class="line">        return instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：虽然做到了线程安全，并且解决了多实例的问题，但是它并不高效。因为同步操作只需要在第一次调用时才被需要，即第一次创建单例实例对象时，也就是if条件判断里面的内容。这就引出了双重检验锁。</p>
+<h2 id="009单例中的双重加锁机制是什么？"><a href="#009单例中的双重加锁机制是什么？" class="headerlink" title="009单例中的双重加锁机制是什么？"></a>009单例中的双重加锁机制是什么？</h2><p>双重检验锁，又叫双重校验锁，综合了懒汉式和饿汉式两者的优缺点整合而成。看上面代码实现中，特点是在synchronized关键字内外都加了一层 if 条件判断，这样既保证了线程安全，又比直接上锁提高了执行效率，还节省了内存空间。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 单例模式（懒汉式）</span><br><span class="line">public class Singleton3 &#123;</span><br><span class="line">    private static Singleton3 instance;</span><br><span class="line">    private Singleton3 ()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    public static Singleton3 getSingleton() &#123;</span><br><span class="line">        if (instance == null) &#123;                         </span><br><span class="line">            synchronized (Singleton3.class) &#123;</span><br><span class="line">                if (instance == null) &#123;       </span><br><span class="line">                    instance = new Singleton3();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return instance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="010静态内部类如何实现单例？"><a href="#010静态内部类如何实现单例？" class="headerlink" title="010静态内部类如何实现单例？"></a>010静态内部类如何实现单例？</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class Singleton4 &#123;  </span><br><span class="line">    private static class SingletonHolder &#123;  </span><br><span class="line">        private static final Singleton4 INSTANCE = new Singleton4();  </span><br><span class="line">    &#125;</span><br><span class="line">    private Singleton4 ()&#123;&#125;</span><br><span class="line">    public static final Singleton4 getInstance() &#123;  </span><br><span class="line">        return SingletonHolder.INSTANCE; </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：这种写法仍然使用JVM本身机制保证了线程安全问题；由于 SingletonHolder 是私有的，除了 getInstance() 之外没有办法访问它，因此它是懒汉式的；同时读取实例的时候不会进行同步，没有性能缺陷；也不依赖 JDK 版本。</p>
+<h2 id="011用枚举如何实现单例？"><a href="#011用枚举如何实现单例？" class="headerlink" title="011用枚举如何实现单例？"></a>011用枚举如何实现单例？</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public enum EasySingleton&#123;</span><br><span class="line">	// 定义枚举常量</span><br><span class="line">    INSTANCE;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用：我们可以通过EasySingleton.INSTANCE.工具方法() 的方式来访问实例，这比调用getInstance()方法简单多了。创建枚举默认就是线程安全的，所以不需要担心double checked locking，而且还能防止反序列化导致重新创建新的对象。</p>
+<h2 id="012那些地方用到了单例模式？"><a href="#012那些地方用到了单例模式？" class="headerlink" title="012那些地方用到了单例模式？"></a>012那些地方用到了单例模式？</h2><p>1)网站的计数器，一般也是采用单例模式实现，否则难以同步。<br>2)应用程序的日志应用，一般都是单例模式实现，只有一个实例去操作才好，否则内容不好追加显示。<br>3)多线程的线程池的设计一般也是采用单例模式，因为线程池要方便对池中的线程进行控制<br>4)Windows的（任务管理器）就是很典型的单例模式，他不能打开俩个<br>5)windows的（回收站）也是典型的单例应用。在整个系统运行过程中，回收站只维护一个实例。</p>
+<h2 id="013什么是工厂设计模式？"><a href="#013什么是工厂设计模式？" class="headerlink" title="013什么是工厂设计模式？"></a>013什么是工厂设计模式？</h2><p>工厂模式提供了一种创建对象的最佳方式。在工厂模式中，我们在创建对象时不会对客户端暴露创建逻辑，并且是通过使用一个共同的接口来指向新创建的对象。实现了创建者和调用者分离，工厂模式分为简单工厂、工厂方法、抽象工厂模式。</p>
+<h2 id="014什么是简单工厂模式？"><a href="#014什么是简单工厂模式？" class="headerlink" title="014什么是简单工厂模式？"></a>014什么是简单工厂模式？</h2><p>简单工厂模式又叫静态方法模式（因为工厂类定义了一个静态方法）现实生活中，工厂是负责生产产品的；同样在设计模式中，简单工厂模式我们可以理解为负责生产对象的一个类，称为“工厂类”。</p>
+<h2 id="015简单工厂模式解决的问题？"><a href="#015简单工厂模式解决的问题？" class="headerlink" title="015简单工厂模式解决的问题？"></a>015简单工厂模式解决的问题？</h2><p>将“类实例化的操作”与“使用对象的操作”分开，让使用者不用知道具体参数就可以实例化出所需要的“产品”类，从而避免了在客户端代码中显式指定，实现了解耦。即使用者可直接消费产品而不需要知道其生产的细节</p>
+<h2 id="016简单工厂设计模式的实现。"><a href="#016简单工厂设计模式的实现。" class="headerlink" title="016简单工厂设计模式的实现。"></a>016简单工厂设计模式的实现。</h2><p>简单工厂模式：把对象的创建放到一个工厂类中，通过参数来创建不同的对象。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 简单工厂类</span><br><span class="line"> */</span><br><span class="line">public class SimpleFactory &#123;</span><br><span class="line">    /**</span><br><span class="line">     * 生产工厂</span><br><span class="line">     */</span><br><span class="line">    public static OSSConfig createOSSConfig(String name) &#123;</span><br><span class="line">        OSSConfig config = null;</span><br><span class="line">        switch (name) &#123;</span><br><span class="line">            case &quot;alibaba&quot;:</span><br><span class="line">                config = new AlibabaOSSConfig();</span><br><span class="line">                break;</span><br><span class="line">            case &quot;tencent&quot;:</span><br><span class="line">                config = new TencentOSSConfig();</span><br><span class="line">                break;</span><br><span class="line">            default:</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">        return config;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="017简单工厂模式的优点？"><a href="#017简单工厂模式的优点？" class="headerlink" title="017简单工厂模式的优点？"></a>017简单工厂模式的优点？</h2><p>将创建实例的工作与使用实例的工作分开，使用者不必关心类对象如何创建，实现了解耦；<br>把初始化实例时的工作放到工厂里进行，使代码更容易维护。 更符合面向对象的原则 &amp; 面向接口编程，而不是面向实现编程。</p>
+<h2 id="018简单工厂模式的缺点？"><a href="#018简单工厂模式的缺点？" class="headerlink" title="018简单工厂模式的缺点？"></a>018简单工厂模式的缺点？</h2><p>1)工厂类集中了所有实例（产品）的创建逻辑，一旦这个工厂不能正常工作，整个系统都会受到影响；<br>2)违背“开放 - 关闭原则”，一旦添加新产品就不得不修改工厂类的逻辑，这样就会造成工厂逻辑过于复杂。<br>3)简单工厂模式由于使用了静态工厂方法，静态方法不能被继承和重写，会造成工厂角色无法形成基于继承的等级结构。</p>
+<h2 id="019简单工厂模式的应用场景？"><a href="#019简单工厂模式的应用场景？" class="headerlink" title="019简单工厂模式的应用场景？"></a>019简单工厂模式的应用场景？</h2><p>客户如果只知道传入工厂类的参数，对于如何创建对象的逻辑不关心时；<br>当工厂类负责创建的对象（具体产品）比较少时。</p>
+<h2 id="020什么是工厂方法模式？"><a href="#020什么是工厂方法模式？" class="headerlink" title="020什么是工厂方法模式？"></a>020什么是工厂方法模式？</h2><p>工厂方法模式，又称工厂模式、多态工厂模式和虚拟构造器模式，通过定义工厂父类负责定义创建对象的公共接口，而子类则负责生成具体的对象。</p>
+<h2 id="021工厂方法模式的具体实现。"><a href="#021工厂方法模式的具体实现。" class="headerlink" title="021工厂方法模式的具体实现。"></a>021工厂方法模式的具体实现。</h2><p>工厂方法模式: 每种产品由一种工厂来创建，一个工厂处理一个对象。<br>角色组成<br>\1. 抽象工厂: 定义工厂类所具有的基本的操作<br>\2. 具体工厂：该类必须继承抽象工厂，实现抽象工厂定义的方法，返回一个对象<br>\3. 抽象产品：定义了抽象产品具有的基本操作<br>\4. 产品实现类：实现抽象产品类对定义的抽象方法，和具体工厂一一对应；</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 抽象产品: 配置接口</span><br><span class="line"> */</span><br><span class="line">interface OSSConfig &#123;</span><br><span class="line">    /**</span><br><span class="line">     * 初始化OSS配置</span><br><span class="line">     */</span><br><span class="line">    void init();</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * 具体产品: 阿里云OSS配置</span><br><span class="line"> */</span><br><span class="line">class AlibabaOSSConfig implements OSSConfig &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void init() &#123;</span><br><span class="line">        System.out.println(&quot;初始化--阿里云--OSS配置&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * 具体产品: 腾讯云OSS配置</span><br><span class="line"> */</span><br><span class="line">class TencentOSSConfig implements OSSConfig &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void init() &#123;</span><br><span class="line">        System.out.println(&quot;初始化--腾讯云--OSS配置&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * 抽象工厂</span><br><span class="line"> */</span><br><span class="line">interface Factory &#123;</span><br><span class="line">    OSSConfig createOSSConfig();</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * 具体工厂: 腾讯云工厂</span><br><span class="line"> */</span><br><span class="line">class TencentOSSFactory implements Factory &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public OSSConfig createOSSConfig() &#123;</span><br><span class="line">        return new TencentOSSConfig();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * 具体工厂: 阿里云工厂</span><br><span class="line"> */</span><br><span class="line">class AlibabaOSSFactory implements Factory &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public OSSConfig createOSSConfig() &#123;</span><br><span class="line">        return new AlibabaOSSConfig();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * 工厂设计模拟类</span><br><span class="line"> */</span><br><span class="line">public class FactoryMethod &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        AlibabaOSSFactory alibabaOSSFactory = new AlibabaOSSFactory();</span><br><span class="line">        OSSConfig alibabaConifg = alibabaOSSFactory.createOSSConfig();</span><br><span class="line">        alibabaConifg.init();</span><br><span class="line"></span><br><span class="line">        TencentOSSFactory tencentOSSFactory = new TencentOSSFactory();</span><br><span class="line">        OSSConfig tencentConfig = tencentOSSFactory.createOSSConfig();</span><br><span class="line">        tencentConfig.init();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="022工厂方法模式解决的问题？"><a href="#022工厂方法模式解决的问题？" class="headerlink" title="022工厂方法模式解决的问题？"></a>022工厂方法模式解决的问题？</h2><p>工厂方法模式把具体产品的创建推迟到工厂类的子类（具体工厂）中，此时工厂类不再负责所有产品的创建，而只是给出具体工厂必须实现的接口，这样工厂方法模式在添加新产品的时候就不修改工厂类逻辑而是添加新的工厂子类，符合开放封闭原则，克服了简单工厂模式中缺点。</p>
+<h2 id="023工厂方法模式的优点？"><a href="#023工厂方法模式的优点？" class="headerlink" title="023工厂方法模式的优点？"></a>023工厂方法模式的优点？</h2><p>1)更符合开-闭原则<br>新增一种产品时，只需要增加相应的具体产品类和相应的工厂子类即可<br>简单工厂模式需要修改工厂类的判断逻辑<br>2)符合单一职责原则<br>每个具体工厂类只负责创建对应的产品<br>简单工厂中的工厂类存在复杂的switch逻辑判断<br>3)不使用静态工厂方法，可以形成基于继承的等级结构。<br>简单工厂模式的工厂类使用静态工厂方法<br>总结：工厂模式可以说是简单工厂模式的进一步抽象和拓展，在保留了简单工厂的封装优点的同时，让扩展变得简单，让继承变得可行，增加了多态性的体现。</p>
+<h2 id="024工厂方法模式的缺点？"><a href="#024工厂方法模式的缺点？" class="headerlink" title="024工厂方法模式的缺点？"></a>024工厂方法模式的缺点？</h2><p>1)添加新产品时，除了增加新产品类外，还要提供与之对应的具体工厂类，系统类的个数将成对增加，在一定程度上增加了系统的复杂度；同时，有更多的类需要编译和运行，会给系统带来一些额外的开销；<br>2)由于考虑到系统的可扩展性，需要引入抽象层，在客户端代码中均使用抽象层进行定义，增加了系统的抽象性和理解难度，且在实现时可能需要用到DOM、反射等技术，增加了系统的实现难度。<br>3)虽然保证了工厂方法内的对修改关闭，但对于使用工厂方法的类，如果要更换另外一种产品，仍然需要修改实例化的具体工厂类；一个具体工厂只能创建一种具体产品。</p>
+<h2 id="025工厂方法模式的应用场景。"><a href="#025工厂方法模式的应用场景。" class="headerlink" title="025工厂方法模式的应用场景。"></a>025工厂方法模式的应用场景。</h2><p>1)当一个类不知道它所需要的对象的类时，在工厂方法模式中，客户端不需要知道具体产品类的类名，只需要知道所对应的工厂即可；<br>2)当一个类希望通过其子类来指定创建对象时，在工厂方法模式中，对于抽象工厂类只需要提供一个创建产品的接口，而由其子类来确定具体要创建的对象，利用面向对象的多态性和里氏代换原则，在程序运行时，子类对象将覆盖父类对象，从而使得系统更容易扩展。<br>3)将创建对象的任务委托给多个工厂子类中的某一个，客户端在使用时可以无须关心是哪一个工厂子类创建产品子类，需要时再动态指定，可将具体工厂类的类名存储在配置文件或数据库中。</p>
+<h2 id="026什么是抽象工厂模式？"><a href="#026什么是抽象工厂模式？" class="headerlink" title="026什么是抽象工厂模式？"></a>026什么是抽象工厂模式？</h2><p>抽象工厂模式，即Abstract Factory Pattern，提供一个创建一系列相关或相互依赖对象的接口，而无须指定它们具体的类；具体的工厂负责实现具体的产品实例。 允许使用抽象的接口来创建一组相关产品，而不需要知道或关心实际生产出的具体产品是什么，这样就可以从具体产品中被解耦。</p>
+<h2 id="027抽象工厂模式的具体实现。"><a href="#027抽象工厂模式的具体实现。" class="headerlink" title="027抽象工厂模式的具体实现。"></a>027抽象工厂模式的具体实现。</h2><p>抽象工厂模式：工厂方法模式的进一步延伸。<br>角色组成<br>\1. 抽象工厂: 定义工厂类所具有的基本的操作<br>\2. 具体工厂：具体工厂实现了抽象工厂，每个工厂方法返回多个具体对象<br>\3. 抽象类接口：定义了产品具有的基本操作,提供一组所有类都具有的业务方法<br>\4. 抽象类：用于实现抽象接口所定义的业务方法,只做抽象接口，具体由产品实现类处理<br>\5. 产品实现类：实现抽象产品类对定义的抽象方法，和具体工厂一对多；</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 抽象产品: 配置接口</span><br><span class="line"> */</span><br><span class="line">interface OSSConfig &#123;</span><br><span class="line">    /**</span><br><span class="line">     * 初始化OSS配置</span><br><span class="line">     */</span><br><span class="line">    void init();</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * 具体产品: 阿里云OSS配置</span><br><span class="line"> */</span><br><span class="line">abstract class AlibabaOSSConfig implements OSSConfig &#123;</span><br><span class="line">    public abstract void init();</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * 具体产品: 阿里云OSS配置Test环境</span><br><span class="line"> */</span><br><span class="line">class AlibabaTstOSSConfig extends AlibabaOSSConfig &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void init() &#123;</span><br><span class="line">        System.out.println(&quot;初始化--阿里云--test环境--OSS配置&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * 具体产品: 阿里云OSS配置生产环境</span><br><span class="line"> */</span><br><span class="line">class AlibabaPreOSSConfig extends AlibabaOSSConfig &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void init() &#123;</span><br><span class="line">        System.out.println(&quot;初始化--阿里云--Pre环境--OSS配置&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * 抽象产品: 腾讯云OSS配置</span><br><span class="line"> */</span><br><span class="line">abstract class TencentOSSConfig implements OSSConfig &#123;</span><br><span class="line">    public abstract void init();</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * 抽象产品: 腾讯云OSS配置</span><br><span class="line"> */</span><br><span class="line">class TencentProOSSConfig extends TencentOSSConfig &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void init() &#123;</span><br><span class="line">        System.out.println(&quot;初始化--腾讯云--Pre环境--OSS配置&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * 抽象工厂</span><br><span class="line"> */</span><br><span class="line">interface Factory &#123;</span><br><span class="line">    /**</span><br><span class="line">     * 获取测试环境配置</span><br><span class="line">     */</span><br><span class="line">    OSSConfig createOSSTestConfig();</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 获取生成环境配置</span><br><span class="line">     */</span><br><span class="line">    OSSConfig createOSSPreConfig();</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * 具体工厂: 腾讯云工厂</span><br><span class="line"> */</span><br><span class="line">class TencentOSSFactory implements Factory &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public OSSConfig createOSSTestConfig() &#123;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public OSSConfig createOSSPreConfig() &#123;</span><br><span class="line">        return new TencentProOSSConfig();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * 具体工厂: 腾讯云工厂</span><br><span class="line"> */</span><br><span class="line">class AlibabaOSSFactory implements Factory &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public OSSConfig createOSSTestConfig() &#123;</span><br><span class="line">        return new AlibabaTstOSSConfig();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public OSSConfig createOSSPreConfig() &#123;</span><br><span class="line">        return new AlibabaPreOSSConfig();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * 工厂设计模拟类</span><br><span class="line"> * 产品接口可以定义OSS配置的操作接口，不同的厂商实现都去实现接口，通过工厂动态生成配置</span><br><span class="line"> */</span><br><span class="line">public class AbstractFactory &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        // 阿里云oss配置</span><br><span class="line">        AlibabaOSSFactory alibabaOSSFactory = new AlibabaOSSFactory();</span><br><span class="line">        OSSConfig alibabaConifg = alibabaOSSFactory.createOSSPreConfig();</span><br><span class="line">        alibabaConifg.init();</span><br><span class="line">        OSSConfig alibabaTestConifg = alibabaOSSFactory.createOSSTestConfig();</span><br><span class="line">        alibabaTestConifg.init();</span><br><span class="line">		</span><br><span class="line">		// 腾云云oss配置</span><br><span class="line">        TencentOSSFactory tencentOSSFactory = new TencentOSSFactory();</span><br><span class="line">        OSSConfig tencentConifg = tencentOSSFactory.createOSSPreConfig();</span><br><span class="line">        tencentConifg.init();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="028抽象工厂模式的优点。"><a href="#028抽象工厂模式的优点。" class="headerlink" title="028抽象工厂模式的优点。"></a>028抽象工厂模式的优点。</h2><p>1)降低耦合<br>抽象工厂模式将具体产品的创建延迟到具体工厂的子类中，这样将对象的创建封装起来，可以减少客户端与具体产品类之间的依赖，从而使系统耦合度低，这样更有利于后期的维护和扩展；<br>2)更符合开-闭原则<br>新增一种产品类时，只需要增加相应的具体产品类和相应的工厂子类即可<br>3)符合单一职责原则<br>每个具体工厂类只负责创建对应的产品<br>4)不使用静态工厂方法，可以形成基于继承的等级结构。</p>
+<h2 id="029抽象工厂模式的缺点。"><a href="#029抽象工厂模式的缺点。" class="headerlink" title="029抽象工厂模式的缺点。"></a>029抽象工厂模式的缺点。</h2><p>抽象工厂模式很难支持新种类产品的变化。这是因为抽象工厂接口中已经确定了可以被创建的产品集合，如果需要添加新产品，此时就必须去修改抽象工厂的接口，这样就涉及到抽象工厂类的以及所有子类的改变，这样也就违背了“开发——封闭”原则。</p>
+<h2 id="030抽象工厂模式的应用场景。"><a href="#030抽象工厂模式的应用场景。" class="headerlink" title="030抽象工厂模式的应用场景。"></a>030抽象工厂模式的应用场景。</h2><p>1)一个系统不要求依赖产品类实例如何被创建、组合和表达的表达，这点也是所有工厂模式应用的前提。<br>2)这个系统有多个系列产品，而系统中只消费其中某一系列产品<br>3)系统要求提供一个产品类的库，所有产品以同样的接口出现，客户端不需要依赖具体实现。</p>
+<h2 id="031工厂模式和抽象工厂模式对比？"><a href="#031工厂模式和抽象工厂模式对比？" class="headerlink" title="031工厂模式和抽象工厂模式对比？"></a>031工厂模式和抽象工厂模式对比？</h2><p>工厂方法模式：具体工厂类只能创建一个具体产品类的实例。<br>抽象工厂模式：具体工厂类可以创建多个具体产品类的实例。</p>
+<h2 id="032什么是代理模式？"><a href="#032什么是代理模式？" class="headerlink" title="032什么是代理模式？"></a>032什么是代理模式？</h2><p>给目标对象提供一个代理对象，并由代理对象控制对目标对象的引用。其中代理对象起到中介作用，用于连接客户端和目标对象。例如：电脑桌面的快捷方式。电脑对某个程序提供一个快捷方式（代理对象），快捷方式连接客户端和程序，客户端通过操作快捷方式就可以操作那个程序。<br>通过引入代理对象的方式来间接访问目标对象，防止直接访问目标对象给系统带来的不必要复杂性。</p>
+<h2 id="033代理模式的具体实现？"><a href="#033代理模式的具体实现？" class="headerlink" title="033代理模式的具体实现？"></a>033代理模式的具体实现？</h2><p>步骤1： 创建抽象对象接口（Subject）：声明你（真实对象）需要让代购（代理对象）帮忙做的事（买Mac）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public interface Subject &#123;  </span><br><span class="line">    public void buyMac();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>步骤2： 创建真实对象类（RealSubject）,即”我“</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class RealSubject implement Subject&#123;</span><br><span class="line">   @Override</span><br><span class="line">   public void buyMac() &#123;  </span><br><span class="line">       System.out.println(”买一台Mac“);  </span><br><span class="line">   &#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>步骤3：创建代理对象类（Proxy），即”代购“，并通过代理类创建真实对象实例并访问其方法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class Proxy  implements Subject&#123;</span><br><span class="line">  </span><br><span class="line">   @Override</span><br><span class="line">   public void buyMac&#123;   </span><br><span class="line">     //引用并创建真实对象实例，即”我“</span><br><span class="line">     RealSubject realSubject = new RealSubject()；</span><br><span class="line">     //调用真实对象的方法，进行代理购买Mac</span><br><span class="line">     realSubject.buyMac（）；</span><br><span class="line">     //代理对象额外做的操作</span><br><span class="line">     this.WrapMac()；</span><br><span class="line">   &#125;</span><br><span class="line">   public void WrapMac()&#123;</span><br><span class="line">     System.out.println(”用盒子包装好Mac“);  </span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>步骤4：客户端调用</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class ProxyPattern &#123;</span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">    Subject proxy = new Proxy();</span><br><span class="line">      proxy.buyMac();</span><br><span class="line">    &#125;      </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结果输出<br>买一台Mac<br>用盒子包装好Mac</p>
+<h2 id="034代理模式的优缺点？"><a href="#034代理模式的优缺点？" class="headerlink" title="034代理模式的优缺点？"></a>034代理模式的优缺点？</h2><p><strong>优点</strong><br>协调调用者和被调用者，降低了系统的耦合度<br>代理对象作为客户端和目标对象之间的中介，起到了保护目标对象的作用<br><strong>缺点</strong><br>由于在客户端和真实主题之间增加了代理对象，因此会造成请求的处理速度变慢；<br>实现代理模式需要额外的工作（有些代理模式的实现非常复杂），从而增加了系统实现的复杂度。</p>
+<h2 id="035代理模式应用场景？"><a href="#035代理模式应用场景？" class="headerlink" title="035代理模式应用场景？"></a>035代理模式应用场景？</h2><p><img src="http://www.bjpowernode.com/Public/Uploads/article/20220920/1663658645@e809f1ca480423e33598b0af658dbf4f.png" alt="img"></p>
+<h2 id="036为什么要使用动态代理？"><a href="#036为什么要使用动态代理？" class="headerlink" title="036为什么要使用动态代理？"></a>036为什么要使用动态代理？</h2><p>在静态代理模式中一个静态代理只服务一种类型的目标对象，若要服务多类型的目标对象，则需要为每种目标对象都实现一个静态代理对象。在目标对象较多的情况下，若采用静态代理，则会出现 静态代理对象量多、代码量大，从而导致代码复杂的问题。</p>
+<h2 id="037什么是动态代理？"><a href="#037什么是动态代理？" class="headerlink" title="037什么是动态代理？"></a>037什么是动态代理？</h2><p>动态代理就是，在程序运行期，创建目标对象的代理对象，并对目标对象中的方法进行功能性增强的一种技术。在生成代理对象的过程中，目标对象不变，代理对象中的方法是目标对象方法的增强方法。可以理解为运行期间，对象中方法的动态拦截，在拦截方法的前后执行功能操作。<br>代理类在程序运行期间，创建的代理对象称之为动态代理对象。这种情况下，创建的代理对象，并不是事先在Java代码中定义好的。而是在运行期间，根据我们在动态代理对象中的“指示”，动态生成的。也就是说，你想获取哪个对象的代理，动态代理就会为你动态的生成这个对象的代理对象。动态代理可以对被代理对象的方法进行功能增强。有了动态代理的技术，那么就可以在不修改方法源码的情况下，增强被代理对象的方法的功能，在方法执行前后做任何你想做的事情。</p>
+<h2 id="038动态代理模式的原理？"><a href="#038动态代理模式的原理？" class="headerlink" title="038动态代理模式的原理？"></a>038动态代理模式的原理？</h2><p>1)动态代理不需要显式实现与目标对象类（RealSubject）相同的接口，而是将这种实现推迟到程序运行时由 JVM来实现。即：在使用时再创建动态代理类 &amp; 实例；<br>2)通过Java 反射机制的method.invoke（），通过调用动态代理类对象方法，从而自动调用目标对象的方法。</p>
+<h2 id="039动态代理的优点和缺点？"><a href="#039动态代理的优点和缺点？" class="headerlink" title="039动态代理的优点和缺点？"></a>039动态代理的优点和缺点？</h2><p><strong>优点</strong><br>1)只需要1个动态代理类就可以解决创建多个静态代理的问题，避免重复、多余代码；<br>2)更强的灵活性；<br><strong>缺点</strong><br>1)效率低：相比静态代理中直接调用目标对象方法，动态代理则需要先通过Java反射机制 从而间接调用目标对象方法。<br>2)应用场景局限：Java 的单继承特性（每个代理类都继承了 Proxy 类），即只能针对接口创建代理类，不能针对类创建代理类。</p>
+<h2 id="040动态代理的应用场景。"><a href="#040动态代理的应用场景。" class="headerlink" title="040动态代理的应用场景。"></a>040动态代理的应用场景。</h2><p>日志记录、性能统计、安全控制、异常处理等。</p>
+<h2 id="041动态代理与静态代理模式的区别？"><a href="#041动态代理与静态代理模式的区别？" class="headerlink" title="041动态代理与静态代理模式的区别？"></a>041动态代理与静态代理模式的区别？</h2><p><img src="http://www.bjpowernode.com/Public/Uploads/article/20220922/1663817215@b22dbcfc671170f8c61d334b1f34ea97.png" alt="img"></p>
+<h2 id="042JDK动态代理的实现步骤？"><a href="#042JDK动态代理的实现步骤？" class="headerlink" title="042JDK动态代理的实现步骤？"></a>042JDK动态代理的实现步骤？</h2><p>1.创建接口，定义目标类需要完成的功能<br>2.创建目标类，实现接口。<br>3.创建InvocationHandler接口的实现类。在invoke方法中完成代理类的功能。<br>   目标方法的调用<br>   功能增强<br>4.使用Proxy类中静态方法Proxy.newProxyInstance完成代理类对象的创建，返回代理对象，并把返回值转为接口类型。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class JDKDynamicProxy &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        CAProxy caProxy = new CAProxy();</span><br><span class="line">        IA instance = (IA) caProxy.getInstance(new CA());</span><br><span class="line">        instance.say();</span><br><span class="line">        instance.fly();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">interface IA&#123;</span><br><span class="line">    void say();</span><br><span class="line">    void fly();</span><br><span class="line">&#125;</span><br><span class="line">class CA implements IA&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void say() &#123;</span><br><span class="line">        System.out.println(&quot;I am class CA&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public void fly() &#123;</span><br><span class="line">        System.out.println(&quot;I can fly&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class CAProxy implements InvocationHandler&#123;</span><br><span class="line">    private Object target;</span><br><span class="line">    public Object getInstance(Object object)&#123;</span><br><span class="line">        this.target = object;</span><br><span class="line">        return Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), this);</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable &#123;</span><br><span class="line">        System.out.println(&quot;I am proxy！&quot;);</span><br><span class="line">        Object result = method.invoke(target, args);</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="043CGLib代理的实现步骤？"><a href="#043CGLib代理的实现步骤？" class="headerlink" title="043CGLib代理的实现步骤？"></a>043CGLib代理的实现步骤？</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class CglibDynamicProxy &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        CglibProxy cglibProxy = new CglibProxy();</span><br><span class="line">        A a = (A) cglibProxy.getInstance(new A());</span><br><span class="line">        a.say();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class A &#123;</span><br><span class="line">    public void say()&#123;</span><br><span class="line">        System.out.println(&quot;I am A&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">class CglibProxy implements MethodInterceptor&#123;</span><br><span class="line"></span><br><span class="line">    private Object target;</span><br><span class="line">    public Object getInstance(Object object)&#123;</span><br><span class="line">        this.target = object;</span><br><span class="line">        Enhancer enhancer = new Enhancer();</span><br><span class="line">        // 设置父类为实例类</span><br><span class="line">        enhancer.setSuperclass(this.target.getClass());</span><br><span class="line">        // 回调方法</span><br><span class="line">        enhancer.setCallback(this);</span><br><span class="line">        // 创建代理对象</span><br><span class="line">        return enhancer.create();</span><br><span class="line">    &#125;</span><br><span class="line">    @Override</span><br><span class="line">    public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable &#123;</span><br><span class="line">        System.out.println(&quot;I am cglib proxy!&quot;);</span><br><span class="line">        Object result = method.invoke(target, objects);</span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="044什么是设计模式-Design-pattern"><a href="#044什么是设计模式-Design-pattern" class="headerlink" title="044什么是设计模式(Design pattern)?"></a>044什么是设计模式(Design pattern)?</h2><p>设计模式（Design pattern）是一种思想，是一套被反复使用的代码设计经验总结，专门用于解决特定场景的需求。它提供了在软件开发过程中面临的一些问题的最佳解决方案，使用设计模式是为了提高代码的可重用性、让代码通俗易懂，增加代码可靠性。</p>
+<h2 id="045面向对象编程中，都有哪些设计原则？"><a href="#045面向对象编程中，都有哪些设计原则？" class="headerlink" title="045面向对象编程中，都有哪些设计原则？"></a>045面向对象编程中，都有哪些设计原则？</h2><p><strong>开闭原则：</strong>对扩展开放，对修改关闭。就是如果要修改原有的功能或者是扩展功能，尽量去扩展原有的代码，而不是修改原来已有的代码。<br><strong>里氏替换原则：</strong>任何子类对象都应该可以替换其派生的超类对象 。即，子类可以扩展父类的功能，但不要修改父类原有的功能。 也就是说，当一个子类继承父类后，尽量不要去重写它原有的方法。<br>**依赖转置(依赖倒置)原则:**要面向接口编程，不要面向实现编程。两个模块交互时，都访问各自接口，而不是具体的实现类。<br>**单一职责原则:**一个对象要专注于一种事情，不要让它担任太多责任。<br>**接口隔离原则:**一个接口尽量只包含用户关心的内容。就是一个接口不要太庞大。<br>**迪米特法则:**如果两个软件实体之间不是特别必要，尽量不要让他们直接通信。而是找个第三方进行转发，比如使用MQ（消息队列）。<br>**合成复用原则:**如果在“组合&#x2F;聚合”和“继承”之间做抉择时，优先选择“组合&#x2F;聚合”。</p>
+<h2 id="046设计模式的分类？"><a href="#046设计模式的分类？" class="headerlink" title="046设计模式的分类？"></a>046设计模式的分类？</h2><p><strong>创建型模式：</strong>用于创建对象的设计模式。一般可以简化用户创建对象的过程。其次可以降低耦合度，用户不需要关心对象具体的创建过程。包含：单例模式、原型模型、工厂模式、建造者模式。<br><strong>结构型模型：</strong>组织对象之间的结构。使其易于扩展等。包括：代理模式、适配器模式、桥接模式、装饰器模式、外观模式、享元模式、组合模式。<br><strong>行为模型：</strong>主要用于决定对象如何做出行为包括：模板方法模式、策略模式、命令模式、责任链、状态模式、观察者模式、中介者模式、迭代器模式、访问者模式、备忘录模式、解释器模式。</p>
+<h2 id="047设计模式的作用？"><a href="#047设计模式的作用？" class="headerlink" title="047设计模式的作用？"></a>047设计模式的作用？</h2><p>1)提高代码复用率，降低开发成本和周期；<br>2)提高代码可维护性、可拓展性；<br>3)使代码更加优雅、更容易被他人理解。</p>
+<h2 id="048举例说明一个符合开闭原则的设计模式的例子？"><a href="#048举例说明一个符合开闭原则的设计模式的例子？" class="headerlink" title="048举例说明一个符合开闭原则的设计模式的例子？"></a>048举例说明一个符合开闭原则的设计模式的例子？</h2><p>开闭原则要求你的代码对扩展开放，对修改关闭。这个意思就是说，如果你想增加一个新的功 能，你可以很容易的在不改变已测试过的代码的前提下增加新的代码。有好几个设计模式是基 于开闭原则的，如策略模式，如果你需要一个新的策略，只需要实现接口，增加配置，不需要 改变核心逻辑。一个正在工作的例子是 Collections.sort() 方法，这就是基于策略模式，遵循 开闭原则的，你不需为新的对象修改 sort() 方法，你需要做的仅仅是实现你自己的 Comparator 接口。</p>
+<h2 id="049OOP中的组合、聚合和关联有什么区别？"><a href="#049OOP中的组合、聚合和关联有什么区别？" class="headerlink" title="049OOP中的组合、聚合和关联有什么区别？"></a>049OOP中的组合、聚合和关联有什么区别？</h2><p>如果两个对象彼此有关系，就说他们是彼此相关联的。组合和聚合是面向对象中的两种形式的 关联。组合是一种比聚合更强力的关联。组合中，一个对象是另一个的拥有者，而聚合则是指 一个对象使用另一个对象。如果对象 A 是由对象 B 组合的，则 A 不存在的话，B一定不存在， 但是如果 A 对象聚合了一个对象 B，则即使 A 不存在了，B 也可以单独存在。</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2024/03/22/数据库/" data-toggle="tooltip" data-placement="top"
+                           title="">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2024/03/22/权限管理框架/" data-toggle="tooltip" data-placement="top"
+                           title="">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-text">设计模式面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#001%E4%BB%80%E4%B9%88%E6%98%AF%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%EF%BC%9F"><span class="toc-text">001什么是单例模式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#002%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E4%B8%AD%E7%9A%84%E9%A5%BF%E6%B1%89%E5%BC%8F%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">002单例模式中的饿汉式是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#003%E9%A5%BF%E6%B1%89%E5%BC%8F%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%EF%BC%9F"><span class="toc-text">003饿汉式如何实现？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#004%E9%A5%BF%E6%B1%89%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="toc-text">004饿汉模式的优缺点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#005%E4%BB%80%E4%B9%88%E6%98%AF%E5%8D%95%E4%BE%8B%E7%9A%84%E6%87%92%E6%B1%89%E5%BC%8F%EF%BC%9F"><span class="toc-text">005什么是单例的懒汉式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#006%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8%E6%87%92%E6%B1%89%E5%BC%8F%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-text">006线程不安全懒汉式实现方式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#007%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8%E6%87%92%E6%B1%89%E5%BC%8F%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="toc-text">007线程不安全懒汉式优缺点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#008%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E6%87%92%E6%B1%89%E5%BC%8F%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="toc-text">008线程安全懒汉式实现方法？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#009%E5%8D%95%E4%BE%8B%E4%B8%AD%E7%9A%84%E5%8F%8C%E9%87%8D%E5%8A%A0%E9%94%81%E6%9C%BA%E5%88%B6%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">009单例中的双重加锁机制是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#010%E9%9D%99%E6%80%81%E5%86%85%E9%83%A8%E7%B1%BB%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%8D%95%E4%BE%8B%EF%BC%9F"><span class="toc-text">010静态内部类如何实现单例？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#011%E7%94%A8%E6%9E%9A%E4%B8%BE%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%8D%95%E4%BE%8B%EF%BC%9F"><span class="toc-text">011用枚举如何实现单例？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#012%E9%82%A3%E4%BA%9B%E5%9C%B0%E6%96%B9%E7%94%A8%E5%88%B0%E4%BA%86%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%EF%BC%9F"><span class="toc-text">012那些地方用到了单例模式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#013%E4%BB%80%E4%B9%88%E6%98%AF%E5%B7%A5%E5%8E%82%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%9F"><span class="toc-text">013什么是工厂设计模式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#014%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%EF%BC%9F"><span class="toc-text">014什么是简单工厂模式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#015%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-text">015简单工厂模式解决的问题？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#016%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%AE%9E%E7%8E%B0%E3%80%82"><span class="toc-text">016简单工厂设计模式的实现。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#017%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%BC%98%E7%82%B9%EF%BC%9F"><span class="toc-text">017简单工厂模式的优点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#018%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E7%9A%84%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="toc-text">018简单工厂模式的缺点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#019%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%9F"><span class="toc-text">019简单工厂模式的应用场景？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#020%E4%BB%80%E4%B9%88%E6%98%AF%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%EF%BC%9F"><span class="toc-text">020什么是工厂方法模式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#021%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0%E3%80%82"><span class="toc-text">021工厂方法模式的具体实现。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#022%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-text">022工厂方法模式解决的问题？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#023%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%BC%98%E7%82%B9%EF%BC%9F"><span class="toc-text">023工厂方法模式的优点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#024%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E7%9A%84%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="toc-text">024工厂方法模式的缺点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#025%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E3%80%82"><span class="toc-text">025工厂方法模式的应用场景。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#026%E4%BB%80%E4%B9%88%E6%98%AF%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%EF%BC%9F"><span class="toc-text">026什么是抽象工厂模式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#027%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0%E3%80%82"><span class="toc-text">027抽象工厂模式的具体实现。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#028%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%BC%98%E7%82%B9%E3%80%82"><span class="toc-text">028抽象工厂模式的优点。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#029%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E7%9A%84%E7%BC%BA%E7%82%B9%E3%80%82"><span class="toc-text">029抽象工厂模式的缺点。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#030%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E3%80%82"><span class="toc-text">030抽象工厂模式的应用场景。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#031%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E5%92%8C%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%E5%AF%B9%E6%AF%94%EF%BC%9F"><span class="toc-text">031工厂模式和抽象工厂模式对比？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#032%E4%BB%80%E4%B9%88%E6%98%AF%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%EF%BC%9F"><span class="toc-text">032什么是代理模式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#033%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0%EF%BC%9F"><span class="toc-text">033代理模式的具体实现？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#034%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="toc-text">034代理模式的优缺点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#035%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%9F"><span class="toc-text">035代理模式应用场景？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#036%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%EF%BC%9F"><span class="toc-text">036为什么要使用动态代理？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#037%E4%BB%80%E4%B9%88%E6%98%AF%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%EF%BC%9F"><span class="toc-text">037什么是动态代理？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#038%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8E%9F%E7%90%86%EF%BC%9F"><span class="toc-text">038动态代理模式的原理？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#039%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E7%9A%84%E4%BC%98%E7%82%B9%E5%92%8C%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="toc-text">039动态代理的优点和缺点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#040%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E3%80%82"><span class="toc-text">040动态代理的应用场景。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#041%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E4%B8%8E%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">041动态代理与静态代理模式的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#042JDK%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4%EF%BC%9F"><span class="toc-text">042JDK动态代理的实现步骤？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#043CGLib%E4%BB%A3%E7%90%86%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4%EF%BC%9F"><span class="toc-text">043CGLib代理的实现步骤？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#044%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-Design-pattern"><span class="toc-text">044什么是设计模式(Design pattern)?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#045%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E4%B8%AD%EF%BC%8C%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%EF%BC%9F"><span class="toc-text">045面向对象编程中，都有哪些设计原则？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#046%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%88%86%E7%B1%BB%EF%BC%9F"><span class="toc-text">046设计模式的分类？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#047%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-text">047设计模式的作用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#048%E4%B8%BE%E4%BE%8B%E8%AF%B4%E6%98%8E%E4%B8%80%E4%B8%AA%E7%AC%A6%E5%90%88%E5%BC%80%E9%97%AD%E5%8E%9F%E5%88%99%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E4%BE%8B%E5%AD%90%EF%BC%9F"><span class="toc-text">048举例说明一个符合开闭原则的设计模式的例子？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#049OOP%E4%B8%AD%E7%9A%84%E7%BB%84%E5%90%88%E3%80%81%E8%81%9A%E5%90%88%E5%92%8C%E5%85%B3%E8%81%94%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">049OOP中的组合、聚合和关联有什么区别？</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/ehazon">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/megahertz">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Haojen 2024
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://haojen.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
+</body>
+
+</html>

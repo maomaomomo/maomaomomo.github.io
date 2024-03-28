@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="马浩珍在 Github 上的个人博客">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Haojen" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        Haojen&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://haojen.github.io/2024/03/22/Stust2/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Haojen
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1></h1>
+                    
+                    <span class="meta">
+                         作者 Haojen Ma
+                        <span>
+                          日期 2024-03-22
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="Struts2面试题"><a href="#Struts2面试题" class="headerlink" title="Struts2面试题"></a>Struts2面试题</h1><h2 id="001谈谈你对MVC的理解？"><a href="#001谈谈你对MVC的理解？" class="headerlink" title="001谈谈你对MVC的理解？"></a>001谈谈你对MVC的理解？</h2><p>MVC是Model—View—Controler的简称。即模型—视图—控制器。MVC是一种设计模式，它强制性的把应用程序的输入、处理和输出分开。<br><strong>视图:</strong> 视图是用户看到并与之交互的界面。视图向用户显示相关的数据，并接受用户的输入。视图不进行任何业务逻辑处理。<br><strong>模型:</strong> 模型表示业务数据和业务处理。相当于JavaBean。一个模型能为多个视图提供数据。这提高了应用程序的重用性。<br><strong>控制器:</strong> 当用户单击Web页面中的提交按钮时,控制器接受请求并调用相应的模型去处理请求。然后根据处理的结果调用相应的视图来显示处理的结果。<br><strong>MVC的处理过程：</strong>首先控制器接受用户的请求，调用相应的模型来进行业务处理，并返回数据给控制器。控制器调用相应的视图来显示处理的结果。并通过视图呈现给用户。</p>
+<h2 id="002简单介绍一下Struts2？"><a href="#002简单介绍一下Struts2？" class="headerlink" title="002简单介绍一下Struts2？"></a>002简单介绍一下Struts2？</h2><p>Struts2框架是一个按照MVC设计模式设计的WEB层框架，是在Struts 1和WebWork的技术基础上进行了合并的全新的框架。其全新的Struts 2的体系结构与Struts 1的体系结构差别巨大。Struts 2以WebWork为核心，采用拦截器的机制来处理用户的请求，这样的设计也使得业务逻辑控制器能够与ServletAPI完全脱离开。<br>我们可以把Struts2理解为一个大大的Servlet，而这个Servlet就是ActionServlet。Struts2在处理客户端请求时，会先读取web.xml配置文件，根据前端控制器将符合条件的请求分给各个不同的Action处理。在此之前，ActionServlet会把数据封装成一个JavaBean。<br>Struts2框架提供了许多的拦截器，在封装数据的过程中，我们可以对数据进行一些操作，例如：数据校验等等。当Action执行完后要返回一个结果视图，这个结果视图可以跟据struts2的配置文件中配置，选择转发或者重定向。</p>
+<h2 id="003Struts2有哪些优点？"><a href="#003Struts2有哪些优点？" class="headerlink" title="003Struts2有哪些优点？"></a>003Struts2有哪些优点？</h2><p>1.在软件设计上Struts2的应用可以不依赖于Servlet API和struts API。 Struts2的这种设计属于无侵入式设计；<br>2.拦截器，实现如参数拦截注入等功能；<br>3.类型转换器，可以把特殊的请求参数转换成需要的类型；<br>4.多种表现层技术，如：JSP、freeMarker、Velocity等；<br>5.Struts2的输入校验可以对指定某个方法进行校验；<br>6.提供了全局范围、包范围和Action范围的国际化资源文件管理实现；</p>
+<h2 id="004Struts2是如何启动的？"><a href="#004Struts2是如何启动的？" class="headerlink" title="004Struts2是如何启动的？"></a>004Struts2是如何启动的？</h2><p>1.Struts2框架是通过Filter启动的，即StrutsPrepareAndExecuteFilter，此过滤器为struts2的核心过滤器；<br>2.StrutsPrepareAndExecuteFilter的init()方法中将会读取类路径下默认的配置文件struts.xml完成初始化操作。struts2读取到struts.xml的内容后，是将内容封装进javabean对象然后存放在内存中，以后用户的每次请求处理将使用内存中的数据，而不是每次请求都读取struts.xml文件。</p>
+<h2 id="005Strust2如何访问Servlet-API"><a href="#005Strust2如何访问Servlet-API" class="headerlink" title="005Strust2如何访问Servlet API?"></a>005Strust2如何访问Servlet API?</h2><p>1)通过ActionContext可以获得request，application，session三个作用域(struts2实际上是通过适配器来把servlet的api转换为一个map，并把这些map放在ActionContext里面)。<br>2)通过ActionContext的子类ServletActionContext去获取原滋原味的API。<br>3)可以通过实现ServletRequestAware接口，重写里面的setServletRequest方法可以获得request，实际上是通过set的依赖注入。</p>
+<h2 id="006Struts2-如何定位action中的方法？"><a href="#006Struts2-如何定位action中的方法？" class="headerlink" title="006Struts2 如何定位action中的方法？"></a>006Struts2 如何定位action中的方法？</h2><p>1)感叹号定位方法（动态方法）。<br>2)在xml配置文件中通过配置多个action，使用action的method指定方法。<br>3)使用通配符(*)匹配方法。</p>
+<h2 id="007result的type属性中有哪几种结果类型？"><a href="#007result的type属性中有哪几种结果类型？" class="headerlink" title="007result的type属性中有哪几种结果类型？"></a>007result的type属性中有哪几种结果类型？</h2><p>一共10种：<br>dispatcher是默认的结果类型，把控制权转发给应用程序里的某个资源。<br>redirect把响应重定向到另一个资源（包括一个外部资源）<br>redirectAction把响应重定向到另一个 Action<br>freemarker、velocity、chain、httpheader、xslt、plainText、stream </p>
+<h2 id="008ActionContext、ServletContext、pageContext的区别？"><a href="#008ActionContext、ServletContext、pageContext的区别？" class="headerlink" title="008ActionContext、ServletContext、pageContext的区别？"></a>008ActionContext、ServletContext、pageContext的区别？</h2><p>1.ActionContext是当前的Action的上下文环境，通过ActionContext可以获取到request、session、ServletContext等与Action有关的对象的引用；<br>2.ServletContext是域对象，一个web应用中只有一个ServletContext，生命周期伴随整个web应用；<br>3.pageContext是JSP中的最重要的一个内置对象，是JSP四个域对象中最小的。可以通过pageContext获取其他域对象的应用，同时它是一个域对象，作用范围只针对当前页面，当前页面结束时，pageContext销毁。</p>
+<h2 id="009Struts2常量的修改方式？"><a href="#009Struts2常量的修改方式？" class="headerlink" title="009Struts2常量的修改方式？"></a>009Struts2常量的修改方式？</h2><p>常量可以在struts.xml或struts.properties中配置，两种配置方式如下：<br>1.在struts.xml文件中配置常量<br><constant name="struts.action.extension" value="do"/><br>2.在struts.properties中配置常量（struts.properties文件放置在src下）：<br>struts.action.extension&#x3D;do</p>
+<h2 id="010关于Struts的描述中，不正确的是（D）"><a href="#010关于Struts的描述中，不正确的是（D）" class="headerlink" title="010关于Struts的描述中，不正确的是（D）"></a>010关于Struts的描述中，不正确的是（D）</h2><p>A. Struts 是一个基于JAVA EE的MVC<br>B. Struts2的框架配置文件是struts-configxml<br>C. Struts2的控制组建核心包括核心控制和业务控制器<br>D. 在Struts中解决中文乱码可以通过修改struts。I18n。encoding的值为GBK来实现</p>
+<h2 id="011Struts中数据验证失败时，通过（-B-）标签显示错误信息。"><a href="#011Struts中数据验证失败时，通过（-B-）标签显示错误信息。" class="headerlink" title="011Struts中数据验证失败时，通过（ B ）标签显示错误信息。"></a>011Struts中数据验证失败时，通过（ B ）标签显示错误信息。</h2><p>A &lt;s:text&gt;<br>B &lt;s:error&gt;<br>C &lt;s:faild&gt;<br>D &lt;s:fielderror&gt;</p>
+<h2 id="012以下属于struts2的控制器组件的是：-A"><a href="#012以下属于struts2的控制器组件的是：-A" class="headerlink" title="012以下属于struts2的控制器组件的是：(A)"></a>012以下属于struts2的控制器组件的是：(A)</h2><p>A. Action<br>B. ActionForm<br>C. ActionServlet<br>D. DispatchAction</p>
+<h2 id="013以下属于struts2的体系结构的是：-AB"><a href="#013以下属于struts2的体系结构的是：-AB" class="headerlink" title="013以下属于struts2的体系结构的是： (AB)"></a>013以下属于struts2的体系结构的是： (AB)</h2><p>A. struts2控制器组件<br>B. struts2配置文件<br>C. FilterDispatcher<br>D. Action</p>
+<h2 id="014以下属于struts2配置文件的配置元素是：-AB"><a href="#014以下属于struts2配置文件的配置元素是：-AB" class="headerlink" title="014以下属于struts2配置文件的配置元素是：( AB)"></a>014以下属于struts2配置文件的配置元素是：( AB)</h2><p>A. <package><br>B. <action><br>C. <form-bean><br>D. <action-mapping></p>
+<h2 id="015关于struts1和struts2对比的说法正确的是：-A）"><a href="#015关于struts1和struts2对比的说法正确的是：-A）" class="headerlink" title="015关于struts1和struts2对比的说法正确的是：( A）"></a>015关于struts1和struts2对比的说法正确的是：( A）</h2><p>A. struts1要求Action类继承其框架中的Action父类，struts2则不一定需要继承，可以是POJO类<br>B. struts1的Action不是线程安全的，struts2的Action是线程安全的<br>C. struts1和struts2都使用ActionForm对象封装用户的请求数据<br>D. struts1使用OGNL表达式语言来支持页面效果，struts2通过ValueStack技术使标签库访问值</p>
+<h2 id="016以下关于ValueStack说法正确的是：（-ACD）"><a href="#016以下关于ValueStack说法正确的是：（-ACD）" class="headerlink" title="016以下关于ValueStack说法正确的是：（ ACD）"></a>016以下关于ValueStack说法正确的是：（ ACD）</h2><p>A. 每个Action对象实例拥有一个ValueStack对象<br>B. 每个Action对象实例拥有多个ValueStack对象<br>C. Action中封装的需要传入下一个页面的值，这些值封装在ValueStack对象中<br>D. ValueStack会在请求开始时创建，请求结束时消亡</p>
+<h2 id="017关于struts2配置中用-（C）"><a href="#017关于struts2配置中用-（C）" class="headerlink" title="017关于struts2配置中用 （C）"></a>017关于struts2配置中用 （C）</h2><p>A. 必须在WEB-INF&#x2F;classes目录下<br>B. 名字必须为strutss.xml<br>C. 配置Action时，必须配置包信息<br>D. 使用<forward>元素配置转发</p>
+<h2 id="018在struts配置中用（C）元素配置常量"><a href="#018在struts配置中用（C）元素配置常量" class="headerlink" title="018在struts配置中用（C）元素配置常量"></a>018在struts配置中用（C）元素配置常量</h2><p>A. <const><br>B. <constants><br>C. <constant><br>D. <constant-mapping></p>
+<h2 id="019关于struts2包说法正确的是：（BCD）"><a href="#019关于struts2包说法正确的是：（BCD）" class="headerlink" title="019关于struts2包说法正确的是：（BCD）"></a>019关于struts2包说法正确的是：（BCD）</h2><p>A. struts2框架使用包来管理常量<br>B. struts2框架定义包时必须指定name属性<br>C. struts2框架中配置包时，必须继承自struts-default包，否则会报错<br>D. struts2框架中使用包来管理Action</p>
+<h2 id="020struts2中获取Servlet-API的方法正确的是：（AD）"><a href="#020struts2中获取Servlet-API的方法正确的是：（AD）" class="headerlink" title="020struts2中获取Servlet API的方法正确的是：（AD）"></a>020struts2中获取Servlet API的方法正确的是：（AD）</h2><p>A. 使用ActionContext对象以解耦合的方式访问Servlet API<br>B. 使用ServletActionContext对象以解耦合的方式访问Servlet API<br>C. 使用ActionContext对象以耦合的方式访问Servlet API<br>D. 使用ActionContext对象以耦合的方式访问Servlet API</p>
+<h2 id="021如果要实现struts2的数据检验功能（C）"><a href="#021如果要实现struts2的数据检验功能（C）" class="headerlink" title="021如果要实现struts2的数据检验功能（C）"></a>021如果要实现struts2的数据检验功能（C）</h2><p>A. 普通的Action类可以实现<br>B. 继承自Action接口的可以实现<br>C. 继承自ActionSupport类可以实现<br>D. 继承自ActionValidate类可以实现</p>
+<h2 id="022如果要实现自定义处理结果，需要继承哪个类-（B）"><a href="#022如果要实现自定义处理结果，需要继承哪个类-（B）" class="headerlink" title="022如果要实现自定义处理结果，需要继承哪个类 （B）"></a>022如果要实现自定义处理结果，需要继承哪个类 （B）</h2><p>A. Dispatcher<br>B. StrutsResultSupport<br>C. Support<br>D. Action</p>
+<h2 id="023实现动态返回结果，在配置元素时使用（A）指定视图资源"><a href="#023实现动态返回结果，在配置元素时使用（A）指定视图资源" class="headerlink" title="023实现动态返回结果，在配置元素时使用（A）指定视图资源"></a>023实现动态返回结果，在配置<resule>元素时使用（A）指定视图资源</h2><p>A. ${属性名}<br>B. @{属性名}<br>C. ${‘属性名’}<br>D. ${“属性名”}</p>
+<h2 id="024用于实现国际化的struts2标签的是-（A）"><a href="#024用于实现国际化的struts2标签的是-（A）" class="headerlink" title="024用于实现国际化的struts2标签的是 （A）"></a>024用于实现国际化的struts2标签的是 （A）</h2><p>A. &lt;s:text&gt;<br>B. &lt;s:message&gt;<br>C. &lt;s:textfile&gt;<br>D. &lt;s:resource&gt;</p>
+<h2 id="025自定义拦截器类的方式有：（AD）"><a href="#025自定义拦截器类的方式有：（AD）" class="headerlink" title="025自定义拦截器类的方式有：（AD）"></a>025自定义拦截器类的方式有：（AD）</h2><p>A. 实现Interceptor接口<br>B. 实现AbstractionInceptor接口<br>C. 继承Interceptor类<br>D. 继承AbstractionInceptor类</p>
+<h2 id="026在struts-xml文件中，使用（B）定义拦截器"><a href="#026在struts-xml文件中，使用（B）定义拦截器" class="headerlink" title="026在struts.xml文件中，使用（B）定义拦截器"></a>026在struts.xml文件中，使用（B）定义拦截器</h2><p>A. <interceptor-ref><br>B. <interceptor><br>C. <intercep><br>D. <defaull-interceptor-ref></p>
+<h2 id="027在OGNL中-操作符的作用是（C）"><a href="#027在OGNL中-操作符的作用是（C）" class="headerlink" title="027在OGNL中?操作符的作用是（C）"></a>027在OGNL中?操作符的作用是（C）</h2><p>A. 取出符合选择逻辑的第一个元素<br>B. 取出符合选择逻辑的第&#x3D;最后一个元素<br>C. 取出符合选择逻辑的所有元素<br>D. 以上说法都不对</p>
+<h2 id="028以下哪个标签是struts2中用于循环迭代的（B）"><a href="#028以下哪个标签是struts2中用于循环迭代的（B）" class="headerlink" title="028以下哪个标签是struts2中用于循环迭代的（B）"></a>028以下哪个标签是struts2中用于循环迭代的（B）</h2><p>A. &lt;s:property&gt;<br>B. &lt;s:iterator&gt;<br>C. &lt;s:logic&gt;<br>D. &lt;s:foreach&gt;</p>
+<h2 id="029以下关于OGNL的说法正确的是（AC）"><a href="#029以下关于OGNL的说法正确的是（AC）" class="headerlink" title="029以下关于OGNL的说法正确的是（AC）"></a>029以下关于OGNL的说法正确的是（AC）</h2><p>A. ActionContext是OGNL上下文环境<br>B. StackContext是OGNL上下文环境<br>C. ValueStack是OGNL根<br>D. ActionContext是OGNL根</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2024/03/22/Web后端/" data-toggle="tooltip" data-placement="top"
+                           title="">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2024/03/22/sql/" data-toggle="tooltip" data-placement="top"
+                           title="">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Struts2%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-text">Struts2面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#001%E8%B0%88%E8%B0%88%E4%BD%A0%E5%AF%B9MVC%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9F"><span class="toc-text">001谈谈你对MVC的理解？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#002%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BStruts2%EF%BC%9F"><span class="toc-text">002简单介绍一下Struts2？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#003Struts2%E6%9C%89%E5%93%AA%E4%BA%9B%E4%BC%98%E7%82%B9%EF%BC%9F"><span class="toc-text">003Struts2有哪些优点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#004Struts2%E6%98%AF%E5%A6%82%E4%BD%95%E5%90%AF%E5%8A%A8%E7%9A%84%EF%BC%9F"><span class="toc-text">004Struts2是如何启动的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#005Strust2%E5%A6%82%E4%BD%95%E8%AE%BF%E9%97%AEServlet-API"><span class="toc-text">005Strust2如何访问Servlet API?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#006Struts2-%E5%A6%82%E4%BD%95%E5%AE%9A%E4%BD%8Daction%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="toc-text">006Struts2 如何定位action中的方法？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#007result%E7%9A%84type%E5%B1%9E%E6%80%A7%E4%B8%AD%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E7%BB%93%E6%9E%9C%E7%B1%BB%E5%9E%8B%EF%BC%9F"><span class="toc-text">007result的type属性中有哪几种结果类型？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#008ActionContext%E3%80%81ServletContext%E3%80%81pageContext%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">008ActionContext、ServletContext、pageContext的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#009Struts2%E5%B8%B8%E9%87%8F%E7%9A%84%E4%BF%AE%E6%94%B9%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-text">009Struts2常量的修改方式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#010%E5%85%B3%E4%BA%8EStruts%E7%9A%84%E6%8F%8F%E8%BF%B0%E4%B8%AD%EF%BC%8C%E4%B8%8D%E6%AD%A3%E7%A1%AE%E7%9A%84%E6%98%AF%EF%BC%88D%EF%BC%89"><span class="toc-text">010关于Struts的描述中，不正确的是（D）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#011Struts%E4%B8%AD%E6%95%B0%E6%8D%AE%E9%AA%8C%E8%AF%81%E5%A4%B1%E8%B4%A5%E6%97%B6%EF%BC%8C%E9%80%9A%E8%BF%87%EF%BC%88-B-%EF%BC%89%E6%A0%87%E7%AD%BE%E6%98%BE%E7%A4%BA%E9%94%99%E8%AF%AF%E4%BF%A1%E6%81%AF%E3%80%82"><span class="toc-text">011Struts中数据验证失败时，通过（ B ）标签显示错误信息。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#012%E4%BB%A5%E4%B8%8B%E5%B1%9E%E4%BA%8Estruts2%E7%9A%84%E6%8E%A7%E5%88%B6%E5%99%A8%E7%BB%84%E4%BB%B6%E7%9A%84%E6%98%AF%EF%BC%9A-A"><span class="toc-text">012以下属于struts2的控制器组件的是：(A)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#013%E4%BB%A5%E4%B8%8B%E5%B1%9E%E4%BA%8Estruts2%E7%9A%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%9A%84%E6%98%AF%EF%BC%9A-AB"><span class="toc-text">013以下属于struts2的体系结构的是： (AB)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#014%E4%BB%A5%E4%B8%8B%E5%B1%9E%E4%BA%8Estruts2%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%9A%84%E9%85%8D%E7%BD%AE%E5%85%83%E7%B4%A0%E6%98%AF%EF%BC%9A-AB"><span class="toc-text">014以下属于struts2配置文件的配置元素是：( AB)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#015%E5%85%B3%E4%BA%8Estruts1%E5%92%8Cstruts2%E5%AF%B9%E6%AF%94%E7%9A%84%E8%AF%B4%E6%B3%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E6%98%AF%EF%BC%9A-A%EF%BC%89"><span class="toc-text">015关于struts1和struts2对比的说法正确的是：( A）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#016%E4%BB%A5%E4%B8%8B%E5%85%B3%E4%BA%8EValueStack%E8%AF%B4%E6%B3%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E6%98%AF%EF%BC%9A%EF%BC%88-ACD%EF%BC%89"><span class="toc-text">016以下关于ValueStack说法正确的是：（ ACD）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#017%E5%85%B3%E4%BA%8Estruts2%E9%85%8D%E7%BD%AE%E4%B8%AD%E7%94%A8-%EF%BC%88C%EF%BC%89"><span class="toc-text">017关于struts2配置中用 （C）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#018%E5%9C%A8struts%E9%85%8D%E7%BD%AE%E4%B8%AD%E7%94%A8%EF%BC%88C%EF%BC%89%E5%85%83%E7%B4%A0%E9%85%8D%E7%BD%AE%E5%B8%B8%E9%87%8F"><span class="toc-text">018在struts配置中用（C）元素配置常量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#019%E5%85%B3%E4%BA%8Estruts2%E5%8C%85%E8%AF%B4%E6%B3%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E6%98%AF%EF%BC%9A%EF%BC%88BCD%EF%BC%89"><span class="toc-text">019关于struts2包说法正确的是：（BCD）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#020struts2%E4%B8%AD%E8%8E%B7%E5%8F%96Servlet-API%E7%9A%84%E6%96%B9%E6%B3%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E6%98%AF%EF%BC%9A%EF%BC%88AD%EF%BC%89"><span class="toc-text">020struts2中获取Servlet API的方法正确的是：（AD）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#021%E5%A6%82%E6%9E%9C%E8%A6%81%E5%AE%9E%E7%8E%B0struts2%E7%9A%84%E6%95%B0%E6%8D%AE%E6%A3%80%E9%AA%8C%E5%8A%9F%E8%83%BD%EF%BC%88C%EF%BC%89"><span class="toc-text">021如果要实现struts2的数据检验功能（C）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#022%E5%A6%82%E6%9E%9C%E8%A6%81%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%AE%9A%E4%B9%89%E5%A4%84%E7%90%86%E7%BB%93%E6%9E%9C%EF%BC%8C%E9%9C%80%E8%A6%81%E7%BB%A7%E6%89%BF%E5%93%AA%E4%B8%AA%E7%B1%BB-%EF%BC%88B%EF%BC%89"><span class="toc-text">022如果要实现自定义处理结果，需要继承哪个类 （B）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#023%E5%AE%9E%E7%8E%B0%E5%8A%A8%E6%80%81%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C%EF%BC%8C%E5%9C%A8%E9%85%8D%E7%BD%AE%E5%85%83%E7%B4%A0%E6%97%B6%E4%BD%BF%E7%94%A8%EF%BC%88A%EF%BC%89%E6%8C%87%E5%AE%9A%E8%A7%86%E5%9B%BE%E8%B5%84%E6%BA%90"><span class="toc-text">023实现动态返回结果，在配置元素时使用（A）指定视图资源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#024%E7%94%A8%E4%BA%8E%E5%AE%9E%E7%8E%B0%E5%9B%BD%E9%99%85%E5%8C%96%E7%9A%84struts2%E6%A0%87%E7%AD%BE%E7%9A%84%E6%98%AF-%EF%BC%88A%EF%BC%89"><span class="toc-text">024用于实现国际化的struts2标签的是 （A）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#025%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8B%A6%E6%88%AA%E5%99%A8%E7%B1%BB%E7%9A%84%E6%96%B9%E5%BC%8F%E6%9C%89%EF%BC%9A%EF%BC%88AD%EF%BC%89"><span class="toc-text">025自定义拦截器类的方式有：（AD）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#026%E5%9C%A8struts-xml%E6%96%87%E4%BB%B6%E4%B8%AD%EF%BC%8C%E4%BD%BF%E7%94%A8%EF%BC%88B%EF%BC%89%E5%AE%9A%E4%B9%89%E6%8B%A6%E6%88%AA%E5%99%A8"><span class="toc-text">026在struts.xml文件中，使用（B）定义拦截器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#027%E5%9C%A8OGNL%E4%B8%AD-%E6%93%8D%E4%BD%9C%E7%AC%A6%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%EF%BC%88C%EF%BC%89"><span class="toc-text">027在OGNL中?操作符的作用是（C）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#028%E4%BB%A5%E4%B8%8B%E5%93%AA%E4%B8%AA%E6%A0%87%E7%AD%BE%E6%98%AFstruts2%E4%B8%AD%E7%94%A8%E4%BA%8E%E5%BE%AA%E7%8E%AF%E8%BF%AD%E4%BB%A3%E7%9A%84%EF%BC%88B%EF%BC%89"><span class="toc-text">028以下哪个标签是struts2中用于循环迭代的（B）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#029%E4%BB%A5%E4%B8%8B%E5%85%B3%E4%BA%8EOGNL%E7%9A%84%E8%AF%B4%E6%B3%95%E6%AD%A3%E7%A1%AE%E7%9A%84%E6%98%AF%EF%BC%88AC%EF%BC%89"><span class="toc-text">029以下关于OGNL的说法正确的是（AC）</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/ehazon">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/megahertz">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Haojen 2024
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://haojen.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
+</body>
+
+</html>

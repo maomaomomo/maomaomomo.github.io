@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="马浩珍在 Github 上的个人博客">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Haojen" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        Haojen&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://haojen.github.io/2024/03/22/MySQL/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Haojen
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1></h1>
+                    
+                    <span class="meta">
+                         作者 Haojen Ma
+                        <span>
+                          日期 2024-03-22
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="MySQL面试题"><a href="#MySQL面试题" class="headerlink" title="MySQL面试题"></a>MySQL面试题</h1><h2 id="001Innodb是如何实现事务的？"><a href="#001Innodb是如何实现事务的？" class="headerlink" title="001Innodb是如何实现事务的？"></a>001Innodb是如何实现事务的？</h2><p>在MySQL中，事务是在存储引擎层实现的。对于InnoDB而言：<br>● 原子性代表着可回滚，这一特性主要有undo log实现；<br>● 隔离性需要在效率上作出平衡，在不同的隔离级别下主要由MVCC和锁实现；<br>● 持久性主要由redo log和double write实现，redo log是一种Write Ahead Log（WAL）策略，用于对数据页进行重做；double write则用于防止脏页刷盘时部分写失效导致的数据丢失。<br>MVCC（Multiversion concurrency control，多版本并发控制协议），是一种提高系统并发的技术，在很多情况下避免了加锁操作。MVCC通过undo log来构建数据的历史版本，通过视图来定义数据版本的可见性。并由此构建数据库在某一个时间点的全库快照（一致性视图），来实现一致性非锁定读，保障事务的隔离性和一致性。</p>
+<h2 id="002Myql中的事务回滚机制概述-？"><a href="#002Myql中的事务回滚机制概述-？" class="headerlink" title="002Myql中的事务回滚机制概述 ？"></a>002Myql中的事务回滚机制概述 ？</h2><p>事务是用户定义的一个数据库操作序列，这些操作要么全做要么全不做，是一个不可分割的工作单位，事务回滚是指将该事务已经完成的对数据库的更新操作撤销。<br>要同时修改数据库中两个不同表时，如果它们不是一个事务的话，当第一个表修改完，可能第二个表修改过程中出现了异常而没能修改，此时就只有第二个表依旧是未修改之前的状态，而第一个表已经被修改完毕。而当你把它们设定为一个事务的时候，当第一个表修改完，第二表修改出现异常而没能修改，第一个表和第二个表都要回到未修改的状态，这就是所谓的事务回滚。</p>
+<h2 id="003如何查看MySQL存储引擎？"><a href="#003如何查看MySQL存储引擎？" class="headerlink" title="003如何查看MySQL存储引擎？"></a>003如何查看MySQL存储引擎？</h2><p>show table status from <code>forum</code>; –forum是指定数据库名</p>
+<p><img src="http://www.bjpowernode.com/Public/Uploads/article/20220822/1661132903@8c17c9220390a7c5c09af41ced31d287.png" alt="img"></p>
+<h2 id="004MySQL支持的存储引擎"><a href="#004MySQL支持的存储引擎" class="headerlink" title="004MySQL支持的存储引擎?"></a>004MySQL支持的存储引擎?</h2><p>show engines;</p>
+<p><img src="http://www.bjpowernode.com/Public/Uploads/article/20220822/1661133012@b6cce781ce2e88e668e9591c0f1163e4.png" alt="img">Transaction：是否支持事务<br>XA：是否通过XA协议实现分布式事务（分为本地资源管理器，事务管理器）。<br>Savepoint：是否用来实现子事务（嵌套事务）。创建了一个Savepoints之后，事务就可以回滚到这个点，不会影响到创建Savepoints之前的操作。</p>
+<h2 id="005MyISAM和InnoDB的区别？"><a href="#005MyISAM和InnoDB的区别？" class="headerlink" title="005MyISAM和InnoDB的区别？"></a>005MyISAM和InnoDB的区别？</h2><p>MyISAM（3 个文件）特点：只读之类的数据分析的项目<br>\1. 支持表级别的锁（插入和更新会锁表）。不支持事务<br>\2. 拥有较高的插入（insert）和查询（select）速度<br>\3. MyISAM 用一个变量保存了整个表的行数，执行select count(*) from table语句时只需要读出该变量即可，速度很快；<br>InnoDB（2 个文件）特点：经常更新的表，存在并发读写或者有事务处理的业务系统。<br>\1. 支持事务，支持外键，因此数据的完整性、一致性更高<br>\2. 支持行级别的锁和表级别的锁<br>\3. 支持读写并发，写不阻塞读（MVCC）<br>\4. 特殊的索引存放方式，可以减少IO，提升查询效率<br>MyISAM 和InnoDB 是我们用得最多的两个存储引擎，在 MySQL 5.5 版本之前，默认的存储引擎是MyISAM。5.5版本之后默认的存储引擎改成了InnoDB，为什么要改呢？最主要的原因还是InnoDB 支持事务，支持外键，支持行级别的锁，对于业务一致性要求高的场景来说更适合。</p>
+<h2 id="006如何选择存储引擎？"><a href="#006如何选择存储引擎？" class="headerlink" title="006如何选择存储引擎？"></a>006如何选择存储引擎？</h2><p>InnoDB：适用对数据一致性要求比较高，需要事务支持<br>MyISAM：适用数据查询多更新少，对查询性能要求比较高。<br>Memory：适用一个用于查询的临时表。</p>
+<h2 id="007什么是索引？"><a href="#007什么是索引？" class="headerlink" title="007什么是索引？"></a>007什么是索引？</h2><p>索引其实是一种数据结构，能够帮助我们快速的检索数据库中的数据。<br>首先数据是以文件的形式存放在磁盘上面的，每一行数据都有它的磁盘地址。如果没有索引的话，要从500万行数据里面检索一条数据，只能依次遍历这张表的全部数据，直到找到这条数据。但是有了索引之后，只需要在索引里面去检索这条数据就行了，因为它是一种特殊的专门用来快速检索的数据结构，我们找到数据存放的磁盘地址以后，就可以拿到数据了。就像我们从一本 500 页的书里面去找特定的一小节的内容，肯定不可能从第一页开始翻。那么这本书有专门的目录，它可能只有几页的内容，它是按页码来组织的，可以根据拼音或者偏旁部首来查找，只要确定内容对应的页码，就能很快地找到我们想要的内容。</p>
+<h2 id="008索引的优缺点？"><a href="#008索引的优缺点？" class="headerlink" title="008索引的优缺点？"></a>008索引的优缺点？</h2><p>优点<br>● 提高数据检索的效率，降低数据库IO成本。<br>● 通过索引对数据进行排序，降低数据的排序成本，降低CPU的消耗。<br>缺点<br>● 建立索引需要占用物理空间<br>● 会降低表的增删改的效率，因为每次对表记录进行增删改，需要进行动态维护索引，导致增删改时间变长</p>
+<h2 id="009索引的应用场景？"><a href="#009索引的应用场景？" class="headerlink" title="009索引的应用场景？"></a>009索引的应用场景？</h2><p>需要建索引的情况<br>\1. 主键自动创建唯一索引<br>\2. 较频繁的作为查询条件的字段<br>\3. 查询中排序的字段，查询中统计或者分组的字段<br>不需要建索引的情况<br>\1. 表记录太少的字段<br>\2. 经常增删改的字段<br>\3. 唯一性太差的字段，不适合单独创建索引。比如性别，民族，政治面貌</p>
+<h2 id="010索引的数据结构？"><a href="#010索引的数据结构？" class="headerlink" title="010索引的数据结构？"></a>010索引的数据结构？</h2><p>索引的数据结构是B+树（加强版多路平衡查找树），原理：如下图，是一颗B+树，浅蓝色的块我们称之为一个磁盘块，可以看到每个磁盘块包含几个数据项（深蓝色所示）和指针（黄色所示），如磁盘块1包含数据项17和35，包含指针P1、P2、P3，P1表示小于17的磁盘块，P2表示在17和35之间的磁盘块，P3表示大于35的磁盘块。真实的数据存在于叶子节点即3、5、9、10、13、15、28、29、36、60、75、79、90、99。非叶子节点只不存储真实的数据，只存储指引搜索方向的数据项，如17、35并不真实存在于数据表中。</p>
+<p><img src="http://www.bjpowernode.com/Public/Uploads/article/20220822/1661135892@a76e3b01eecba05f65b44ac1a753b550.png" alt="img"></p>
+<p>查找过程：如图所示，如果要查找数据项29，那么首先会把磁盘块1由磁盘加载到内存，此时发生一次IO，在内存中用二分查找确定29在17和35之间，锁定磁盘块1的P2指针，内存时间因为非常短（相比磁盘的IO）可以忽略不计，通过磁盘块1的P2指针的磁盘地址把磁盘块3由磁盘加载到内存，发生第二次IO，29在26和30之间，锁定磁盘块3的P2指针，通过指针加载磁盘块8到内存，发生第三次IO，同时内存中做二分查找找到29，结束查询，总计三次IO。真实的情况是，3层的b+树可以表示上百万的数据，如果上百万的数据查找只需要三次IO，性能提高将是巨大的，如果没有索引，每个数据项都要发生一次IO，那么总共需要百万次的IO，显然成本非常非常高。<br>优点：保证等值和范围查询的快速查找。</p>
+<h2 id="011索引数据结构为什么是B-树？"><a href="#011索引数据结构为什么是B-树？" class="headerlink" title="011索引数据结构为什么是B+树？"></a>011索引数据结构为什么是B+树？</h2><p>先来说说二叉查找树（BST Binary Search Tree），二叉查找树在数组和链表的基础上整合出来的一个新的数据结构。<br>\1. 二叉查找树（BST Binary Search Tree）<br>二叉查找树的特点是左子树所有的节点都小于父节点，右子树所有的节点都大于父节点。投影到平面以后，就是一个有序的线性表。</p>
+<p><img src="http://www.bjpowernode.com/Public/Uploads/article/20220822/1661136347@23fc08e195ef78f74671c0a3b8731c9b.png" alt="img"><br>比如我们插入的数据是有序的[2、6、11、13、17、22] ，那么这个时候我们的二叉查找树变成了什么样了呢？如下图：</p>
+<p><img src="http://www.bjpowernode.com/Public/Uploads/article/20220822/1661136386@889ba0bb8507666c164152e861873eed.png" alt="img"><br>很明显，树变成链表了，因为左右子树深度差太大，这棵树的左子树根本没有节点——也就是它不够平衡。<br>优点：能够实现快速查找和插入。<br>缺点：树的深度会影响查找效率。<br>\1. 平衡二叉树（Balanced binary search trees）<br>平衡二叉树又称红黑树，除了具备二叉树的特点，最主要的特征是左右子树深度差绝对值不能超过1。例如我们按顺序插入1、2、3、4、5、6，就会变成如下图：</p>
+<p><img src="http://www.bjpowernode.com/Public/Uploads/article/20220822/1661136418@c6d9e97b3100bb57f38d93c3734d46be.png" alt="img"><br>优点：在插入删除数据时通过左旋&#x2F;右旋操作保持二叉树的平衡，不会出现左子树很高、右子树很矮的情况。<br>缺点：<br>● 时间复杂度和树高相关。树有多高就需要检索多少次，每个节点的读取，都对应一次磁盘 IO 操作。树的高度就等于每次查询数据时磁盘 IO 操作的次数。在表数据量大时，查询性能就会很差。<br>● 平衡二叉树不支持快速的范围查找，范围查找时需要从根节点多次遍历，查询效率不高。</p>
+<h2 id="012索引类型有哪些？"><a href="#012索引类型有哪些？" class="headerlink" title="012索引类型有哪些？"></a>012索引类型有哪些？</h2><p>1）单列索引：一个索引只包含单个列，但一个表中可以有多个单列索引。<br>主键索引：主键是一种唯一性索引，但它必须指定为PRIMARY KEY，每个表只能有一个主键。<br>唯一索引：索引列的所有值都只能出现一次，即必须唯一，值可以为空。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE UNIQUE INDEX account_UNIQUE_Index ON `award`(`account`);</span><br></pre></td></tr></table></figure>
+
+<p>普通索引：基本的索可以为空，没有唯一性的限制。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE INDEX account_Index ON `award`(`account`);</span><br></pre></td></tr></table></figure>
+
+<p>2）复合索引：</p>
+<p><strong>符合索引遵循索引最左匹配原则</strong>，举例：创建一个（a,b）的联合索引，那么它的索引树就是下图的样子。</p>
+<p><img src="http://www.bjpowernode.com/Public/Uploads/article/20220822/1661136772@232e50cb374053c6243d941c6ac5d0a1.png" alt="img"><br>可以看到a的值是有顺序的，1，1，2，2，3，3，而b的值是没有顺序的1，2，1，4，1，2。但是我们又可发现a在等值的情况下，b值又是按顺序排列的，但是这种顺序是相对的。这是因为MySQL创建联合索引的规则是首先会对联合索引的最左边第一个字段排序，在第一个字段的排序基础上，然后在对第二个字段进行排序。<br><strong>复合索引是包含两个或两个以上字段的索引。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">create index a_b_c_index on table1(a,b,c)</span><br></pre></td></tr></table></figure>
+
+<p>创建的联合索引a_b_c_index，实际上相当于建立了三个索引（a）、（a_b）、（a_b_c）。<br>注意：<br>● 查询必须从索引的最左边的列开始，否则无法使用索引。比如直接使用b或着c，此时索引会失效。<br>● 查询不能跳过某一个索引。比如使用了a索引，但是跳过了b，使用了c，此时只有a索引有用，而c索引失效。<br>● 查询中如果使用了范围查询，那么其右侧的索引列会失效。比如a&#x3D;1 and b&gt;2 and c&#x3D;3.此时b使用了范围查询，&gt;、like等。c索引列不会起作用。<br>3） 全文索引<br>全文索引，只有在MyISAM引擎上才能使用，只能在CHAR,VARCHAR,TEXT类型字段上使用全文索引，介绍了要求，说说什么是全文索引，就是在一堆文字中，通过其中的某个关键字等，就能找到该字段所属的记录行，比如有”我爱学编程尤其是java …” 通过java，可能就可以找到该条记录。这里说的是可能，因为全文索引的使用涉及了很多细节，我们只需要知道这个大概意思。一般开发中，不贵用到全文索引，因为其占用很大的物理空间和降低了记录修改性，故较为少用。</p>
+<h2 id="013怎么查询SQL语句是否使用了索引查询？"><a href="#013怎么查询SQL语句是否使用了索引查询？" class="headerlink" title="013怎么查询SQL语句是否使用了索引查询？"></a>013怎么查询SQL语句是否使用了索引查询？</h2><p>在查询sql前面加一个explain，如explain select ……….</p>
+<p><img src="http://www.bjpowernode.com/Public/Uploads/article/20220822/1661136932@84c5c7800158ef9acc8d30e08e964ea9.png" alt="img">我们只需要注意一个最重要的type 的信息很明显的提现是否用到索引，type结果值从好到坏依次是：<br>system &gt; const &gt; eq_ref &gt; ref &gt; fulltext &gt; ref_or_null &gt; index_merge &gt; unique_subquery &gt; index_subquery &gt; range &gt; index &gt; ALL<br>一般来说，得保证查询至少达到range级别，最好能达到ref，否则就可能会出现性能问题。其中possible_keys：sql所用到的索引</p>
+<h2 id="014什么是聚簇索引？"><a href="#014什么是聚簇索引？" class="headerlink" title="014什么是聚簇索引？"></a>014什么是聚簇索引？</h2><p>聚簇索引就是将数据(一行一行的数据)跟索引结构放到一块，innodb存储引擎使用的就是聚簇索引；聚集索引中表记录的排列顺序和索引的排列顺序一致，所以查询效率快，只要找到第一个索引值记录，其余就连续性的记录在物理也一样连续存放。聚集索引对应的缺点就是修改慢，因为为了保证表中记录的物理和索引顺序一致，在记录插入的时候，会对数据页重新排序。<br>而非聚集索引：制定了表中记录的逻辑顺序，但是记录的物理和索引不一定一致，两种索引都采用B+树结构，非聚集索引的叶子层并不和实际数据页相重叠，而采用叶子层包含一个指向表中的记录在数据页中的指针方式。非聚集索引层次多，不会造成数据重排。</p>
+<h2 id="015使用聚簇索引的优缺点？"><a href="#015使用聚簇索引的优缺点？" class="headerlink" title="015使用聚簇索引的优缺点？"></a>015使用聚簇索引的优缺点？</h2><p>1.由于行数据和聚簇索引的叶子节点存储在一起，同一页（16k）中会有多条行数据，访问同一数据页不同行记录时，已经把页加载到了Buffer中(读取数据是按页读取的)，再次访问时，会在内存中完成访问，不必访问磁盘。这样主键和行数据是一起被载入内存的，找到叶子节点就可以立刻将行数据返回了，如果按照主键Id来组织数据，获得数据更快。<br>2.辅助索引的叶子节点，存储主键值，而不是数据的存放地址。好处是当行数据放生变化时，索引树的节点也需要分裂变化；或者是我们需要查找的数据，在上一次IO读写的缓存中没有，需要发生一次新的IO操作时，可以避免对辅助索引的维护工作，只需要维护聚簇索引树就好了。另一个好处是，因为辅助索引存放的是主键值，减少了辅助索引占用的存储空间大小。<br>3.因为MyISAM的主索引并非聚簇索引，那么他的数据的物理地址必然是凌乱的，拿到这些物理地址，按照合适的算法进行I&#x2F;O读取，于是开始不停的寻道不停的旋转。聚簇索引则只需一次I&#x2F;O。不过，如果涉及到大数据量的排序、全表扫描、count之类的操作的话，还是MyISAM占优势些，因为索引所占空间小，这些操作是需要在内存中完成的。</p>
+<h2 id="016为什么推荐使用自增主键作为索引？"><a href="#016为什么推荐使用自增主键作为索引？" class="headerlink" title="016为什么推荐使用自增主键作为索引？"></a>016为什么推荐使用自增主键作为索引？</h2><p>主键最好不要使用uuid，因为uuid的值太过离散，不适合排序且可能出现新增加记录的uuid，会插入在索引树中间的位置，出现页分裂（比如之前的索引已经紧凑的排列在一起了，你此时需要在已经紧凑排列好的数据中插入数据就会导致前面已经排好序的索引出现松动和重构排序，但是使用自增id就不会出现这种情况了），导致索引树调整复杂度变大，消耗更多的时间和资源。但是使用自增主键就可以避免出现页分裂，因为自增主键后面的主键值是要比前面的大， 那后来的数据直接放在后面就行；<br>聚簇索引的数据的物理存放顺序与索引顺序是一致的，即：只要索引是相邻的，那么对应的数据一定也是相邻地存放在磁盘上的。如果主键不是自增id，它会不断地调整数据的物理地址、分页，当然也有其他一些措施来减少这些操作，但却无法彻底避免。但如果是自增的id，它只需要一 页一页地写，索引结构相对紧凑，磁盘碎片少，效率也高。</p>
+<h2 id="017什么叫回表？"><a href="#017什么叫回表？" class="headerlink" title="017什么叫回表？"></a>017什么叫回表？</h2><p>如果一个查询是先走辅助索引（聚簇索引外的索引都叫辅助索引）的，那么通过这个辅助索引（innodb中的辅助索引的data存储的是主键）没有获取到我们想要的全部数据，那么MySQL就会拿着辅助索引查询出来的主键去聚簇索引中进行查询，这个过程就是叫回表；</p>
+<h2 id="018什么是索引覆盖？"><a href="#018什么是索引覆盖？" class="headerlink" title="018什么是索引覆盖？"></a>018什么是索引覆盖？</h2><h1 id="所谓的索引覆盖是索引高效找到行的一个方法，当能通过检索索引就可以读取想要的数据，那就不需要再到数据表中读取行了。如果一个索引包含了（或覆盖了）满足查询语句中字段与条件的数据就叫做覆盖索引。"><a href="#所谓的索引覆盖是索引高效找到行的一个方法，当能通过检索索引就可以读取想要的数据，那就不需要再到数据表中读取行了。如果一个索引包含了（或覆盖了）满足查询语句中字段与条件的数据就叫做覆盖索引。" class="headerlink" title="所谓的索引覆盖是索引高效找到行的一个方法，当能通过检索索引就可以读取想要的数据，那就不需要再到数据表中读取行了。如果一个索引包含了（或覆盖了）满足查询语句中字段与条件的数据就叫做覆盖索引。"></a>所谓的索引覆盖是索引高效找到行的一个方法，当能通过检索索引就可以读取想要的数据，那就不需要再到数据表中读取行了。如果一个索引包含了（或覆盖了）满足查询语句中字段与条件的数据就叫做覆盖索引。</h1><p>注意：id 字段是聚簇索引，age 字段是普通索引（二级索引）<br>select id,age from user where age &#x3D; 30;<br>上面的这个sql是不用回表查询的，因为在非聚簇索引的叶子节点上已经有id和age的值。所以根本不需要拿着id的值再去聚簇索引定位行记录数据了。也就是在这一颗索引树上就可以完成对数据的检索，这样就实现了覆盖索引。<br>select id,age,name from user where age &#x3D; 30;<br>而上面的这个sql不能实现索引覆盖了，因为name的值在age索引树上是没有的，还是需要拿着id的值再去聚簇索引定位行记录数据。但是如果我们对age和name做一个组合索引idx_age_name(age,name),那就又可以实现索引覆盖了。</p>
+<h2 id="019MySQL索引失效的几种情况？"><a href="#019MySQL索引失效的几种情况？" class="headerlink" title="019MySQL索引失效的几种情况？"></a>019MySQL索引失效的几种情况？</h2><p>1）like查询以%开头，因为会导致查询出来的结果无序；如：应尽量避免使用模糊查询， like “xxxx%” 是可以用到索引的，like “%xxxx” 则不行(like “%xxx%” 同理)。否则将导致引擎将放弃使用索引而进行全表扫描。<br>2）类型转换，列计算也会可能会让索引失效，因为结果可能是无序的，也可能是有序的；如：应尽量避免在where子句中的“&#x3D;”左边进行函数、算术运算或其他表达式运算，否则将导致引擎放弃使用索引而进行全表扫描。如：select id from t where num&#x2F;2&#x3D;100应改为：select id from t where num&#x3D;100*2<br>3）在一些查询的语句中，MySQL认为走全表扫描也会导致索引失效；如：应尽量避免使用is null 和is not null 、in和not in，否则将导致引擎将放弃使用索引而进行全表扫描。<br>对于连续的数值用between就不要用in，如：select id from t where num in(1,2,3) 替换成：select id from t where num between 1 and 3<br>用exists代替in，如：select num from a where num in(select num from b) 替换成：select num from a where exists(select 1 from b where num&#x3D;a.num)<br>4）如果条件中有or并且or连接的字段中有列没有索引，那么即使其中有条件带索引也不会使用索引 (这是因为MySQL判断即便你开始走了索引查询，但是它发现查询中有or ，也就是说or 后面的还是需要走全表扫描（因为or会导致后面的数据是无序的），所以MySQL还不如一开始就直接走全表扫描，这也是为什么尽量少用or的原因)要想使用or，又想让索引生效，只能将or条件中的每个列都加上索引，当检索条件有or但是所有的条件都有索引时，索引不失效，可以走【两个索引】，这叫索引合并（取二者的并集）;<br>5)复合索引不满足最左原则就不能使用全部索引，如：注意最佳左前缀法则，比如建立了一个联合索引(a,b,c)，那么其实我们可利用的索引就有(a), (a,b), (a,b,c)。</p>
+<h2 id="020谈一下你对MySQL索引的理解？"><a href="#020谈一下你对MySQL索引的理解？" class="headerlink" title="020谈一下你对MySQL索引的理解？"></a>020谈一下你对MySQL索引的理解？</h2><p>索引的b+树结构,为什么使用b+树说一下,然后再说一下聚簇索引，回表和索引覆盖；<br>然后再谈一下索引失效；</p>
+<h2 id="021MySQL中聚合函数有哪些？"><a href="#021MySQL中聚合函数有哪些？" class="headerlink" title="021MySQL中聚合函数有哪些？"></a>021MySQL中聚合函数有哪些？</h2><p>如sum. avg, count, max, min等</p>
+<h2 id="022MySQL的函数中有关String的操作？"><a href="#022MySQL的函数中有关String的操作？" class="headerlink" title="022MySQL的函数中有关String的操作？"></a>022MySQL的函数中有关String的操作？</h2><p>1、LOCATE(substr , str )：返回子串 substr 在字符串 str 中第一次出现的位置，如果字符substr在字符串str中不存在，则返回0；<br>2、POSITION(substr IN str )：返回子串 substr 在字符串 str 中第一次出现的位置，如果字符substr在字符串str中不存在，与LOCATE函数作用相同；<br>3、LEFT(str, length)：从左边开始截取str，length是截取的长度；<br>4、RIGHT(str, length)：从右边开始截取str，length是截取的长度；<br>5、SUBSTRING_INDEX(str ,substr ,n)：返回字符substr在str中第n次出现位置之前的字符串;<br>6、SUBSTRING(str ,n ,m)：返回字符串str从第n个字符截取到第m个字符；<br>7、REPLACE(str, n, m)：将字符串str中的n字符替换成m字符；<br>8、LENGTH(str)：计算字符串str的长度。</p>
+<h2 id="023count-1-、count-与-count-列名-的区别？"><a href="#023count-1-、count-与-count-列名-的区别？" class="headerlink" title="023count(1)、count(*) 与 count(列名) 的区别？"></a>023count(1)、count(*) 与 count(列名) 的区别？</h2><p>1）从含义上讲，count(1) 与 count(<em>) 都表示对全部数据行的查询。count(</em>) 包括了所有的列，相当于行数，在统计结果的时候，不会忽略列值为NULL ；count(1) 用1代表代码行，在统计结果的时候不会忽略列值为NULL 。<br>2）执行效率上：<br>count(<em>)对行的数目进行计算，包含NULL，count(1)这个用法和count(</em>)的结果是一样的。如果表没有主键，那么count(1)比count(<em>)快。表有主键，count(</em>)会自动优化到主键列上。如果表只有一个字段，count(<em>)最快。<br>count(1)跟count(主键)一样，只扫描主键。count(</em>)跟count(非主键)一样，扫描整个表。明显前者更快一些。<br>count(1)和count(*)基本没有差别，但在优化的时候尽量使用count(1)。</p>
+<h2 id="024MySQL的时间函数有哪些？"><a href="#024MySQL的时间函数有哪些？" class="headerlink" title="024MySQL的时间函数有哪些？"></a>024MySQL的时间函数有哪些？</h2><p>1） DATE_FORMAT(time, ‘%Y-%m-%d’) 或者 “%H:%i:%S”<br>2） extract(year from “2019-12-25 22:47:37”) 从时间提前年&#x2F;月&#x2F;日<br>3） datediff(end_date,start_date) 时间做差，得到日期day<br>4） timestampdiff( day, end_date,start_date) 时间做差，可选择返回的时间类型</p>
+<h2 id="025MySQL中int-20-和char-20-以及varchar-20-的区别"><a href="#025MySQL中int-20-和char-20-以及varchar-20-的区别" class="headerlink" title="025MySQL中int(20)和char(20)以及varchar(20)的区别?"></a>025MySQL中int(20)和char(20)以及varchar(20)的区别?</h2><p>1、 int(20) 表示字段是int类型，显示长度是 20<br>2、 char(20)表示字段是固定长度字符串，长度为 20<br>3、 varchar(20) 表示字段是可变长度字符串，长度为 20</p>
+<h2 id="026SQL语句中关键字的执行顺序？"><a href="#026SQL语句中关键字的执行顺序？" class="headerlink" title="026SQL语句中关键字的执行顺序？"></a>026SQL语句中关键字的执行顺序？</h2><p>SQL的执行顺序：from—where–group by—having—select—order by</p>
+<h2 id="027SQL的生命周期？"><a href="#027SQL的生命周期？" class="headerlink" title="027SQL的生命周期？"></a>027SQL的生命周期？</h2><p>第一步：客户端请求<br>第二步：连接器（负责跟客户端建立连接、获取权限、维持和管理连接）<br>第三步：查询缓存（存在缓存则直接返回，不存在则执行后续操作）<br>第四步：分析器（对SQL进行词法分析和语法分析操作）<br>第五步：优化器（主要对执行的sql优化选择最优的执行方案方法）<br>第六步：执行器（执行时会先看用户是否有执行权限，有才去使用这个引擎提供的接口）<br>第七步：去引擎层获取数据返回（如果开启查询缓存则会缓存查询结果）</p>
+<h2 id="028drop、delete与truncate的区别？"><a href="#028drop、delete与truncate的区别？" class="headerlink" title="028drop、delete与truncate的区别？"></a>028drop、delete与truncate的区别？</h2><p>delete和truncate只删除表的数据不删除表的结构<br>速度,一般来说: drop&gt; truncate &gt;delete<br>delete语句是dml,这个操作会放到rollback segement中,事务提交之后才生效，如果有相应的trigger,执行的时候将被触发.<br> truncate,drop是ddl, 操作立即生效,原数据不放到rollback segment中,不能回滚. 操作不触发trigger.</p>
+<h2 id="029UNION与UNION-ALL的区别？"><a href="#029UNION与UNION-ALL的区别？" class="headerlink" title="029UNION与UNION ALL的区别？"></a>029UNION与UNION ALL的区别？</h2><p>● Union：对两个结果集进行并集操作，不包括重复行，同时进行默认规则的排序；<br>● Union All：对两个结果集进行并集操作，包括重复行，不进行排序；<br>● UNION ALL的效率高于 UNION</p>
+<h2 id="030什么是数据库锁？"><a href="#030什么是数据库锁？" class="headerlink" title="030什么是数据库锁？"></a>030什么是数据库锁？</h2><p>数据库是一个多用户使用的共享资源。当多个用户并发地存取数据时，在数据库中就会产生多个事务同时存取同一数据的情况。若对并发操作不加控制就可能会读取和存储不正确的数据，破坏数据库的一致性。<br>加锁是实现数据库并发控制的一个非常重要的技术。当事务在对某个数据对象进行操作前，先向系统发出请求，对其加锁。加锁后事务就对该数据对象有了一定的控制，在该事务释放锁之前，其他的事务不能对此数据对象进行更新操作。</p>
+<h2 id="031MySQL锁分类"><a href="#031MySQL锁分类" class="headerlink" title="031MySQL锁分类?"></a>031MySQL锁分类?</h2><p>1.从对数据操作的类型分类<br>读锁（共享锁）：针对同一份数据，多个读操作可以同时进行，不会互相影响<br>写锁（排他锁）：当前写操作没有完成前，它会阻断其他写锁和读锁<br>2.从对数据操作的范围分类<br>为了尽可能提高数据库的并发度，理论上每次只锁定当前操作的数据，即每次锁定的数据范围越小就会得到最大的并发度，但是管理锁是很耗资源的事情（涉及获取，检查，释放锁等动作），因此数据库系统需要在高并发响应和系统性能两方面进行平衡，这样就产生了“锁粒度（Lock granularity）”的概念。<br>表级锁：开销小，加锁快；不会出现死锁；锁定粒度大，发生锁冲突的概率最高，并发度最低（MyISAM 和 MEMORY 存储引擎采用的是表级锁）；适合于以查询为主，只有少量按索引条件更新数据的应用，如Web应用；<br>行级锁：开销大，加锁慢；会出现死锁；锁定粒度最小，发生锁冲突的概率最低，并发度也最高（InnoDB 存储引擎既支持行级锁也支持表级锁，但默认情况下是采用行级锁）； 适合于有大量按索引条件并发更新少量不同数据，同时又有并发查询的应用，如一些在线事务处理（OLTP）系统。<br>页面锁：开销和加锁时间界于表锁和行锁之间；会出现死锁；锁定粒度界于表锁和行锁之间，并发度一般。 </p>
+<h2 id="032悲观锁和乐观锁的区别？"><a href="#032悲观锁和乐观锁的区别？" class="headerlink" title="032悲观锁和乐观锁的区别？"></a>032悲观锁和乐观锁的区别？</h2><p>悲观锁：每次去拿数据的时候都认为别人会修改，所以每次在拿数据的时候都会上锁，这样别人想拿这个数据都会block直到它拿到锁。因此，悲观锁需要耗时比较的多，跟乐观锁比较，悲观锁是有数据库自己实现的，用的时候我们直接调用数据的相关语句就可以。<br>乐观锁：用数据版本记录机制实现，这是乐观锁最常用的方式，所谓的数据版本，为数据增加一个版本号的字段，一般是通过为数据表增加一个数据类型的version字段实现，当读取数据时，将把二十年字段的值一同读取出来，数据每次更新都需要对version值加一，在我们提交更新的时候，判断数据表对应记录的当前版本信息与第一次取出来的version值进行对比，如果数据库的表当前版本号鱼取出来的version值相等，则给与更新否则认为过期数据不给与更新。</p>
+<h2 id="033什么是数据库死锁？"><a href="#033什么是数据库死锁？" class="headerlink" title="033什么是数据库死锁？"></a>033什么是数据库死锁？</h2><p>是指二个或者二个以上的进程在执行时候，因为争夺资源造成相互等待的现象，进程一直处于等待中，无法得到释放，这种状态就叫做死锁。如批量入库时，存在则更新，不存在则插入，insert into tab(xx,xx) on duplicate key update xx&#x3D;‘xx’。</p>
+<h2 id="034如何查看死锁？"><a href="#034如何查看死锁？" class="headerlink" title="034如何查看死锁？"></a>034如何查看死锁？</h2><p>1）使用命令 show engine innodb status 查看最近的一次死锁。<br>2）InnoDB Lock Monitor 打开锁监控，每 15s 输出一次日志。使用完毕后建议关闭，否则会影响数据库性能。</p>
+<h2 id="035数据库死锁如何处理？"><a href="#035数据库死锁如何处理？" class="headerlink" title="035数据库死锁如何处理？"></a>035数据库死锁如何处理？</h2><p>1：通过innodblockwait_timeout来设置超时时间，一直等待直到超时。其中innodb默认是使用设置死锁时间来让死锁超时的策略，默认innodblockwait_timeout设置的时长是50s。<br>2：发起死锁检测，发现死锁之后，主动回滚死锁中的事务，不需要其他事务继续。</p>
+<h2 id="036如何避免数据库死锁？"><a href="#036如何避免数据库死锁？" class="headerlink" title="036如何避免数据库死锁？"></a>036如何避免数据库死锁？</h2><p>1）为了在单个innodb表上执行多个并发写入操作时避免死锁，可以在事务开始时，通过为预期要修改行，使用select …for update语句来获取必要的锁，即使这些行的更改语句是在之后才执行的<br>2）在事务中，如果要更新记录，应该直接申请足够级别的锁，即排他锁，而不应先申请共享锁，更新时在申请排他锁。因为这时候当用户在申请排他锁时，其他事务可能又已经获得了相同记录的共享锁，<br>3）如果事务需要修改或锁定多个表，则应在每个事务中以相同的顺序使用加锁语句。在应用中，如果不同的程序会并发获取多个表，应尽量约定以相同的顺序来访问表，这样可以大大降低产生死锁的机会。<br>4）通过 select …lock in share mode获取行的读锁后，如果当前事务在需要对该记录进行更新操作，则很有可能造成死锁；<br>5）改变事务隔离级别.</p>
+<h2 id="037什么是主从复制"><a href="#037什么是主从复制" class="headerlink" title="037什么是主从复制?"></a>037什么是主从复制?</h2><p>主从复制就是用来建立一个或多个和主库一样的数据库,称为从库,然后可以在这两者之上进行一个读写分离,主库少写,从库多读的操作,这样就能大大缓解数据库的并发压力。</p>
+<h2 id="038主从复制作用-？"><a href="#038主从复制作用-？" class="headerlink" title="038主从复制作用 ？"></a>038主从复制作用 ？</h2><p>1）做数据的热备份，作为后备数据库，主数据库服务器故障后，可切换到从数据库继续工作，避免数据丢失。<br>2）架构的扩展。业务量越来越大,I&#x2F;O访问频率过高，单机无法满足，此时做多库的存储，降低磁盘I&#x2F;O访问的评率，提高单个机器的I&#x2F;O性能。<br>3）读写分离，使数据库能支持更大的并发。在线上环境中,一般都是读多写少,那么我们可以在主库中实现写操作,然后在从库实现读操作,这样就能很好的分担压力.</p>
+<h2 id="039MySQL的主从复制如何做的？"><a href="#039MySQL的主从复制如何做的？" class="headerlink" title="039MySQL的主从复制如何做的？"></a>039MySQL的主从复制如何做的？</h2><p>\1. 首先从库创建I&#x2F;O线程去请求主库 的binlog<br>\2. 然后主库创建一个binlog dump线程将数据同步到binlog文件中.<br>\3. 然后从库I&#x2F;O线程将binlog文件数据同步到自身的redo log文件中.<br>\4. 然后从库创建一个sql线程将redo log文件里的数据同步到数据库里.</p>
+<h2 id="040主从复制可能会遇到的问题？"><a href="#040主从复制可能会遇到的问题？" class="headerlink" title="040主从复制可能会遇到的问题？"></a>040主从复制可能会遇到的问题？</h2><p>1.因为从库复制binlog文件的这个IO线程是单线程,所以如果出现网络阻塞等情况,那么主库的写操作肯定要比复制数据要快,这个时候就会导致从库复制延迟,数据不一致.<br>2.在从库用sql线程将redo log文件里的数据复制到数据库里的时候,可能会被对该表的操作阻塞,比如有另外的线程进行锁表的操作,那么该导入数据的sql线程就会被阻塞.此时也会导致复制延迟.<br>3.如果中间过程出现了宕机,可能会产生数据丢失的问题.</p>
+<h2 id="041主从复制的问题如何解决？"><a href="#041主从复制的问题如何解决？" class="headerlink" title="041主从复制的问题如何解决？"></a>041主从复制的问题如何解决？</h2><p>1.解决数据丢失,很简单,可以采用半同步复制策略.即在进行同步复制的时候,主库要求必须要有一个从库进行回应后才能确定复制成功,确保数据至少复制到了一台从机了.<br>2.解决复制延迟问题可以采用并行复制,这是自5.6后提出的,到5.7后得以升级传播,此后多个数据库版本出现就有多个版本的并行复制,这里截取网上一种通用说法,跟面试官说说就可以了,毕竟我们是刚出去工作的小白:<br>MySQL为了解决这个问题，将sql_thread演化了多个worker的形式，在slave端并行应用relay log中的事务，从而提高relay log的应用速度，减少复制延迟。</p>
+<h2 id="042分库分表的概念？"><a href="#042分库分表的概念？" class="headerlink" title="042分库分表的概念？"></a>042分库分表的概念？</h2><p>水平分库<br>概念：以字段为依据，按照一定策略（hash、range等），将一个库中的数据拆分到多个库中。<br>结果：每个库的结构都一样，拥有相同的表数量；每个库的数据都不一样，没有交集，所有库的并集是全量数据；</p>
+<p>垂直分库<br>概念：以表为依据，按照业务归属不同，将不同的表拆分到不同的库中。拆分对象是表<br>结果：每个库的结构都不一样，比如abcd四张表，ab表放x库，cd表放y库；每个库的数据也不一样，没有交集，所有库的并集是全量数据；</p>
+<p>水平分表<br>概念：以字段为依据，按照一定策略（hash、range等），将一个表中的数据拆分到多个表中。<br>结果：每个表的结构都一样；每个表的数据都不一样，没有交集；所有表的并集是全量数据；</p>
+<p>垂直分表<br>概念：以字段为依据，按照字段的活跃性，将热点字段放在一张表，非热点字段放一张表。<br>结果：每个表的结构都不一样，idabcd五个字段，idab字段放x表，idcd字段放y表；都存有主键，通过主键来关联</p>
+<h2 id="043如何设置自增的主键？"><a href="#043如何设置自增的主键？" class="headerlink" title="043如何设置自增的主键？"></a>043如何设置自增的主键？</h2><p>很简单，只需要在主键后面添加AUTO_INCREMENT关键字就行了</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE TABLE `user`(</span><br><span class="line">    id INT PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">    username VARCHAR(10),</span><br><span class="line">    `password` VARCHAR(20)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h2 id="044插入数据时指定主键了怎么办？"><a href="#044插入数据时指定主键了怎么办？" class="headerlink" title="044插入数据时指定主键了怎么办？"></a>044插入数据时指定主键了怎么办？</h2><p>刚才，我们在user表中已经把主键id设置为自增的了，但是又在表中插入了一条设置了id值的数据<br>insert into <code>user</code> values(1, “张三”, “zs666”)<br>那么MySQL会直接忽略掉我们自己设置的id，继续通过自增来设置插入数据的id</p>
+<h2 id="045主键不连续是什么情况？"><a href="#045主键不连续是什么情况？" class="headerlink" title="045主键不连续是什么情况？"></a>045主键不连续是什么情况？</h2><p><img src="http://www.bjpowernode.com/Public/Uploads/article/20220826/1661498667@be84a965e6f5c112f9bdc50b005b36c8.png" alt="img"></p>
+<p>例如id从5直接跳到了8，这是因为我们之前在尝试进行插入操作时，虽然事务没有提交，但是id已经自增了</p>
+<h2 id="046主键是用自增还是随机（UUID）？"><a href="#046主键是用自增还是随机（UUID）？" class="headerlink" title="046主键是用自增还是随机（UUID）？"></a>046主键是用自增还是随机（UUID）？</h2><p>主键建议是自增的好。因为InnoDB中的主键是聚簇索引，如果主键是自增的话，每次插入新的记录就会顺序添加到当前索引节点的后续位置，当一页写满就会自动开辟新的页。如果不是自增主键，可能就会在中间插入，引发页的分裂导致产生很多表空间的碎片。可以理解为当主键是UUID的时候，插入表记录的时间会更长，占用空间也会更大。</p>
+<h2 id="047主键为什么不推荐有业务含义？"><a href="#047主键为什么不推荐有业务含义？" class="headerlink" title="047主键为什么不推荐有业务含义？"></a>047主键为什么不推荐有业务含义？</h2><p>1.任何有业务含义的列都有改变的可能性，主键一旦带上了业务含义，那么主键就有可能发生变更。而主键一旦发生变更，该记录数据在磁盘上的存储位置就会发生改变，甚至有可能会引发页分裂导致产生空间碎片。<br>2.带有业务含义的主键就不一定是顺序自增的了，这样就会导致数据的插入顺序不到有序的，也不能保证后面插入数据的主键一定比前面的数据大。如果出现了后面插入数据的主键比前面的小的情况，就有可能引发页分裂导致产生空间碎片。</p>
+<h2 id="048表示枚举的字段为什么不用enum类型？"><a href="#048表示枚举的字段为什么不用enum类型？" class="headerlink" title="048表示枚举的字段为什么不用enum类型？"></a>048表示枚举的字段为什么不用enum类型？</h2><p>表示枚举的字段一般选用tinyint类型。不选用enum类型主要有两个原因：<br>1.enum类型的order by的操作效率低，需要额外的操作。<br>2.如果枚举值是数值类型的，会很容易出现语法陷阱，枚举的下标和数值很容易会被弄混淆。</p>
+<h2 id="049货币字段用什么类型？"><a href="#049货币字段用什么类型？" class="headerlink" title="049货币字段用什么类型？"></a>049货币字段用什么类型？</h2><p>如果货币单位是分，可以是int类型；如果坚持用元，则要用decimal类型。<br>但是是不能用float和double类型的，因为这两个类型是以二进制存储的，会有一定的误差。比如float类型如果你insert一个1234567.23，查询出来的结果可能是1234567.25。</p>
+<h2 id="050时间字段用什么类型？"><a href="#050时间字段用什么类型？" class="headerlink" title="050时间字段用什么类型？"></a>050时间字段用什么类型？</h2><p>时间字段的话需要结合项目背景，varchar、timestamp、datetime或bigint类型都可以。<br>1.varchar类型。如果用varchar类型来存时间，优点在于显示直观，存取都方便。但是缺点也是挺多的，比如插入的数据没有校验，某一天你可能会发现数据库中存了一个2019-06-31的数据。其次，做时间比较运算时需要用str_to_date()等函数将其转化为时间类型，除非建立基于函数的索引，否则这么写是无法命中索引的，数据量一大，查询效率就会很低。<br>2.timestamp类型。这个类型是四个字节的整数，它能表示的时间范围为1970-01-01 08:00:01到2038-01-19 11:14:07，而2038年以后的时间，是无法用timestamp类型存储的。但是它有一个优势是它带有时区信息的，一旦系统中的时区发生改变，项目中的该字段的值也会自己发生改变。<br>3.datetime类型。datetime类型的储存占用8个字节，存储的时间范围为1000-01-01 00:00:00 ~ 9999-12-31 23:59:59。显然，存储时间范围更大，但是它存储的是时间绝对值，不带有时区信息。如果改变了数据库的时区，该项的值不会自己发生变更。<br>4.bigint类型。这个类型也是8个字节，自己维护一个时间戳，表示范围比timestamp类型大多了。缺点就是要自己维护，不大方便。</p>
+<h2 id="051为什么不直接存储图片、音频和视频等大容量内容？"><a href="#051为什么不直接存储图片、音频和视频等大容量内容？" class="headerlink" title="051为什么不直接存储图片、音频和视频等大容量内容？"></a>051为什么不直接存储图片、音频和视频等大容量内容？</h2><p>在实际应用中，一般都是用HDFS来存储文件的，在MySQL中只会存文件的存放路径。但是实际上MySQL是有提供两个字段类型被涉及用来存放大容量文件的，一个是text类型，一个是blob类型。然而在生产中基本不会使用这两个类型，主要原因如下：<br>1.MySQL内存临时表不支持text和blob这样的大数据类型。如果查询中包含这样的数据，那么在排序等操作的时候就不能够使用内存临时表，只能使用磁盘临时表，会导致查询效率低下。<br>2.这两种类型会造成binlog的内容太多。因为数据的内容比较大，也就会造成binlog的内容比较多。我们知道，主从同步是通过binlog来进行的，如果binlog过大，就会导致主从同步的效率问题。</p>
+<h2 id="052为什么字段要被定义为NOT-NULL？"><a href="#052为什么字段要被定义为NOT-NULL？" class="headerlink" title="052为什么字段要被定义为NOT NULL？"></a>052为什么字段要被定义为NOT NULL？</h2><p>1.索引的性能不好。MySQL难以优化引用可空列查询，它会使得索引、索引统计和值更加复杂。可空列需要更多的存储空间，还需要MySQL内部进行特殊处理。可空列被索引后，每条记录都需要一个额外的字节。<br>2.查询可能会出现一些不可预料的结果。比如说使用count()聚合函数去统计一个可为空的字段，那么最后统计出来的记录数可能会和实际的记录数不同。</p>
+<h2 id="053varchar-50-中50的含义？"><a href="#053varchar-50-中50的含义？" class="headerlink" title="053varchar(50)中50的含义？"></a>053varchar(50)中50的含义？</h2><p>1）字段最多存放 50 个字符<br>2）如 varchar(50) 和 varchar(200) 存储 “jay” 字符串所占空间是一样的，后者在排序时会消耗更多内存</p>
+<h2 id="054MySql性能如何分析？"><a href="#054MySql性能如何分析？" class="headerlink" title="054MySql性能如何分析？"></a>054MySql性能如何分析？</h2><p>在优化MySQL时，通常需要对数据库进行分析，常见的分析手段有慢查询日志，EXPLAIN 分析查询，profiling分析以及show命令查询系统状态及系统变量，通过定位分析性能的瓶颈，才能更好的优化数据库系统的性能。<br>1 慢查询日志<br>MySQL 的慢查询日志用来记录在 MySQL 中响应时间超过阈值的语句，具体指运行时间超过long_query_time值的 SQL，则会被记录到慢查询日志中<br>● long_query_time的默认值为10，意思是运行10秒以上的语句。<br>● 默认情况下，MySQL数据库没有开启慢查询日志，需要手动设置参数开启<br>-———————————————–<br>修改配置文件my.cnf或my.ini，在[mysqld]一行下面加入两个配置参数<br>[mysqld]<br>slow_query_log &#x3D; ON<br>slow_query_log_file &#x3D; &#x2F;var&#x2F;lib&#x2F;mysql&#x2F;hostname-slow.log<br>long_query_time &#x3D; 3<br>在生产环境中，如果手工分析日志，查找、分析SQL，还是比较费劲的，所以MySQL提供了日志分析工具mysqldumpslow。<br>2 Explain(执行计划)<br>使用 Explain 关键字可以模拟优化器执行SQL查询语句，从而知道 MySQL 是如何处理你的 SQL 语句的。分析你的查询语句或是表结构的性能瓶颈<br>3 Show Profile 分析查询<br>Show Profile 是 MySQL 提供可以用来分析当前会话中语句执行的资源消耗情况。可以用于SQL的调优的测量。默认情况下，参数处于关闭状态，并保存最近15次的运行结果 .</p>
+<h2 id="055慢查询优化的基本步骤？"><a href="#055慢查询优化的基本步骤？" class="headerlink" title="055慢查询优化的基本步骤？"></a>055慢查询优化的基本步骤？</h2><p>1、先运行看看是否真的很慢，注意设置SQL_NO_CACHE<br>2、where条件单表查，锁定最小返回记录表。这句话的意思是把查询语句的where都应用到表中返回的记录数最小的表开始查起，单表每个字段分别查询，看哪个字段的区分度最高<br>3、explain查看执行计划，是否与1预期一致（从锁定记录较少的表开始查询）<br>4、order by limit 形式的sql语句让排序的表优先查<br>5、了解业务方使用场景<br>6、加索引时参照建索引的几大原则<br>7、观察结果，不符合预期继续从0分析</p>
+<h2 id="056MySQL索引优化？"><a href="#056MySQL索引优化？" class="headerlink" title="056MySQL索引优化？"></a>056MySQL索引优化？</h2><p>① 尽可能的使用复合索引而不是索引的组合；<br>②创建索引尽量让辅助索引进行索引覆盖 而不是回表；<br>③在可以使用主键id的表中，尽量使用自增主键id，这样可以避免页分裂；<br>④查询的时候尽量不要使用select * ，这样可以避免大量的回表；<br>⑤尽量少使用子查询，能使用外连接就使用外连接，这样可以避免产生笛卡尔集；<br>⑥能使用短索引就是用短索引，这样可以在非叶子节点存储更多的索引列降低树的层高，并且减少空间的开销；</p>
+<h2 id="057说说对SQL语句优化有哪些方法？"><a href="#057说说对SQL语句优化有哪些方法？" class="headerlink" title="057说说对SQL语句优化有哪些方法？"></a>057说说对SQL语句优化有哪些方法？</h2><p>（1）Where子句中：where表之间的连接必须写在其他Where条件之前，那些可以过滤掉最大数量记录的条件必须写在Where子句的末尾.HAVING最后。<br>（2）用EXISTS替代IN、用NOT EXISTS替代NOT IN。<br>（3）避免在索引列上使用计算<br>（4）避免在索引列上使用IS NULL和IS NOT NULL<br>（5）对查询进行优化，应尽量避免全表扫描，首先应考虑在 where 及 order by 涉及的列上建立索引。<br>（6）应尽量避免在 where 子句中对字段进行 null 值判断，否则将导致引擎放弃使用索引而进行全表扫描<br>（7）应尽量避免在 where 子句中对字段进行表达式操作，这将导致引擎放弃使用索引而进行全表扫描</p>
+<h2 id="058百万级别或以上的数据如何删除"><a href="#058百万级别或以上的数据如何删除" class="headerlink" title="058百万级别或以上的数据如何删除?"></a>058百万级别或以上的数据如何删除?</h2><p>首先对于索引的维护来说是需要成本的，我们对数据的增&#x2F;删&#x2F;修改,删除,都会产生额外的对索引文件的操作,这些操作需要消耗额外的IO,会降低增&#x2F;改&#x2F;删的执行效率。所以，在我们删除数据库百万级别数据的时候，删除数据的速度和创建的索引数量是成正比的,如果直接删除很可能会产生中断情况，所以我们想要删除百万数据的时候可以做如下操作：<br>\1. 先删除索引（此时大概耗时三分多钟）<br>\2. 然后删除其中无用数据（此过程需要不到两分钟）<br>\3. 删除完成后重新创建索引(此时数据较少了创建索引也非常快，约十分钟左右) </p>
+<h2 id="059什么是当前读和快照读吗？"><a href="#059什么是当前读和快照读吗？" class="headerlink" title="059什么是当前读和快照读吗？"></a>059什么是当前读和快照读吗？</h2><p>简单来说在高并发情况下当前读是获取最新的记录并且其他事务不能修改这个记录、快照读获取的有可能是老的数据。当前读是加了锁的，并且加的是悲观锁。而快照读是没加锁的。</p>
+<h2 id="060什么是MVCC？"><a href="#060什么是MVCC？" class="headerlink" title="060什么是MVCC？"></a>060什么是MVCC？</h2><p>MVCC,全称Multi-Version Concurrency Control,即多版本并发控制，是一种高并发版本控制器，一般用于数据库中对数据的并发访问。Mysql中的innoDB中就是使用这种方法来提高读写事务的并发性能。因为MVCC是一种不采用锁来控制事务的方式，是一种非堵塞、同时还可以解决脏读，不可重复读，幻读等事务隔离问题，但不能解决更新丢失问题。<br>总之：就是MVCC是通过保存数据的历史版本，根据比较版本号来处理数据是否显示，从而达到读取数据的时候不需要加锁就可以保证事务隔离性的效果。</p>
+<h2 id="061MVCC-实现的原理？"><a href="#061MVCC-实现的原理？" class="headerlink" title="061MVCC 实现的原理？"></a>061MVCC 实现的原理？</h2><p>MVCC的实现原理是依靠记录中的3个隐含字段、undo log日志（回滚日志 ）、Read View来实现的。<br>1:隐含字段：<br>  DB_TRX_ID:记录操作该数据事务的事务id；<br>  DB_ROLL_PTR：指向上一个版本数据在undo log里的位置指针<br>  DB_ROW_ID：隐藏ID，当创建表没有合适的索引作为聚集索引时，会用该隐藏ID创建聚集索引<br>2:undo log日志:<br>insert undo log：在进行插入操作事务时产生、在事务回滚时需要、在提交事务后可以被立即丢掉<br>update undo log：进行update、delete时产生的undo log、不仅在回滚事务时需要、在快照读时也需要。所以不能随便删除，只有在快照读或事务回滚不涉及该日志时，对应的日志才会被purge线程统一清除（purge类似jvm中的gc垃圾回收器）<br>3:Read View(读视图)<br>Read View读视图就是用来记录发生快照读那一刻所有的记录，当你下次就算有执行新的事务记录改变了，read view没变，读出来的数据依然是不变的。<br>而隔离级别中的RR（可重复读）、和RC（提交读）不同就是差在快照读时。前者创建一个快照和Read View，并且下次快照读时使用的还是同一个Read View，所以其他事务修改数据对他是不可见的、解决了不可重复读问题。后者则是每次快照读时都会产生新的快照和Read View所以就会产生不可重复读问题。</p>
+<h2 id="062MySQL中都有哪些触发器？"><a href="#062MySQL中都有哪些触发器？" class="headerlink" title="062MySQL中都有哪些触发器？"></a>062MySQL中都有哪些触发器？</h2><p>MySQL 数据库中有六种触发器：<br>● Before Insert、After Insert<br>● Before Update、After Update<br>● Before Delete、After Delete</p>
+<h2 id="063什么是MySQL数据库缓存？"><a href="#063什么是MySQL数据库缓存？" class="headerlink" title="063什么是MySQL数据库缓存？"></a>063什么是MySQL数据库缓存？</h2><p>开启Mysql的查询缓存，当执行完全相同的SQL语句的时候，服务器就会直接从缓存中读取结果，当数据被修改，之前的缓存会失效，修改比较频繁的表不适合做查询缓存。</p>
+<h2 id="064如何查询缓存相关的配置？"><a href="#064如何查询缓存相关的配置？" class="headerlink" title="064如何查询缓存相关的配置？"></a>064如何查询缓存相关的配置？</h2><p>\1. 查看当前的MySQL数据库是否支持查询缓存：<br>SHOW VARIABLES LIKE ‘have_query_cache’;<br>\2. 查看当前MySQL是否开启了查询缓存 ：<br>SHOW VARIABLES LIKE ‘query_cache_type’;<br>\3. 查看查询缓存的占用大小 ：<br>SHOW VARIABLES LIKE ‘query_cache_size’;<br>\4. 查看查询缓存的状态变量：<br>SHOW STATUS LIKE ‘Qcache%’;</p>
+<h2 id="065缓存数据失效时机？"><a href="#065缓存数据失效时机？" class="headerlink" title="065缓存数据失效时机？"></a>065缓存数据失效时机？</h2><p>1） SQL 语句不一致的情况， 要想命中查询缓存，查询的SQL语句必须完全一致。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select count(*) from tb_item; SQL2 : Select count(*) from tb_item;</span><br></pre></td></tr></table></figure>
+
+<p>2） 当查询语句中有一些不确定的时，则不会缓存。如 ： now() , current_date() , curdate() , curtime() , rand() ,uuid() , user() , database() 。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select * from tb_item where updatetime &lt; now() limit 1; </span><br><span class="line">select user(); </span><br><span class="line">select database();</span><br></pre></td></tr></table></figure>
+
+<p>3） 不使用任何表查询语句。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select &#x27;A&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>4） 查询 mysql， information_schema或 performance_schema 数据库中的表时，不会走查询缓存。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select * from information_schema.engines;</span><br></pre></td></tr></table></figure>
+
+<p>5） 在存储的函数，触发器或事件的主体内执行的查询。<br>6） 如果表更改，则使用该表的所有高速缓存查询都将变为无效并从高速缓存中删除。这包括使用 MERGE 映射到已更改表的表的查询。一个表可以被许多类型的语句，如被改变 INSERT， UPDATE， DELETE，TRUNCATE TABLE， ALTER TABLE， DROP TABLE，或 DROP DATABASE 。</p>
+<h2 id="066MySQL数据类型优化"><a href="#066MySQL数据类型优化" class="headerlink" title="066MySQL数据类型优化?"></a>066MySQL数据类型优化?</h2><p>● 尽量用小范围的数据类型：一般情况下，应该尽量使用可以正确存储数据的最小范围数据类型。<br>● 尽量用整型：简单的数据类型通常需要更少的CPU周期。例如，整数比字符操作代价更低，因为字符集和校对规则（排序规则）使字符比较比整型比较复杂。<br>● 尽量避免NULL：通常情况下最好指定列为NOT NULL 。</p>
+<h2 id="067实践中如何优化MySQL？"><a href="#067实践中如何优化MySQL？" class="headerlink" title="067实践中如何优化MySQL？"></a>067实践中如何优化MySQL？</h2><p>最好是按照以下顺序优化：<br>1.SQL语句及索引的优化<br>\2. 数据库表结构的优化<br>3.系统配置的优化<br>4.硬件的优化</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2024/03/22/Oracle/" data-toggle="tooltip" data-placement="top"
+                           title="">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2024/03/22/Mybatis/" data-toggle="tooltip" data-placement="top"
+                           title="">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-text">MySQL面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#001Innodb%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E4%BA%8B%E5%8A%A1%E7%9A%84%EF%BC%9F"><span class="toc-text">001Innodb是如何实现事务的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#002Myql%E4%B8%AD%E7%9A%84%E4%BA%8B%E5%8A%A1%E5%9B%9E%E6%BB%9A%E6%9C%BA%E5%88%B6%E6%A6%82%E8%BF%B0-%EF%BC%9F"><span class="toc-text">002Myql中的事务回滚机制概述 ？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#003%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8BMySQL%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%EF%BC%9F"><span class="toc-text">003如何查看MySQL存储引擎？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#004MySQL%E6%94%AF%E6%8C%81%E7%9A%84%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E"><span class="toc-text">004MySQL支持的存储引擎?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#005MyISAM%E5%92%8CInnoDB%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">005MyISAM和InnoDB的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#006%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%EF%BC%9F"><span class="toc-text">006如何选择存储引擎？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#007%E4%BB%80%E4%B9%88%E6%98%AF%E7%B4%A2%E5%BC%95%EF%BC%9F"><span class="toc-text">007什么是索引？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#008%E7%B4%A2%E5%BC%95%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="toc-text">008索引的优缺点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#009%E7%B4%A2%E5%BC%95%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%9F"><span class="toc-text">009索引的应用场景？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#010%E7%B4%A2%E5%BC%95%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9F"><span class="toc-text">010索引的数据结构？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#011%E7%B4%A2%E5%BC%95%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AFB-%E6%A0%91%EF%BC%9F"><span class="toc-text">011索引数据结构为什么是B+树？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#012%E7%B4%A2%E5%BC%95%E7%B1%BB%E5%9E%8B%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">012索引类型有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#013%E6%80%8E%E4%B9%88%E6%9F%A5%E8%AF%A2SQL%E8%AF%AD%E5%8F%A5%E6%98%AF%E5%90%A6%E4%BD%BF%E7%94%A8%E4%BA%86%E7%B4%A2%E5%BC%95%E6%9F%A5%E8%AF%A2%EF%BC%9F"><span class="toc-text">013怎么查询SQL语句是否使用了索引查询？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#014%E4%BB%80%E4%B9%88%E6%98%AF%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95%EF%BC%9F"><span class="toc-text">014什么是聚簇索引？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#015%E4%BD%BF%E7%94%A8%E8%81%9A%E7%B0%87%E7%B4%A2%E5%BC%95%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="toc-text">015使用聚簇索引的优缺点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#016%E4%B8%BA%E4%BB%80%E4%B9%88%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8%E8%87%AA%E5%A2%9E%E4%B8%BB%E9%94%AE%E4%BD%9C%E4%B8%BA%E7%B4%A2%E5%BC%95%EF%BC%9F"><span class="toc-text">016为什么推荐使用自增主键作为索引？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#017%E4%BB%80%E4%B9%88%E5%8F%AB%E5%9B%9E%E8%A1%A8%EF%BC%9F"><span class="toc-text">017什么叫回表？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#018%E4%BB%80%E4%B9%88%E6%98%AF%E7%B4%A2%E5%BC%95%E8%A6%86%E7%9B%96%EF%BC%9F"><span class="toc-text">018什么是索引覆盖？</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%80%E8%B0%93%E7%9A%84%E7%B4%A2%E5%BC%95%E8%A6%86%E7%9B%96%E6%98%AF%E7%B4%A2%E5%BC%95%E9%AB%98%E6%95%88%E6%89%BE%E5%88%B0%E8%A1%8C%E7%9A%84%E4%B8%80%E4%B8%AA%E6%96%B9%E6%B3%95%EF%BC%8C%E5%BD%93%E8%83%BD%E9%80%9A%E8%BF%87%E6%A3%80%E7%B4%A2%E7%B4%A2%E5%BC%95%E5%B0%B1%E5%8F%AF%E4%BB%A5%E8%AF%BB%E5%8F%96%E6%83%B3%E8%A6%81%E7%9A%84%E6%95%B0%E6%8D%AE%EF%BC%8C%E9%82%A3%E5%B0%B1%E4%B8%8D%E9%9C%80%E8%A6%81%E5%86%8D%E5%88%B0%E6%95%B0%E6%8D%AE%E8%A1%A8%E4%B8%AD%E8%AF%BB%E5%8F%96%E8%A1%8C%E4%BA%86%E3%80%82%E5%A6%82%E6%9E%9C%E4%B8%80%E4%B8%AA%E7%B4%A2%E5%BC%95%E5%8C%85%E5%90%AB%E4%BA%86%EF%BC%88%E6%88%96%E8%A6%86%E7%9B%96%E4%BA%86%EF%BC%89%E6%BB%A1%E8%B6%B3%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5%E4%B8%AD%E5%AD%97%E6%AE%B5%E4%B8%8E%E6%9D%A1%E4%BB%B6%E7%9A%84%E6%95%B0%E6%8D%AE%E5%B0%B1%E5%8F%AB%E5%81%9A%E8%A6%86%E7%9B%96%E7%B4%A2%E5%BC%95%E3%80%82"><span class="toc-text">所谓的索引覆盖是索引高效找到行的一个方法，当能通过检索索引就可以读取想要的数据，那就不需要再到数据表中读取行了。如果一个索引包含了（或覆盖了）满足查询语句中字段与条件的数据就叫做覆盖索引。</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#019MySQL%E7%B4%A2%E5%BC%95%E5%A4%B1%E6%95%88%E7%9A%84%E5%87%A0%E7%A7%8D%E6%83%85%E5%86%B5%EF%BC%9F"><span class="toc-text">019MySQL索引失效的几种情况？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#020%E8%B0%88%E4%B8%80%E4%B8%8B%E4%BD%A0%E5%AF%B9MySQL%E7%B4%A2%E5%BC%95%E7%9A%84%E7%90%86%E8%A7%A3%EF%BC%9F"><span class="toc-text">020谈一下你对MySQL索引的理解？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#021MySQL%E4%B8%AD%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">021MySQL中聚合函数有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#022MySQL%E7%9A%84%E5%87%BD%E6%95%B0%E4%B8%AD%E6%9C%89%E5%85%B3String%E7%9A%84%E6%93%8D%E4%BD%9C%EF%BC%9F"><span class="toc-text">022MySQL的函数中有关String的操作？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#023count-1-%E3%80%81count-%E4%B8%8E-count-%E5%88%97%E5%90%8D-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">023count(1)、count(*) 与 count(列名) 的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#024MySQL%E7%9A%84%E6%97%B6%E9%97%B4%E5%87%BD%E6%95%B0%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">024MySQL的时间函数有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#025MySQL%E4%B8%ADint-20-%E5%92%8Cchar-20-%E4%BB%A5%E5%8F%8Avarchar-20-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">025MySQL中int(20)和char(20)以及varchar(20)的区别?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#026SQL%E8%AF%AD%E5%8F%A5%E4%B8%AD%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F%EF%BC%9F"><span class="toc-text">026SQL语句中关键字的执行顺序？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#027SQL%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%EF%BC%9F"><span class="toc-text">027SQL的生命周期？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#028drop%E3%80%81delete%E4%B8%8Etruncate%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">028drop、delete与truncate的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#029UNION%E4%B8%8EUNION-ALL%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">029UNION与UNION ALL的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#030%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E5%BA%93%E9%94%81%EF%BC%9F"><span class="toc-text">030什么是数据库锁？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#031MySQL%E9%94%81%E5%88%86%E7%B1%BB"><span class="toc-text">031MySQL锁分类?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#032%E6%82%B2%E8%A7%82%E9%94%81%E5%92%8C%E4%B9%90%E8%A7%82%E9%94%81%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">032悲观锁和乐观锁的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#033%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E5%BA%93%E6%AD%BB%E9%94%81%EF%BC%9F"><span class="toc-text">033什么是数据库死锁？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#034%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E6%AD%BB%E9%94%81%EF%BC%9F"><span class="toc-text">034如何查看死锁？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#035%E6%95%B0%E6%8D%AE%E5%BA%93%E6%AD%BB%E9%94%81%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%EF%BC%9F"><span class="toc-text">035数据库死锁如何处理？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#036%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E6%95%B0%E6%8D%AE%E5%BA%93%E6%AD%BB%E9%94%81%EF%BC%9F"><span class="toc-text">036如何避免数据库死锁？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#037%E4%BB%80%E4%B9%88%E6%98%AF%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6"><span class="toc-text">037什么是主从复制?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#038%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E4%BD%9C%E7%94%A8-%EF%BC%9F"><span class="toc-text">038主从复制作用 ？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#039MySQL%E7%9A%84%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E5%A6%82%E4%BD%95%E5%81%9A%E7%9A%84%EF%BC%9F"><span class="toc-text">039MySQL的主从复制如何做的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#040%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E5%8F%AF%E8%83%BD%E4%BC%9A%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-text">040主从复制可能会遇到的问题？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#041%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6%E7%9A%84%E9%97%AE%E9%A2%98%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%EF%BC%9F"><span class="toc-text">041主从复制的问题如何解决？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#042%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E7%9A%84%E6%A6%82%E5%BF%B5%EF%BC%9F"><span class="toc-text">042分库分表的概念？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#043%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%A2%9E%E7%9A%84%E4%B8%BB%E9%94%AE%EF%BC%9F"><span class="toc-text">043如何设置自增的主键？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#044%E6%8F%92%E5%85%A5%E6%95%B0%E6%8D%AE%E6%97%B6%E6%8C%87%E5%AE%9A%E4%B8%BB%E9%94%AE%E4%BA%86%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="toc-text">044插入数据时指定主键了怎么办？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#045%E4%B8%BB%E9%94%AE%E4%B8%8D%E8%BF%9E%E7%BB%AD%E6%98%AF%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%EF%BC%9F"><span class="toc-text">045主键不连续是什么情况？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#046%E4%B8%BB%E9%94%AE%E6%98%AF%E7%94%A8%E8%87%AA%E5%A2%9E%E8%BF%98%E6%98%AF%E9%9A%8F%E6%9C%BA%EF%BC%88UUID%EF%BC%89%EF%BC%9F"><span class="toc-text">046主键是用自增还是随机（UUID）？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#047%E4%B8%BB%E9%94%AE%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E6%8E%A8%E8%8D%90%E6%9C%89%E4%B8%9A%E5%8A%A1%E5%90%AB%E4%B9%89%EF%BC%9F"><span class="toc-text">047主键为什么不推荐有业务含义？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#048%E8%A1%A8%E7%A4%BA%E6%9E%9A%E4%B8%BE%E7%9A%84%E5%AD%97%E6%AE%B5%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%94%A8enum%E7%B1%BB%E5%9E%8B%EF%BC%9F"><span class="toc-text">048表示枚举的字段为什么不用enum类型？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#049%E8%B4%A7%E5%B8%81%E5%AD%97%E6%AE%B5%E7%94%A8%E4%BB%80%E4%B9%88%E7%B1%BB%E5%9E%8B%EF%BC%9F"><span class="toc-text">049货币字段用什么类型？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#050%E6%97%B6%E9%97%B4%E5%AD%97%E6%AE%B5%E7%94%A8%E4%BB%80%E4%B9%88%E7%B1%BB%E5%9E%8B%EF%BC%9F"><span class="toc-text">050时间字段用什么类型？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#051%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%9B%B4%E6%8E%A5%E5%AD%98%E5%82%A8%E5%9B%BE%E7%89%87%E3%80%81%E9%9F%B3%E9%A2%91%E5%92%8C%E8%A7%86%E9%A2%91%E7%AD%89%E5%A4%A7%E5%AE%B9%E9%87%8F%E5%86%85%E5%AE%B9%EF%BC%9F"><span class="toc-text">051为什么不直接存储图片、音频和视频等大容量内容？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#052%E4%B8%BA%E4%BB%80%E4%B9%88%E5%AD%97%E6%AE%B5%E8%A6%81%E8%A2%AB%E5%AE%9A%E4%B9%89%E4%B8%BANOT-NULL%EF%BC%9F"><span class="toc-text">052为什么字段要被定义为NOT NULL？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#053varchar-50-%E4%B8%AD50%E7%9A%84%E5%90%AB%E4%B9%89%EF%BC%9F"><span class="toc-text">053varchar(50)中50的含义？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#054MySql%E6%80%A7%E8%83%BD%E5%A6%82%E4%BD%95%E5%88%86%E6%9E%90%EF%BC%9F"><span class="toc-text">054MySql性能如何分析？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#055%E6%85%A2%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4%EF%BC%9F"><span class="toc-text">055慢查询优化的基本步骤？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#056MySQL%E7%B4%A2%E5%BC%95%E4%BC%98%E5%8C%96%EF%BC%9F"><span class="toc-text">056MySQL索引优化？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#057%E8%AF%B4%E8%AF%B4%E5%AF%B9SQL%E8%AF%AD%E5%8F%A5%E4%BC%98%E5%8C%96%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="toc-text">057说说对SQL语句优化有哪些方法？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#058%E7%99%BE%E4%B8%87%E7%BA%A7%E5%88%AB%E6%88%96%E4%BB%A5%E4%B8%8A%E7%9A%84%E6%95%B0%E6%8D%AE%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4"><span class="toc-text">058百万级别或以上的数据如何删除?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#059%E4%BB%80%E4%B9%88%E6%98%AF%E5%BD%93%E5%89%8D%E8%AF%BB%E5%92%8C%E5%BF%AB%E7%85%A7%E8%AF%BB%E5%90%97%EF%BC%9F"><span class="toc-text">059什么是当前读和快照读吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#060%E4%BB%80%E4%B9%88%E6%98%AFMVCC%EF%BC%9F"><span class="toc-text">060什么是MVCC？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#061MVCC-%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8E%9F%E7%90%86%EF%BC%9F"><span class="toc-text">061MVCC 实现的原理？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#062MySQL%E4%B8%AD%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B%E8%A7%A6%E5%8F%91%E5%99%A8%EF%BC%9F"><span class="toc-text">062MySQL中都有哪些触发器？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#063%E4%BB%80%E4%B9%88%E6%98%AFMySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BC%93%E5%AD%98%EF%BC%9F"><span class="toc-text">063什么是MySQL数据库缓存？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#064%E5%A6%82%E4%BD%95%E6%9F%A5%E8%AF%A2%E7%BC%93%E5%AD%98%E7%9B%B8%E5%85%B3%E7%9A%84%E9%85%8D%E7%BD%AE%EF%BC%9F"><span class="toc-text">064如何查询缓存相关的配置？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#065%E7%BC%93%E5%AD%98%E6%95%B0%E6%8D%AE%E5%A4%B1%E6%95%88%E6%97%B6%E6%9C%BA%EF%BC%9F"><span class="toc-text">065缓存数据失效时机？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#066MySQL%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E4%BC%98%E5%8C%96"><span class="toc-text">066MySQL数据类型优化?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#067%E5%AE%9E%E8%B7%B5%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96MySQL%EF%BC%9F"><span class="toc-text">067实践中如何优化MySQL？</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/ehazon">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/megahertz">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Haojen 2024
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://haojen.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
+</body>
+
+</html>

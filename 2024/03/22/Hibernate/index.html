@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="马浩珍在 Github 上的个人博客">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Haojen" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        Haojen&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://haojen.github.io/2024/03/22/Hibernate/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Haojen
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1></h1>
+                    
+                    <span class="meta">
+                         作者 Haojen Ma
+                        <span>
+                          日期 2024-03-22
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="Hibernate面试题"><a href="#Hibernate面试题" class="headerlink" title="Hibernate面试题"></a>Hibernate面试题</h1><h2 id="001什么是-ORM-框架？"><a href="#001什么是-ORM-框架？" class="headerlink" title="001什么是 ORM 框架？"></a>001什么是 ORM 框架？</h2><p>ORM是Object Relation Mapping的缩写，意思是对象关系映射，是把数据库中的关系数据映射成为程序中的对象。使用 ORM 的优点：提高了开发效率降低了开发成本、开发更简单更对象化、可移植更强。</p>
+<h2 id="002简单介绍下Hibernate。"><a href="#002简单介绍下Hibernate。" class="headerlink" title="002简单介绍下Hibernate。"></a>002简单介绍下Hibernate。</h2><p>Hibernate是持久层框架，通过对JDBC进行了非常轻量级的对象封装，使得Java程序员可以随心所欲的使用对象编程思维来操纵数据库。</p>
+<h2 id="003Hibernate的优点"><a href="#003Hibernate的优点" class="headerlink" title="003Hibernate的优点?"></a>003Hibernate的优点?</h2><p>1)对JDBC访问数据库的代码做了封装，大大简化了数据访问层繁琐的重复性代码。<br>2)Hibernate是一个基于JDBC的主流持久化框架，是一个优秀的ORM实现。他很大程度的简化DAO层的编码工作<br>3)Hibernate使用Java反射机制，而不是字节码增强程序来实现透明性。<br>4)Hibernate的性能非常好，因为它是个轻量级框架。映射的灵活性很出色。它支持各种关系数据库，从一对一到多对多的各种复杂关系。</p>
+<h2 id="004Hibernate工作原理？"><a href="#004Hibernate工作原理？" class="headerlink" title="004Hibernate工作原理？"></a>004Hibernate工作原理？</h2><p>1.通过Configuration().configure();读取并解析hibernate.cfg.xml配置文件<br>2.由hibernate.cfg.xml中的读取并解析映射信息<br>3.通过config.buildSessionFactory();&#x2F;&#x2F;创建SessionFactory<br>4.sessionFactory.openSession();&#x2F;&#x2F;打开Sesssion<br>5.session.beginTransaction();&#x2F;&#x2F;创建事务Transation<br>6.persistent operate持久化操作<br>7.session.getTransaction().commit();&#x2F;&#x2F;提交事务<br>8.关闭Session<br>9.关闭SesstionFactory</p>
+<h2 id="005Hibernate-对象有哪些状态？"><a href="#005Hibernate-对象有哪些状态？" class="headerlink" title="005Hibernate 对象有哪些状态？"></a>005Hibernate 对象有哪些状态？</h2><p>临时&#x2F;瞬时状态：直接 new 出来的对象，该对象还没被持久化（没保存在数据库中），不受 Session 管理。<br>持久化状态：当调用 Session 的 save&#x2F;saveOrupdate&#x2F;get&#x2F;load&#x2F;list 等方法的时候，对象就是持久化状态。<br>游离状态：Session 关闭之后对象就是游离状态。</p>
+<h2 id="006Hibernate中get和load区别"><a href="#006Hibernate中get和load区别" class="headerlink" title="006Hibernate中get和load区别?"></a>006Hibernate中get和load区别?</h2><p>数据查询时，没有 OID 指定的对象，get() 返回 null；load() 返回一个代理对象。<br>load()支持延迟加载；get() 不支持延迟加载。</p>
+<h2 id="007在Hibernate-中getCurrentSession-和-openSession-的区别是什么？"><a href="#007在Hibernate-中getCurrentSession-和-openSession-的区别是什么？" class="headerlink" title="007在Hibernate 中getCurrentSession 和 openSession 的区别是什么？"></a>007在Hibernate 中getCurrentSession 和 openSession 的区别是什么？</h2><p>getCurrentSession 会绑定当前线程，而 openSession 则不会。<br>getCurrentSession 事务是 Spring 控制的，并且不需要手动关闭，而 openSession 需要我们自己手动开启和提交事务。</p>
+<h2 id="008如何在控制台看到Hibernate生成并执行的sql？"><a href="#008如何在控制台看到Hibernate生成并执行的sql？" class="headerlink" title="008如何在控制台看到Hibernate生成并执行的sql？"></a>008如何在控制台看到Hibernate生成并执行的sql？</h2><p>在定义数据库和数据库属性的文件applicationConfig.xml里面，把hibernate.show_sql 设置为true，这样生成的SQL就会在控制台出现了。注意：这样做会加重系统的负担，不利于性能调优。</p>
+<h2 id="009Hibernate中save、persist和saveOrUpdate这三个方法的不同之处？"><a href="#009Hibernate中save、persist和saveOrUpdate这三个方法的不同之处？" class="headerlink" title="009Hibernate中save、persist和saveOrUpdate这三个方法的不同之处？"></a>009Hibernate中save、persist和saveOrUpdate这三个方法的不同之处？</h2><p>都是用于将对象保存到数据库中的方法。<br>1)save()只能执行INSERT操作，会立即执行Sql insert，save()的返回值是一个Serializable对象;<br>2)saveOrUpdate()可以进行 记录的INSERT和UPDATE;<br>3)persist不保证立即执行，可能要等到flush；persist不更新缓存；persist()方法返回值为void;</p>
+<h2 id="010Hibernate是如何延迟加载？"><a href="#010Hibernate是如何延迟加载？" class="headerlink" title="010Hibernate是如何延迟加载？"></a>010Hibernate是如何延迟加载？</h2><p>通过设置属性lazy进行设置是否需要懒加载。当Hibernate在查询数据的时候，数据并没有存在与内存中，当程序真正对数据的操作时，对象才存在与内存中，就实现了延迟加载，他节省了服务器的内存开销，从而提高了服务器的性能。</p>
+<h2 id="011说一下-Hibernate-的缓存机制？"><a href="#011说一下-Hibernate-的缓存机制？" class="headerlink" title="011说一下 Hibernate 的缓存机制？"></a>011说一下 Hibernate 的缓存机制？</h2><p>Hibernate 常用的缓存有一级缓存和二级缓存：<br>一级缓存：也叫 Session 缓存，只在 Session 作用范围内有效，不需要用户干涉，由 hibernate 自身维护，可以通过：evict(object)清除 object 的缓存；clear()清除一级缓存中的所有缓存；flush()刷出缓存；<br>二级缓存：应用级别的缓存，在所有 Session 中都有效，支持配置第三方的缓存，如：EhCache。</p>
+<h2 id="012Hibernate中怎样实现类之间的关系-如：一对多、多对多的关系"><a href="#012Hibernate中怎样实现类之间的关系-如：一对多、多对多的关系" class="headerlink" title="012Hibernate中怎样实现类之间的关系?(如：一对多、多对多的关系)?"></a>012Hibernate中怎样实现类之间的关系?(如：一对多、多对多的关系)?</h2><p>通过配置文件中的many-to-one、one-to-many、many-to-many来实现类之间的关联关系的。</p>
+<h2 id="013可不可以将Hibernate的实体类定义为final类"><a href="#013可不可以将Hibernate的实体类定义为final类" class="headerlink" title="013可不可以将Hibernate的实体类定义为final类?"></a>013可不可以将Hibernate的实体类定义为final类?</h2><p>可以将Hibernate的实体类定义为final类，但不建议这么做。因为Hibernate会使用代理模式在延迟关联的情况下提高性能，如果你把实体类定义成final类之后，因为 Java不允许对final类进行扩展，所以Hibernate就无法再使用代理了，如此一来就限制了使用可以提升性能的手段。</p>
+<h2 id="014在Hibernate-中使用-Integer-和-int-做映射有什么区别？"><a href="#014在Hibernate-中使用-Integer-和-int-做映射有什么区别？" class="headerlink" title="014在Hibernate 中使用 Integer 和 int 做映射有什么区别？"></a>014在Hibernate 中使用 Integer 和 int 做映射有什么区别？</h2><p>Integer 类型为对象，它的值允许为 null，而 int 属于基础数据类型，值不能为 null。</p>
+<h2 id="015为什么在Hibernate的实体类中要提供一个无参数的构造器？"><a href="#015为什么在Hibernate的实体类中要提供一个无参数的构造器？" class="headerlink" title="015为什么在Hibernate的实体类中要提供一个无参数的构造器？"></a>015为什么在Hibernate的实体类中要提供一个无参数的构造器？</h2><p>Hibernate框架会调用这个默认构造方法来构造实例对象，即Class类的newInstance方法 ，这个方法就是通过调用默认构造方法来创建实例对象的 。如果在实体类中找不到无参数的构造器，这个方法就会抛出一个InstantiationException异常。</p>
+<h2 id="016Hibernate-如何进行批量更新？"><a href="#016Hibernate-如何进行批量更新？" class="headerlink" title="016Hibernate 如何进行批量更新？"></a>016Hibernate 如何进行批量更新？</h2><p>Hibernate在做插入操作时会把要操作的对象全部放到自身的内部缓存来进行管理。当海量数据插入的时候，会有很多对象被纳入内部缓存，就可能出现OutOfMemoryError（内存溢出异常)，因此最好做到如下三点：<br>1.做海量数据批量操作一定要关闭控制台显示执行的sql语句；<br>2.绕过Hibernate API ，直接通过 JDBC API 来做，这个方法性能上是比较好的，也是最快的；<br>3.如果还是使用Hibernate API ，使用分段插入。</p>
+<h2 id="017如何优化Hibernate"><a href="#017如何优化Hibernate" class="headerlink" title="017如何优化Hibernate?"></a>017如何优化Hibernate?</h2><p>1)HQL优化<br>2)API的正确使用(如根据不同的业务类型选用不同的集合及查询API)<br>3)主配置参数(日志，查询缓存，fetch_size, batch_size等)<br>4)映射文件优化(ID生成策略，二级缓存，延迟加载，关联优化)<br>5)一级缓存的管理<br>6)针对二级缓存，还有许多特有的策略</p>
+<h2 id="018一般情况下，关系数据模型与对象模型之间有哪些匹配关系（ABC）。"><a href="#018一般情况下，关系数据模型与对象模型之间有哪些匹配关系（ABC）。" class="headerlink" title="018一般情况下，关系数据模型与对象模型之间有哪些匹配关系（ABC）。"></a>018一般情况下，关系数据模型与对象模型之间有哪些匹配关系（ABC）。</h2><p>A. 表对应类<br>B. 记录对应对象<br>C. 表的字段对应类的属性<br>D. 表之间的参考关系对应类之间的依赖关系</p>
+<h2 id="019以下关于SessionFactory的说法哪些正确？（BC）"><a href="#019以下关于SessionFactory的说法哪些正确？（BC）" class="headerlink" title="019以下关于SessionFactory的说法哪些正确？（BC）"></a>019以下关于SessionFactory的说法哪些正确？（BC）</h2><p>A. 对于每个数据库事务，应该创建一个SessionFactory对象<br>B. 一个SessionFactory对象对应一个数据库存储源。<br>C. SessionFactory是重量级的对象，不应该随意创建。如果系统中只有一个数据库存储源，只需要创建一个。<br>D. SessionFactory的load()方法用于加载持久化对象</p>
+<h2 id="020关于HQL与SQL，以下哪些说法正确？（BD）"><a href="#020关于HQL与SQL，以下哪些说法正确？（BD）" class="headerlink" title="020关于HQL与SQL，以下哪些说法正确？（BD）"></a>020关于HQL与SQL，以下哪些说法正确？（BD）</h2><p>A. HQL与SQL没什么差别<br>B. HQL面向对象，而SQL操纵关系数据库<br>C. 在HQL与SQL中，都包含select,insert,update,delete语句<br>D. HQL仅用于查询数据，不支持insert,update和delete语句</p>
+<h2 id="021以下哪些属于Session的方法？-ABCDF"><a href="#021以下哪些属于Session的方法？-ABCDF" class="headerlink" title="021以下哪些属于Session的方法？(ABCDF)"></a>021以下哪些属于Session的方法？(ABCDF)</h2><p>A. load()<br>B. save()<br>C. delete()<br>D. update()<br>E. open()<br>F. close()</p>
+<h2 id="022以下程序的打印结果是什么？（C）"><a href="#022以下程序的打印结果是什么？（C）" class="headerlink" title="022以下程序的打印结果是什么？（C）"></a>022以下程序的打印结果是什么？（C）</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tx = session.beginTransaction();</span><br><span class="line">Customer c1=(Customer)session.load(Customer.class,new Long(1));</span><br><span class="line">Customer c2=(Customer)session.load(Customer.class,new Long(1));</span><br><span class="line">System.out.println(c1==c2);</span><br><span class="line">tx.commit();</span><br><span class="line">session.close();</span><br></pre></td></tr></table></figure>
+
+<p>A. 运行出错，抛出异常<br>B. 打印false<br>C. 打印true</p>
+<h2 id="023元素有一个cascade属性，如果希望Hibernate级联保存集合中的对象，casecade属性应该取什么值？（D）"><a href="#023元素有一个cascade属性，如果希望Hibernate级联保存集合中的对象，casecade属性应该取什么值？（D）" class="headerlink" title="023元素有一个cascade属性，如果希望Hibernate级联保存集合中的对象，casecade属性应该取什么值？（D）"></a>023元素有一个cascade属性，如果希望Hibernate级联保存集合中的对象，casecade属性应该取什么值？（D）</h2><p>A. none<br>B. save<br>C. delete<br>D. save-update</p>
+<h2 id="024执行以下程序，Hibernate需要向数据库提交几条update语句？-B）"><a href="#024执行以下程序，Hibernate需要向数据库提交几条update语句？-B）" class="headerlink" title="024执行以下程序，Hibernate需要向数据库提交几条update语句？(B）"></a>024执行以下程序，Hibernate需要向数据库提交几条update语句？(B）</h2><p>以下程序代码对Customer的name属性修改了两次：(B)</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">tx = session.beginTransaction();</span><br><span class="line">Customer customer=(Customer)session.load(Customer.class,new Long(1));</span><br><span class="line">customer.setName(\&quot;Jack\&quot;);</span><br><span class="line">customer.setName(\&quot;Mike\&quot;);</span><br><span class="line">tx.commit();</span><br></pre></td></tr></table></figure>
+
+<p>A. 0<br>B. 1<br>C. 2<br>D. 3</p>
+<h2 id="025在持久化层，对象分为哪些状态？（ACD）"><a href="#025在持久化层，对象分为哪些状态？（ACD）" class="headerlink" title="025在持久化层，对象分为哪些状态？（ACD）"></a>025在持久化层，对象分为哪些状态？（ACD）</h2><p>A. 临时状态<br>B. 独立状态<br>C. 游离状态<br>D. 持久化状态</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2024/03/22/JVM/" data-toggle="tooltip" data-placement="top"
+                           title="">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2024/03/22/HashMap/" data-toggle="tooltip" data-placement="top"
+                           title="">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Hibernate%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-text">Hibernate面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#001%E4%BB%80%E4%B9%88%E6%98%AF-ORM-%E6%A1%86%E6%9E%B6%EF%BC%9F"><span class="toc-text">001什么是 ORM 框架？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#002%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D%E4%B8%8BHibernate%E3%80%82"><span class="toc-text">002简单介绍下Hibernate。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#003Hibernate%E7%9A%84%E4%BC%98%E7%82%B9"><span class="toc-text">003Hibernate的优点?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#004Hibernate%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%EF%BC%9F"><span class="toc-text">004Hibernate工作原理？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#005Hibernate-%E5%AF%B9%E8%B1%A1%E6%9C%89%E5%93%AA%E4%BA%9B%E7%8A%B6%E6%80%81%EF%BC%9F"><span class="toc-text">005Hibernate 对象有哪些状态？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#006Hibernate%E4%B8%ADget%E5%92%8Cload%E5%8C%BA%E5%88%AB"><span class="toc-text">006Hibernate中get和load区别?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#007%E5%9C%A8Hibernate-%E4%B8%ADgetCurrentSession-%E5%92%8C-openSession-%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">007在Hibernate 中getCurrentSession 和 openSession 的区别是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#008%E5%A6%82%E4%BD%95%E5%9C%A8%E6%8E%A7%E5%88%B6%E5%8F%B0%E7%9C%8B%E5%88%B0Hibernate%E7%94%9F%E6%88%90%E5%B9%B6%E6%89%A7%E8%A1%8C%E7%9A%84sql%EF%BC%9F"><span class="toc-text">008如何在控制台看到Hibernate生成并执行的sql？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#009Hibernate%E4%B8%ADsave%E3%80%81persist%E5%92%8CsaveOrUpdate%E8%BF%99%E4%B8%89%E4%B8%AA%E6%96%B9%E6%B3%95%E7%9A%84%E4%B8%8D%E5%90%8C%E4%B9%8B%E5%A4%84%EF%BC%9F"><span class="toc-text">009Hibernate中save、persist和saveOrUpdate这三个方法的不同之处？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#010Hibernate%E6%98%AF%E5%A6%82%E4%BD%95%E5%BB%B6%E8%BF%9F%E5%8A%A0%E8%BD%BD%EF%BC%9F"><span class="toc-text">010Hibernate是如何延迟加载？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#011%E8%AF%B4%E4%B8%80%E4%B8%8B-Hibernate-%E7%9A%84%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6%EF%BC%9F"><span class="toc-text">011说一下 Hibernate 的缓存机制？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#012Hibernate%E4%B8%AD%E6%80%8E%E6%A0%B7%E5%AE%9E%E7%8E%B0%E7%B1%BB%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB-%E5%A6%82%EF%BC%9A%E4%B8%80%E5%AF%B9%E5%A4%9A%E3%80%81%E5%A4%9A%E5%AF%B9%E5%A4%9A%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">012Hibernate中怎样实现类之间的关系?(如：一对多、多对多的关系)?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#013%E5%8F%AF%E4%B8%8D%E5%8F%AF%E4%BB%A5%E5%B0%86Hibernate%E7%9A%84%E5%AE%9E%E4%BD%93%E7%B1%BB%E5%AE%9A%E4%B9%89%E4%B8%BAfinal%E7%B1%BB"><span class="toc-text">013可不可以将Hibernate的实体类定义为final类?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#014%E5%9C%A8Hibernate-%E4%B8%AD%E4%BD%BF%E7%94%A8-Integer-%E5%92%8C-int-%E5%81%9A%E6%98%A0%E5%B0%84%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">014在Hibernate 中使用 Integer 和 int 做映射有什么区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#015%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8Hibernate%E7%9A%84%E5%AE%9E%E4%BD%93%E7%B1%BB%E4%B8%AD%E8%A6%81%E6%8F%90%E4%BE%9B%E4%B8%80%E4%B8%AA%E6%97%A0%E5%8F%82%E6%95%B0%E7%9A%84%E6%9E%84%E9%80%A0%E5%99%A8%EF%BC%9F"><span class="toc-text">015为什么在Hibernate的实体类中要提供一个无参数的构造器？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#016Hibernate-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%89%B9%E9%87%8F%E6%9B%B4%E6%96%B0%EF%BC%9F"><span class="toc-text">016Hibernate 如何进行批量更新？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#017%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96Hibernate"><span class="toc-text">017如何优化Hibernate?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#018%E4%B8%80%E8%88%AC%E6%83%85%E5%86%B5%E4%B8%8B%EF%BC%8C%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B%E4%B8%8E%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%9E%8B%E4%B9%8B%E9%97%B4%E6%9C%89%E5%93%AA%E4%BA%9B%E5%8C%B9%E9%85%8D%E5%85%B3%E7%B3%BB%EF%BC%88ABC%EF%BC%89%E3%80%82"><span class="toc-text">018一般情况下，关系数据模型与对象模型之间有哪些匹配关系（ABC）。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#019%E4%BB%A5%E4%B8%8B%E5%85%B3%E4%BA%8ESessionFactory%E7%9A%84%E8%AF%B4%E6%B3%95%E5%93%AA%E4%BA%9B%E6%AD%A3%E7%A1%AE%EF%BC%9F%EF%BC%88BC%EF%BC%89"><span class="toc-text">019以下关于SessionFactory的说法哪些正确？（BC）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#020%E5%85%B3%E4%BA%8EHQL%E4%B8%8ESQL%EF%BC%8C%E4%BB%A5%E4%B8%8B%E5%93%AA%E4%BA%9B%E8%AF%B4%E6%B3%95%E6%AD%A3%E7%A1%AE%EF%BC%9F%EF%BC%88BD%EF%BC%89"><span class="toc-text">020关于HQL与SQL，以下哪些说法正确？（BD）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#021%E4%BB%A5%E4%B8%8B%E5%93%AA%E4%BA%9B%E5%B1%9E%E4%BA%8ESession%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9F-ABCDF"><span class="toc-text">021以下哪些属于Session的方法？(ABCDF)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#022%E4%BB%A5%E4%B8%8B%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%89%93%E5%8D%B0%E7%BB%93%E6%9E%9C%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%EF%BC%88C%EF%BC%89"><span class="toc-text">022以下程序的打印结果是什么？（C）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#023%E5%85%83%E7%B4%A0%E6%9C%89%E4%B8%80%E4%B8%AAcascade%E5%B1%9E%E6%80%A7%EF%BC%8C%E5%A6%82%E6%9E%9C%E5%B8%8C%E6%9C%9BHibernate%E7%BA%A7%E8%81%94%E4%BF%9D%E5%AD%98%E9%9B%86%E5%90%88%E4%B8%AD%E7%9A%84%E5%AF%B9%E8%B1%A1%EF%BC%8Ccasecade%E5%B1%9E%E6%80%A7%E5%BA%94%E8%AF%A5%E5%8F%96%E4%BB%80%E4%B9%88%E5%80%BC%EF%BC%9F%EF%BC%88D%EF%BC%89"><span class="toc-text">023元素有一个cascade属性，如果希望Hibernate级联保存集合中的对象，casecade属性应该取什么值？（D）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#024%E6%89%A7%E8%A1%8C%E4%BB%A5%E4%B8%8B%E7%A8%8B%E5%BA%8F%EF%BC%8CHibernate%E9%9C%80%E8%A6%81%E5%90%91%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8F%90%E4%BA%A4%E5%87%A0%E6%9D%A1update%E8%AF%AD%E5%8F%A5%EF%BC%9F-B%EF%BC%89"><span class="toc-text">024执行以下程序，Hibernate需要向数据库提交几条update语句？(B）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#025%E5%9C%A8%E6%8C%81%E4%B9%85%E5%8C%96%E5%B1%82%EF%BC%8C%E5%AF%B9%E8%B1%A1%E5%88%86%E4%B8%BA%E5%93%AA%E4%BA%9B%E7%8A%B6%E6%80%81%EF%BC%9F%EF%BC%88ACD%EF%BC%89"><span class="toc-text">025在持久化层，对象分为哪些状态？（ACD）</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/ehazon">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/megahertz">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Haojen 2024
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://haojen.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
+</body>
+
+</html>

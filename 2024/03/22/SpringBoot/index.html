@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="马浩珍在 Github 上的个人博客">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Haojen" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        Haojen&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://haojen.github.io/2024/03/22/SpringBoot/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Haojen
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1></h1>
+                    
+                    <span class="meta">
+                         作者 Haojen Ma
+                        <span>
+                          日期 2024-03-22
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="SpringBoot面试题"><a href="#SpringBoot面试题" class="headerlink" title="SpringBoot面试题"></a>SpringBoot面试题</h1><h2 id="001什么是SpringBoot-？"><a href="#001什么是SpringBoot-？" class="headerlink" title="001什么是SpringBoot ？"></a>001什么是SpringBoot ？</h2><p>SpringBoot 是 Spring 开源组织下的子项目，是 Spring 组件一站式解决方案，主要是简化了使用 Spring 的难度，简省了繁重XML的配置，提供了各种启动器，在运行过程中自定配置, 开发者能快速上手。它的优势是独立运行、 简化配置、自动配置 、无代码生成和XML配置, 无需部署war文件。</p>
+<h2 id="002SpringBoot的优点"><a href="#002SpringBoot的优点" class="headerlink" title="002SpringBoot的优点?"></a>002SpringBoot的优点?</h2><p>-快速创建独立运行的spring项目与主流框架集成<br>-使用嵌入式的servlet容器，应用无需打包成war包<br>-starters自动依赖与版本控制<br>-大量的自动配置，简化开发，也可修改默认值<br>-准生产环境的运行应用监控<br>-与云计算的天然集成</p>
+<h2 id="003SpringBoot-有哪几种读取配置变量的方式？"><a href="#003SpringBoot-有哪几种读取配置变量的方式？" class="headerlink" title="003SpringBoot 有哪几种读取配置变量的方式？"></a>003SpringBoot 有哪几种读取配置变量的方式？</h2><p>SpringBoot 可以通过 @PropertySource,@Value,@Environment, @ConfigurationProperties 来绑定变量。</p>
+<h2 id="004什么是YAML？"><a href="#004什么是YAML？" class="headerlink" title="004什么是YAML？"></a>004什么是YAML？</h2><p>YAML是一种人类可读的数据序列化语言。它通常用于配置文件。与属性文件相比，如果我们想要在配置文件中添加复杂的属性，YAML文件就更加结构化，而且更少混淆。可以看出YAML具有分层配置数据。</p>
+<h2 id="005SpringBoot的配置文件有哪几种格式？"><a href="#005SpringBoot的配置文件有哪几种格式？" class="headerlink" title="005SpringBoot的配置文件有哪几种格式？"></a>005SpringBoot的配置文件有哪几种格式？</h2><p>.properties和.yml，它们的区别主要是书写格式不同。yml采取的是缩进的格式 不支持@PerpertySource注解导入配置。</p>
+<h2 id="006SpringBoot配置加载顺序？"><a href="#006SpringBoot配置加载顺序？" class="headerlink" title="006SpringBoot配置加载顺序？"></a>006SpringBoot配置加载顺序？</h2><p>SpringBoot配置加载顺序优先级是:propertiese文件、YAML文件、系统环境变量、命令行参数。</p>
+<h2 id="007Spring-Boot的核心注解是哪个？它主要由哪几个注解组成的？"><a href="#007Spring-Boot的核心注解是哪个？它主要由哪几个注解组成的？" class="headerlink" title="007Spring Boot的核心注解是哪个？它主要由哪几个注解组成的？"></a>007Spring Boot的核心注解是哪个？它主要由哪几个注解组成的？</h2><p>@SpringBootApplication是Spring Boot的核心注解<br>主要组合包含了以下3个注解：<br>1@SpringBootConfiguration： 组合了@Configuration 注解，实现配置文件的功能。<br>2@EnableAutoConfiguration： 打开自动配置的功能，也可以关闭某个自动配置的选项，如关闭数据源自动配置功能： @SpringBootApplication(exclude &#x3D; { DataSourceAutoConfiguration.class })。<br>3@ComponentScan： Spring组件扫描</p>
+<h2 id="008运行SpringBoot有哪几种方式？"><a href="#008运行SpringBoot有哪几种方式？" class="headerlink" title="008运行SpringBoot有哪几种方式？"></a>008运行SpringBoot有哪几种方式？</h2><p>1)打包用命令或者放到容器中运行<br>2)用 Maven&#x2F; Gradle 插件运行<br>3)直接执行 main 方法运行</p>
+<h2 id="009如何使用-SpringBoot-生成一个-WAR-文件？"><a href="#009如何使用-SpringBoot-生成一个-WAR-文件？" class="headerlink" title="009如何使用 SpringBoot 生成一个 WAR 文件？"></a>009如何使用 SpringBoot 生成一个 WAR 文件？</h2><p>方式一：点击idea中pacakage插件，war包生成在target文件夹下<br>方式二：命令方式，通过输入maven打包命令mvn package 即可打war包成功，war包生成在target文件夹下！</p>
+<h2 id="010SpringBoot-如何定义多套不同环境配置？"><a href="#010SpringBoot-如何定义多套不同环境配置？" class="headerlink" title="010SpringBoot 如何定义多套不同环境配置？"></a>010SpringBoot 如何定义多套不同环境配置？</h2><p>添加如下文件，其中dev是开发环境，test是测试环境，prod是生产环境<br>application-dev.properties<br>application-test.properties<br>application-prod.properties</p>
+<h2 id="011SpringBoot-实现热部署有哪几种方式？"><a href="#011SpringBoot-实现热部署有哪几种方式？" class="headerlink" title="011SpringBoot 实现热部署有哪几种方式？"></a>011SpringBoot 实现热部署有哪几种方式？</h2><p>Spring Loaded和Spring-boot-devtools</p>
+<h2 id="012SpringBoot-可以兼容老Spring-项目吗？"><a href="#012SpringBoot-可以兼容老Spring-项目吗？" class="headerlink" title="012SpringBoot 可以兼容老Spring 项目吗？"></a>012SpringBoot 可以兼容老Spring 项目吗？</h2><p>可以兼容，使用 @ImportResource 注解导入老 Spring 项目配置文件。</p>
+<h2 id="013SpringBoot集成MyBatis的过程？"><a href="#013SpringBoot集成MyBatis的过程？" class="headerlink" title="013SpringBoot集成MyBatis的过程？"></a>013SpringBoot集成MyBatis的过程？</h2><p>1)添加MyBatis的starter maven依赖org.mybatis.spring.boot.mybatis-spring-boot-starter.jar；<br>2)在MyBatis的接口中 添加@Mapper注解；<br>3)在application.yml配置数据源信息；</p>
+<h2 id="014SpringBoot-中如何解决跨域问题"><a href="#014SpringBoot-中如何解决跨域问题" class="headerlink" title="014SpringBoot 中如何解决跨域问题 ?"></a>014SpringBoot 中如何解决跨域问题 ?</h2><p>跨域可以在前端通过 JSONP 来解决，但是 JSONP 只可以发送 GET 请求，无法发送其他类型的请求，在 RESTful 风格的应用中，就显得非常鸡肋，因此我们推荐在后端通过 （CORS，Cross-origin resource sharing） 来解决跨域问题。这种解决方案并非 SpringBoot 特有的，在传统的 SSM 框架中，就可以通过 CORS 来解决跨域问题，只不过之前我们是在 XML 文件中配置 CORS ，现在可以通过实现WebMvcConfigurer接口然后重写addCorsMappings方法解决跨域问题。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@Configuration </span><br><span class="line">public class CorsConfig implements WebMvcConfigurer &#123;</span><br><span class="line">@Override</span><br><span class="line">public void addCorsMappings(CorsRegistry registry) &#123;</span><br><span class="line">    registry.addMapping(&quot;/**&quot;)</span><br><span class="line">            .allowedOrigins(&quot;*&quot;)</span><br><span class="line">            .allowCredentials(true)</span><br><span class="line">            .allowedMethods(&quot;GET&quot;, &quot;POST&quot;, &quot;PUT&quot;, &quot;DELETE&quot;, &quot;OPTIONS&quot;)</span><br><span class="line">            .maxAge(3600);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="015如何在-Spring-Boot-启动的时候运行一些特定的代码？"><a href="#015如何在-Spring-Boot-启动的时候运行一些特定的代码？" class="headerlink" title="015如何在 Spring Boot 启动的时候运行一些特定的代码？"></a>015如何在 Spring Boot 启动的时候运行一些特定的代码？</h2><p>可以实现接口 ApplicationRunner 或者 CommandLineRunner，这两个接口实现方式一样，它们都只提供了一个 run 方法。</p>
+<h2 id="016你如何理解SpringBoot中的Starters？"><a href="#016你如何理解SpringBoot中的Starters？" class="headerlink" title="016你如何理解SpringBoot中的Starters？"></a>016你如何理解SpringBoot中的Starters？</h2><p>Starters可以理解为启动器，它包含了一系列可以集成到应用里面的依赖包，你可以一站式集成Spring及其他技术，而不需要到处找示例代码和依赖包。如你想使用SpringJPA访问数据库，只要加入 spring-boot-starter-data-jpa 启动器依赖就能使用了。</p>
+<h2 id="017什么是自动配置？"><a href="#017什么是自动配置？" class="headerlink" title="017什么是自动配置？"></a>017什么是自动配置？</h2><p>在Spring 和 SpringMVC 中需要配置大量的参数。Spring Boot 提供了配置应用程序和框架所需要的基本配置。这就是自动配置。</p>
+<h2 id="018SpringBoot自动配置原理是什么？"><a href="#018SpringBoot自动配置原理是什么？" class="headerlink" title="018SpringBoot自动配置原理是什么？"></a>018SpringBoot自动配置原理是什么？</h2><p>SpringBoot启动的时候会通过@EnableAutoConfiguration注解找到META-INF&#x2F;spring.factories配置文件中的所有自动配置类，并对其进行加载，而这些自动配置类都是以AutoConfiguration结尾来命名的，它实际上就是一个JavaConfig形式的Spring容器配置类，它能通过以Properties结尾命名的类中取得在全局配置文件中配置的属性如：server.port，而XxxxProperties类是通过@ConfigurationProperties注解与全局配置文件中对应的属性进行绑定的。</p>
+<h2 id="019SpringBoot-支持哪些日志框架？推荐和默认的日志框架是哪个？"><a href="#019SpringBoot-支持哪些日志框架？推荐和默认的日志框架是哪个？" class="headerlink" title="019SpringBoot 支持哪些日志框架？推荐和默认的日志框架是哪个？"></a>019SpringBoot 支持哪些日志框架？推荐和默认的日志框架是哪个？</h2><p>SpringBoot 支持 Java Util Logging, Log4j2, Lockback 作为日志框架，如果你使用 Starters 启动器，Spring Boot 将使用 Logback 作为默认日志框架，SpringBoot支持Java Util Logging,Log4j2,Lockback作为日志框架，如果你使用starters启动器，SpringBoot将使用Logback作为默认日志框架。无论使用哪种日志框架，Spring Boot都支持配置将日志输出到控制台或者文件中。<br>spring-boot-starter启动器包含spring-boot-starter-logging启动器并集成了slf4j日志抽象及Logback日志框架。</p>
+<h2 id="020SpringBoot中的监视器是什么？"><a href="#020SpringBoot中的监视器是什么？" class="headerlink" title="020SpringBoot中的监视器是什么？"></a>020SpringBoot中的监视器是什么？</h2><p>Spring boot actuator是spring启动框架中的重要功能之一。Spring boot监视器可帮助您访问生产环境中正在运行的应用程序的当前状态。有几个指标必须在生产环境中进行检查和监控。即使一些外部应用程序可能正在使用这些服务来向相关人员触发警报消息。监视器模块公开了一组可直接作为HTTP URL访问的REST端点来检查状态。</p>
+<h2 id="021如何在-Spring-Boot-中禁用-Actuator-端点安全性？"><a href="#021如何在-Spring-Boot-中禁用-Actuator-端点安全性？" class="headerlink" title="021如何在 Spring Boot 中禁用 Actuator 端点安全性？"></a>021如何在 Spring Boot 中禁用 Actuator 端点安全性？</h2><p>默认情况下，所有敏感的 HTTP 端点都是安全的，只有具有 ACTUATOR 角色的用户才能访问它们。<br>安全性是使用标准的 HttpServletRequest.isUserInRole 方法实施的，可以用来禁用安全性。<br>只有在执行机构端点在防火墙后访问时，才建议禁用安全性。</p>
+<h2 id="022如何使用SpringBoot实现异常处理？"><a href="#022如何使用SpringBoot实现异常处理？" class="headerlink" title="022如何使用SpringBoot实现异常处理？"></a>022如何使用SpringBoot实现异常处理？</h2><p>Spring 通过使用 @ControllerAdvice 注解处理异常，实现一个ControllerAdvice 类来处理控制器类抛出的所有异常。</p>
+<h2 id="023保护-SpringBoot应用有哪些方法？"><a href="#023保护-SpringBoot应用有哪些方法？" class="headerlink" title="023保护 SpringBoot应用有哪些方法？"></a>023保护 SpringBoot应用有哪些方法？</h2><p>1.在生产中使用HTTPS<br>2.使用Snyk检查你的依赖关系<br>3.升级到最新版本<br>4.启用CSRF保护<br>5.使用内容安全策略防止XSS攻击</p>
+<h2 id="024SpringBoot2-X有什么新特性？与1-X有什么区别？"><a href="#024SpringBoot2-X有什么新特性？与1-X有什么区别？" class="headerlink" title="024SpringBoot2.X有什么新特性？与1.X有什么区别？"></a>024SpringBoot2.X有什么新特性？与1.X有什么区别？</h2><p>1.配置变更<br>2.JDK 版本升级<br>3.第三方类库升级<br>4.响应式 Spring 编程支持<br>5.HTTP&#x2F;2 支持<br>6.配置属性绑定</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2024/03/22/SpringCloud/" data-toggle="tooltip" data-placement="top"
+                           title="">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2024/03/22/Spring/" data-toggle="tooltip" data-placement="top"
+                           title="">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringBoot%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-text">SpringBoot面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#001%E4%BB%80%E4%B9%88%E6%98%AFSpringBoot-%EF%BC%9F"><span class="toc-text">001什么是SpringBoot ？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#002SpringBoot%E7%9A%84%E4%BC%98%E7%82%B9"><span class="toc-text">002SpringBoot的优点?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#003SpringBoot-%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E8%AF%BB%E5%8F%96%E9%85%8D%E7%BD%AE%E5%8F%98%E9%87%8F%E7%9A%84%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-text">003SpringBoot 有哪几种读取配置变量的方式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#004%E4%BB%80%E4%B9%88%E6%98%AFYAML%EF%BC%9F"><span class="toc-text">004什么是YAML？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#005SpringBoot%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E6%A0%BC%E5%BC%8F%EF%BC%9F"><span class="toc-text">005SpringBoot的配置文件有哪几种格式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#006SpringBoot%E9%85%8D%E7%BD%AE%E5%8A%A0%E8%BD%BD%E9%A1%BA%E5%BA%8F%EF%BC%9F"><span class="toc-text">006SpringBoot配置加载顺序？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#007Spring-Boot%E7%9A%84%E6%A0%B8%E5%BF%83%E6%B3%A8%E8%A7%A3%E6%98%AF%E5%93%AA%E4%B8%AA%EF%BC%9F%E5%AE%83%E4%B8%BB%E8%A6%81%E7%94%B1%E5%93%AA%E5%87%A0%E4%B8%AA%E6%B3%A8%E8%A7%A3%E7%BB%84%E6%88%90%E7%9A%84%EF%BC%9F"><span class="toc-text">007Spring Boot的核心注解是哪个？它主要由哪几个注解组成的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#008%E8%BF%90%E8%A1%8CSpringBoot%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-text">008运行SpringBoot有哪几种方式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#009%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-SpringBoot-%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA-WAR-%E6%96%87%E4%BB%B6%EF%BC%9F"><span class="toc-text">009如何使用 SpringBoot 生成一个 WAR 文件？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#010SpringBoot-%E5%A6%82%E4%BD%95%E5%AE%9A%E4%B9%89%E5%A4%9A%E5%A5%97%E4%B8%8D%E5%90%8C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%EF%BC%9F"><span class="toc-text">010SpringBoot 如何定义多套不同环境配置？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#011SpringBoot-%E5%AE%9E%E7%8E%B0%E7%83%AD%E9%83%A8%E7%BD%B2%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-text">011SpringBoot 实现热部署有哪几种方式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#012SpringBoot-%E5%8F%AF%E4%BB%A5%E5%85%BC%E5%AE%B9%E8%80%81Spring-%E9%A1%B9%E7%9B%AE%E5%90%97%EF%BC%9F"><span class="toc-text">012SpringBoot 可以兼容老Spring 项目吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#013SpringBoot%E9%9B%86%E6%88%90MyBatis%E7%9A%84%E8%BF%87%E7%A8%8B%EF%BC%9F"><span class="toc-text">013SpringBoot集成MyBatis的过程？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#014SpringBoot-%E4%B8%AD%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E8%B7%A8%E5%9F%9F%E9%97%AE%E9%A2%98"><span class="toc-text">014SpringBoot 中如何解决跨域问题 ?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#015%E5%A6%82%E4%BD%95%E5%9C%A8-Spring-Boot-%E5%90%AF%E5%8A%A8%E7%9A%84%E6%97%B6%E5%80%99%E8%BF%90%E8%A1%8C%E4%B8%80%E4%BA%9B%E7%89%B9%E5%AE%9A%E7%9A%84%E4%BB%A3%E7%A0%81%EF%BC%9F"><span class="toc-text">015如何在 Spring Boot 启动的时候运行一些特定的代码？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#016%E4%BD%A0%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3SpringBoot%E4%B8%AD%E7%9A%84Starters%EF%BC%9F"><span class="toc-text">016你如何理解SpringBoot中的Starters？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#017%E4%BB%80%E4%B9%88%E6%98%AF%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%EF%BC%9F"><span class="toc-text">017什么是自动配置？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#018SpringBoot%E8%87%AA%E5%8A%A8%E9%85%8D%E7%BD%AE%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">018SpringBoot自动配置原理是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#019SpringBoot-%E6%94%AF%E6%8C%81%E5%93%AA%E4%BA%9B%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%EF%BC%9F%E6%8E%A8%E8%8D%90%E5%92%8C%E9%BB%98%E8%AE%A4%E7%9A%84%E6%97%A5%E5%BF%97%E6%A1%86%E6%9E%B6%E6%98%AF%E5%93%AA%E4%B8%AA%EF%BC%9F"><span class="toc-text">019SpringBoot 支持哪些日志框架？推荐和默认的日志框架是哪个？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#020SpringBoot%E4%B8%AD%E7%9A%84%E7%9B%91%E8%A7%86%E5%99%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">020SpringBoot中的监视器是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#021%E5%A6%82%E4%BD%95%E5%9C%A8-Spring-Boot-%E4%B8%AD%E7%A6%81%E7%94%A8-Actuator-%E7%AB%AF%E7%82%B9%E5%AE%89%E5%85%A8%E6%80%A7%EF%BC%9F"><span class="toc-text">021如何在 Spring Boot 中禁用 Actuator 端点安全性？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#022%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8SpringBoot%E5%AE%9E%E7%8E%B0%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86%EF%BC%9F"><span class="toc-text">022如何使用SpringBoot实现异常处理？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#023%E4%BF%9D%E6%8A%A4-SpringBoot%E5%BA%94%E7%94%A8%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="toc-text">023保护 SpringBoot应用有哪些方法？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#024SpringBoot2-X%E6%9C%89%E4%BB%80%E4%B9%88%E6%96%B0%E7%89%B9%E6%80%A7%EF%BC%9F%E4%B8%8E1-X%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">024SpringBoot2.X有什么新特性？与1.X有什么区别？</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/ehazon">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/megahertz">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Haojen 2024
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://haojen.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
+</body>
+
+</html>

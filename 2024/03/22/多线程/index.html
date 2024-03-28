@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="马浩珍在 Github 上的个人博客">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Haojen" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        Haojen&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://haojen.github.io/2024/03/22/多线程/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Haojen
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1></h1>
+                    
+                    <span class="meta">
+                         作者 Haojen Ma
+                        <span>
+                          日期 2024-03-22
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="多线程面试题"><a href="#多线程面试题" class="headerlink" title="多线程面试题"></a>多线程面试题</h1><h2 id="001为什么要使用多线程呢"><a href="#001为什么要使用多线程呢" class="headerlink" title="001为什么要使用多线程呢?"></a>001为什么要使用多线程呢?</h2><p>我们现在所使用操作系统都是多任务操作系统(早期使用的DOS操作系统为单任务操作系统)，多任务操作指在同一时刻可以同时做多件事(可以同时执行多个程序)。<br>多进程:每个程序都是一个进程，在操作系统中可以同时执行多个程序,多进程的目的是为了有效的使用CPU资源，每开一个进程系统要为该进程分配相关的系统资源(内存资源)；<br>多线程:线程是进程内部比进程更小的执行单元(执行流|程序片段),每个线程完成一个任务,每个进程内部包含了多个线程每个线程做自己的事情，在进程中的所有线程共享该进程的资源；<br>主线程:在进程中至少存在一个主线程，其他子线程都由主线程开启,主线程不一定在其他线程结束后结束，有可能在其他线程结束前结束。Java中的主线程是main线程,是Java的main函数;</p>
+<h2 id="002多线程应用场景"><a href="#002多线程应用场景" class="headerlink" title="002多线程应用场景?"></a>002多线程应用场景?</h2><p>当应用场景为计算密集型时：为了将每个cpu充分利用起来，线程数量正常是cpu核数+1，还可以看jdk的使用版本，1.8版本中可以使用cpu核数*2。<br>当应用场景为io密集型时：做web端开发的时候，涉及到大量的网络传输，不进入持，缓存和与数据库交互也会存在大量io，当发生io时候，线程就会停止，等待io结束，数据准备好，线程才会继续执行，所以当io密集时，可以多创建点线程，让线程等待时候，其他线程执行，更高效的利用cpu效率，他有一个计算公式，套用公式的话，双核cpu理想的线程数就是20。</p>
+<h2 id="003多线程的好处"><a href="#003多线程的好处" class="headerlink" title="003多线程的好处?"></a>003多线程的好处?</h2><p>采用多线程技术的应用程序可以更好地利用系统资源。主要优势在于充分利用了CPU的空闲时间片，用尽可能少的时间来对用户的要求做出响应，使得进程的整体运行效率得到较大提高，同时增强了应用程序的灵活性。由于同一进程的所有线程是共享同一内存，所以不需要特殊的数据传送机制，不需要建立共享存储区或共享文件，从而使得不同任务之间的协调操作与运行、数据的交互、资源的分配等问题更加易于解决。</p>
+<h2 id="004使用多线程可能带来什么问题"><a href="#004使用多线程可能带来什么问题" class="headerlink" title="004使用多线程可能带来什么问题?"></a>004使用多线程可能带来什么问题?</h2><p>多线程的目的就是为了能提高程序的执行效率提高程序运行速度，但是并发编程并不总是能提高程序运行速度的，而且并发编程可能会遇到很多问题，比如：内存泄漏、死锁、线程不安全等等。</p>
+<h2 id="005线程和进程的区别？"><a href="#005线程和进程的区别？" class="headerlink" title="005线程和进程的区别？"></a>005线程和进程的区别？</h2><p>进程：是正在运行中的程序，是系统进行资源调度和分配的的基本单位。<br>线程：是进程的子任务，是任务调度和执行的基本单位；<br>一个程序至少有一个进程，一个进程至少有一个线程，线程依赖于进程而存在；<br>进程在执行过程中拥有独立的内存单元，而多个线程共享进程的内存。线程与进程相似，但线程是一个比进程更小的执行单位。<br>一个进程在其执行的过程中可以产生多个线程。与进程不同的是同类的多个线程共享进程的堆和方法区资源，但每个线程有自己的程序计数器、虚拟机栈和本地方法栈，所以系统在产生一个线程，或是在各个线程之间作切换工作时，负担要比进程小得多，也正因为如此，线程也被称为轻量级进程。</p>
+<h2 id="006创建线程的几种方式？"><a href="#006创建线程的几种方式？" class="headerlink" title="006创建线程的几种方式？"></a>006创建线程的几种方式？</h2><p>a.继承 Thread 类;b.实现 Runnable 接口;c. 实现Callable接口;d. 使用线程池。</p>
+<h2 id="007创建线程用Runnable还是Thread？"><a href="#007创建线程用Runnable还是Thread？" class="headerlink" title="007创建线程用Runnable还是Thread？"></a>007创建线程用Runnable还是Thread？</h2><p>我们可以通过继承Thread类或者调用Runnable接口来实现线程，因为Java不支持类的多重继承，但允许你调用多个接口。所以如果你想要继承其他的类，当然是调用Runnable接口好了。</p>
+<h2 id="008实现Runnable接口和Callable接口的区别？"><a href="#008实现Runnable接口和Callable接口的区别？" class="headerlink" title="008实现Runnable接口和Callable接口的区别？"></a>008实现Runnable接口和Callable接口的区别？</h2><p>如果想让线程池执行任务的话需要实现的Runnable接口或Callable接口。 Runnable接口或Callable接口实现类都可以被ThreadPoolExecutor或ScheduledThreadPoolExecutor执行。两者的区别在于 Runnable 接口不会返回结果但是 Callable 接口可以返回结果。</p>
+<h2 id="009线程的-run-和-start-有什么区别？"><a href="#009线程的-run-和-start-有什么区别？" class="headerlink" title="009线程的 run()和 start()有什么区别？"></a>009线程的 run()和 start()有什么区别？</h2><p>启动一个线程需要调用 Thread 对象的 start() 方法;<br>调用线程的 start() 方法后，线程处于可运行状态，此时它可以由 JVM 调度并执行，这并不意味着线程就会立即运行;<br>run() 方法是线程运行时由 JVM 回调的方法，无需手动写代码调用；<br>直接调用线程的 run() 方法，相当于在调用线程里继续调用了一个普通的方法，并未启动一个新的线程。</p>
+<h2 id="010说说线程的生命周期和状态"><a href="#010说说线程的生命周期和状态" class="headerlink" title="010说说线程的生命周期和状态?"></a>010说说线程的生命周期和状态?</h2><p><img src="http://www.bjpowernode.com/Public/Uploads/article/20220830/1661828121@6f4fc75b826c73cf923e44f0f1abfd3d.jpg" alt="img"></p>
+<p>线程通常有五种状态：创建，就绪，运行，阻塞和死亡状态<br>(1)创建状态（New）：新创建了一个线程对象。<br>(2)就绪状态（Runnable）：线程对象创建后，其他线程调用了该对象的start()方法。该状态的线程位于可运行线程池中，变得可运行，等待获取CPU的使用权。<br>(3)运行状态（Running）：就绪状态的线程获取了CPU，执行程序代码。<br>(4)阻塞状态（Blocked）：阻塞状态是线程因为某种原因放弃CPU使用权，暂时停止运行。直到线程进入就绪状态，才有机会转到运行状态。阻塞的情况分三种：<br>(一)等待阻塞：运行的线程执行wait()方法，JVM会把该线程放入等待池中。(wait会释放持有的锁)<br>(二)同步阻塞：运行的线程在获取对象的同步锁时，若该同步锁被别的线程占用，则JVM会把该线程放入锁池中。<br>(三)其他阻塞：运行的线程执行sleep()或join()方法，或者发出了I&#x2F;O请求时，JVM会把该线程置为阻塞状态。当sleep()状态超时、join()等待线程终止或者超时、或者I&#x2F;O处理完毕时，线程重新转入就绪状态。（注意,sleep是不会释放持有的锁）<br>(5)死亡状态（Dead）：线程执行完了或者因异常退出了run()方法，该线程结束生命周期。</p>
+<h2 id="011什么是上下文切换"><a href="#011什么是上下文切换" class="headerlink" title="011什么是上下文切换?"></a>011什么是上下文切换?</h2><p>多线程编程中一般线程的个数都大于 CPU 核心的个数，而一个 CPU 核心在任意时刻只能被一个线程使用，为了让这些线程都能得到有效执行，CPU 采取的策略是为每个线程分配时间片并轮转的形式。当一个线程的时间片用完的时候就会重新处于就绪状态让给其他线程使用，这个过程就属于一次上下文切换。<br>概括来说就是：当前任务在执行完 CPU 时间片切换到另一个任务之前会先保存自己的状态，以便下次再切换回这个任务时，可以再加载这个任务的状态。任务从保存到再加载的过程就是一次上下文切换。<br>上下文切换通常是计算密集型的。也就是说，它需要相当可观的处理器时间，在每秒几十上百次的切换中，每次切换都需要纳秒量级的时间。所以，上下文切换对系统来说意味着消耗大量的 CPU 时间，事实上，可能是操作系统中时间消耗最大的操作。<br>Linux 相比与其他操作系统（包括其他类 Unix 系统）有很多的优点，其中有一项就是，其上下文切换和模式切换的时间消耗非常少。</p>
+<h2 id="012如何创建守护线程？"><a href="#012如何创建守护线程？" class="headerlink" title="012如何创建守护线程？"></a>012如何创建守护线程？</h2><p>使用Thread类的setDaemon(true)方法可以将线程设置为守护线程，需要注意的是，需要在调用start()方法前调用这个方法，否则会抛出IllegalThreadStateException异常。</p>
+<h2 id="013用户线程和守护线程有什么区别？"><a href="#013用户线程和守护线程有什么区别？" class="headerlink" title="013用户线程和守护线程有什么区别？"></a>013用户线程和守护线程有什么区别？</h2><p>当我们在Java程序中创建一个线程，它就被称为用户线程。一个守护线程是在后台执行并且不会阻止JVM终止的线程。当没有用户线程在运行的时候，JVM关闭程序并且退出。一个守护线程创建的子线程依然是守护线程。</p>
+<h2 id="014为什么Thread类的sleep-和yield-方法是静态的？"><a href="#014为什么Thread类的sleep-和yield-方法是静态的？" class="headerlink" title="014为什么Thread类的sleep()和yield()方法是静态的？"></a>014为什么Thread类的sleep()和yield()方法是静态的？</h2><p>Thread类的sleep()和yield()方法将在当前正在执行的线程上运行。所以在其他处于等待状态的线程上调用这些方法是没有意义的。这就是为什么这些方法是静态的。它们可以在当前正在执行的线程中工作，并避免程序员错误的认为可以在其他非运行线程调用这些方法。</p>
+<h2 id="015如何在-Windows-和-Linux-上查找哪个线程cpu利用率最高？"><a href="#015如何在-Windows-和-Linux-上查找哪个线程cpu利用率最高？" class="headerlink" title="015如何在 Windows 和 Linux 上查找哪个线程cpu利用率最高？"></a>015如何在 Windows 和 Linux 上查找哪个线程cpu利用率最高？</h2><p>Windows系统下执行java  -jar  arthas-boot.jar<br>Linux系统下解压arthas，执行ps  -ef  |  grep  java找出java进程pid数字</p>
+<h2 id="016为什么我们调用-start-方法时会执行-run-方法，为什么我们不能直接调用-run-方法？"><a href="#016为什么我们调用-start-方法时会执行-run-方法，为什么我们不能直接调用-run-方法？" class="headerlink" title="016为什么我们调用 start() 方法时会执行 run() 方法，为什么我们不能直接调用 run() 方法？"></a>016为什么我们调用 start() 方法时会执行 run() 方法，为什么我们不能直接调用 run() 方法？</h2><p>new 一个 Thread，线程进入了新建状态;调用 start() 方法，会启动一个线程并使线程进入了就绪状态，当分配到时间片后就可以开始运行了。 start() 会执行线程的相应准备工作，然后自动执行 run() 方法的内容，这是真正的多线程工作。 而直接执行 run() 方法，会把 run 方法当成一个 main 线程下的普通方法去执行，并不会在某个线程中执行它，所以这并不是多线程工作。<br>总结： 调用 start 方法方可启动线程并使线程进入就绪状态，而 run 方法只是 thread 的一个普通方法调用，还是在主线程里执行.</p>
+<h2 id="017什么是-Callable-和-Future"><a href="#017什么是-Callable-和-Future" class="headerlink" title="017什么是 Callable 和 Future?"></a>017什么是 Callable 和 Future?</h2><p>Callable接口类似于Runnable,从名字就可以看出来，但是Runnable不会返回结果，并且无法抛出返回结果的异常，而Callable功能更强大一些，被线程执行后，可以返回值，这个返回值可以被Future拿到，也就是说，Future可以拿到异步执行任务的返回值。可以认为是带有返回值的Runnable.Future接口表示异步任务，是还没有完成的任务给出的未来结果。所以说Callable用于产生结果，Future用于获取结果。</p>
+<h2 id="018线程调度策略有哪些？"><a href="#018线程调度策略有哪些？" class="headerlink" title="018线程调度策略有哪些？"></a>018线程调度策略有哪些？</h2><p>(1) 抢占式调度策略<br>Java运行时系统的线程调度算法是抢占式的 (preemptive)。Java运行时系统支持一种简单的固定优先级的调度算法。如果一个优先级比其他任何处于可运行状态的线程都高的线程进入就绪状态，那么运行时系统就会选择该线程运行。新的优先级较高的线程抢占(preempt)了其他线程。但是Java运行时系统并不抢占同优先级的线程。换句话说，Java运行时系统不是分时的(time-slice)。然而，基于Java Thread类的实现系统可能是支持分时的，因此编写代码时不要依赖分时。当系统中的处于就绪状态的线程都具有相同优先级时，线程调度程序采用一种简单的、非抢占式的轮转的调度顺序。<br>(2) 时间片轮转调度策略<br>有些系统的线程调度采用时间片轮转(round-robin)调度策略。这种调度策略是从所有处于就绪状态的线程中选择优先级最高的线程分配一定的CPU时间运行。该时间过后再选择其他线程运行。只有当线程运行结束、放弃(yield)CPU或由于某种原因进入阻塞状态，低优先级的线程才有机会执行。如果有两个优先级相同的线程都在等待CPU，则调度程序以轮转的方式选择运行的线程。</p>
+<h2 id="019Java中用到的线程调度算法是什么？"><a href="#019Java中用到的线程调度算法是什么？" class="headerlink" title="019Java中用到的线程调度算法是什么？"></a>019Java中用到的线程调度算法是什么？</h2><p>抢占式。一个线程用完CPU之后，操作系统会根据线程优先级、线程饥饿情况等数据算出一个总的优先级并分配下一个时间片给某个线程执行。</p>
+<h2 id="020什么是线程调度器-Thread-Scheduler-和时间分片-Time-Slicing-？"><a href="#020什么是线程调度器-Thread-Scheduler-和时间分片-Time-Slicing-？" class="headerlink" title="020什么是线程调度器(Thread Scheduler)和时间分片(Time Slicing )？"></a>020什么是线程调度器(Thread Scheduler)和时间分片(Time Slicing )？</h2><p>线程调度器是一个操作系统服务，它负责为 Runnable 状态的线程分配 CPU 时间。一旦我们创建一个线程并启动它，它的执行便依赖于线程调度器的实现。同上一个问题，线程调度并不受到 Java 虚拟机控制，所以由应用程序来控制它是 更好的选择（也就是说不要让你的程序依赖于线程的优先级）。时间分片是指将可用的 CPU 时间分配给可用的 Runnable 线程的过程。分配 CPU 时间可以基于线程优先级或者线程等待的时间。 </p>
+<h2 id="021说说-sleep-方法和-wait-方法区别和共同点"><a href="#021说说-sleep-方法和-wait-方法区别和共同点" class="headerlink" title="021说说 sleep() 方法和 wait() 方法区别和共同点?"></a>021说说 sleep() 方法和 wait() 方法区别和共同点?</h2><p>两者最主要的区别在于：sleep 方法没有释放锁，而 wait 方法释放了锁 。<br>两者都可以暂停线程的执行。<br>wait 通常被用于线程间交互&#x2F;通信，sleep 通常被用于暂停执行。<br>wait() 方法被调用后，线程不会自动苏醒，需要别的线程调用同一个对象上的 notify() 或者 notifyAll() 方法。sleep() 方法执行完成后，线程会自动苏醒。或者可以使用 wait(long timeout)超时后线程会自动苏醒。</p>
+<h2 id="022为什么线程通信的方法-wait-notify-和-notifyAll-被定义在-Object-类里？"><a href="#022为什么线程通信的方法-wait-notify-和-notifyAll-被定义在-Object-类里？" class="headerlink" title="022为什么线程通信的方法 wait(), notify()和 notifyAll()被定义在 Object 类里？"></a>022为什么线程通信的方法 wait(), notify()和 notifyAll()被定义在 Object 类里？</h2><p>因为这些方法的调用是依赖锁对象，而同步代码块的锁对象是任意。锁而Object代表任意的对象，所以定义在这里面。</p>
+<h2 id="023Thread-类中的-yield-方法有什么作用？"><a href="#023Thread-类中的-yield-方法有什么作用？" class="headerlink" title="023Thread 类中的 yield 方法有什么作用？"></a>023Thread 类中的 yield 方法有什么作用？</h2><p>使当前线程从执行状态（运行状态）变为可执行态（就绪状态）。当前线程到了就绪状态，那么接下来具体是哪个个线程会从就绪状态变成执行状态就要看系统的分配了。</p>
+<h2 id="024为什么-Thread-类的-sleep-和-yield-方法是静态的？"><a href="#024为什么-Thread-类的-sleep-和-yield-方法是静态的？" class="headerlink" title="024为什么 Thread 类的 sleep()和 yield ()方法是静态的？"></a>024为什么 Thread 类的 sleep()和 yield ()方法是静态的？</h2><p>Thread类的sleep()和yield()方法将在当前正在执行的线程上运行。所以在其他处于等待状态的线程上调用这些方法是没有意义的。这就是为什么这些方法是静态的。它们可以在当前正在执行的线程中工作，并避免程序员错误的认为可以在其他非运行线程调用这些方法。</p>
+<h2 id="025线程的-sleep-方法和-yield-方法有什么区别？"><a href="#025线程的-sleep-方法和-yield-方法有什么区别？" class="headerlink" title="025线程的 sleep()方法和 yield()方法有什么区别？"></a>025线程的 sleep()方法和 yield()方法有什么区别？</h2><p>Thread类的sleep()和yield()方法将在当前正在执行的线程上运行。所以在其他处于等待状态的线程上调用这些方法是没有意义的。这就是为什么这些方法是静态的。它们可以在当前正在执行的线程中工作，并避免程序员错误的认为可以在其他非运行线程调用这些方法。</p>
+<h2 id="026多线程的中断是什么？"><a href="#026多线程的中断是什么？" class="headerlink" title="026多线程的中断是什么？"></a>026多线程的中断是什么？</h2><p>线程在运行过程中，有些时候可能需要中断一些阻塞的线程，类Thread中提供了几种中断线程的方法，其中Thread.suspend()和Thread.stop()方法已经过时了，因为这两个方法是不安全的。Thread.stop()，会直接终止该线程，并且会立即释放这个线程持有的所有锁，而这些锁恰恰是用来维持数据的一致性的，如果此时。写线程写入数据时写到一半，并强行终止，由于此时对象锁已经被释放，另一个等待该锁的读线程就会读到这个不一致的对象。Thread.suspend()会导致死锁，Thread.resume()也不能使用。</p>
+<h2 id="027如何停止一个正在运行的线程？"><a href="#027如何停止一个正在运行的线程？" class="headerlink" title="027如何停止一个正在运行的线程？"></a>027如何停止一个正在运行的线程？</h2><p>Java 提供了很丰富的API 但没有为停止线程提供 API。JDK 1.0 本来有一些像stop(), suspend() 和 resume()的控制方法但是由于潜在的死锁威胁因此在后续的JDK 版本中他们被弃用了.之后Java API 的设计者就没有提供一个兼容且线程安全的方法来停止一个线程。当run() 或者 call() 方法执行完的时候线程会自动结束, 如果要手动结束一个线程.你可以用volatile 布尔变量来退出 run()方法的循环或者是取消任务来中断线程。</p>
+<h2 id="028Java-中-interrupted-和-isInterrupted-方法的区别？"><a href="#028Java-中-interrupted-和-isInterrupted-方法的区别？" class="headerlink" title="028Java 中 interrupted 和 isInterrupted 方法的区别？"></a>028Java 中 interrupted 和 isInterrupted 方法的区别？</h2><p>interrupted：查询当前线程的中断状态，并且清除原状态。如果一个线程被中断了，第一次调用 interrupted 则返回 true，第二次和后面的就返回 false 了。<br>isInterrupted仅仅是查询当前线程的中断状态。</p>
+<h2 id="029notify-和-notifyAll-有什么区别？"><a href="#029notify-和-notifyAll-有什么区别？" class="headerlink" title="029notify() 和 notifyAll() 有什么区别？"></a>029notify() 和 notifyAll() 有什么区别？</h2><p>1)notify只会随机选取一个处于等待池中的线程进入锁池去竞争获取锁的机会；<br>2)notifyAll会让所有处于等待池的线程全部进入锁池去竞争获取锁的机会；</p>
+<h2 id="030你对线程优先级的理解是什么？"><a href="#030你对线程优先级的理解是什么？" class="headerlink" title="030你对线程优先级的理解是什么？"></a>030你对线程优先级的理解是什么？</h2><p>每一个线程都是有优先级的.一般来说.高优先级的线程在运行时会具有优先权. 但这依赖于线程调度的实现.这个实现是和操作系统相关的(OS dependent)。我们可以定义线程的优先级.但是这并不能保证高优先级的线程会在低优先级的线程前执行。线程优先级是一个int 变量(从 1-10).1 代表最低优先级.10 代表最高优先级。</p>
+<h2 id="031线程类的构造方法、静态块是被哪个线程调用的？"><a href="#031线程类的构造方法、静态块是被哪个线程调用的？" class="headerlink" title="031线程类的构造方法、静态块是被哪个线程调用的？"></a>031线程类的构造方法、静态块是被哪个线程调用的？</h2><p>线程类的构造方法、静态块是被new这个线程类所在的线程所调用的，而run方法里面的代码才是被线程自身所调用的。<br>举个例子，假设Thread2中new了Thread1，main函数中new了Thread2，那么：<br>(1)Thread2的构造方法、静态块是main线程调用的，Thread2的run()方法是Thread2自己调用的；<br>(2)Thread1的构造方法、静态块是Thread2调用的，Thread1的run()方法是Thread1自己调用的；</p>
+<h2 id="032一个线程运行时发生异常会怎样？"><a href="#032一个线程运行时发生异常会怎样？" class="headerlink" title="032一个线程运行时发生异常会怎样？"></a>032一个线程运行时发生异常会怎样？</h2><p>简单的说，如果异常没有被捕获该线程将会停止执行。Thread.UncaughtExceptionHandler 是用于处理未捕获异常造成线程突然中断情况的一个内嵌接口。当一个未捕获异常将造成线程中断的时候JVM 会使用Thread.getUncaughtExceptionHandler()来查询线程的UncaughtExceptionHandler 并将线程和异常作为参数传递给handler 的uncaughtException()方法进行处理。</p>
+<h2 id="033Java-线程数过多会造成什么异常？"><a href="#033Java-线程数过多会造成什么异常？" class="headerlink" title="033Java 线程数过多会造成什么异常？"></a>033Java 线程数过多会造成什么异常？</h2><p>(1)线程的生命周期开销非常高<br>(2)消耗过多的CPU 资源<br>如果可运行的线程数量多于可用处理器的数量，那么有线程将会被闲置。大量空闲的线程会占用许多内存，给垃圾回收器带来压力，而且大量的线程在竞争CPU 资源时还将产生其他性能的开销。<br>(3)降低稳定性<br>JVM 在可创建线程的数量上存在一个限制，这个限制值将随着平台的不同而不同，并且承受着多个因素制约，包括JVM 的启动参数、Thread 构造函数中请求栈的大小，以及底层操作系统对线程的限制等。如果破坏了这些限制，那么可能抛出OutOfMemoryError 异常。</p>
+<h2 id="034多线程的常用方法？"><a href="#034多线程的常用方法？" class="headerlink" title="034多线程的常用方法？"></a>034多线程的常用方法？</h2><p>wait();（强迫一个线程等待）<br>notify();（通知一个线程继续执行），<br>notifyAll()（所有线程继续执行），<br>sleep()（强迫一个线程睡眠N毫秒），<br>join()（等待线程终止）<br>yield()（线程让步）等等；</p>
+<h2 id="035什么是-FutureTask？"><a href="#035什么是-FutureTask？" class="headerlink" title="035什么是 FutureTask？"></a>035什么是 FutureTask？</h2><p>FutureTask 表示一个异步运算的任务。 FutureTask 里面可以传入一个 Callable 的具体实现类，可以对这<br>个异步运算的任务的结果进行等待获取、判断是否已经完成、取消任务等操作。当然，由于 FutureTask<br>也是 Runnable 接口的实现类，所以 FutureTask 也可以放入线程池中。</p>
+<h2 id="036线程之间如何进行通讯的？"><a href="#036线程之间如何进行通讯的？" class="headerlink" title="036线程之间如何进行通讯的？"></a>036线程之间如何进行通讯的？</h2><p>多个线程在正常情况下的运行是互不干扰的，但是CUP对线程的切换是随机的，这样线程运行的过程就脱离了我们的控制，如果我们想让多个线程之间有规律的运行，就需要线程通讯，线程之间通信的可以让多个线程按照我们预期的运行过程去执行。<br>1）wait()和notify()<br>wait()： 当前线程释放锁并且进入等待状态。<br>notify()： 唤醒当前线程，上面wait() 的时候线程进入了等待状态，如果我们想让线程执行需要通过notify()唤醒该线程。<br>notifyAll()： 唤醒所有进入等待状态的线程。<br>2）join()方法<br>join()方法的作用是使A线程加入B线程中执行，B线程进入阻塞状态，只有当A线程运行结束后B线程才会继续执行。<br>3）volatile关键字<br>volatile 关键字是实现线程变量之间真正共享的，就是我们理想中的共享状态，多个线程同时监控着共享变量，当变量发生变化时其它线程立即改变，具体实现与JMM内存模型有关。</p>
+<h2 id="037线程安全的概念？"><a href="#037线程安全的概念？" class="headerlink" title="037线程安全的概念？"></a>037线程安全的概念？</h2><p>多个线程可以共享进程的堆和方法区资源，既多个线程共享类变量。多个线程共享一个进程的变量时，如果线程对这个变量只有读操作，没有更新操作则这个线程没有线程安全问题。如果线程需要对这个变量进行修改操作，则可能会因为数据更新不及时导致变量信息不准确而引发线程不安全。</p>
+<h2 id="038线程安全如何保证？"><a href="#038线程安全如何保证？" class="headerlink" title="038线程安全如何保证？"></a>038线程安全如何保证？</h2><p>当多个线程对同一个资源进行操作的时候就会有线程安全。解决线程安全的核心思想就是加锁。加锁有两种方式：1.JVM提供的锁，就是synchronized锁，即同步代码和同步代码块 2.jdk提供的各种锁，如lock。</p>
+<h2 id="039Java中哪些集合是线程安全的？"><a href="#039Java中哪些集合是线程安全的？" class="headerlink" title="039Java中哪些集合是线程安全的？"></a>039Java中哪些集合是线程安全的？</h2><p>在JDK1.1版本中，所有的集合都是线程安全的。但是在1.2及以后的版本中就出现了一些线程不安全的集合，为什么版本升级反而会出现一些线程不安全的集合呢？因为线程不安全的集合普遍比线程安全的集合效率高的多。随着业务的发展，特别是在WEB应用中，为了提高用户体验，减少用户的等待时间，页面的响应速度（也就是效率）是优先考虑的。而且对线程不安全的集合加锁以后也能达到安全的效果（但是效率会低，因为会有锁的获取以及等待）。其实在JDK源码中相同效果的集合线程安全的比线程不安全的就多了一个同步机制，但是效率上却低了不止一点点，因为效率低，所以已经不太建议使用了。下面列举一些常用的线程安全的集合。<br>Vector：就比ArrayList多了个同步化机制。<br>HashTable：就比HashMap多了个线程安全。<br>ConcurrentHashMap：是一种高效但是线程安全的集合。<br>Stack：栈，线程安全，继承与Vector。</p>
+<h2 id="040synchronized-关键字用法？"><a href="#040synchronized-关键字用法？" class="headerlink" title="040synchronized 关键字用法？"></a>040synchronized 关键字用法？</h2><p>1)修饰实例方法: 作用于当前对象实例加锁，进入同步代码前要获得 当前对象实例的锁</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">synchronized void method() &#123;</span><br><span class="line">  //业务代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2)修饰静态方法: 也就是给当前类加锁，会作用于类的所有对象实例 ，进入同步代码前要获得 当前 class 的锁。因为静态成员不属于任何一个实例对象，是类成员（ static 表明这是该类的一个静态资源，不管 new 了多少个对象，只有一份）。所以，如果一个线程 A 调用一个实例对象的非静态 synchronized 方法，而线程 B 需要调用这个实例对象所属类的静态 synchronized 方法，是允许的，不会发生互斥现象，因为访问静态 synchronized 方法占用的锁是当前类的锁，而访问非静态 synchronized 方法占用的锁是当前实例对象锁。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">synchronized void staic method() &#123;</span><br><span class="line">  //业务代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3)修饰代码块 ：指定加锁对象，对给定对象&#x2F;类加锁。synchronized(this|object) 表示进入同步代码库前要获得给定对象的锁。synchronized(类.class) 表示进入同步代码前要获得 当前 class 的锁</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">synchronized(this) &#123;</span><br><span class="line">  //业务代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>总结：synchronized 关键字加到 static 静态方法和 synchronized(class) 代码块上都是是给 Class 类上锁。<br>synchronized 关键字加到实例方法上是给对象实例上锁。<br>尽量不要使用 synchronized(String a) 因为 JVM 中，字符串常量池具有缓存功能！</p>
+<h2 id="041构造方法可以使用-synchronized-关键字修饰么？"><a href="#041构造方法可以使用-synchronized-关键字修饰么？" class="headerlink" title="041构造方法可以使用 synchronized 关键字修饰么？"></a>041构造方法可以使用 synchronized 关键字修饰么？</h2><p>构造方法不能使用 synchronized 关键字修饰。构造方法本身就属于线程安全的，不存在同步的构造方法一说。</p>
+<h2 id="042synchronized使用：双重校验锁实现对象单例-线程安全-。"><a href="#042synchronized使用：双重校验锁实现对象单例-线程安全-。" class="headerlink" title="042synchronized使用：双重校验锁实现对象单例(线程安全)。"></a>042synchronized使用：双重校验锁实现对象单例(线程安全)。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class Singleton &#123;</span><br><span class="line">    private static Singleton uniqueInstance;</span><br><span class="line">	// 私有化构造方法</span><br><span class="line">    private Singleton() &#123;</span><br><span class="line">    &#125;</span><br><span class="line">	// 提供getInstance方法</span><br><span class="line">    public  static Singleton getInstance() &#123;</span><br><span class="line">       //先判断对象是否已经实例过，没有实例化过才进入加锁代码</span><br><span class="line">        if (uniqueInstance == null) &#123;</span><br><span class="line">            //类对象加锁</span><br><span class="line">            synchronized (Singleton.class) &#123;</span><br><span class="line">                if (uniqueInstance == null) &#123;</span><br><span class="line">                    uniqueInstance = new Singleton();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return uniqueInstance;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="043同步和异步的区别？"><a href="#043同步和异步的区别？" class="headerlink" title="043同步和异步的区别？"></a>043同步和异步的区别？</h2><p>同步：功能调用时，在没有得到结果之前，该调用就不返回或继续执行后续操作。这时程序是阻塞的，只有接收到返回的值或消息后才往下执行其他的命令。因此，简单来说，同步就是必须一件一件做事，等前一件事做完了才能做完下一件事。<br>异步：与同步相对，当一个异步过程调用发出后，调用者在没有得到结果之前，就可以继续执行后续操作，当这个调用完成后，一般通过状态或者回调来通知调用者。</p>
+<h2 id="044同步方法和同步块，哪个是更好的选择？"><a href="#044同步方法和同步块，哪个是更好的选择？" class="headerlink" title="044同步方法和同步块，哪个是更好的选择？"></a>044同步方法和同步块，哪个是更好的选择？</h2><p>同步块，这意味着同步块之外的代码是异步执行的，这比同步整个方法更提升代 码的效率。请知道一条原则：同步的范围越小越好。</p>
+<h2 id="045为什么-wait-notify-和-notifyAll-必须在同步方法或者同步块中被调用？"><a href="#045为什么-wait-notify-和-notifyAll-必须在同步方法或者同步块中被调用？" class="headerlink" title="045为什么 wait(), notify()和 notifyAll()必须在同步方法或者同步块中被调用？"></a>045为什么 wait(), notify()和 notifyAll()必须在同步方法或者同步块中被调用？</h2><p>当一个线程需要调用对象的wait()方法的时候，这个线程必须拥有该对象的锁，接着它就会释放这个对象锁并进入等待状态直到其他线程调用这个对象上的notify()方法。同样的，当一个线程需要调用对象的notify()方法时，它会释放这个对象的锁，以便其他在等待的线程就可以得到这个对象锁。由于所有的这些方法都需要线程持有对象的锁，这样就只能通过同步来实现，所以他们只能在同步方法或者同步块中被调用。</p>
+<h2 id="046什么是线程同步和线程互斥？"><a href="#046什么是线程同步和线程互斥？" class="headerlink" title="046什么是线程同步和线程互斥？"></a>046什么是线程同步和线程互斥？</h2><p>同步就是协同步调，按预定的先后次序进行运行。如：你说完，我再说。这里的同步千万不要理解成那个同时进行，应是指协同、协助、互相配合。线程同步是指多线程通过特定的设置（如互斥量，事件对象，临界区）来控制线程之间的执行顺序（即所谓的同步）也可以说是在线程之间通过同步建立起执行顺序的关系，如果没有同步，那线程之间是各自运行各自的！<br>线程互斥是指对于共享的进程系统资源，在各单个线程访问时的排它性。当有若干个线程都要使用某一共享资源时，任何时刻最多只允许一个线程去使用，其它要使用该资源的线程必须等待，直到占用资源者释放该资源。线程互斥可以看成是一种特殊的线程同步（下文统称为同步）。</p>
+<h2 id="047什么是线程池？"><a href="#047什么是线程池？" class="headerlink" title="047什么是线程池？"></a>047什么是线程池？</h2><p>线程池就是提前创建若干个线程，如果有任务需要处理，线程池里的线程就会处理任务，处理完之后线程并不会被销毁，而是等待下一个任务。由于创建和销毁线程都是消耗系统资源的，所以当你想要频繁的创建和销毁线程的时候就可以考虑使用线程池来提升系统的性能。</p>
+<h2 id="048为什么要用线程池？"><a href="#048为什么要用线程池？" class="headerlink" title="048为什么要用线程池？"></a>048为什么要用线程池？</h2><p>java中经常需要用到多线程来处理一些业务，我们非常不建议单纯使用继承Thread或者实现Runnable接口的方式来创建线程，那样势必有创建及销毁线程耗费资源、线程上下文切换问题。同时创建过多的线程也可能引发资源耗尽的风险，这个时候引入线程池比较合理，方便线程任务的管理。java中涉及到线程池的相关类均在jdk1.5开始的java.util.concurrent包中，涉及到的几个核心类及接口包括：Executor、Executors、ExecutorService、ThreadPoolExecutor、FutureTask、Callable、Runnable等。</p>
+<h2 id="049线程池的优势？"><a href="#049线程池的优势？" class="headerlink" title="049线程池的优势？"></a>049线程池的优势？</h2><p>线程池提供了一种限制和管理资源（包括执行一个任务）。 每个线程池还维护一些基本统计信息，例如已完成任务的数量。<br>线程池的好处如下：<br>1.降低资源消耗。通过重复利用已创建的线程降低线程创建和销毁造成的消耗。<br>2.可有效的控制最大并发线程数，提高系统资源的使用率，同时避免过多资源竞争，避免堵塞。<br>3.提供定时执行、定期执行、单线程、并发数控制等功能。</p>
+<h2 id="050线程池的工作原理？"><a href="#050线程池的工作原理？" class="headerlink" title="050线程池的工作原理？"></a>050线程池的工作原理？</h2><p>1）线程提交到线程池<br>2）判断核心线程池是否已经达到设定的数量，如果没有达到，则直接创建线程执行任务<br>3）如果达到了，则放在队列中，等待执行<br>4）如果队列已经满了，则判断线程的数量是否已经达到设定的最大值，如果达到了，则直接执行拒绝策略<br>5）如果没有达到，则创建线程执行任务。</p>
+<h2 id="051线程池都有哪些状态？"><a href="#051线程池都有哪些状态？" class="headerlink" title="051线程池都有哪些状态？"></a>051线程池都有哪些状态？</h2><p>RUNNING ：能接受新提交的任务，并且也能处理阻塞队列中的任务；<br>SHUTDOWN：关闭状态，不再接受新提交的任务，但却可以继续处理阻塞队列中已保存的任务。在线程池处于 RUNNING 状态时，调用 shutdown()方法会使线程池进入到该状态。（finalize() 方法在执行过程中也会调用shutdown()方法进入该状态）；<br>STOP：不能接受新任务，也不处理队列中的任务，会中断正在处理任务的线程。在线程池处于 RUNNING 或 SHUTDOWN 状态时，调用 shutdownNow() 方法会使线程池进入到该状态；<br>TIDYING：如果所有的任务都已终止了，workerCount (有效线程数) 为0，线程池进入该状态后会调用 terminated() 方法进入TERMINATED 状态。<br>TERMINATED：在terminated() 方法执行完后进入该状态，默认terminated()方法中什么也没有做。</p>
+<h2 id="052什么是Executors？"><a href="#052什么是Executors？" class="headerlink" title="052什么是Executors？"></a>052什么是Executors？</h2><p>Executor就是一个线程池框架，Executor 位于java.util.concurrent.Executors ，提供了用于创建工作线程的线程池的工厂方法。它包含一组用于有效管理工作线程的组件。Executor API 通过 Executors 将任务的执行与要执行的实际任务解耦。</p>
+<h2 id="053在-Java-中-Executor-和-Executors-的区别？"><a href="#053在-Java-中-Executor-和-Executors-的区别？" class="headerlink" title="053在 Java 中 Executor 和 Executors 的区别？"></a>053在 Java 中 Executor 和 Executors 的区别？</h2><p>Executor 接口对象能执行我们的线程任务；<br>Executors 工具类的不同方法按照我们的需求创建了不同的线程池，来满足业务的需求。<br>ExecutorService 接口继承了Executor接口并进行了扩展，提供了更多的方法，我们能够获得任务执行的状态并且可以获取任务的返回值。</p>
+<h2 id="054Executors新建线程池类型？"><a href="#054Executors新建线程池类型？" class="headerlink" title="054Executors新建线程池类型？"></a>054Executors新建线程池类型？</h2><p>1.newSingleThreadExecutor<br>创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺序(FIFO, LIFO, 优先级)执行。<br>2.newFixedThreadPoo<br>创建一个定长线程池，可控制线程最大并发数，超出的线程会在队列中等待。<br>3.newCachedThreadPool<br>创建一个可缓存线程池，如果线程池长度超过处理需要，可灵活回收空闲线程，若无可回收，则新建线程。<br>4.newScheduledThreadPool<br>创建一个定长线程池，支持定时及周期性任务执行。</p>
+<h2 id="055Executors新建线程池的弊端？"><a href="#055Executors新建线程池的弊端？" class="headerlink" title="055Executors新建线程池的弊端？"></a>055Executors新建线程池的弊端？</h2><p>1)newFixedThreadPool和newSingleThreadExecutor: 主要问题是堆积的请求处理队列可能会耗费非常大的内存，甚至OOM。<br>2)newCachedThreadPool和newScheduledThreadPool: 主要问题是线程数最大数是Integer.MAX_VALUE，可能会创建数量非常多的线程，甚至OOM。<br>3)线程池不允许使用Executors去创建，而是通过ThreadPoolExecutor的方式，这样的处理方式让程序员更加明确线程池的运行规则，规避资源耗尽的风险。</p>
+<h2 id="056什么是ThreadPoolExecutor？"><a href="#056什么是ThreadPoolExecutor？" class="headerlink" title="056什么是ThreadPoolExecutor？"></a>056什么是ThreadPoolExecutor？</h2><p>ThreadPoolExecutor是线程池的核心实现类，在JDK1.5引入，位于java.util.concurrent包。</p>
+<h2 id="057通过ThreadPoolExecutor如何创建线程池？"><a href="#057通过ThreadPoolExecutor如何创建线程池？" class="headerlink" title="057通过ThreadPoolExecutor如何创建线程池？"></a>057通过ThreadPoolExecutor如何创建线程池？</h2><p>通过下面的demo来了解ThreadPoolExecutor创建线程的过程。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import java.util.concurrent.ArrayBlockingQueue;</span><br><span class="line">import java.util.concurrent.BlockingQueue;</span><br><span class="line">import java.util.concurrent.ThreadPoolExecutor;</span><br><span class="line">import java.util.concurrent.TimeUnit;</span><br><span class="line"> </span><br><span class="line">/**</span><br><span class="line"> * 测试ThreadPoolExecutor对线程的执行顺序</span><br><span class="line"> **/</span><br><span class="line">public class ThreadPoolSerialTest &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        //核心线程数</span><br><span class="line">        int corePoolSize = 3;</span><br><span class="line">        //最大线程数</span><br><span class="line">        int maximumPoolSize = 6;</span><br><span class="line">        //超过 corePoolSize 线程数量的线程最大空闲时间</span><br><span class="line">        long keepAliveTime = 2;</span><br><span class="line">        //以秒为时间单位</span><br><span class="line">        TimeUnit unit = TimeUnit.SECONDS;</span><br><span class="line">        //创建工作队列，用于存放提交的等待执行任务</span><br><span class="line">        BlockingQueue&lt;Runnable&gt; workQueue = new ArrayBlockingQueue&lt;Runnable&gt;(2);</span><br><span class="line">        ThreadPoolExecutor threadPoolExecutor = null;</span><br><span class="line">        try &#123;</span><br><span class="line">            //创建线程池</span><br><span class="line">            threadPoolExecutor = new ThreadPoolExecutor(corePoolSize,</span><br><span class="line">                    maximumPoolSize,</span><br><span class="line">                    keepAliveTime,</span><br><span class="line">                    unit,</span><br><span class="line">                    workQueue,</span><br><span class="line">                    new ThreadPoolExecutor.AbortPolicy());</span><br><span class="line"> </span><br><span class="line">            //循环提交任务</span><br><span class="line">            for (int i = 0; i &lt; 8; i++) &#123;</span><br><span class="line">                //提交任务的索引</span><br><span class="line">                final int index = (i + 1);</span><br><span class="line">                threadPoolExecutor.submit(() -&gt; &#123;</span><br><span class="line">                    //线程打印输出</span><br><span class="line">                    System.out.println(&quot;大家好，我是线程：&quot; + index);</span><br><span class="line">                    try &#123;</span><br><span class="line">                        //模拟线程执行时间，10s</span><br><span class="line">                        Thread.sleep(10000);</span><br><span class="line">                    &#125; catch (InterruptedException e) &#123;</span><br><span class="line">                        e.printStackTrace();</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">                //每个任务提交后休眠500ms再提交下一个任务，用于保证提交顺序</span><br><span class="line">                Thread.sleep(500);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            threadPoolExecutor.shutdown();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当一个新任务被提交时：<br>\1. 当前活跃线程数&lt;corePoolSize，则创建一个新线程执行新任务；<br>\2. 当前活跃线程数&gt;corePoolSize，且队列（workQueue）未满时，则将新任务放入队列中；<br>\3. 当前活跃线程数&gt;corePoolSize，且队列（workQueue）已满，且当前活跃线程数&lt;maximumPoolSize，则继续创建一个新线程执行新任务；<br>\4. 当前活跃线程数&gt;corePoolSize，且队列（workQueue）已满，且当前活跃线程数&#x3D;maximumPoolSize，则执行拒绝策略（handler）;<br>当任务执行完成后：<br>\1. 超出corePoolSize的空闲线程，在等待新任务时，如果超出了keepAliveTime，则线程会被销毁；<br>\2. 如果allowCoreThreadTimeOut被设置为true，那么corePoolSize以内的空闲线程，如果超出了keepAliveTime，则同样会被销毁。</p>
+<h2 id="058ThreadPoolExecutor线程池中的几种重要的参数？"><a href="#058ThreadPoolExecutor线程池中的几种重要的参数？" class="headerlink" title="058ThreadPoolExecutor线程池中的几种重要的参数？"></a>058ThreadPoolExecutor线程池中的几种重要的参数？</h2><p>corePoolSize就是线程池中的核心线程数量，这几个核心线程在没有用的时候，也不会被回收<br>maximumPoolSize就是线程池中可以容纳的最大线程的数量<br>keepAliveTime就是线程池中除了核心线程之外的其他的最长可以保留的时间，因为在线程池中，除了核心线程即使在无任务的情况下也不能被清 除，其余的都是有存活时间的，意思就是非核心线程可以保留的最长的空闲时间<br>util就是计算这个时间的一个单位。<br>workQueue就是等待队列，任务可以储存在任务队列中等待被执行，执行的是FIFIO原则（先进先出）。<br>threadFactory就是创建线程的线程工厂。<br>handler是一种拒绝策略，我们可以在任务满了之后，拒绝执行某些任务。</p>
+<h2 id="059ThreadPoolExecutor饱和-拒绝-策略是什么？"><a href="#059ThreadPoolExecutor饱和-拒绝-策略是什么？" class="headerlink" title="059ThreadPoolExecutor饱和(拒绝)策略是什么？"></a>059ThreadPoolExecutor饱和(拒绝)策略是什么？</h2><p>当线程充满了ThreadPool的有界队列时，饱和策略开始起作用。饱和策略可以理解为队列饱和后，处理后续无法入队的任务的策略。ThreadPoolExecutor可以通过调用setRejectedExecutionHandler来修改饱和策略。</p>
+<h2 id="060说说线程池的拒绝策略？"><a href="#060说说线程池的拒绝策略？" class="headerlink" title="060说说线程池的拒绝策略？"></a>060说说线程池的拒绝策略？</h2><p>当请求任务不断的过来，而系统此时又处理不过来的时候，我们需要采取的策略是拒绝服务。RejectedExecutionHandler接口提供了拒绝任务处理的自定义方法的机会。在ThreadPoolExecutor中已经包含四种处理策略。<br>AbortPolicy策略:该策略会直接抛出异常，阻止系统正常工作。<br>CallerRunsPolicy 策略:只要线程池未关闭，该策略直接在调用者线程中，运行当前的被丢弃的任务。<br>DiscardOleddestPolicy策略:该策略将丢弃最老的一个请求，也就是即将被执行的任务，并尝试再次提交当前任务。<br>DiscardPolicy策略:该策略默默的丢弃无法处理的任务，不予任何处理。<br>除了JDK默认提供的四种拒绝策略，我们可以根据自己的业务需求去自定义拒绝策略，自定义的方式很简单，直接实现RejectedExecutionHandler接口即可。</p>
+<h2 id="061-ThreadPoolExecutor的execute-方法和-submit-方法的区别是什么呢？"><a href="#061-ThreadPoolExecutor的execute-方法和-submit-方法的区别是什么呢？" class="headerlink" title="061 ThreadPoolExecutor的execute()方法和 submit()方法的区别是什么呢？"></a>061 ThreadPoolExecutor的execute()方法和 submit()方法的区别是什么呢？</h2><p>1.execute()方法用于提交不需要返回值的任务，所以无法判断任务是否被线程池执行成功与否；<br>2.submit()方法用于提交需要返回值的任务。线程池会返回一个 Future 类型的对象，通过这个 Future 对象可以判断任务是否执行成功，并且可以通过 Future 的 get()方法来获取返回值，get()方法会阻塞当前线程直到任务完成，而使用 get（long timeout，TimeUnit unit）方法则会阻塞当前线程一段时间后立即返回，这时候有可能任务没有执行完。</p>
+<h2 id="062什么是线程组，为什么在-Java-中不推荐使用？"><a href="#062什么是线程组，为什么在-Java-中不推荐使用？" class="headerlink" title="062什么是线程组，为什么在 Java 中不推荐使用？"></a>062什么是线程组，为什么在 Java 中不推荐使用？</h2><p>线程组ThreadGroup对象中的stop，resume，suspend会导致安全问题，主要是死锁问题，已经被官方废弃，多以价值已经大不如以前。<br>线程组ThreadGroup不是线程安全的，在使用过程中不能及时获取安全的信息。</p>
+<h2 id="063线程池如何关闭？"><a href="#063线程池如何关闭？" class="headerlink" title="063线程池如何关闭？"></a>063线程池如何关闭？</h2><p>shutdownNow()：立即关闭线程池(暴力)，正在执行中的及队列中的任务会被中断，同时该方法会返回被中断的队列中的任务列表;<br>shutdown()：平滑关闭线程池，正在执行中的及队列中的任务能执行完成，后续进来的任务会被执行拒绝策略;<br>isTerminated()：当正在执行的任务及对列中的任务全部都执行（清空）完就会返回true;</p>
+<h2 id="064线程池的复用原理？"><a href="#064线程池的复用原理？" class="headerlink" title="064线程池的复用原理？"></a>064线程池的复用原理？</h2><p>线程池将线程和任务进行解耦，线程是线程，任务是任务，摆脱了之前通过 Thread 创建线程时的一个线程必须对应一个任务的限制。在线程池中，同一个线程可以从阻塞队列中不断获取新任务来执行，其核心原理在于线程池对 Thread 进行了封装，并不是每次执行任务都会调用 Thread.start() 来创建新线程，而是让每个线程去执行一个“循环任务”，在这个“循环任务”中不停的检查是否有任务需要被执行，如果有则直接执行，也就是调用任务中的 run 方法，将 run 方法当成一个普通的方法执行，通过这种方式将只使用固定的线程就将所有任务的 run 方法串联起来。</p>
+<h2 id="065线程池都有哪几种工作队列？"><a href="#065线程池都有哪几种工作队列？" class="headerlink" title="065线程池都有哪几种工作队列？"></a>065线程池都有哪几种工作队列？</h2><p>1.ArrayBlockingQueue是一个基于数组结构的有界阻塞队列，此队列按 FIFO（先进先出）原则对元素进行排序。<br>2.LinkedBlockingQueue一个基于链表结构的阻塞队列，此队列按FIFO （先进先出） 排序元素，吞吐量通常要高于ArrayBlockingQueue。静态工厂方法Executors.newFixedThreadPool()使用了这个队列<br>3.SynchronousQueue 一个不存储元素的阻塞队列。每个插入操作必须等到另一个线程调用移除操作，否则插入操作一直处于阻塞状态，吞吐量通常要高于LinkedBlockingQueue，静态工厂方法Executors.newCachedThreadPool()使用了这个队列。<br>4.PriorityBlockingQueue 一个具有优先级的无限阻塞队列。</p>
+<h2 id="066SpringBoot如何整合线程池？"><a href="#066SpringBoot如何整合线程池？" class="headerlink" title="066SpringBoot如何整合线程池？"></a>066SpringBoot如何整合线程池？</h2><p>首先是利用好SpringBoot的自动装配功能，配置好线程池的一些基本参数。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@Configuration</span><br><span class="line">@EnableAsync</span><br><span class="line">public class ThreadPoolTaskConfig &#123;</span><br><span class="line"></span><br><span class="line">    /*</span><br><span class="line">    * 线程池名前缀</span><br><span class="line">    */</span><br><span class="line">    private static final String threadNamePrefix = &quot;Api-Async-&quot;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * bean的名称， 默认为首字母小写的方法名</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    @Bean(&quot;taskExecutor&quot;)</span><br><span class="line">    public ThreadPoolTaskExecutor taskExecutor() &#123;</span><br><span class="line">        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();</span><br><span class="line">        /**</span><br><span class="line">     * 默认情况下，在创建了线程池后，线程池中的线程数为0，当有任务来之后，就会创建一个线程去执行任务，</span><br><span class="line">     * 当线程池中的线程数目达到corePoolSize后，就会把到达的任务放到缓存队列当中；</span><br><span class="line">     * 当队列满了，就继续创建线程，当线程数量大于等于maxPoolSize后，开始使用拒绝策略拒绝</span><br><span class="line">     */</span><br><span class="line">    /*</span><br><span class="line">    * 核心线程数（默认线程数）</span><br><span class="line">    */</span><br><span class="line">        executor.setCorePoolSize(corePoolSize);</span><br><span class="line">        //最大线程数</span><br><span class="line">        executor.setMaxPoolSize(maxPoolSize);</span><br><span class="line">        //缓冲队列数</span><br><span class="line">        executor.setQueueCapacity(queueCapacity);</span><br><span class="line">        //允许线程空闲时间（单位是秒）</span><br><span class="line">        executor.setKeepAliveSeconds(keepAliveTime);</span><br><span class="line">        executor.setThreadNamePrefix(threadNamePrefix);</span><br><span class="line">        //用来设置线程池关闭时候等待所有任务都完成再继续销毁其他的Bean</span><br><span class="line">        executor.setWaitForTasksToCompleteOnShutdown(true);</span><br><span class="line">        //线程池对拒绝任务的处理策略，CallerRunsPolicy：由调用线程（提交任务的线程）处理该任务</span><br><span class="line">        executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());</span><br><span class="line">        //初始化</span><br><span class="line">        executor.initialize();</span><br><span class="line">        return executor;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>配置好线程池的基本参数时候，我们就可以使用线程池了， 只要在一个限定域为public的方法头部加上@Async注解即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@Async</span><br><span class="line">public void createOrder() &#123;</span><br><span class="line">    System.out.println(&quot;执行任务&quot;); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="067线程池的优化？"><a href="#067线程池的优化？" class="headerlink" title="067线程池的优化？"></a>067线程池的优化？</h2><p>1)分析任务的特性<br>任务的性质：CPU 密集型任务、IO 密集型任务和混合型任务。<br>任务的优先级：高、中、低。<br>任务的执行时间：长、中、短。<br>任务的依赖性：是否依赖其他系统资源，如数据库连接。<br>2)具体策略<br>[1]CPU 密集型任务配置尽可能小的线程，如配置N（CPU核心数）+1个线程的线程池。<br>[2]IO 密集型任务则由于线程并不是一直在执行任务，则配置尽可能多的线程，如2*N（CPU核心数）。<br>[3]混合型任务如果可以拆分，则将其拆分成一个 CPU 密集型任务和一个 IO 密集型任务。只要这两个任务执行的时间相差不是太大，那么分解后执行的吞吐率要高于串行执行的吞吐率；如果这两个任务执行时间相差太大，则没必要进行分解。<br>[4]优先级不同的任务可以使用优先级队列 PriorityBlockingQueue 来处理，它可以让优先级高的任务先得到执行。但是，如果一直有高优先级的任务加入到阻塞队列中，那么低优先级的任务可能永远不能执行。<br>[5]执行时间不同的任务可以交给不同规模的线程池来处理，或者也可以使用优先级队列，让执行时间短的任务先执行。<br>[6]依赖数据库连接池的任务，因为线程提交 SQL 后需要等待数据库返回结果，线程数应该设置得较大，这样才能更好的利用 CPU。<br>[7]建议使用有界队列，有界队列能增加系统的稳定性和预警能力。可以根据需要设大一点，比如几千。使用无界队列，线程池的队列就会越来越大，有可能会撑满内存，导致整个系统不可用。</p>
+<h2 id="068什么是ThreadLocal？"><a href="#068什么是ThreadLocal？" class="headerlink" title="068什么是ThreadLocal？"></a>068什么是ThreadLocal？</h2><p>从字面上理解ThreadLocal就是“线程局部变量”的意思。简单的说就是，一个ThreadLocal在一个线程中是共享的，在不同线程之间又是隔离的（每个线程都只能看到自己线程的值）。<br>学习一个类之前我们需要了解一个类的API，这也是我们学习类的入口。而ThreadLocal类的API相当简单。<br>在这里面比较重要的就是，get、set、remove了，这三个方法是对这个变量进行操作的关键。set用于赋值操作，get用于获取变量中的值，remove就是删除当前这个变量的值。需要注意的是initialValue方法会在第一次调用时被触发，用于初始化当前变量值，例如在下列代码中我们需要创建一个ThreadLocal，用于创建一个与线程绑定的Connection对象：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ThreadLocal connection = new ThreadLocal()&#123;</span><br><span class="line">    public Connection initialValue()&#123;</span><br><span class="line">        return DriverManager.getConnection(…);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>为什么我们将ThreadLocal说成变量，我们姑且可以这么理解，每个ThreadLocal实例中都可以保存一个值（基本数据类型值或者引用类型的引用值），而内部保存的值是可以修改的，而这样的特性与变量的特性及其相似，变量不就是用来保存一个值的吗？也就是说每一个ThreadLocal实例就类似于一个变量名，不同的ThreadLocal实例就是不同的变量名，它们内部会存有一个值（暂时这么理解）在后面的描述中所说的“ThreadLocal变量或者是线程变量”代表的就是ThreadLocal类的实例。我们通过重写initialValue方法指定ThreadLocal变量的初始值，默认情况下initialValue返回的是null。</p>
+<h2 id="069ThreadLocal的具体实现"><a href="#069ThreadLocal的具体实现" class="headerlink" title="069ThreadLocal的具体实现?"></a>069ThreadLocal的具体实现?</h2><p>接下来我们就来动手实践一下，来理解前面没有理解的那句话：一个ThreadLocal在一个线程中是共享的，在不同线程之间又是隔离的（每个线程都只能看到自己线程的值）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public class ThreadLocalTest &#123;</span><br><span class="line">    private static ThreadLocal&lt;Integer&gt; num = new ThreadLocal&lt;Integer&gt;() &#123;</span><br><span class="line">        // 重写这个方法，可以修改“线程变量”的初始值，默认是null</span><br><span class="line">        @Override</span><br><span class="line">        protected Integer initialValue() &#123;</span><br><span class="line">            return 0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"> </span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        // 创建一号线程</span><br><span class="line">        new Thread(new Runnable() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void run() &#123;</span><br><span class="line">                // 在一号线程中将ThreadLocal变量设置为1</span><br><span class="line">                num.set(1);</span><br><span class="line">                System.out.println(&quot;一号线程中ThreadLocal变量中保存的值为：&quot; + num.get());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line"> </span><br><span class="line">        // 创建二号线程</span><br><span class="line">        new Thread(new Runnable() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void run() &#123;</span><br><span class="line">                num.set(2);</span><br><span class="line">                System.out.println(&quot;二号线程中ThreadLocal变量中保存的值为：&quot; + num.get());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line"> </span><br><span class="line">        //为了让一二号线程执行完毕，让主线程睡500ms</span><br><span class="line">        try &#123;</span><br><span class="line">            Thread.sleep(500);</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">            // TODO Auto-generated catch block</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        System.out.println(&quot;主线程中ThreadLocal变量中保存的值：&quot; + num.get());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码中在类中创建了一个静态的“ThreadLocal变量”，在主线程中创建两个线程，在这两个线程中分别设置ThreadLocal变量为1和2。然后等待一号和二号线程执行完毕后，在主线程中查看ThreadLocal变量的值。<br>程序结果及分析：<br>程序结果重点看的是主线程输出的是0，如果是一个普通变量，在一号线程和二号线程中将普通变量设置为1和2，那么在一二号线程执行完毕后在打印这个变量，输出的值肯定是1或者2（到底输出哪一个由操作系统的线程调度逻辑有关）。但使用ThreadLocal变量通过两个线程赋值后，在主线程程中输出的却是初始值0。在这也就是为什么“一个ThreadLocal在一个线程中是共享的，在不同线程之间又是隔离的”，每个线程都只能看到自己线程的值，这也就是ThreadLocal的核心作用：实现线程范围的局部变量。</p>
+<h2 id="070ThreadLocal的原理分析"><a href="#070ThreadLocal的原理分析" class="headerlink" title="070ThreadLocal的原理分析?"></a>070ThreadLocal的原理分析?</h2><p>我们还是将最后结论摆在前面，每个Thread对象都有一个ThreadLocalMap，当创建一个ThreadLocal的时候，就会将该ThreadLocal对象添加到该Map中，其中键就是ThreadLocal，值可以是任意类型。也就是说，想要存入的ThreadLocal中的数据实际上并没有存到ThreadLocal对象中去，而是以这个ThreadLocal实例作为key存到了当前线程中的一个Map中去了，获取ThreadLocal的值时同样也是这个道理。这也就是为什么ThreadLocal可以实现线程之间隔离的原因了。<br>总结：<br>1）ThreadLocal的作用：实现线程范围内的局部变量，即ThreadLocal在一个线程中是共享的，在不同线程之间是隔离的。<br>2）ThreadLocal的原理：ThreadLocal存入值时使用当前ThreadLocal实例作为key，存入当前线程对象中的Map中去。最开始在看源码之前，我以为是以当前线程对象作为key将对象存入到ThreadLocal中的Map中去。</p>
+<h2 id="071ThreadLocal和Synchonized区别？"><a href="#071ThreadLocal和Synchonized区别？" class="headerlink" title="071ThreadLocal和Synchonized区别？"></a>071ThreadLocal和Synchonized区别？</h2><p>两者都用于解决多线程并发访问。但是ThreadLocal与synchronized有本质的区别。Synchronized用于线程间的数据共享，而ThreadLocal则用于线程间的数据隔离。Synchronized是利用锁的机制，使变量或代码块在某一时该只能被一个线程访问。而ThreadLocal为每一个线程都提供了变量的副本，使得每个线程在某一时间访问到的并不是同一个对象，这样就隔离了多个线程对数据的数据共享。而Synchronized却正好相反，它用于在多个线程间通信时能够获得数据共享。</p>
+<h2 id="072ThreadLocal内存泄漏以及解决方案？"><a href="#072ThreadLocal内存泄漏以及解决方案？" class="headerlink" title="072ThreadLocal内存泄漏以及解决方案？"></a>072ThreadLocal内存泄漏以及解决方案？</h2><p>如果ThreadLocal没有外部强引用，那么在发生垃圾回收的时候，ThreadLocal就必定会被回收，而ThreadLocal又作为Map中的key，ThreadLocal被回收就会导致一个key为null的entry，外部就无法通过key来访问这个entry，垃圾回收也无法回收，这就造成了内存泄漏<br>解决方案：每次使用完ThreadLocal都调用它的remove()方法清除数据，或者按照JDK建议将ThreadLocal变量定义成private static，这样就一直存在ThreadLocal的强引用，也就能保证任何时候都能通过ThreadLocal的弱引用访问到Entry的value值，进而清除掉。</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2024/03/22/并发编程/" data-toggle="tooltip" data-placement="top"
+                           title="">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-text">多线程面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#001%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%91%A2"><span class="toc-text">001为什么要使用多线程呢?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#002%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">002多线程应用场景?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#003%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="toc-text">003多线程的好处?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#004%E4%BD%BF%E7%94%A8%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%8F%AF%E8%83%BD%E5%B8%A6%E6%9D%A5%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98"><span class="toc-text">004使用多线程可能带来什么问题?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#005%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">005线程和进程的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#006%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-text">006创建线程的几种方式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#007%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%94%A8Runnable%E8%BF%98%E6%98%AFThread%EF%BC%9F"><span class="toc-text">007创建线程用Runnable还是Thread？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#008%E5%AE%9E%E7%8E%B0Runnable%E6%8E%A5%E5%8F%A3%E5%92%8CCallable%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">008实现Runnable接口和Callable接口的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#009%E7%BA%BF%E7%A8%8B%E7%9A%84-run-%E5%92%8C-start-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">009线程的 run()和 start()有什么区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#010%E8%AF%B4%E8%AF%B4%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%92%8C%E7%8A%B6%E6%80%81"><span class="toc-text">010说说线程的生命周期和状态?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#011%E4%BB%80%E4%B9%88%E6%98%AF%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2"><span class="toc-text">011什么是上下文切换?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#012%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B%EF%BC%9F"><span class="toc-text">012如何创建守护线程？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#013%E7%94%A8%E6%88%B7%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">013用户线程和守护线程有什么区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#014%E4%B8%BA%E4%BB%80%E4%B9%88Thread%E7%B1%BB%E7%9A%84sleep-%E5%92%8Cyield-%E6%96%B9%E6%B3%95%E6%98%AF%E9%9D%99%E6%80%81%E7%9A%84%EF%BC%9F"><span class="toc-text">014为什么Thread类的sleep()和yield()方法是静态的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#015%E5%A6%82%E4%BD%95%E5%9C%A8-Windows-%E5%92%8C-Linux-%E4%B8%8A%E6%9F%A5%E6%89%BE%E5%93%AA%E4%B8%AA%E7%BA%BF%E7%A8%8Bcpu%E5%88%A9%E7%94%A8%E7%8E%87%E6%9C%80%E9%AB%98%EF%BC%9F"><span class="toc-text">015如何在 Windows 和 Linux 上查找哪个线程cpu利用率最高？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#016%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E8%B0%83%E7%94%A8-start-%E6%96%B9%E6%B3%95%E6%97%B6%E4%BC%9A%E6%89%A7%E8%A1%8C-run-%E6%96%B9%E6%B3%95%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E8%B0%83%E7%94%A8-run-%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="toc-text">016为什么我们调用 start() 方法时会执行 run() 方法，为什么我们不能直接调用 run() 方法？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#017%E4%BB%80%E4%B9%88%E6%98%AF-Callable-%E5%92%8C-Future"><span class="toc-text">017什么是 Callable 和 Future?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#018%E7%BA%BF%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%AD%96%E7%95%A5%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">018线程调度策略有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#019Java%E4%B8%AD%E7%94%A8%E5%88%B0%E7%9A%84%E7%BA%BF%E7%A8%8B%E8%B0%83%E5%BA%A6%E7%AE%97%E6%B3%95%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">019Java中用到的线程调度算法是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#020%E4%BB%80%E4%B9%88%E6%98%AF%E7%BA%BF%E7%A8%8B%E8%B0%83%E5%BA%A6%E5%99%A8-Thread-Scheduler-%E5%92%8C%E6%97%B6%E9%97%B4%E5%88%86%E7%89%87-Time-Slicing-%EF%BC%9F"><span class="toc-text">020什么是线程调度器(Thread Scheduler)和时间分片(Time Slicing )？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#021%E8%AF%B4%E8%AF%B4-sleep-%E6%96%B9%E6%B3%95%E5%92%8C-wait-%E6%96%B9%E6%B3%95%E5%8C%BA%E5%88%AB%E5%92%8C%E5%85%B1%E5%90%8C%E7%82%B9"><span class="toc-text">021说说 sleep() 方法和 wait() 方法区别和共同点?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#022%E4%B8%BA%E4%BB%80%E4%B9%88%E7%BA%BF%E7%A8%8B%E9%80%9A%E4%BF%A1%E7%9A%84%E6%96%B9%E6%B3%95-wait-notify-%E5%92%8C-notifyAll-%E8%A2%AB%E5%AE%9A%E4%B9%89%E5%9C%A8-Object-%E7%B1%BB%E9%87%8C%EF%BC%9F"><span class="toc-text">022为什么线程通信的方法 wait(), notify()和 notifyAll()被定义在 Object 类里？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#023Thread-%E7%B1%BB%E4%B8%AD%E7%9A%84-yield-%E6%96%B9%E6%B3%95%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-text">023Thread 类中的 yield 方法有什么作用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#024%E4%B8%BA%E4%BB%80%E4%B9%88-Thread-%E7%B1%BB%E7%9A%84-sleep-%E5%92%8C-yield-%E6%96%B9%E6%B3%95%E6%98%AF%E9%9D%99%E6%80%81%E7%9A%84%EF%BC%9F"><span class="toc-text">024为什么 Thread 类的 sleep()和 yield ()方法是静态的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#025%E7%BA%BF%E7%A8%8B%E7%9A%84-sleep-%E6%96%B9%E6%B3%95%E5%92%8C-yield-%E6%96%B9%E6%B3%95%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">025线程的 sleep()方法和 yield()方法有什么区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#026%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%B8%AD%E6%96%AD%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">026多线程的中断是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#027%E5%A6%82%E4%BD%95%E5%81%9C%E6%AD%A2%E4%B8%80%E4%B8%AA%E6%AD%A3%E5%9C%A8%E8%BF%90%E8%A1%8C%E7%9A%84%E7%BA%BF%E7%A8%8B%EF%BC%9F"><span class="toc-text">027如何停止一个正在运行的线程？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#028Java-%E4%B8%AD-interrupted-%E5%92%8C-isInterrupted-%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">028Java 中 interrupted 和 isInterrupted 方法的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#029notify-%E5%92%8C-notifyAll-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">029notify() 和 notifyAll() 有什么区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#030%E4%BD%A0%E5%AF%B9%E7%BA%BF%E7%A8%8B%E4%BC%98%E5%85%88%E7%BA%A7%E7%9A%84%E7%90%86%E8%A7%A3%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">030你对线程优先级的理解是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#031%E7%BA%BF%E7%A8%8B%E7%B1%BB%E7%9A%84%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E3%80%81%E9%9D%99%E6%80%81%E5%9D%97%E6%98%AF%E8%A2%AB%E5%93%AA%E4%B8%AA%E7%BA%BF%E7%A8%8B%E8%B0%83%E7%94%A8%E7%9A%84%EF%BC%9F"><span class="toc-text">031线程类的构造方法、静态块是被哪个线程调用的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#032%E4%B8%80%E4%B8%AA%E7%BA%BF%E7%A8%8B%E8%BF%90%E8%A1%8C%E6%97%B6%E5%8F%91%E7%94%9F%E5%BC%82%E5%B8%B8%E4%BC%9A%E6%80%8E%E6%A0%B7%EF%BC%9F"><span class="toc-text">032一个线程运行时发生异常会怎样？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#033Java-%E7%BA%BF%E7%A8%8B%E6%95%B0%E8%BF%87%E5%A4%9A%E4%BC%9A%E9%80%A0%E6%88%90%E4%BB%80%E4%B9%88%E5%BC%82%E5%B8%B8%EF%BC%9F"><span class="toc-text">033Java 线程数过多会造成什么异常？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#034%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="toc-text">034多线程的常用方法？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#035%E4%BB%80%E4%B9%88%E6%98%AF-FutureTask%EF%BC%9F"><span class="toc-text">035什么是 FutureTask？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#036%E7%BA%BF%E7%A8%8B%E4%B9%8B%E9%97%B4%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E9%80%9A%E8%AE%AF%E7%9A%84%EF%BC%9F"><span class="toc-text">036线程之间如何进行通讯的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#037%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E6%A6%82%E5%BF%B5%EF%BC%9F"><span class="toc-text">037线程安全的概念？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#038%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%EF%BC%9F"><span class="toc-text">038线程安全如何保证？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#039Java%E4%B8%AD%E5%93%AA%E4%BA%9B%E9%9B%86%E5%90%88%E6%98%AF%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%EF%BC%9F"><span class="toc-text">039Java中哪些集合是线程安全的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#040synchronized-%E5%85%B3%E9%94%AE%E5%AD%97%E7%94%A8%E6%B3%95%EF%BC%9F"><span class="toc-text">040synchronized 关键字用法？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#041%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8-synchronized-%E5%85%B3%E9%94%AE%E5%AD%97%E4%BF%AE%E9%A5%B0%E4%B9%88%EF%BC%9F"><span class="toc-text">041构造方法可以使用 synchronized 关键字修饰么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#042synchronized%E4%BD%BF%E7%94%A8%EF%BC%9A%E5%8F%8C%E9%87%8D%E6%A0%A1%E9%AA%8C%E9%94%81%E5%AE%9E%E7%8E%B0%E5%AF%B9%E8%B1%A1%E5%8D%95%E4%BE%8B-%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8-%E3%80%82"><span class="toc-text">042synchronized使用：双重校验锁实现对象单例(线程安全)。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#043%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">043同步和异步的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#044%E5%90%8C%E6%AD%A5%E6%96%B9%E6%B3%95%E5%92%8C%E5%90%8C%E6%AD%A5%E5%9D%97%EF%BC%8C%E5%93%AA%E4%B8%AA%E6%98%AF%E6%9B%B4%E5%A5%BD%E7%9A%84%E9%80%89%E6%8B%A9%EF%BC%9F"><span class="toc-text">044同步方法和同步块，哪个是更好的选择？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#045%E4%B8%BA%E4%BB%80%E4%B9%88-wait-notify-%E5%92%8C-notifyAll-%E5%BF%85%E9%A1%BB%E5%9C%A8%E5%90%8C%E6%AD%A5%E6%96%B9%E6%B3%95%E6%88%96%E8%80%85%E5%90%8C%E6%AD%A5%E5%9D%97%E4%B8%AD%E8%A2%AB%E8%B0%83%E7%94%A8%EF%BC%9F"><span class="toc-text">045为什么 wait(), notify()和 notifyAll()必须在同步方法或者同步块中被调用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#046%E4%BB%80%E4%B9%88%E6%98%AF%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5%E5%92%8C%E7%BA%BF%E7%A8%8B%E4%BA%92%E6%96%A5%EF%BC%9F"><span class="toc-text">046什么是线程同步和线程互斥？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#047%E4%BB%80%E4%B9%88%E6%98%AF%E7%BA%BF%E7%A8%8B%E6%B1%A0%EF%BC%9F"><span class="toc-text">047什么是线程池？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#048%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8%E7%BA%BF%E7%A8%8B%E6%B1%A0%EF%BC%9F"><span class="toc-text">048为什么要用线程池？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#049%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E4%BC%98%E5%8A%BF%EF%BC%9F"><span class="toc-text">049线程池的优势？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#050%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%EF%BC%9F"><span class="toc-text">050线程池的工作原理？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#051%E7%BA%BF%E7%A8%8B%E6%B1%A0%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B%E7%8A%B6%E6%80%81%EF%BC%9F"><span class="toc-text">051线程池都有哪些状态？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#052%E4%BB%80%E4%B9%88%E6%98%AFExecutors%EF%BC%9F"><span class="toc-text">052什么是Executors？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#053%E5%9C%A8-Java-%E4%B8%AD-Executor-%E5%92%8C-Executors-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">053在 Java 中 Executor 和 Executors 的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#054Executors%E6%96%B0%E5%BB%BA%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%B1%BB%E5%9E%8B%EF%BC%9F"><span class="toc-text">054Executors新建线程池类型？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#055Executors%E6%96%B0%E5%BB%BA%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E5%BC%8A%E7%AB%AF%EF%BC%9F"><span class="toc-text">055Executors新建线程池的弊端？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#056%E4%BB%80%E4%B9%88%E6%98%AFThreadPoolExecutor%EF%BC%9F"><span class="toc-text">056什么是ThreadPoolExecutor？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#057%E9%80%9A%E8%BF%87ThreadPoolExecutor%E5%A6%82%E4%BD%95%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E6%B1%A0%EF%BC%9F"><span class="toc-text">057通过ThreadPoolExecutor如何创建线程池？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#058ThreadPoolExecutor%E7%BA%BF%E7%A8%8B%E6%B1%A0%E4%B8%AD%E7%9A%84%E5%87%A0%E7%A7%8D%E9%87%8D%E8%A6%81%E7%9A%84%E5%8F%82%E6%95%B0%EF%BC%9F"><span class="toc-text">058ThreadPoolExecutor线程池中的几种重要的参数？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#059ThreadPoolExecutor%E9%A5%B1%E5%92%8C-%E6%8B%92%E7%BB%9D-%E7%AD%96%E7%95%A5%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">059ThreadPoolExecutor饱和(拒绝)策略是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#060%E8%AF%B4%E8%AF%B4%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E6%8B%92%E7%BB%9D%E7%AD%96%E7%95%A5%EF%BC%9F"><span class="toc-text">060说说线程池的拒绝策略？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#061-ThreadPoolExecutor%E7%9A%84execute-%E6%96%B9%E6%B3%95%E5%92%8C-submit-%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%E5%91%A2%EF%BC%9F"><span class="toc-text">061 ThreadPoolExecutor的execute()方法和 submit()方法的区别是什么呢？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#062%E4%BB%80%E4%B9%88%E6%98%AF%E7%BA%BF%E7%A8%8B%E7%BB%84%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E5%9C%A8-Java-%E4%B8%AD%E4%B8%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8%EF%BC%9F"><span class="toc-text">062什么是线程组，为什么在 Java 中不推荐使用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#063%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%A6%82%E4%BD%95%E5%85%B3%E9%97%AD%EF%BC%9F"><span class="toc-text">063线程池如何关闭？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#064%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E5%A4%8D%E7%94%A8%E5%8E%9F%E7%90%86%EF%BC%9F"><span class="toc-text">064线程池的复用原理？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#065%E7%BA%BF%E7%A8%8B%E6%B1%A0%E9%83%BD%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E5%B7%A5%E4%BD%9C%E9%98%9F%E5%88%97%EF%BC%9F"><span class="toc-text">065线程池都有哪几种工作队列？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#066SpringBoot%E5%A6%82%E4%BD%95%E6%95%B4%E5%90%88%E7%BA%BF%E7%A8%8B%E6%B1%A0%EF%BC%9F"><span class="toc-text">066SpringBoot如何整合线程池？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#067%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E4%BC%98%E5%8C%96%EF%BC%9F"><span class="toc-text">067线程池的优化？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#068%E4%BB%80%E4%B9%88%E6%98%AFThreadLocal%EF%BC%9F"><span class="toc-text">068什么是ThreadLocal？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#069ThreadLocal%E7%9A%84%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0"><span class="toc-text">069ThreadLocal的具体实现?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#070ThreadLocal%E7%9A%84%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90"><span class="toc-text">070ThreadLocal的原理分析?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#071ThreadLocal%E5%92%8CSynchonized%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">071ThreadLocal和Synchonized区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#072ThreadLocal%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E4%BB%A5%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%9F"><span class="toc-text">072ThreadLocal内存泄漏以及解决方案？</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/ehazon">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/megahertz">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Haojen 2024
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://haojen.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
+</body>
+
+</html>

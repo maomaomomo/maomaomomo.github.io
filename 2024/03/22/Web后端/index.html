@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="马浩珍在 Github 上的个人博客">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Haojen" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        Haojen&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://haojen.github.io/2024/03/22/Web后端/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Haojen
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1></h1>
+                    
+                    <span class="meta">
+                         作者 Haojen Ma
+                        <span>
+                          日期 2024-03-22
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="Web后端面试题"><a href="#Web后端面试题" class="headerlink" title="Web后端面试题"></a>Web后端面试题</h1><h2 id="001Servlet的生命周期？"><a href="#001Servlet的生命周期？" class="headerlink" title="001Servlet的生命周期？"></a>001Servlet的生命周期？</h2><p>-1 web Client 向servlet服务器，发出Http请求<br>-2 servlet接受web Client的请求<br>-3 servlet容器创建一个HttpRequest 对象，将Web Client请求的信息封装到这个对象中<br>-4 servlet容器创建一个HttpResponset对象<br>-5 servlet容器调用HttpServlet对象的service方法，把HttpRequest对象与HttpResponse对象作为参数传给HttpServlet对象<br>-6 HttpServlet调用HttpRequest对象的有关方法，获取Http请求信息<br>-7 HttpServlet调用HttpResponst 对象的有关方法，生成响应数据<br>-8 Servlet容器把 HttpServlet的响应结果给Web Client<br>简单的说:init   service  destroy   </p>
+<h2 id="002Servlet是线程安全的吗？"><a href="#002Servlet是线程安全的吗？" class="headerlink" title="002Servlet是线程安全的吗？"></a>002Servlet是线程安全的吗？</h2><p>Servlet不是线程安全的，多线程并发的读写会导致数据不同步的问题。<br>解决的办法是尽量不要在实现servlet接口的类中定义实例变量，而是要把变量分别定义在doGet()和doPost()方法内。虽然使用synchronized(name){}语句块可以解决问题，但是会造成线程的等待，不是很科学的办法。<br>注意：多线程的并发的读写Servlet类属性会导致数据不同步。但是如果只是并发地读取属性而不写入，则不存在数据不同步的问题。因此Servlet里的只读属性最好定义为final类型的。</p>
+<h2 id="003如何现实servlet的单线程模式？"><a href="#003如何现实servlet的单线程模式？" class="headerlink" title="003如何现实servlet的单线程模式？"></a>003如何现实servlet的单线程模式？</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;%@ page isThreadSafe=”false”%&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="004get和post请求的区别？"><a href="#004get和post请求的区别？" class="headerlink" title="004get和post请求的区别？"></a>004get和post请求的区别？</h2><p>①get请求用来从服务器上获得资源，而post是用来向服务器提交数据；<br>②get将表单中数据按照name&#x3D;value的形式，添加到action 所指向的URL 后面，并且两者使用”?”连接，而各个变量之间使用”&amp;”连接；post是将表单中的数据放在HTTP协议的请求头或消息体中，传递到action所指向URL；<br>③get传输的数据要受到URL长度限制（1024字节）；而post可以传输大量的数据，上传文件通常要使用post方式；<br>④使用get时参数会显示在地址栏上，如果这些数据不是敏感数据，那么可以使用get；对于敏感数据还是应用使用post；<br>⑤get使用MIME类型application&#x2F;x-www-form-urlencoded的URL编码（也叫百分号编码）文本的格式传递参数，保证被传送的参数由遵循规范的文本组成，例如一个空格的编码是”%20”。</p>
+<h2 id="005转发和重定向的区别？"><a href="#005转发和重定向的区别？" class="headerlink" title="005转发和重定向的区别？"></a>005转发和重定向的区别？</h2><p>1.重定向访问服务器两次，转发只访问服务器一次。<br>2.转发页面的URL不会改变，而重定向地址会改变<br>3.转发只能转发到自己的web应用内，重定向可以重定义到任意资源路径。<br>4.转发相当于服务器跳转，相当于方法调用，在执行当前文件的过程中转向执行目标文件，两个文件(当前文件和目标文件)属于同一次请求，前后页 共用一个request，可以通过此来传递一些数据或者session信息，request.setAttribute()和 request.getAttribute()。而重定向会产生一个新的request，不能共享request域信息与请求参数。<br>5.由于转发相当于服务器内部方法调用，所以转发后面的代码仍然会执行(转发之后记得return)；重定向代码执行之后是方法执行完成之后进行重定向操作，也就是访问第二个请求，如果是方法的最后一行进行重定向那就会马上进行重定向(重定向也需要return)。<br>6.无论是RequestDispatcher.forward方法，还是HttpServletResponse.sendRedirect方法，在调用它们之前，都不能有内容已经被实际输出到了客户端。如果缓冲区中已经有了一些内容，这些内容将被从缓冲区中移除。<br>可以这么理解：转发相当于，张三向你借钱，但是你兜里没钱，所以你去找李四借到钱之后借给张三。对于张三而言并不知道你的钱是和李四借的；重定向相当于，张三向你借钱，你兜里没钱，你告诉他李四有钱，所以张三再次去找李四借钱。</p>
+<h2 id="006jsp九大内置对象"><a href="#006jsp九大内置对象" class="headerlink" title="006jsp九大内置对象?"></a>006jsp九大内置对象?</h2><p>request：封装客户端的请求，其中包含来自GET或POST请求的参数；<br>response：封装服务器对客户端的响应；<br>pageContext：通过该对象可以获取其他对象；<br>session：封装用户会话的对象；<br>application：封装服务器运行环境的对象；<br>out：输出服务器响应的输出流对象；<br>config：Web应用的配置对象；<br>page：JSP页面本身（相当于Java程序中的this）；<br>exception：封装页面抛出异常的对象。</p>
+<h2 id="007jsp的四大域对象？"><a href="#007jsp的四大域对象？" class="headerlink" title="007jsp的四大域对象？"></a>007jsp的四大域对象？</h2><p>JSP中的四种作用域包括page、request、session和application，具体来说：<br>page代表与一个页面相关的对象和属性。<br>request代表与Web客户机发出的一个请求相关的对象和属性。一个请求可能跨越多个页面，涉及多个Web组件；需要在页面显示的临时数据可以置于此作用域。<br>session代表与某个用户与服务器建立的一次会话相关的对象和属性。跟某个用户相关的数据应该放在用户自己的session中。<br>application代表与整个Web应用程序相关的对象和属性，它实质上是跨越整个Web应用程序，包括多个页面、请求和会话的一个全局作用域。</p>
+<h2 id="008JSP中的静态包含和动态包含有什么区别？"><a href="#008JSP中的静态包含和动态包含有什么区别？" class="headerlink" title="008JSP中的静态包含和动态包含有什么区别？"></a>008JSP中的静态包含和动态包含有什么区别？</h2><p>静态包含是通过JSP的include指令包含页面，动态包含是通过JSP标准动作<a href="jsp:forward">jsp:forward</a>包含页面。静态包含是编译时包含，如果包含的页面不存在则会产生编译错误，而且两个页面的”contentType”属性应保持一致，因为两个页面会合二为一，只产生一个class文件，因此被包含页面发生的变动再包含它的页面更新前不会得到更新。动态包含是运行时包含，可以向被包含的页面传递参数，包含页面和被包含页面是独立的，会编译出两个class文件，如果被包含的页面不存在，不会产生编译错误，也不影响页面其他部分的执行。</p>
+<h2 id="009JSP请求是如何被处理的？"><a href="#009JSP请求是如何被处理的？" class="headerlink" title="009JSP请求是如何被处理的？"></a>009JSP请求是如何被处理的？</h2><p>浏览器首先要请求一个以.jsp扩展名结尾的页面，发起JSP请求，然后，Web服务器读取这个请求，使用JSP编译器把JSP页面转化成一个Servlet类。需要注意的是，只有当第一次请求页面或者是JSP文件发生改变的时候JSP文件才会被编译，然后服务器调用servlet类，处理浏览器的请求。一旦请求执行结束，servlet会把响应发送给客户端。这里看下如何在JSP中获取请求参数。</p>
+<h2 id="010jsp和Servlet的区别？"><a href="#010jsp和Servlet的区别？" class="headerlink" title="010jsp和Servlet的区别？"></a>010jsp和Servlet的区别？</h2><p>1.jsp的本质是Servlet ，jvm只能识别java的类，不能识别jsp的代码；<br>2 jsp更擅长表现与页面显示，Servlet更擅长与逻辑控制；<br>3 servlet中没有内置对象，jsp中有九大内置对象;</p>
+<h2 id="011过滤器Filter的作用及配置？"><a href="#011过滤器Filter的作用及配置？" class="headerlink" title="011过滤器Filter的作用及配置？"></a>011过滤器Filter的作用及配置？</h2><p>过滤器是一个对象，可以传输请求或修改响应。它可以在请求到达Servlet&#x2F;JSP之前对其进行预处理，而且能够在响应离开Servlet&#x2F;JSP之后对其进行后处理。所以如果你有几个Servlet&#x2F;JSP需要执行同样的数据转换或页面处理的话，你就可以写一个过滤器类，然后在部署描述文件（web.xml）中把该过滤器与对应的Servlet&#x2F;JSP联系起来。你可以一个过滤器以作用于一个或一组servlet，零个或多个过滤器能过滤一个或多个servlet。一个过滤器实现java.servlet.Filter接口并定义它的三个方法：<br>1.void init(FilterConfig config) throws ServletException:在过滤器执行service前被调用，以设置过滤器的配置对象。<br>2.void destroy();在过滤器执行service后被调用。<br>3.void doFilter(ServletRequest req，ServletResponse res，FilterChain chain) throws IOException，ServletException;</p>
+<h2 id="0125中常用的JSTL常用标签？"><a href="#0125中常用的JSTL常用标签？" class="headerlink" title="0125中常用的JSTL常用标签？"></a>0125中常用的JSTL常用标签？</h2><p>&lt;c:if&gt;、&lt;c:item&gt;、&lt;c:foreach&gt;、&lt;c:out&gt;、&lt;c:set&gt;</p>
+<h2 id="013XML是什么？"><a href="#013XML是什么？" class="headerlink" title="013XML是什么？"></a>013XML是什么？</h2><p>XML 即可扩展标记语言（Extensible Markup language），你可以根据自己的需要扩展 XML。XML 中可以轻松定义<books>, <orders>等自定义标签，而在 HTML 等其他标记语言中必须使用预定义的标签，比如<p>，而不能使用用户定义的标签。使用 DTD 和 XML Schema 标准化XML 结构。XML 主要用于从一个系统到另一系统的数据传输，比如企级应用的客户端与服务端。</p>
+<h2 id="014XPath是什么？"><a href="#014XPath是什么？" class="headerlink" title="014XPath是什么？"></a>014XPath是什么？</h2><p>XPath 是用于从 XML 文档检索元素的 XML 技术。XML 文档是结构化的，因此 XPath 可以从 XML 文件定位和检索元素、属性或值。从数据检索方面来说，XPath与 SQL 很相似，但是它有自己的语法和规则。了解更多查看怎样使用 XPath 从XML文档中检索数据。</p>
+<h2 id="015XML命名空间是什么？它为什么很重要？"><a href="#015XML命名空间是什么？它为什么很重要？" class="headerlink" title="015XML命名空间是什么？它为什么很重要？"></a>015XML命名空间是什么？它为什么很重要？</h2><p>XML 命名空间与 Java 的 package 类似，用来避免不同来源名称相同的标签发生冲突。XML 命名空间在 XML 文档顶部使用 xmlns 属性定义，语法为 xmlns:prefix&#x3D;’URI’。prefix 与XML 文档中实际标签一起使用。下面例子为 XML 命名空间的使用。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;root xmlns:inst=&quot;http://instruments.com/inst&quot;</span><br><span class="line">    &lt;inst:phone&gt;</span><br><span class="line">    &lt;inst:number&gt;837363223&lt;/inst:number&gt;</span><br><span class="line">    &lt;/inst:phone&gt;</span><br><span class="line">&lt;/root&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="016解析-XML-文档有哪几种方式？"><a href="#016解析-XML-文档有哪几种方式？" class="headerlink" title="016解析 XML 文档有哪几种方式？"></a>016解析 XML 文档有哪几种方式？</h2><p>解析方式：有 DOM,SAX,STAX 等：<br>● DOM:处理大型文件时其性能下降的非常厉害。这个问题是由 DOM 的树结构所造成的，这种结构占用的内存较多，而且 DOM 必须在解析文件之前把整个文档装入内存,适合对 XML 的随机访问；<br>● SAX:不同于 DOM,SAX 是事件驱动型的 XML 解析方式。它顺序读取 XML 文件，不需要一次全部装载整个文件。当遇到像文件开头，文档结束，或者标签开头与标签结束时，它会触发一个事件，用户通过在其回调事件中写入处理代码来处理 XML 文件，适合对 XML 的顺序访问；<br>● STAX:Streaming API for XML (StAX)。</p>
+<h2 id="017项目中的哪些地方用到xml"><a href="#017项目中的哪些地方用到xml" class="headerlink" title="017项目中的哪些地方用到xml?"></a>017项目中的哪些地方用到xml?</h2><p>1)在做数据交换平台时，将不能数据源的数据组装成 XML 文件，然后将 XML 文件压缩打包加密后通过网络传送给接收者，接收解密与解压缩后再同 XML 文件中还原相关信息进行处理。<br>2)在做软件配置时，利用 XML 可以很方便的进行，软件的各种配置参数都存贮在 XML 文件中。</p>
+<h2 id="018什么是JSON"><a href="#018什么是JSON" class="headerlink" title="018什么是JSON?"></a>018什么是JSON?</h2><p>JSON是一种取代XML的数据结构，和xml相比，它更小巧但描述能力不差，网络传输数据将减少更多的流量从而加快速度，是一种轻量级的数据交换格式。</p>
+<h2 id="019JSON和XML之间的区别？"><a href="#019JSON和XML之间的区别？" class="headerlink" title="019JSON和XML之间的区别？"></a>019JSON和XML之间的区别？</h2><p>1.JSON是JavaScript Object Notation；XML是可扩展标记语言。<br>2.JSON是基于JavaScript语言；XML源自SGML。<br>3.JSON是一种表示对象的方式；XML是一种标记语言，使用标记结构来表示数据项。<br>4.JSON不提供对命名空间的任何支持；XML支持名称空间。<br>5.JSON支持数组；XML不支持数组。<br>6.XML的文件相对难以阅读和解释；与XML相比，JSON的文件非常易于阅读。<br>7.JSON不使用结束标记；XML有开始和结束标签。<br>8.JSON的安全性较低；XML比JSON更安全。<br>9.JSON不支持注释；XML支持注释。<br>10.JSON仅支持UTF-8编码；XML支持各种编码。</p>
+<h2 id="020HTTP协议是什么？"><a href="#020HTTP协议是什么？" class="headerlink" title="020HTTP协议是什么？"></a>020HTTP协议是什么？</h2><p>HTTP是一个基于TCP&#x2F;IP通信协议来传递数据，包括html文件、图像、结果等，即是一个客户端和服务器端请求和应答的标准。基本上用到的就是GET和POST，充其量再遇到个option请求。</p>
+<h2 id="021http和https有什么区别？"><a href="#021http和https有什么区别？" class="headerlink" title="021http和https有什么区别？"></a>021http和https有什么区别？</h2><p>(1)https有ca证书，http一般没有；<br>(2)http是超文本传输协议，信息是明文传输。https则是具有安全性的ssl加密传输协；<br>(3)http默认80端口，https默认443端口。</p>
+<h2 id="022http协议有什么特点？"><a href="#022http协议有什么特点？" class="headerlink" title="022http协议有什么特点？"></a>022http协议有什么特点？</h2><p>(1)http无连接：限制每次连接只处理一个请求，服务端完成客户端的请求后，即断开连接。(传输速度快，减少不必要的连接，但也意味着每一次访问都要建立一次连接，效率降低);<br>(2)http无状态：对于事务处理没有记忆能力。每一次请求都是独立的，不记录客户端任何行为；<br>(3)客户端&#x2F;服务端模型：客户端支持web浏览器或其他任何客户端；<br>(4)简单快速\灵活：可以传输任何类型的数据。</p>
+<h2 id="023什么是http协议无状态协议？怎么解决http协议无状态协议？"><a href="#023什么是http协议无状态协议？怎么解决http协议无状态协议？" class="headerlink" title="023什么是http协议无状态协议？怎么解决http协议无状态协议？"></a>023什么是http协议无状态协议？怎么解决http协议无状态协议？</h2><p>无状态协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息。<br>状态协议解决办法：1、cookie 2、通过session会话保存。</p>
+<h2 id="024说一下http协议中302状态？"><a href="#024说一下http协议中302状态？" class="headerlink" title="024说一下http协议中302状态？"></a>024说一下http协议中302状态？</h2><p>http协议中，返回状态码302表示重定向。这种情况下，服务器返回的头部信息中会包含一个Location字段，内容是重定向到的url。</p>
+<h2 id="025http协议什么组成？"><a href="#025http协议什么组成？" class="headerlink" title="025http协议什么组成？"></a>025http协议什么组成？</h2><p>请求报文包含三部分：请求行：包含请求方法、URI、HTTP版本信息；请求首部字段；请求内容实体。<br>响应报文包含三部分：状态行：包含HTTP版本、状态码、状态码的原因短语；响应首部字段；响应内容实体。</p>
+<h2 id="026http协议中有那些请求方式？"><a href="#026http协议中有那些请求方式？" class="headerlink" title="026http协议中有那些请求方式？"></a>026http协议中有那些请求方式？</h2><p>GET：用于请求访问已经被URI（统一资源标识符）识别的资源，可以通过URL传参给服务器。<br>POST：用于传输信息给服务器，主要功能与GET方法类似，但一般推荐使用POST方式。<br>PUT： 传输文件，报文主体中包含文件内容，保存到对应URI位置。<br>HEAD： 获得报文首部，与GET方法类似，只是不返回报文主体，一般用于验证URI是否有效。<br>DELETE：删除文件，与PUT方法相反，删除对应URI位置的文件。<br>OPTIONS：查询相应URI支持的HTTP方法。</p>
+<h2 id="027TCP和UDP的区别？"><a href="#027TCP和UDP的区别？" class="headerlink" title="027TCP和UDP的区别？"></a>027TCP和UDP的区别？</h2><p>TCP（Transmission Control Protocol，传输控制协议）是基于连接的协议，也就是说，在正式收发数据前，必须和对方建立可靠的连接。一个TCP连接必须要经过三次“对话”才能建立起来。<br>UDP（User Data Protocol，用户数据报协议）是与TCP相对应的协议。它是面向非连接的协议，它不与对方建立连接，而是直接就把数据包发送过去，UDP适用于一次只传送少量数据、对可靠性要求不高的应用环境。</p>
+<h2 id="028http的长连接和短连接区别？"><a href="#028http的长连接和短连接区别？" class="headerlink" title="028http的长连接和短连接区别？"></a>028http的长连接和短连接区别？</h2><p>HTTP协议有HTTP&#x2F;1.0版本和HTTP&#x2F;1.1版本。HTTP1.1默认保持长连接（HTTP persistent connection，也翻译为持久连接），数据传输完成了保持TCP连接不断开（不发RST包、不四次握手），等待在同域名下继续用这个通道传输数据；相反的就是短连接。<br>在 HTTP&#x2F;1.0 中，默认使用的是短连接。也就是说，浏览器和服务器每进行一次HTTP操作，就建立一次连接，任务结束就中断连接。从HTTP&#x2F;1.1起，默认使用的是长连接，用以保持连接特性。</p>
+<h2 id="029什么是-CSRF-攻击，如何避免？"><a href="#029什么是-CSRF-攻击，如何避免？" class="headerlink" title="029什么是 CSRF 攻击，如何避免？"></a>029什么是 CSRF 攻击，如何避免？</h2><p>CSRF（Cross-site request forgery）也被称为 one-click attack或者 session riding，中文全称是叫跨站请求伪造。一般来说，攻击者通过伪造用户的浏览器的请求，向访问一个用户自己曾经认证访问过的网站发送出去，使目标网站接收并误以为是用户的真实操作而去执行命令。常用于盗取账号、转账、发送虚假消息等。攻击者利用网站对请求的验证漏洞而实现这样的攻击行为，网站能够确认请求来源于用户的浏览器，却不能验证请求是否源于用户的真实意愿下的操作行为。</p>
+<h2 id="030什么是-XSS-攻击，如何避免？"><a href="#030什么是-XSS-攻击，如何避免？" class="headerlink" title="030什么是 XSS 攻击，如何避免？"></a>030什么是 XSS 攻击，如何避免？</h2><p>XSS攻击又称CSS,全称Cross Site Script  （跨站脚本攻击），其原理是攻击者向有XSS漏洞的网站中输入恶意的 HTML 代码，当用户浏览该网站时，这段 HTML 代码会自动执行，从而达到攻击的目的。XSS 攻击类似于 SQL 注入攻击，SQL注入攻击中以SQL语句作为用户输入，从而达到查询&#x2F;修改&#x2F;删除数据的目的，而在xss攻击中，通过插入恶意脚本，实现对用户游览器的控制，获取用户的一些信息。 XSS是 Web 程序中常见的漏洞，XSS 属于被动式且用于客户端的攻击方式。<br>XSS防范的总体思路是：对输入(和URL参数)进行过滤，对输出进行编码。</p>
+<h2 id="031说一说OSI网络模型。"><a href="#031说一说OSI网络模型。" class="headerlink" title="031说一说OSI网络模型。"></a>031说一说OSI网络模型。</h2><p>网络的七层架构从下到上主要包括物理层、数据链路层、网络层、传输层、会话层、表示层和应用层。<br>①物理层：物理层主要定义物理设备标准，主要作用是传输比特流，具体做法是在发送端将1、0转化为电流强弱来进行传输，在到达目的地之后再将电流强弱转化为1、0，也就是我们常说的模数转换与数模转换，这一层的数据叫做比特。<br>②数据链路层：数据链路层主要用于对数据包中的MAC地址进行解析和封装。这一层的数据叫做帧，在这一层工作的设备是网卡、网桥、交换机。<br>③网络层：网络层主要用于对数据包中的IP地址进行封装和解析，这一层的数据叫做数据包。在这一层工作的设备有路由器、交换机、防火墙等。<br>④传输层：传输层定义了传输数据的协议和端口号，主要用于数据的分段、传输和重组。在这一层工作的协议有TCP和UDP等。TCP是传输控制协议，传输效率低，可靠性强，用于传输对可靠性要求高，数据量大的数据，比如支付宝转账业务；UDP是用户数据报协议，用于传输可靠性要求不高，数据量小的数据，例如抖音等视频服务。<br>⑤会话层：会话层在传输层的基础上建立连接和管理会话，具体包括登陆验证、断点续传、数据粘包与分包等。在设备之间需要互相识别的可以是IP，也可以是MAC或者主机名。<br>⑥表示层：表示层主要对接收的数据进行解释、加密、解密、压缩、解压缩等，即把计算机能够识别的内容转换成人能够识别的内容（图片、声音、文字等）。<br>⑦应用层：基于网络构建具体应用，例如FTP上传文件下载服务、Telnet服务、HTTP服务、DNS服务、SNMP邮件服务等。</p>
+<h2 id="032说一说TCP-IP的网络模型。"><a href="#032说一说TCP-IP的网络模型。" class="headerlink" title="032说一说TCP&#x2F;IP的网络模型。"></a>032说一说TCP&#x2F;IP的网络模型。</h2><p>TCP&#x2F;IP不是指TCP和IP这两个协议的合称，而是指因特网的整个TCP&#x2F;IP协议簇。从协议分层模型方面来讲，TCP&#x2F;IP由4个层次组成：网络接口层、网络层、传输层和应用层。<br>①网络接口层：定义了主机间网络连通的协议，具体包括Echernet、FDDI、ATM等通信协议。<br>②网络层：主要用于数据的传输、路由及地址的解析，以保障主机可以把数据发送给任何网络上的目标。数据经过网络传输，发送的顺序和到达的顺序可能发生变化。在网络层使用IP协议和ARP地址解析协议。<br>③传输层：使源端和目的端的机器上的对等实体可以基于会话相互通信。在这一层定义了两个端到端的协议TCP和UDP。TCP是面向连接的协议，提供可靠的报文传输和对上层应用的连接服务，除了基本的数据传输，它还有可靠性保证、流量控制、多路复用、优先权和安全性控制等功能。UDP是面向无连接的不可靠传输的协议，主要用于不需要TCP的排序和流量控制等功能的应用程序。<br>④应用层：负责具体应用层协议的定义，包括Telnet虚拟终端协议、FTP文件传输协议、SMTP简单电子邮件传输协议、DNS域名解析服务、NNTP网上新闻传输协议和HTTP超文本传输协议等。</p>
+<h2 id="033简述TCP的三次握手过程，为什么不是两次或四次？"><a href="#033简述TCP的三次握手过程，为什么不是两次或四次？" class="headerlink" title="033简述TCP的三次握手过程，为什么不是两次或四次？"></a>033简述TCP的三次握手过程，为什么不是两次或四次？</h2><p>①服务端创建传输控制块TCB，进入LISTEN状态，准备接收客户端的请求。客户端同样先创建TCB，然后当准备建立连接时向服务端发送连接请求报文（SYN&#x3D;1，seq&#x3D;x），然后进入SYN-SENT状态。<br>②服务端收到后向客户端发送确认报文（SYN&#x3D;1，ACK&#x3D;1，ack&#x3D;x+1，seq&#x3D;y），进入SYN-RCVD状态。<br>③客户端接收到确认后，再向服务端发送一个确认报文（ACK&#x3D;1，ack&#x3D;y+1，seq&#x3D;x+1），然后进入ESTABLISHED状态，服务端接收后也进入ESTABLISHED状态。<br>④不是两次的原因是为了避免无效的连接请求突然发送到服务端，而此时客户端已关闭，服务端误以为客户端将要发送数据会白白浪费资源。<br>⑤不是四次的原因是将服务端的SYN和ACK报文拆分成两次发送和一次的效果是相同的，没有意义。</p>
+<h2 id="034简述TCP的四次握手过程，为什么不是三次？"><a href="#034简述TCP的四次握手过程，为什么不是三次？" class="headerlink" title="034简述TCP的四次握手过程，为什么不是三次？"></a>034简述TCP的四次握手过程，为什么不是三次？</h2><p>①当客户端准备关闭连接时，向服务端发送连接终止报文（FIN&#x3D;1，seq&#x3D;u），进入FIN-WAIT-1状态。<br>②服务端接收后向客户端发送确认报文（ACK&#x3D;1，ack&#x3D;u+1，seq&#x3D;v），进入CLOSE-WAIT状态，客户端收到后进入FIN-WAIT-2状态，此时TCP连接处于半关闭状态。<br>③当服务端也发送完全部数据准备断开连接时，向客户发送连接终止报文（FIN&#x3D;1，ACK&#x3D;1，ack&#x3D;u+1，seq&#x3D;w），进入LAST-ACK状态。<br>④客户端接收到该报文后，发送一个确认报文（ACK&#x3D;w+1，ack&#x3D;1，seq&#x3D;u+1），进入TIME-WAIT状态，然后等待2MSL时间后关闭。服务端收到后关闭，时间将略早于客户端。<br>⑤不是三次的原因第一是为了保证客户端发送的最后一个报文可以到达服务端，如果该报文丢失那么服务端会超时重传之前的FIN+ACK报文，客户端可以在2MSL内收到，第二是防止已失效的报文发送到客户端，在2MSL后客户端在本连接时间内发出的所有报文都将从网络中消失。</p>
+<h2 id="035会话是什么？"><a href="#035会话是什么？" class="headerlink" title="035会话是什么？"></a>035会话是什么？</h2><p>会话：客户端打开与服务器的连接发出请求到服务器响应客户端请求的全过程称之为会话。<br>http协议是“无状态”协议，不能保存用户信息，需要判断是否是同一个用户，需要会话跟踪。cookies和session都是用来跟踪浏览器用户身份的会话方式，但两者应用场景不一样。</p>
+<h2 id="036Session和Cookie的概念？"><a href="#036Session和Cookie的概念？" class="headerlink" title="036Session和Cookie的概念？"></a>036Session和Cookie的概念？</h2><p>Cookie 是Web 服务器发送给客户端（浏览器）的一小段信息，客户端请求时可以读取该信息发送到服务器端，进而进行用户的识别。对于客户端的每次请求，服务器都会将 Cookie 发送到客户端,在客户端可以进行保存,以便下次使用。<br>Session 代表着服务器和客户端一次会话的过程。每一个用户都有一个不同的 session，各个用户之间是不能共享的，是每个用户所独享的，在 session 中可以存放信息。Session 的实现依赖于 Cookie，如果 Cookie 被禁用，那么 session 也将失效。</p>
+<h2 id="037Cookie的工作原理？"><a href="#037Cookie的工作原理？" class="headerlink" title="037Cookie的工作原理？"></a>037Cookie的工作原理？</h2><p>(1)浏览器端第一次发送请求到服务器端<br>(2)服务器端创建Cookie，该Cookie中包含用户的信息，然后将该Cookie发送到浏览器端<br>(3)浏览器端再次访问服务器端时会携带服务器端创建的Cookie<br>(4)服务器端通过Cookie中携带的数据区分不同的用户</p>
+<p><img src="http://www.bjpowernode.com/Public/Uploads/article/20221011/1665470640@00feaa79335586b0530fd04a40ecc872.png" alt="img"></p>
+<h2 id="038Session的工作原理？"><a href="#038Session的工作原理？" class="headerlink" title="038Session的工作原理？"></a>038Session的工作原理？</h2><p>(1)浏览器端第一次发送请求到服务器端，服务器端创建一个Session，同时会创建一个特殊的Cookie（name为JSESSIONID的固定值，value为session对象的ID），然后将该Cookie发送至浏览器端<br>(2)浏览器端发送第N（N&gt;1）次请求到服务器端,浏览器端访问服务器端时就会携带该name为JSESSIONID的Cookie对象<br>(3)服务器端根据name为JSESSIONID的Cookie的value(sessionId),去查询Session对象，从而区分不同用户。</p>
+<p><img src="http://www.bjpowernode.com/Public/Uploads/article/20221011/1665470853@c176e8f01ce5c6c500929a18ba7112a8.png" alt="img"></p>
+<h2 id="039Cookie禁止掉，Session还能用吗？"><a href="#039Cookie禁止掉，Session还能用吗？" class="headerlink" title="039Cookie禁止掉，Session还能用吗？"></a>039Cookie禁止掉，Session还能用吗？</h2><p>第一种，在每次请求中都携带一个 SessionID 的参数放入URL<br>第二种，Token 机制。Token 的意思是“令牌”，是服务端生成的一串字符串，作为客户端进行请求的一个标识。随机且无状态，用户信息都被加密到token中，服务器收到token后解密就可知道是哪个用户。需要开发者手动添加。</p>
+<h2 id="040Cookie的生存周期？"><a href="#040Cookie的生存周期？" class="headerlink" title="040Cookie的生存周期？"></a>040Cookie的生存周期？</h2><p>Cookie在生成时就会被指定一个Expire值，这就是Cookie的生存周期，在这个周期内Cookie有效，超出周期Cookie就会被清除。有些页面将Cookie的生存周期设置为“0”或负值，这样在关闭浏览器时，就马上清除Cookie，不会记录用户信息，更加安全。</p>
+<h2 id="041Cookie和Session的区别"><a href="#041Cookie和Session的区别" class="headerlink" title="041Cookie和Session的区别?"></a>041Cookie和Session的区别?</h2><p>①存在的位置：<br>Cookie存在于客户端，临时文件夹中；  Session存在于服务器的内存中，一个Session域对象为一个用户浏览器服务<br>②安全性<br>Cookie是以明文的方式存放在客户端的，安全性低，可以通过一个加密算法进行加密后存放；  Session存放于服务器的内存中，所以安全性好<br>③网络传输量<br>Cookie会传递消息给服务器；  Session本身存放于服务器，不会有传送流量<br>④生命周期(以20分钟为例)<br>Cookie的生命周期是累计的，从创建时，就开始计时，20分钟后，Cookie生命周期结束；<br>session的生命周期是间隔的，从创建时，开始计时如在20分钟，没有访问Session，那么Session生命周期被销毁。但是，如果在20分钟内（如在第19分钟时）访问过Session，那么，将重新计算Session的生命周期。关机会造成Session生命周期的结束，但是对Cookie没有影响<br>⑤访问范围<br>Cookie为多个用户浏览器共享；  Session为一个用户浏览器独享</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2024/03/22/Web前端/" data-toggle="tooltip" data-placement="top"
+                           title="">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2024/03/22/Stust2/" data-toggle="tooltip" data-placement="top"
+                           title="">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Web%E5%90%8E%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-text">Web后端面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#001Servlet%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%EF%BC%9F"><span class="toc-text">001Servlet的生命周期？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#002Servlet%E6%98%AF%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%90%97%EF%BC%9F"><span class="toc-text">002Servlet是线程安全的吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#003%E5%A6%82%E4%BD%95%E7%8E%B0%E5%AE%9Eservlet%E7%9A%84%E5%8D%95%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%BC%8F%EF%BC%9F"><span class="toc-text">003如何现实servlet的单线程模式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#004get%E5%92%8Cpost%E8%AF%B7%E6%B1%82%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">004get和post请求的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#005%E8%BD%AC%E5%8F%91%E5%92%8C%E9%87%8D%E5%AE%9A%E5%90%91%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">005转发和重定向的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#006jsp%E4%B9%9D%E5%A4%A7%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="toc-text">006jsp九大内置对象?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#007jsp%E7%9A%84%E5%9B%9B%E5%A4%A7%E5%9F%9F%E5%AF%B9%E8%B1%A1%EF%BC%9F"><span class="toc-text">007jsp的四大域对象？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#008JSP%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81%E5%8C%85%E5%90%AB%E5%92%8C%E5%8A%A8%E6%80%81%E5%8C%85%E5%90%AB%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">008JSP中的静态包含和动态包含有什么区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#009JSP%E8%AF%B7%E6%B1%82%E6%98%AF%E5%A6%82%E4%BD%95%E8%A2%AB%E5%A4%84%E7%90%86%E7%9A%84%EF%BC%9F"><span class="toc-text">009JSP请求是如何被处理的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#010jsp%E5%92%8CServlet%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">010jsp和Servlet的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#011%E8%BF%87%E6%BB%A4%E5%99%A8Filter%E7%9A%84%E4%BD%9C%E7%94%A8%E5%8F%8A%E9%85%8D%E7%BD%AE%EF%BC%9F"><span class="toc-text">011过滤器Filter的作用及配置？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0125%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84JSTL%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE%EF%BC%9F"><span class="toc-text">0125中常用的JSTL常用标签？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#013XML%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">013XML是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#014XPath%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">014XPath是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#015XML%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%E5%AE%83%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BE%88%E9%87%8D%E8%A6%81%EF%BC%9F"><span class="toc-text">015XML命名空间是什么？它为什么很重要？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#016%E8%A7%A3%E6%9E%90-XML-%E6%96%87%E6%A1%A3%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-text">016解析 XML 文档有哪几种方式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#017%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E5%93%AA%E4%BA%9B%E5%9C%B0%E6%96%B9%E7%94%A8%E5%88%B0xml"><span class="toc-text">017项目中的哪些地方用到xml?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#018%E4%BB%80%E4%B9%88%E6%98%AFJSON"><span class="toc-text">018什么是JSON?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#019JSON%E5%92%8CXML%E4%B9%8B%E9%97%B4%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">019JSON和XML之间的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#020HTTP%E5%8D%8F%E8%AE%AE%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">020HTTP协议是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#021http%E5%92%8Chttps%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">021http和https有什么区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#022http%E5%8D%8F%E8%AE%AE%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E7%82%B9%EF%BC%9F"><span class="toc-text">022http协议有什么特点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#023%E4%BB%80%E4%B9%88%E6%98%AFhttp%E5%8D%8F%E8%AE%AE%E6%97%A0%E7%8A%B6%E6%80%81%E5%8D%8F%E8%AE%AE%EF%BC%9F%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3http%E5%8D%8F%E8%AE%AE%E6%97%A0%E7%8A%B6%E6%80%81%E5%8D%8F%E8%AE%AE%EF%BC%9F"><span class="toc-text">023什么是http协议无状态协议？怎么解决http协议无状态协议？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#024%E8%AF%B4%E4%B8%80%E4%B8%8Bhttp%E5%8D%8F%E8%AE%AE%E4%B8%AD302%E7%8A%B6%E6%80%81%EF%BC%9F"><span class="toc-text">024说一下http协议中302状态？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#025http%E5%8D%8F%E8%AE%AE%E4%BB%80%E4%B9%88%E7%BB%84%E6%88%90%EF%BC%9F"><span class="toc-text">025http协议什么组成？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#026http%E5%8D%8F%E8%AE%AE%E4%B8%AD%E6%9C%89%E9%82%A3%E4%BA%9B%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F%EF%BC%9F"><span class="toc-text">026http协议中有那些请求方式？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#027TCP%E5%92%8CUDP%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">027TCP和UDP的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#028http%E7%9A%84%E9%95%BF%E8%BF%9E%E6%8E%A5%E5%92%8C%E7%9F%AD%E8%BF%9E%E6%8E%A5%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">028http的长连接和短连接区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#029%E4%BB%80%E4%B9%88%E6%98%AF-CSRF-%E6%94%BB%E5%87%BB%EF%BC%8C%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%EF%BC%9F"><span class="toc-text">029什么是 CSRF 攻击，如何避免？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#030%E4%BB%80%E4%B9%88%E6%98%AF-XSS-%E6%94%BB%E5%87%BB%EF%BC%8C%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%EF%BC%9F"><span class="toc-text">030什么是 XSS 攻击，如何避免？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#031%E8%AF%B4%E4%B8%80%E8%AF%B4OSI%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B%E3%80%82"><span class="toc-text">031说一说OSI网络模型。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#032%E8%AF%B4%E4%B8%80%E8%AF%B4TCP-IP%E7%9A%84%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9E%8B%E3%80%82"><span class="toc-text">032说一说TCP&#x2F;IP的网络模型。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#033%E7%AE%80%E8%BF%B0TCP%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E8%BF%87%E7%A8%8B%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E6%98%AF%E4%B8%A4%E6%AC%A1%E6%88%96%E5%9B%9B%E6%AC%A1%EF%BC%9F"><span class="toc-text">033简述TCP的三次握手过程，为什么不是两次或四次？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#034%E7%AE%80%E8%BF%B0TCP%E7%9A%84%E5%9B%9B%E6%AC%A1%E6%8F%A1%E6%89%8B%E8%BF%87%E7%A8%8B%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E6%98%AF%E4%B8%89%E6%AC%A1%EF%BC%9F"><span class="toc-text">034简述TCP的四次握手过程，为什么不是三次？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#035%E4%BC%9A%E8%AF%9D%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">035会话是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#036Session%E5%92%8CCookie%E7%9A%84%E6%A6%82%E5%BF%B5%EF%BC%9F"><span class="toc-text">036Session和Cookie的概念？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#037Cookie%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%EF%BC%9F"><span class="toc-text">037Cookie的工作原理？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#038Session%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86%EF%BC%9F"><span class="toc-text">038Session的工作原理？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#039Cookie%E7%A6%81%E6%AD%A2%E6%8E%89%EF%BC%8CSession%E8%BF%98%E8%83%BD%E7%94%A8%E5%90%97%EF%BC%9F"><span class="toc-text">039Cookie禁止掉，Session还能用吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#040Cookie%E7%9A%84%E7%94%9F%E5%AD%98%E5%91%A8%E6%9C%9F%EF%BC%9F"><span class="toc-text">040Cookie的生存周期？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#041Cookie%E5%92%8CSession%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">041Cookie和Session的区别?</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/ehazon">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/megahertz">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Haojen 2024
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://haojen.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
+</body>
+
+</html>

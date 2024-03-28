@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="马浩珍在 Github 上的个人博客">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Haojen" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        Haojen&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://haojen.github.io/2024/03/22/中间件/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Haojen
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1></h1>
+                    
+                    <span class="meta">
+                         作者 Haojen Ma
+                        <span>
+                          日期 2024-03-22
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="Java中间件面试题"><a href="#Java中间件面试题" class="headerlink" title="Java中间件面试题"></a>Java中间件面试题</h1><h2 id="001什么是Nginx？"><a href="#001什么是Nginx？" class="headerlink" title="001什么是Nginx？"></a>001什么是Nginx？</h2><p>Nginx是一个 轻量级&#x2F;高性能的反向代理Web服务器，他实现非常高效的反向代理、负载平衡，他可以处理2-3万并发连接数，官方监测能支持5万并发，现在中国使用nginx网站用户有很多，例如：新浪、网易、 腾讯等。</p>
+<h2 id="002为什么要用Nginx？"><a href="#002为什么要用Nginx？" class="headerlink" title="002为什么要用Nginx？"></a>002为什么要用Nginx？</h2><p>1)跨平台、配置简单、方向代理、高并发连接：处理2-3万并发连接数，官方监测能支持5万并发，内存消耗小：开启10个nginx才占150M内存 ，nginx处理静态文件好，耗费内存少。<br>2)Nginx内置的健康检查功能：如果有一个服务器宕机，会做一个健康检查，再发送的请求就不会发送到宕机的服务器了。重新将请求提交到其他的节点上。</p>
+<h2 id="003Nginx的优缺点？"><a href="#003Nginx的优缺点？" class="headerlink" title="003Nginx的优缺点？"></a>003Nginx的优缺点？</h2><p>优点:1)占内存小，可实现高并发连接，处理响应快<br>2)可实现http服务器、虚拟主机、方向代理、负载均衡<br>3)Nginx配置简单,可以不暴露正式的服务器IP地址<br>缺点:1)动态处理差：nginx处理静态文件好,耗费内存少，但是处理动态页面则很鸡肋，所以前端一般用nginx作为反向代理抗住压力。</p>
+<h2 id="004Nginx应用场景？"><a href="#004Nginx应用场景？" class="headerlink" title="004Nginx应用场景？"></a>004Nginx应用场景？</h2><p>1)http服务器。Nginx是一个http服务可以独立提供http服务。可以做网页静态服务器。<br>2)虚拟主机。可以实现在一台服务器虚拟出多个网站，例如个人网站使用的虚拟机。<br>3)反向代理，负载均衡。当网站的访问量达到一定程度后，单台服务器不能满足用户的请求时，需要用多台服务器集群可以使用nginx做反向代理。并且多台服务器可以平均分担负载，不会应为某台服务器负载高宕机而某台服务器闲置的情况。<br>4)nginx中也可以配置安全管理、比如可以使用Nginx搭建API接口网关,对每个接口服务进行拦截。</p>
+<h2 id="005为什么Nginx性能这么高？"><a href="#005为什么Nginx性能这么高？" class="headerlink" title="005为什么Nginx性能这么高？"></a>005为什么Nginx性能这么高？</h2><p>因为它的事件处理机制：异步非阻塞事件处理机制运用了epoll模型，提供了一个队列，排队解决。</p>
+<h2 id="006Nginx怎么处理请求的？"><a href="#006Nginx怎么处理请求的？" class="headerlink" title="006Nginx怎么处理请求的？"></a>006Nginx怎么处理请求的？</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server&#123;              # 第一个Server区块开始，表示一个独立的虚拟主机站点</span><br><span class="line">    listen    80；                      # 提供服务的端口，默认80</span><br><span class="line">    server_name  localhost；   # 提供服务的域名主机名</span><br><span class="line">    location / &#123;                        # 第一个location区块开始</span><br><span class="line">        root   html；                 # 站点的根目录，相当于Nginx的安装目录</span><br><span class="line">        index  index.html index.htm；        # 默认的首页文件，多个用空格分开</span><br><span class="line">    &#125;                                       # 第一个location区块结果</span><br><span class="line">&#125;       </span><br></pre></td></tr></table></figure>
+
+<p>首先，Nginx 在启动时，会解析配置文件，得到需要监听的端口与 IP 地址，然后在 Nginx 的 Master 进程里面先初始化好这个监控的Socket(创建 S ocket，设置 addr、reuse 等选项，绑定到指定的 ip 地址端口，再 listen 监听)。<br>然后，再 fork(一个现有进程可以调用 fork 函数创建一个新进程。由 fork 创建的新进程被称为子进程 )出多个子进程出来。<br>之后，子进程会竞争 accept 新的连接。此时，客户端就可以向 nginx 发起连接了。当客户端与nginx进行三次握手，与 nginx 建立好一个连接后。此时，某一个子进程会 accept 成功，得到这个建立好的连接的 Socket ，然后创建 nginx 对连接的封装，即 ngx_connection_t 结构体。<br>接着，设置读写事件处理函数，并添加读写事件来与客户端进行数据的交换。<br>最后，Nginx 或客户端来主动关掉连接，到此，一个连接就完成了。  </p>
+<h2 id="007什么是正向代理和反向代理？"><a href="#007什么是正向代理和反向代理？" class="headerlink" title="007什么是正向代理和反向代理？"></a>007什么是正向代理和反向代理？</h2><p>正向代理就是一个人发送一个请求直接就到达了目标的服务器。<br>反方代理就是请求统一被Nginx接收，nginx反向代理服务器接收到之后，按照一定的规则分发给了后端的业务处理服务器进行处理了。</p>
+<h2 id="008使用反向代理服务器的优点是什么"><a href="#008使用反向代理服务器的优点是什么" class="headerlink" title="008使用反向代理服务器的优点是什么?"></a>008使用反向代理服务器的优点是什么?</h2><p>反向代理服务器可以隐藏源服务器的存在和特征。它充当互联网云和web服务器之间的中间层。这对于安全方面来说是很好的，特别是当您使用web托管服务时。</p>
+<h2 id="009Nginx负载均衡的常用选择策略？"><a href="#009Nginx负载均衡的常用选择策略？" class="headerlink" title="009Nginx负载均衡的常用选择策略？"></a>009Nginx负载均衡的常用选择策略？</h2><p>①轮询：Nginx根据请求发送来的顺序，依次把请求循环的发给列表中的服务器；<br>②按权重：提前为每个服务器指定一个权重，Nginx在分配请求时会优先把请求分配给权重较高的服务器（一般选择给性能较好的服务器赋予较大的权重）；<br>③hash绑定：可以为每个ip地址使用hash绑定，这样每个访客访问的服务器固定，可以解决seeion存储问题；常见的用法是对用户的IP或者ID进行这个策略，然后「负载均衡器」就能保证同一个IP来源或者同一个用户永远会被送到同一个后端服务器上了，一般用于处理缓存、会话等功能的时候特别好用；<br>④响应策略：按后端服务器响应时间，响应快的优先分配;也就是说，不管后端服务器负载高不高，也不管配置如何，只要觉得这个服务器在当前时刻能最快的响应用户的请求，那么就优先把请求转发给它，这样的话，对于用户而言，体验也最好。那「负载均衡器」是怎么知道哪一台后端服务在当前时刻响应能力最佳呢？这就需要「负载均衡器」不停的去统计每一台后端服务器对请求的处理速度了，比如一分钟统计一次，生成一个后端服务器处理速度的排行榜。然后「负载均衡器」根据这个排行榜去转发服务；<br>⑤负载度策略：负载度策略是指当「负载均衡器」往后端转发流量的时候，会先去评估后端每台服务器的负载压力情况，对于压力比较大的后端服务器转发的请求就少一些，对于压力比较小的后端服务器可以多转发一些请求给它。这种方式就充分的结合了后端服务器的运行状态，来动态的分配流量了，比轮询的方式更为科学一些。但是这种方式也带来了一些弊端，因为需要动态的评估后端服务器的负载压力，那这个「负载均衡器」除了转发请求以外，还要做很多额外的工作，比如采集 连接数、请求数、CPU负载指标、IO负载指标等等，通过对这些指标进行计算和对比，判断出哪一台后端服务器的负载压力较大。因此这种方式带来了效果优势的同时，也增加了「负载均衡器」的实现难度和维护成本。</p>
+<h2 id="010为什么要做动静分离？"><a href="#010为什么要做动静分离？" class="headerlink" title="010为什么要做动静分离？"></a>010为什么要做动静分离？</h2><p>1)Nginx是当下最热的Web容器，网站优化的重要点在于静态化网站，网站静态化的关键点则是是动静分离，动静分离是让动态网站里的动态网页根据一定规则把不变的资源和经常变的资源区分开来，动静资源做好了拆分以后，我们则根据静态资源的特点将其做缓存操作。<br>2)让静态的资源只走静态资源服务器，动态的走动态的服务器<br>3)Nginx的静态处理能力很强，但是动态处理能力不足，因此，在企业中常用动静分离技术。<br>4)对于静态资源比如图片，js，css等文件，我们则在反向代理服务器nginx中进行缓存。这样浏览器在请求一个静态资源时，代理服务器nginx就可以直接处理，无需将请求转发给后端服务器tomcat。 若用户请求的动态文件，比如servlet,jsp则转发给Tomcat服务器处理，从而实现动静分离。这也是反向代理服务器的一个重要的作用。</p>
+<h2 id="011什么叫CDN服务？"><a href="#011什么叫CDN服务？" class="headerlink" title="011什么叫CDN服务？"></a>011什么叫CDN服务？</h2><p>CDN ，即内容分发网络。其目的是，通过在现有的 Internet中 增加一层新的网络架构，将网站的内容发布到最接近用户的网络边缘，使用户可就近取得所需的内容，提高用户访问网站的速度。一般来说，因为现在 CDN 服务比较大众，所以基本所有公司都会使用 CDN 服务。</p>
+<h2 id="012生产中如何设置worker进程的数量呢？"><a href="#012生产中如何设置worker进程的数量呢？" class="headerlink" title="012生产中如何设置worker进程的数量呢？"></a>012生产中如何设置worker进程的数量呢？</h2><p>在有多个cpu的情况下，可以设置多个worker，worker进程的数量可以设置到和cpu的核心数一样多，如果在单个cpu上起多个worker进程，那么操作系统会在多个worker之间进行调度，这种情况会降低系统性能，如果只有一个cpu，那么只启动一个worker进程就可以了。</p>
+<h2 id="013漏桶流算法了解吗？"><a href="#013漏桶流算法了解吗？" class="headerlink" title="013漏桶流算法了解吗？"></a>013漏桶流算法了解吗？</h2><p>漏桶算法思路很简单，我们把水比作是请求，漏桶比作是系统处理能力极限，水先进入到漏桶里，漏桶里的水按一定速率流出，当流出的速率小于流入的速率时，由于漏桶容量有限，后续进入的水直接溢出（拒绝请求），以此实现限流。</p>
+<h2 id="014令牌桶算法了解吗？"><a href="#014令牌桶算法了解吗？" class="headerlink" title="014令牌桶算法了解吗？"></a>014令牌桶算法了解吗？</h2><p>令牌桶算法的原理也比较简单，我们可以理解成医院的挂号看病，只有拿到号以后才可以进行诊病。<br>系统会维护一个令牌（token）桶，以一个恒定的速度往桶里放入令牌（token），这时如果有请求进来想要被处理，则需要先从桶里获取一个令牌（token），当桶里没有令牌（token）可取时，则该请求将被拒绝服务。令牌桶算法通过控制桶的容量、发放令牌的速率，来达到对请求的限制。</p>
+<h2 id="015什么是ActiveMQ？"><a href="#015什么是ActiveMQ？" class="headerlink" title="015什么是ActiveMQ？"></a>015什么是ActiveMQ？</h2><p>ActiveMQ是一种开源的，实现了JMS1.1规范的，面向消息(MOM)的中间件，为应用程序提供高效的、可扩展的、稳定的和安全的企业级消息通信。</p>
+<h2 id="016ActiveMQ的作用以及原理？"><a href="#016ActiveMQ的作用以及原理？" class="headerlink" title="016ActiveMQ的作用以及原理？"></a>016ActiveMQ的作用以及原理？</h2><p>ActiveMQ的作用就是系统之间进行通信。 当然可以使用其他方式进行系统间通信， 如果使用 ActiveMQ的话可以对系统之间的调用进行解耦， 实现系统间的异步通信。 原理就是生产者生产消息， 把消息发送给ActiveMQ。 ActiveMQ接收到消息， 然后查看有多少个消费者， 然后把消息转发给消费者， 此过程中生产者无需参与。 消费者接收到消息后做相应的处理和生产者没有任何关系。</p>
+<h2 id="017ActiveMQ的几种通信方式"><a href="#017ActiveMQ的几种通信方式" class="headerlink" title="017ActiveMQ的几种通信方式?"></a>017ActiveMQ的几种通信方式?</h2><p>消息通信的基本方式有两种：<br>1.同步方式<br>两个通信应用服务之间必须要进行同步，两个服务之间必须都是正常运行的。发送程序和接收程序都必须一直处于运行状态，并且随时做好相互通信的准备。发送程序首先向接收程序发起一个请求，称之为发送消息，发送程序紧接着就会堵塞当前自身的进程，不与其他应用进行任何的通信以及交互，等待接收程序的响应，待发送消息得到接收程序的返回消息之后会继续向下运行，进行下一步的业务处理。<br>2.异步方式<br>两个通信应用之间可以不用同时在线等待，任何一方只需各自处理自己的业务，比如发送方发送消息以后不用登录接收方的响应，可以接着处理其他的任务。也就是说发送方和接收方都是相互独立存在的，发送方只管方，接收方只能接收，无须去等待对方的响应。Java 中 JMS 就是典型的异步消息处理机制，JMS 消息有两种类型：点对点、发布&#x2F;订阅。</p>
+<h2 id="018ActiveMQ-发送消息的方式有哪些？"><a href="#018ActiveMQ-发送消息的方式有哪些？" class="headerlink" title="018ActiveMQ 发送消息的方式有哪些？"></a>018ActiveMQ 发送消息的方式有哪些？</h2><p>1)publish(发布)-subscribe(订阅)(发布-订阅方式)<br>发布&#x2F;订阅方式用于多接收客户端的方式.作为发布订阅的方式，可能存在多个接收客户端，并且接收端客户端与发送客户端存在时间上的依赖。一个接收端只能接收他创建以后发送客户端发送的信息。作为subscriber ,在接收消息时有两种方法，destination的receive方法，和实现message listener 接口的onMessage方法。<br>2)p2p(point-to-point)(点对点)<br>p2p的过程则理解起来比较简单。它好比是两个人打电话，这两个人是独享这一条通信链路的。一方发送消息，另外一方接收，就这么简单。在实际应用中因为有多个用户对使用p2p的链路，相互通信的双方是通过一个类似于队列的方式来进行交流。和前面pub-sub的区别在于一个topic有一个发送者和多个接收者，而在p2p里一个queue只有一个发送者和一个接收者。</p>
+<h2 id="019ActiveMQ中Topic模式队列和Queue模式队列区别？"><a href="#019ActiveMQ中Topic模式队列和Queue模式队列区别？" class="headerlink" title="019ActiveMQ中Topic模式队列和Queue模式队列区别？"></a>019ActiveMQ中Topic模式队列和Queue模式队列区别？</h2><p><strong>工作模式：</strong>Topic是“订阅-发布”模式，如果当前没有订阅者，消息将会被丢弃，如果有多个订阅者，那么这些订阅者都会受到消息；Queue是“负载均衡”模式，如果当前没有消费者，消息不会被丢弃；如果有多个消费者，那么一条消息也只能发送给一个消费者，并且要求消费者ack信息。<br><strong>有无状态：</strong>Topic无状态；Queue 数据默认会在mq服务器上以文件的形式存储，比如activemq一般保存在$AMQ_HOME\data\kr-store\data下面，也可以配置成DB存储。<br><strong>传递完整性：</strong>Topic模式如果没有订阅，消息就会被丢弃。Queue消息不会被丢弃。<br><strong>处理效率：</strong>由于消息会随着订阅者的数量进行复制，所以处理性能会随着订阅者的增加而明显降低，并且还要结合不同的消息协议自身的性能差异；Queue模式由于一条消息只能被一个消费者消费，所以就算消费者再多，性能也不会有明显降低，当然不同的消息协议的具体性能也是有差异的。</p>
+<h2 id="020如何解决消息重复问题？"><a href="#020如何解决消息重复问题？" class="headerlink" title="020如何解决消息重复问题？"></a>020如何解决消息重复问题？</h2><p>一般来说我们可以在业务段加一张表,用来存放消息是否执行成功,每次业务事物commit之后,告知服务端,已经处理过该消息,这样即使你消息重发了,也不会导致重复处理。</p>
+<h2 id="021ActiveMQ服务器宕机了怎么办？"><a href="#021ActiveMQ服务器宕机了怎么办？" class="headerlink" title="021ActiveMQ服务器宕机了怎么办？"></a>021ActiveMQ服务器宕机了怎么办？</h2><p>为了避免意外宕机以后丢失信息，需要做到重启后可以恢复消息队列，消息系统一半都会采用持久化机制。ActiveMQ的消息持久化机制有JDBC，AMQ，KahaDB和LevelDB，无论使用哪种持久化方式，消息的存储逻辑都是一致的。就是在发送者将消息发送出去后，消息中心首先将消息存储到本地数据文件、内存数据库或者远程数据库等。再试图将消息发给接收者，成功则将消息从存储中删除，失败则继续尝试尝试发送。消息中心启动以后，要先检查指定的存储位置是否有未成功发送的消息，如果有，则会先把存储位置中的消息发出去。</p>
+<h2 id="022什么是死信队列？"><a href="#022什么是死信队列？" class="headerlink" title="022什么是死信队列？"></a>022什么是死信队列？</h2><p>如果一条消息不能被处理，会被退回服务器重新分配，如果只有一个消费者，该消息又会重新被获取，重新抛异常。如果有多个消费者，往往在一个服务器上不能处理的消息，在另外的服务器上依然不能被处理。消息在重试 6 次后仍不能发送成功的，ActiveMQ 认为这条消息是“有毒”的，将会把消息丢到死信队列里。</p>
+<h2 id="023RabbitMQ的AMQP是什么"><a href="#023RabbitMQ的AMQP是什么" class="headerlink" title="023RabbitMQ的AMQP是什么?"></a>023RabbitMQ的AMQP是什么?</h2><p>RabbitMQ就是 AMQP 协议的 Erlang 的实现(当然 RabbitMQ 还支持 STOMP2、 MQTT3 等协议 ) AMQP 的模型架构 和 RabbitMQ 的模型架构是一样的，生产者将消息发送给交换器，交换器和队列绑定 。RabbitMQ 中的交换器、交换器类型、队列、绑定、路由键等都是遵循的 AMQP 协议中相应的概念。</p>
+<h2 id="024什么是RabbitMQ？"><a href="#024什么是RabbitMQ？" class="headerlink" title="024什么是RabbitMQ？"></a>024什么是RabbitMQ？</h2><p>采用AMQP高级消息队列协议的一种消息队列技术,最大的特点就是消费并不需要确保提供方存在,实现了服务之间的高度解耦。</p>
+<h2 id="025为什么要使用RabbitMQ？"><a href="#025为什么要使用RabbitMQ？" class="headerlink" title="025为什么要使用RabbitMQ？"></a>025为什么要使用RabbitMQ？</h2><p>1.在分布式系统下具备异步,削峰,负载均衡等一系列高级功能；<br>2.拥有持久化的机制，进程消息，队列中的信息也可以保存下来。<br>3.实现消费者和生产者之间的解耦。<br>4.对于高并发场景下，利用消息队列可以使得同步访问变为串行访问达到一定量的限，利于数据库的操作。<br>5.可以使用消息队列达到异步下单的效果，排队中，后台进行逻辑下单。</p>
+<h2 id="026RabbitMQ的使用场景。"><a href="#026RabbitMQ的使用场景。" class="headerlink" title="026RabbitMQ的使用场景。"></a>026RabbitMQ的使用场景。</h2><p>1.服务间异步通信<br>2.顺序消费<br>3.定时任务<br>4.请求削峰</p>
+<h2 id="027RabbitMQ基本概念。"><a href="#027RabbitMQ基本概念。" class="headerlink" title="027RabbitMQ基本概念。"></a>027RabbitMQ基本概念。</h2><p><strong>Broker：</strong>简单来说就是消息队列服务器实体<br><strong>Exchange：</strong>消息交换机，它指定消息按什么规则，路由到哪个队列<br><strong>Queue：</strong>消息队列载体，每个消息都会被投入到一个或多个队列<br><strong>Binding：</strong>绑定，它的作用就是把exchange和queue按照路由规则绑定起来<br><strong>Routing Key：</strong> 路由关键字，exchange根据这个关键字进行消息投递<br><strong>VHost：</strong>vhost可以理解为虚拟broker ，即mini-RabbitMQ server。其内部均含有独立的queue、exchange和binding等，但最最重要的是，其拥有独立的权限系统，可以做到vhost范围的用户控制。当然，从RabbitMQ的全局角度，vhost可以作为不同权限隔离的手段（一个典型的例子就是不同的应用可以跑在不同的 vhost 中）。<br><strong>Producer：</strong> 消息生产者，就是投递消息的程序<br><strong>Consumer：</strong>消息消费者，就是接受消息的程序<br><strong>Channel：</strong>消息通道，在客户端的每个连接里，可建立多个channel，每个channel代表一个会话任务由Exchange、Queue、RoutingKey三个才能决定一个从Exchange到Queue的唯一的线路。</p>
+<h2 id="028RabbitMQ如何确保消息正确发送？"><a href="#028RabbitMQ如何确保消息正确发送？" class="headerlink" title="028RabbitMQ如何确保消息正确发送？"></a>028RabbitMQ如何确保消息正确发送？</h2><p>消息的发送方有个确认模式，具体的流程如下：<br>1.将信道设置成confirm模式（发送方确认模式），则所有在信道上发布的消息都会被指派一个唯一的ID。<br>2.一旦消息被投递到目的队列后，或者消息被写入磁盘后（可持久化的消息），信道会发送一个确认给生产者（包含消息唯一 ID）。<br>3.如果 RabbitMQ发生内部错误从而导致消息丢失，会发送一条nack（notacknowledged，未确认）消息。发送方确认模式是异步的，生产者应用程序在等待确认的同时，可以继续发送消息。当确认消息到达生产者应用程序，生产者应用程序的回调方法就会被触发来处理确认消息。</p>
+<h2 id="029RabbitMQ如何确保消息接收方消费了消息？"><a href="#029RabbitMQ如何确保消息接收方消费了消息？" class="headerlink" title="029RabbitMQ如何确保消息接收方消费了消息？"></a>029RabbitMQ如何确保消息接收方消费了消息？</h2><p>消息的接收方消息确认机制，具体的流程如下：<br>消费者接收每一条消息后都必须进行确认（消息接收和消息确认是两个不同操作）。只有消费者确认了消息，RabbitMQ才能安全地把消息从队列中删除。这里并没有用到超时机制，RabbitMQ仅通过Consumer的连接中断来确认是否需要重新发送消息。也就是说，只要连接不中断，RabbitMQ给了Consumer足够长的时间来处理消息。保证数据的最终一致性；</p>
+<h2 id="030RabbitMQ中消息的重复发送是如何产生的？"><a href="#030RabbitMQ中消息的重复发送是如何产生的？" class="headerlink" title="030RabbitMQ中消息的重复发送是如何产生的？"></a>030RabbitMQ中消息的重复发送是如何产生的？</h2><p>如果消费者接收到消息，在确认之前断开了连接或取消订阅，RabbitMQ会认为消息没有被分发，然后重新分发给下一个订阅的消费者。</p>
+<h2 id="031RabbitMQ如何避免消息重复投递或重复消费？"><a href="#031RabbitMQ如何避免消息重复投递或重复消费？" class="headerlink" title="031RabbitMQ如何避免消息重复投递或重复消费？"></a>031RabbitMQ如何避免消息重复投递或重复消费？</h2><p>在消息生产时，RabbitMQ内部针对每条生产者发送的消息生成一个inner-msg-id，作为去重的依据（消息投递失败并重传），避免重复的消息进入队列；<br>在消息消费时，要求消息体中必须要有一个 bizId（对于同一业务全局唯一，如支付ID、订单ID、帖子ID 等）作为去重的依据，避免同一条消息被重复消费。</p>
+<h2 id="032RabbitMQ如何确保消息不丢失？"><a href="#032RabbitMQ如何确保消息不丢失？" class="headerlink" title="032RabbitMQ如何确保消息不丢失？"></a>032RabbitMQ如何确保消息不丢失？</h2><p>消息不丢失需要堆消息进行持久化。<br>确保持久性消息能从服务器重启中恢复的方式是，将它们写入磁盘上的一个持久化日志文件，当发布一条持久性消息到持久交换器上时，Rabbit会在消息提交到日志文件后才发送响应。一旦消费者从持久队列中消费了一条持久化消息，RabbitMQ会在持久化日志中把这条消息标记为等待垃圾收集。如果持久化消息在被消费之前RabbitMQ重启，那么Rabbit会自动重建交换器和队列（以及绑定），并重新发布持久化日志文件中的消息到合适的队列。</p>
+<h2 id="033RabbitMQ中的消息基于什么传输？"><a href="#033RabbitMQ中的消息基于什么传输？" class="headerlink" title="033RabbitMQ中的消息基于什么传输？"></a>033RabbitMQ中的消息基于什么传输？</h2><p>由于TCP连接的创建和销毁开销较大，且并发数受系统资源限制，会造成性能瓶颈。RabbitMQ使用信道的方式来传输数据。信道是建立在真实的TCP连接内的虚拟连接，且每条TCP连接上的信道数量没有限制。</p>
+<h2 id="034RabbitMQ中消息如何分发？"><a href="#034RabbitMQ中消息如何分发？" class="headerlink" title="034RabbitMQ中消息如何分发？"></a>034RabbitMQ中消息如何分发？</h2><p>若该队列至少有一个消费者订阅，消息将以循环（round-robin）的方式发送给消费者。每条消息只会分发给一个订阅的消费者（前提是消费者能够正常处理消息并进行确认）。</p>
+<h2 id="035RabbitMQ中常用的交换器有哪几种？"><a href="#035RabbitMQ中常用的交换器有哪几种？" class="headerlink" title="035RabbitMQ中常用的交换器有哪几种？"></a>035RabbitMQ中常用的交换器有哪几种？</h2><p>主要有3种：<br>1.fanout：如果交换器收到消息，将会广播到所有绑定的队列上<br>2.direct：如果路由键完全匹配，消息就被投递到相应的队列<br>3.topic：可以使来自不同源头的消息能够到达同一个队列。 使用topic交换器时，可以使用通配符</p>
+<h2 id="036RabbitMQ的工作模式。"><a href="#036RabbitMQ的工作模式。" class="headerlink" title="036RabbitMQ的工作模式。"></a>036RabbitMQ的工作模式。</h2><p>1.简单模式，用的默认交换机，1个生产者，1个消费者，一个消息只能被一个消费者消息<br>2.工作模，多个消费者监听同一个队列，如果任务数据比较多，可以多几个消费者，可以加快消费的速度<br>3.订阅发布模式，引入了交换机的类型fanout，广播模式 ，每个消费者单独监听自己的对列都可以取消费自己队列的消息。<br>4.routing，是direct的的交换机类型，指定路由<br>5.topic,是topic的交换机类型，比路由多了通配符的更加的灵活</p>
+<h2 id="037RabbitMQ是如何实现消息路由的？"><a href="#037RabbitMQ是如何实现消息路由的？" class="headerlink" title="037RabbitMQ是如何实现消息路由的？"></a>037RabbitMQ是如何实现消息路由的？</h2><p>完成RabbitMQ消息路由的核心组件是 Exchange。而消息的路由是由Exchange类型 和 Binding 来决定的。Binding 表示建立 Queue 和 Exchange 之间的绑定关系，每一个绑定关系会存在一个 BindingKey。通过这种方式相当于在 Exchange 中建立了一个路由关系表。生产者发送消息的时候，需要声明一个 RoutingKey（路由键），Exchange 拿到RoutingKey 之后，根据 RoutingKey 和路由表里面的 BindingKey 进行匹配，而匹配的规则是通过 Exchange类型来决定的。在 RabbitMQ 中，默认有四种类型的 Exchange：Direct ，Fanout、Topic和Header。<br><strong>Direct，叫直连</strong>，也就是完整匹配方式，需要Routing Key 和 Binding Key 完全一致，相当于点对点的发送。<br><strong>Topic： 叫主题</strong>，这种方式是通过设置通配符来动态匹配，相当于正则。就是用Routing Key 去匹配Binging Key。BingingKey支持两个通配符。<br><strong>Fanout：</strong>叫广播，这种方式不需要设置Routing Key，而是把消息广播给绑定到当前 Exchange 上的所有队列上。</p>
+<h2 id="038如何保证RabbitMQ消息的顺序性？"><a href="#038如何保证RabbitMQ消息的顺序性？" class="headerlink" title="038如何保证RabbitMQ消息的顺序性？"></a>038如何保证RabbitMQ消息的顺序性？</h2><p>1)拆分多个queue(消息队列)，每个queue(消息队列) 一个consumer(消费者)，就是多一些queue(消息队列)而已，这种方式会比较麻烦；<br>2)一个queue (消息队列)但是对应一个consumer(消费者)，然后这个consumer(消费者)内部用内存队列做排队，然后分发给底层不同的worker来处理。</p>
+<h2 id="039为什么不应该对所有的message都使用持久化机制？"><a href="#039为什么不应该对所有的message都使用持久化机制？" class="headerlink" title="039为什么不应该对所有的message都使用持久化机制？"></a>039为什么不应该对所有的message都使用持久化机制？</h2><p>首先，必然导致性能的下降，因为写磁盘比写RAM慢的多，message的吞吐量可能有10倍的差距。<br>其次，message的持久化机制用在RabbitMQ的内置cluster方案时会出现“坑爹”问题。矛盾点在于，若message设置了persistent属性，但queue未设置durable属性，那么当该queue的owner node出现异常后，在未重建该queue前，发往该queue 的message将被 blackholed；若 message 设置了 persistent属性，同时queue也设置了durable属性，那么当queue的owner node异常且无法重启的情况下，则该queue无法在其他node上重建，只能等待其owner node重启后，才能恢复该 queue的使用，而在这段时间内发送给该queue的message将被 blackholed 。<br>所以，是否要对message进行持久化，需要综合考虑性能需要，以及可能遇到的问题。若想达到100,000 条&#x2F;秒以上的消息吞吐量（单RabbitMQ服务器），则要么使用其他的方式来确保message的可靠delivery ，要么使用非常快速的存储系统以支持全持久化（例如使用SSD）。<br>另外一种处理原则是：仅对关键消息作持久化处理（根据业务重要程度），且应该保证关键消息的量不会导致性能瓶颈。</p>
+<h2 id="040RabbitMQ如何保证高可用的？"><a href="#040RabbitMQ如何保证高可用的？" class="headerlink" title="040RabbitMQ如何保证高可用的？"></a>040RabbitMQ如何保证高可用的？</h2><p>RabbitMQ有三种模式：单机模式、普通集群模式、镜像集群模式。<br>单机模式就是Demo级别的，一般就是你本地启动了玩玩儿的?，没人生产用单机模式<br>普通集群模式就是在多台机器上启动多个RabbitMQ实例，每个机器启动一个。你创建的queue，只会放在一个RabbitMQ实例上，但是每个实例都同步queue的元数据。你消费的时候，实际上如果连接到了另外一个实例，那么那个实例会从queue所在实例上拉取数据过来。这方案主要是提高吞吐量的，就是说让集群中多个节点来服务某个queue的读写操作。<br>镜像集群模式才是所谓的RabbitMQ的高可用模式。这种模式下，每个RabbitMQ节点都有这个queue的一个完整镜像，包含queue的全部数据的意思。然后每次你写消息到queue的时候，都会自动把消息同步到多个实例的queue上。RabbitMQ有很好的管理控制台，就是在后台新增一个策略，这个策略是镜像集群模式的策略，指定的时候是可以要求数据同步到所有节点的，也可以要求同步到指定数量的节点，再次创建queue的时候，应用这个策略，就会自动将数据同步到其他的节点上去了。这样的好处在于，你任何一个机器宕机了，没事儿，其它机器（节点）还包含了这个queue的完整数据，别的consumer都可以到其它节点上去消费数据。坏处在于，第一，这个性能开销也太大了吧，消息需要同步到所有机器上，导致网络带宽压力和消耗很重！RabbitMQ一个queue的数据都是放在一个节点里的，镜像集群下，也是每个节点都放这个queue的完整数据。</p>
+<h2 id="041什么是MQ"><a href="#041什么是MQ" class="headerlink" title="041什么是MQ?"></a>041什么是MQ?</h2><p>mq是一个消息队列,其主要目的是为了解决传统的消息传输上管理困难,效率不高的问题。<strong>mq有三大优点</strong>:解耦,异步,削峰。<br><strong>解耦:</strong> 如果是传统的消息通讯方式,无论是哪一方都要去维护一份供外部通讯的这个一个接口,而且各方处理消息的能力有限,效率上明显跟不上,并且这样子二者之间的耦合度非常高,对于拓展管理方面极不友好,而是要了mq就不一样,发送方只需要将消息发送给mq就可以了,别的不用考虑,接口什么的由mq去维护,接收方也只需要去mq里消费消息就可以了,就需要其他开销,一切由mq中间件来做,达到了解耦操作.<br><strong>异步:</strong> 使用mq,还可以达到异步效果,极大地提升了消息传输的效率.发送方在发送消息后不需要关心消费方是否能消费完成,还可以继续发送其他消息.<br>**削峰:**如果是传统的消息通讯,一下子有大量的消息发送给接收方,这样对于接收方的处理压力是很大的,而我们刚好可以利用mq达到一个缓冲操作,一旦流量超出了接收方处理范围,不用担心,只需要慢慢消费即可,像经典的双十一,就很容易会使用到mq这么一个优点.<br>**mq缺点:**因为增加了中间件,系统复杂度肯定大大提高,增加了很多维护的成本,比如我们要保证消息不丢失(一致性)和消息幂等性问题,还要保证mq的高可用等。</p>
+<h2 id="042消息队列有什么优点？"><a href="#042消息队列有什么优点？" class="headerlink" title="042消息队列有什么优点？"></a>042消息队列有什么优点？</h2><p>1)异步处理 - 相比于传统的串行、并行方式，提高了系统吞吐量。<br>2)应用解耦 - 系统间通过消息通信，不用关心其他系统的处理。<br>3)流量削锋 - 可以通过消息队列长度控制请求量；可以缓解短时间内的高并发请求。<br>4)日志处理 - 解决大量日志传输。<br>5)消息通讯 - 消息队列一般都内置了高效的通信机制，因此也可以用在纯的消息通讯。比如实现点对点消息队列，或者聊天室等。</p>
+<h2 id="043消息队列有什么缺点？"><a href="#043消息队列有什么缺点？" class="headerlink" title="043消息队列有什么缺点？"></a>043消息队列有什么缺点？</h2><p>1)系统可用性降低:本来系统运行好好的，现在你非要加入个消息队列进去，那消息队列挂了，你的系统不是呵呵了。因此，系统可用性会降低；<br>2)系统复杂度提高:加入了消息队列，要多考虑很多方面的问题，比如：一致性问题、如何保证消息不被重复消费、如何保证消息可靠性传输等。因此，需要考虑的东西更多，复杂性增大。<br>3)一致性问题:A系统处理完了直接返回成功了，人都以为你这个请求就成功了；但是问题是，要是BCD三个系统那里，BD两个系统写库成功了，结果C系统写库失败了，咋整？你这数据就不一致了。<br>所以消息队列实际是一种非常复杂的架构，你引入它有很多好处，但是也得针对它带来的坏处做各种额外的技术方案和架构来规避掉。</p>
+<h2 id="044解耦、异步、削峰是什么？"><a href="#044解耦、异步、削峰是什么？" class="headerlink" title="044解耦、异步、削峰是什么？"></a>044解耦、异步、削峰是什么？</h2><p><strong>解耦：</strong>以电商应用为例，应用中有订单系统、库存系统、物流系统、支付系统。用户创建订单后，如果耦合调用库存系统、物流系统、支付系统，任何一个子系统出了故障,都会造成下单操作异常。使用mq后，订单系统和其余系统完成解耦，不必担心其他系统出现故障，当转变成基于消息队列的方式后，系统间调用的问题会减少很多,比如物流系统因为发生故障,需要几分钟来修复。在这几分钟的时间里，物流系统要处理的内存被缓存在消息队列中，用户的下单操作可以正常完成。当物流系统恢复后，继续处理订单信息即可，中单用户感受不到物流系统的故障,提升系统的可用性。<br><strong>异步：</strong>有些服务间的调用并不是同步的，而是异步执行，例如，A调用B，B需要花费很长时间执行，此时A需要知道B什么时间可以执行完成，在未使用MQ时，一般会有两种方法实现，1.A不断地轮询查看B是否完成。2、就是A提供一个调用接口，当B执行完成之后，调用A的回调接口，以此实现。<br>当然MQ的出现很好的解决这个问题，A调用B后，只需要监听B处理完成消息，当B处理完后，会发送一条消息给MQ，MQ会将此消息转发给A服务。这样就省去了A的轮询或者B对A的回调。A也能够即使得到异步处理消息。<br><strong>削峰：</strong>比如说，如果订单系统最多能处理一万次订单，这个处理能力应付正常时段的下单时是没有问题的，正常时段我们下单一秒后就能返回结果。但是在高峰期，如果有两万次下单操作系统是处理不了的，只能限制订单超过一万后不允许用户下单。使用MQ做缓冲，我们可以取消这个限制，把一秒内下的订单分散成一段时间来处理，这时有些用户可能在下单十几秒后才能收到下单成功，虽然这样会影响一定的体验，但是要比不能下单好的多。</p>
+<h2 id="045消息队列MQ常用协议。"><a href="#045消息队列MQ常用协议。" class="headerlink" title="045消息队列MQ常用协议。"></a>045消息队列MQ常用协议。</h2><p><strong>AMQP协议</strong> AMQP即Advanced Message Queuing Protocol,一个提供统一消息服务的应用层标准高级消息队列协议,是应用层协议的一个开放标准,为面向消息的中间件设计。基于此协议的客户端与消息中间件可传递消息，并不受客户端&#x2F;中间件不同产品，不同开发语言等条件的限制。<br>优点：可靠、通用<br><strong>MQTT协议</strong> MQTT（Message Queuing Telemetry Transport，消息队列遥测传输）是IBM开发的一个即时通讯协议，有可能成为物联网的重要组成部分。该协议支持所有平台，几乎可以把所有联网物品和外部连接起来，被用来当做传感器和致动器（比如通过Twitter让房屋联网）的通信协议。<br>优点：格式简洁、占用带宽小、移动端通信、PUSH、嵌入式系统<br><strong>STOMP协议</strong> STOMP（Streaming Text Orientated Message Protocol）是流文本定向消息协议，是一种为MOM(Message Oriented Middleware，面向消息的中间件)设计的简单文本协议。STOMP提供一个可互操作的连接格式，允许客户端与任意STOMP消息代理（Broker）进行交互。<br>优点：命令模式（非topic&#x2F;queue模式）<br><strong>XMPP协议</strong> XMPP（可扩展消息处理现场协议，Extensible Messaging and Presence Protocol）是基于可扩展标记语言（XML）的协议，多用于即时消息（IM）以及在线现场探测。适用于服务器之间的准即时操作。核心是基于XML流传输，这个协议可能最终允许因特网用户向因特网上的其他任何人发送即时消息，即使其操作系统和浏览器不同。<br>优点：通用公开、兼容性强、可扩展、安全性高，但XML编码格式占用带宽大<br><strong>其他基于TCP&#x2F;IP自定义的协议</strong>：有些特殊框架（如：redis、kafka、zeroMq等）根据自身需要未严格遵循MQ规范，而是基于TCP\IP自行封装了一套协议，通过网络socket接口进行传输，实现了MQ的功能。</p>
+<h2 id="046消息队列MQ的通讯模式"><a href="#046消息队列MQ的通讯模式" class="headerlink" title="046消息队列MQ的通讯模式"></a>046消息队列MQ的通讯模式</h2><p>1)点对点通讯：点对点方式是最为传统和常见的通讯方式，它支持一对一、一对多、多对多、多对一等多种配置方式，支持树状、网状等多种拓扑结构。<br>2)多点广播：MQ适用于不同类型的应用。其中重要的，也是正在发展中的是”多点广播”应用，即能够将消息发送到多个目标站点(Destination List)。可以使用一条MQ指令将单一消息发送到多个目标站点，并确保为每一站点可靠地提供信息。MQ不仅提供了多点广播的功能，而且还拥有智能消息分发功能，在将一条消息发送到同一系统上的多个用户时，MQ将消息的一个复制版本和该系统上接收者的名单发送到目标MQ系统。目标MQ系统在本地复制这些消息，并将它们发送到名单上的队列，从而尽可能减少网络的传输量。<br>3)发布&#x2F;订阅(Publish&#x2F;Subscribe)模式：发布&#x2F;订阅功能使消息的分发可以突破目的队列地理指向的限制，使消息按照特定的主题甚至内容进行分发，用户或应用程序可以根据主题或内容接收到所需要的消息。发布&#x2F;订阅功能使得发送者和接收者之间的耦合关系变得更为松散，发送者不必关心接收者的目的地址，而接收者也不必关心消息的发送地址，而只是根据消息的主题进行消息的收发。在MQ家族产品中，MQ Event Broker是专门用于使用发布&#x2F;订阅技术进行数据通讯的产品，它支持基于队列和直接基于TCP&#x2F;IP两种方式的发布和订阅。<br>4)集群(Cluster)：为了简化点对点通讯模式中的系统配置，MQ提供 Cluster 的解决方案。集群类似于一个 域(Domain) ，集群内部的队列管理器之间通讯时，不需要两两之间建立消息通道，而是采用 Cluster 通道与其它成员通讯，从而大大简化了系统配置。此外，集群中的队列管理器之间能够自动进行负载均衡，当某一队列管理器出现故障时，其它队列管理器可以接管它的工作，从而大大提高系统的高可靠性;</p>
+<h2 id="047如何避免消息重复消费？"><a href="#047如何避免消息重复消费？" class="headerlink" title="047如何避免消息重复消费？"></a>047如何避免消息重复消费？</h2><p>在消息生产时，MQ内部针对每条生产者发送的消息生成一个唯一id，作为去重和幂等的依据（消息投递失败并重传），避免重复的消息进入队列。<br>在消息消费时，要求消息体中也要有一全局唯一id作为去重和幂等的依据，避免同一条消息被重复消费。</p>
+<h2 id="048大量消息在-MQ-里长时间积压，该如何解决？"><a href="#048大量消息在-MQ-里长时间积压，该如何解决？" class="headerlink" title="048大量消息在 MQ 里长时间积压，该如何解决？"></a>048大量消息在 MQ 里长时间积压，该如何解决？</h2><p>一般这个时候，只能临时紧急扩容了，具体操作步骤和思路如下：<br>1)先修复 consumer 的问题，确保其恢复消费速度，然后将现有 consumer 都停掉；<br>2)新建一个 topic，partition 是原来的 10 倍，临时建立好原先 10 倍的 queue 数量；<br>3)然后写一个临时的分发数据的 consumer 程序，这个程序部署上去消费积压的数据，消费之后不做耗时的处理，直接均匀轮询写入临时建立好的 10 倍数量的queue；<br>4)接着临时用 10 倍的机器来部署 consumer，每一批 consumer 消费一个临时 queue 的数据。这种做法相当于是临时将 queue 资源和 consumer 资源扩大10倍，以正常的 10 倍速度来消费数据；<br>5)等快速消费完积压数据之后，得恢复原先部署的架构，重新用原先的 consumer 机器来消费消息。</p>
+<h2 id="049Kafka、ActiveMQ、RabbitMQ、RocketMQ-有什么优缺点？"><a href="#049Kafka、ActiveMQ、RabbitMQ、RocketMQ-有什么优缺点？" class="headerlink" title="049Kafka、ActiveMQ、RabbitMQ、RocketMQ 有什么优缺点？"></a>049Kafka、ActiveMQ、RabbitMQ、RocketMQ 有什么优缺点？</h2><p><img src="http://www.bjpowernode.com/Public/Uploads/article/20220923/1663919021@b1520d0708a322c469ecc910add23af9.png" alt="img"></p>
+<p>综上，各种对比之后，有如下建议：<br>一般的业务系统要引入MQ，最早大家都用ActiveMQ，但是现在确实大家用的不多了，没经过大规模吞吐量场景的验证，社区也不是很活跃，所以大家还是算了吧，我个人不推荐用这个了；<br>后来大家开始用RabbitMQ，但是确实erlang语言阻止了大量的Java工程师去深入研究和掌控它，对公司而言，几乎处于不可控的状态，但是确实人家是开源的，比较稳定的支持，活跃度也高；<br>不过现在确实越来越多的公司会去用RocketMQ，确实很不错，毕竟是阿里出品，但社区可能有突然黄掉的风险（目前 RocketMQ已捐给Apache，但GitHub上的活跃度其实不算高）对自己公司技术实力有绝对自信的，推荐用RocketMQ，否则回去老老实实用RabbitMQ 吧，人家有活跃的开源社区，绝对不会黄。<br>所以中小型公司，技术实力较为一般，技术挑战不是特别高，用RabbitMQ是不错的选择；大型公司，基础架构研发实力较强，用 RocketMQ是很好的选择。如果是大数据领域的实时计算、日志采集等场景，用Kafka是业内标准的，绝对没问题，社区活跃度很高，绝对不会黄，何况几乎是全世界这个领域的事实性规范。</p>
+<h2 id="050你们公司生产环境用的是什么消息中间件？"><a href="#050你们公司生产环境用的是什么消息中间件？" class="headerlink" title="050你们公司生产环境用的是什么消息中间件？"></a>050你们公司生产环境用的是什么消息中间件？</h2><p>这个首先你可以说下你们公司选用的是什么消息中间件，比如用的是RabbitMQ，然后可以初步给一些你对不同MQ中间件技术的选型分析。举个例子：比如说ActiveMQ是老牌的消息中间件，国内很多公司过去运用的还是非常广泛的，功能很强大。但是问题在于没法确认ActiveMQ可以支撑互联网公司的高并发、高负载以及高吞吐的复杂场景，在国内互联网公司落地较少。而且使用较多的是一些传统企业，用ActiveMQ做异步调用和系统解耦。<br>然后你可以说说RabbitMQ，他的好处在于可以支撑高并发、高吞吐、性能很高，同时有非常完善便捷的后台管理界面可以使用。另外，他还支持集群化、高可用部署架构、消息高可靠支持，功能较为完善。而且经过调研，国内各大互联网公司落地大规模RabbitMQ集群支撑自身业务的case较多，国内各种中小型互联网公司使用RabbitMQ的实践也比较多。除此之外，RabbitMQ的开源社区很活跃，较高频率的迭代版本，来修复发现的bug以及进行各种优化，因此综合考虑过后，公司采取了RabbitMQ。但是RabbitMQ也有一点缺陷，就是他自身是基于erlang语言开发的，所以导致较为难以分析里面的源码，也较难进行深层次的源码定制和改造，毕竟需要较为扎实的erlang语言功底才可以。<br>然后可以聊聊RocketMQ，是阿里开源的，经过阿里的生产环境的超高并发、高吞吐的考验，性能卓越，同时还支持分布式事务等特殊场景。而且RocketMQ是基于Java语言开发的，适合深入阅读源码，有需要可以站在源码层面解决线上生产问题，包括源码的二次开发和改造。<br>另外就是Kafka。Kafka提供的消息中间件的功能明显较少一些，相对上述几款MQ中间件要少很多。但是Kafka的优势在于专为超高吞吐量的实时日志采集、实时数据同步、实时数据计算等场景来设计。因此Kafka在大数据领域中配合实时计算技术（比如Spark Streaming、Storm、Flink）使用的较多。但是在传统的MQ中间件使用场景中较少采用。</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2024/03/22/Dubbo/" data-toggle="tooltip" data-placement="top"
+                           title="">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2024/03/22/数据库/" data-toggle="tooltip" data-placement="top"
+                           title="">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java%E4%B8%AD%E9%97%B4%E4%BB%B6%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-text">Java中间件面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#001%E4%BB%80%E4%B9%88%E6%98%AFNginx%EF%BC%9F"><span class="toc-text">001什么是Nginx？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#002%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8Nginx%EF%BC%9F"><span class="toc-text">002为什么要用Nginx？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#003Nginx%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="toc-text">003Nginx的优缺点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#004Nginx%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%9F"><span class="toc-text">004Nginx应用场景？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#005%E4%B8%BA%E4%BB%80%E4%B9%88Nginx%E6%80%A7%E8%83%BD%E8%BF%99%E4%B9%88%E9%AB%98%EF%BC%9F"><span class="toc-text">005为什么Nginx性能这么高？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#006Nginx%E6%80%8E%E4%B9%88%E5%A4%84%E7%90%86%E8%AF%B7%E6%B1%82%E7%9A%84%EF%BC%9F"><span class="toc-text">006Nginx怎么处理请求的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#007%E4%BB%80%E4%B9%88%E6%98%AF%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86%E5%92%8C%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%EF%BC%9F"><span class="toc-text">007什么是正向代理和反向代理？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#008%E4%BD%BF%E7%94%A8%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%84%E4%BC%98%E7%82%B9%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">008使用反向代理服务器的优点是什么?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#009Nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%9A%84%E5%B8%B8%E7%94%A8%E9%80%89%E6%8B%A9%E7%AD%96%E7%95%A5%EF%BC%9F"><span class="toc-text">009Nginx负载均衡的常用选择策略？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#010%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%81%9A%E5%8A%A8%E9%9D%99%E5%88%86%E7%A6%BB%EF%BC%9F"><span class="toc-text">010为什么要做动静分离？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#011%E4%BB%80%E4%B9%88%E5%8F%ABCDN%E6%9C%8D%E5%8A%A1%EF%BC%9F"><span class="toc-text">011什么叫CDN服务？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#012%E7%94%9F%E4%BA%A7%E4%B8%AD%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AEworker%E8%BF%9B%E7%A8%8B%E7%9A%84%E6%95%B0%E9%87%8F%E5%91%A2%EF%BC%9F"><span class="toc-text">012生产中如何设置worker进程的数量呢？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#013%E6%BC%8F%E6%A1%B6%E6%B5%81%E7%AE%97%E6%B3%95%E4%BA%86%E8%A7%A3%E5%90%97%EF%BC%9F"><span class="toc-text">013漏桶流算法了解吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#014%E4%BB%A4%E7%89%8C%E6%A1%B6%E7%AE%97%E6%B3%95%E4%BA%86%E8%A7%A3%E5%90%97%EF%BC%9F"><span class="toc-text">014令牌桶算法了解吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#015%E4%BB%80%E4%B9%88%E6%98%AFActiveMQ%EF%BC%9F"><span class="toc-text">015什么是ActiveMQ？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#016ActiveMQ%E7%9A%84%E4%BD%9C%E7%94%A8%E4%BB%A5%E5%8F%8A%E5%8E%9F%E7%90%86%EF%BC%9F"><span class="toc-text">016ActiveMQ的作用以及原理？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#017ActiveMQ%E7%9A%84%E5%87%A0%E7%A7%8D%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F"><span class="toc-text">017ActiveMQ的几种通信方式?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#018ActiveMQ-%E5%8F%91%E9%80%81%E6%B6%88%E6%81%AF%E7%9A%84%E6%96%B9%E5%BC%8F%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">018ActiveMQ 发送消息的方式有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#019ActiveMQ%E4%B8%ADTopic%E6%A8%A1%E5%BC%8F%E9%98%9F%E5%88%97%E5%92%8CQueue%E6%A8%A1%E5%BC%8F%E9%98%9F%E5%88%97%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">019ActiveMQ中Topic模式队列和Queue模式队列区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#020%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E6%B6%88%E6%81%AF%E9%87%8D%E5%A4%8D%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-text">020如何解决消息重复问题？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#021ActiveMQ%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%AE%95%E6%9C%BA%E4%BA%86%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="toc-text">021ActiveMQ服务器宕机了怎么办？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#022%E4%BB%80%E4%B9%88%E6%98%AF%E6%AD%BB%E4%BF%A1%E9%98%9F%E5%88%97%EF%BC%9F"><span class="toc-text">022什么是死信队列？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#023RabbitMQ%E7%9A%84AMQP%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">023RabbitMQ的AMQP是什么?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#024%E4%BB%80%E4%B9%88%E6%98%AFRabbitMQ%EF%BC%9F"><span class="toc-text">024什么是RabbitMQ？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#025%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8RabbitMQ%EF%BC%9F"><span class="toc-text">025为什么要使用RabbitMQ？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#026RabbitMQ%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%E3%80%82"><span class="toc-text">026RabbitMQ的使用场景。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#027RabbitMQ%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E3%80%82"><span class="toc-text">027RabbitMQ基本概念。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#028RabbitMQ%E5%A6%82%E4%BD%95%E7%A1%AE%E4%BF%9D%E6%B6%88%E6%81%AF%E6%AD%A3%E7%A1%AE%E5%8F%91%E9%80%81%EF%BC%9F"><span class="toc-text">028RabbitMQ如何确保消息正确发送？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#029RabbitMQ%E5%A6%82%E4%BD%95%E7%A1%AE%E4%BF%9D%E6%B6%88%E6%81%AF%E6%8E%A5%E6%94%B6%E6%96%B9%E6%B6%88%E8%B4%B9%E4%BA%86%E6%B6%88%E6%81%AF%EF%BC%9F"><span class="toc-text">029RabbitMQ如何确保消息接收方消费了消息？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#030RabbitMQ%E4%B8%AD%E6%B6%88%E6%81%AF%E7%9A%84%E9%87%8D%E5%A4%8D%E5%8F%91%E9%80%81%E6%98%AF%E5%A6%82%E4%BD%95%E4%BA%A7%E7%94%9F%E7%9A%84%EF%BC%9F"><span class="toc-text">030RabbitMQ中消息的重复发送是如何产生的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#031RabbitMQ%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E6%B6%88%E6%81%AF%E9%87%8D%E5%A4%8D%E6%8A%95%E9%80%92%E6%88%96%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%EF%BC%9F"><span class="toc-text">031RabbitMQ如何避免消息重复投递或重复消费？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#032RabbitMQ%E5%A6%82%E4%BD%95%E7%A1%AE%E4%BF%9D%E6%B6%88%E6%81%AF%E4%B8%8D%E4%B8%A2%E5%A4%B1%EF%BC%9F"><span class="toc-text">032RabbitMQ如何确保消息不丢失？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#033RabbitMQ%E4%B8%AD%E7%9A%84%E6%B6%88%E6%81%AF%E5%9F%BA%E4%BA%8E%E4%BB%80%E4%B9%88%E4%BC%A0%E8%BE%93%EF%BC%9F"><span class="toc-text">033RabbitMQ中的消息基于什么传输？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#034RabbitMQ%E4%B8%AD%E6%B6%88%E6%81%AF%E5%A6%82%E4%BD%95%E5%88%86%E5%8F%91%EF%BC%9F"><span class="toc-text">034RabbitMQ中消息如何分发？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#035RabbitMQ%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E4%BA%A4%E6%8D%A2%E5%99%A8%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%EF%BC%9F"><span class="toc-text">035RabbitMQ中常用的交换器有哪几种？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#036RabbitMQ%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%A8%A1%E5%BC%8F%E3%80%82"><span class="toc-text">036RabbitMQ的工作模式。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#037RabbitMQ%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%B6%88%E6%81%AF%E8%B7%AF%E7%94%B1%E7%9A%84%EF%BC%9F"><span class="toc-text">037RabbitMQ是如何实现消息路由的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#038%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81RabbitMQ%E6%B6%88%E6%81%AF%E7%9A%84%E9%A1%BA%E5%BA%8F%E6%80%A7%EF%BC%9F"><span class="toc-text">038如何保证RabbitMQ消息的顺序性？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#039%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E5%BA%94%E8%AF%A5%E5%AF%B9%E6%89%80%E6%9C%89%E7%9A%84message%E9%83%BD%E4%BD%BF%E7%94%A8%E6%8C%81%E4%B9%85%E5%8C%96%E6%9C%BA%E5%88%B6%EF%BC%9F"><span class="toc-text">039为什么不应该对所有的message都使用持久化机制？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#040RabbitMQ%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E9%AB%98%E5%8F%AF%E7%94%A8%E7%9A%84%EF%BC%9F"><span class="toc-text">040RabbitMQ如何保证高可用的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#041%E4%BB%80%E4%B9%88%E6%98%AFMQ"><span class="toc-text">041什么是MQ?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#042%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E6%9C%89%E4%BB%80%E4%B9%88%E4%BC%98%E7%82%B9%EF%BC%9F"><span class="toc-text">042消息队列有什么优点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#043%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E6%9C%89%E4%BB%80%E4%B9%88%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="toc-text">043消息队列有什么缺点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#044%E8%A7%A3%E8%80%A6%E3%80%81%E5%BC%82%E6%AD%A5%E3%80%81%E5%89%8A%E5%B3%B0%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">044解耦、异步、削峰是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#045%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97MQ%E5%B8%B8%E7%94%A8%E5%8D%8F%E8%AE%AE%E3%80%82"><span class="toc-text">045消息队列MQ常用协议。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#046%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97MQ%E7%9A%84%E9%80%9A%E8%AE%AF%E6%A8%A1%E5%BC%8F"><span class="toc-text">046消息队列MQ的通讯模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#047%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E6%B6%88%E6%81%AF%E9%87%8D%E5%A4%8D%E6%B6%88%E8%B4%B9%EF%BC%9F"><span class="toc-text">047如何避免消息重复消费？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#048%E5%A4%A7%E9%87%8F%E6%B6%88%E6%81%AF%E5%9C%A8-MQ-%E9%87%8C%E9%95%BF%E6%97%B6%E9%97%B4%E7%A7%AF%E5%8E%8B%EF%BC%8C%E8%AF%A5%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%EF%BC%9F"><span class="toc-text">048大量消息在 MQ 里长时间积压，该如何解决？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#049Kafka%E3%80%81ActiveMQ%E3%80%81RabbitMQ%E3%80%81RocketMQ-%E6%9C%89%E4%BB%80%E4%B9%88%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="toc-text">049Kafka、ActiveMQ、RabbitMQ、RocketMQ 有什么优缺点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#050%E4%BD%A0%E4%BB%AC%E5%85%AC%E5%8F%B8%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E7%94%A8%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%EF%BC%9F"><span class="toc-text">050你们公司生产环境用的是什么消息中间件？</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/ehazon">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/megahertz">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Haojen 2024
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://haojen.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
+</body>
+
+</html>

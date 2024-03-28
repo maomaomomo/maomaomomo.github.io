@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="马浩珍在 Github 上的个人博客">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Haojen" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        Haojen&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://haojen.github.io/2024/03/22/Dubbo/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Haojen
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1></h1>
+                    
+                    <span class="meta">
+                         作者 Haojen Ma
+                        <span>
+                          日期 2024-03-22
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="Dubbo面试题"><a href="#Dubbo面试题" class="headerlink" title="Dubbo面试题"></a>Dubbo面试题</h1><h2 id="001什么是Dubbo"><a href="#001什么是Dubbo" class="headerlink" title="001什么是Dubbo?"></a>001什么是Dubbo?</h2><p>Dubbo是阿里巴巴开源的基于 Java 的高性能 RPC 分布式服务框架，现已成为 Apache 基金会孵化项目。其核心部分包含：<br>1)集群容错：提供基于接口方法的透明远程过程调用，包括多协议支持，以及软负载均衡，失败容错，地址路由，动态配置等集群支持。<br>2)远程通讯：提供对多种基于长连接的NIO框架抽象封装，包括多种线程模型，序列化，以及“请求-响应”模式的信息交换方式。<br>3)自动发现：基于注册中心目录服务，使服务消费方能动态的查找服务提供方，使地址透明，使服务提供方可以平滑增加或减少机器。</p>
+<h2 id="002为什么用Dubbo"><a href="#002为什么用Dubbo" class="headerlink" title="002为什么用Dubbo?"></a>002为什么用Dubbo?</h2><p>因为是阿里开源项目，国内很多互联网公司都在用，已经经过很多线上考验。内部使用了 Netty、Zookeeper，保证了高性能高可用性。使用 Dubbo 可以将核心业务抽取出来，作为独立的服务，逐渐形成稳定的服务中心，可用于提高业务复用灵活扩展，使前端应用能更快速的响应多变的市场需求。透明化的远程方法调用，就像调用本地方法一样调用远程方法，只需简单配置，没有任何API侵入。软负载均衡及容错机制，可在内网替代F5等硬件负载均衡器，降低成本，减少单点。服务自动注册与发现，不再需要写死服务提供方地址，注册中心基于接口名查询服务提供者的IP地址，并且能够平滑添加或删除服务提供者。</p>
+<h2 id="003Dubbo-和-Spring-Cloud-有什么区别？"><a href="#003Dubbo-和-Spring-Cloud-有什么区别？" class="headerlink" title="003Dubbo 和 Spring Cloud 有什么区别？"></a>003Dubbo 和 Spring Cloud 有什么区别？</h2><p>Dubbo 使用的是 RPC 通信，而 Spring Cloud 使用的是 HTTP RESTFul 方式。<br>SpringC主从中心loud 使用的 Eureka ，Dubbo推荐使用zookeeper<br>SpringCloud 将一个应用定义为一个服务,Dubbo 将一个接口定义为一个服务，<br>SpringCloud是一个生态，而Dubbo是SpringCloud生态中关于服务调用一种解决方案(服务治理）</p>
+<h2 id="004Dubbo都支持什么协议，优缺点？"><a href="#004Dubbo都支持什么协议，优缺点？" class="headerlink" title="004Dubbo都支持什么协议，优缺点？"></a>004Dubbo都支持什么协议，优缺点？</h2><p>dubbo：单一长连接和 NIO 异步通讯，适合大并发小数据量的服务调用，以及消费者远大于提供者。传输协议 TCP，异步，Hessian 序列化；<br>rmi：采用 JDK 标准的 rmi 协议实现，传输参数和返回参数对象需要实现 Serializable 接口，使用 java 标准序列化机制，使用阻塞式短连接，传输数据包大小混合，消费者和提供者个数差不多，可传文件，传输协议 TCP。多个短连接，TCP 协议传输，同步传输，适用常规的远程服务调用和 rmi 互操作。在依赖低版本的 Common-Collections 包，java 序列化存在安全漏洞；<br>webservice：基于 WebService 的远程调用协议，集成 CXF 实现，提供和原生 WebService 的互操作。多个短连接，基于 HTTP 传输，同步传输，适用系统集成和跨语言调用；<br>http：基于 Http 表单提交的远程调用协议，使用 Spring 的 HttpInvoke 实现。多个短连接，传输协议 HTTP，传入参数大小混合，提供者个数多于消费者，需要给应用程序和浏览器 JS 调用；<br>hessian：集成 Hessian 服务，基于 HTTP 通讯，采用 Servlet 暴露服务，Dubbo 内嵌 Jetty 作为服务器时默认实现，提供与 Hession 服务互操作。多个短连接，同步 HTTP 传输，Hessian 序列化，传入参数较大，提供者大于消费者，提供者压力较大，可传文件；<br>memcache：基于 memcached 实现的 RPC 协议 redis：基于 redis 实现的 RPC 协议</p>
+<h2 id="005Dubbo-和-Dubbox-有什么区别？"><a href="#005Dubbo-和-Dubbox-有什么区别？" class="headerlink" title="005Dubbo 和 Dubbox 有什么区别？"></a>005Dubbo 和 Dubbox 有什么区别？</h2><p>首先Dubbo在2014 年开始停止维护过几年，17 年开始重新维护，并进入了 Apache 项目。<br>Dubbox 是继 Dubbo 停止维护后，当当网基于 Dubbo 做的一个扩展项目，如加了服务可 Restful 调用，更新了开源组件等。</p>
+<h2 id="006Dubbo的管理控制台能做什么？"><a href="#006Dubbo的管理控制台能做什么？" class="headerlink" title="006Dubbo的管理控制台能做什么？"></a>006Dubbo的管理控制台能做什么？</h2><p>管理控制台主要包含：路由规则，动态配置，服务降级，访问控制，权重调整，负载均衡，等管理功能。</p>
+<h2 id="007Dubbo的核心配置有哪些？"><a href="#007Dubbo的核心配置有哪些？" class="headerlink" title="007Dubbo的核心配置有哪些？"></a>007Dubbo的核心配置有哪些？</h2><p><img src="http://www.bjpowernode.com/Public/Uploads/article/20220824/1661312949@250f050a6a4c8dcf880fa69e5361b8c4.jpg" alt="img"></p>
+<h2 id="008Dubbo在使用过程中都遇到了些什么问题？"><a href="#008Dubbo在使用过程中都遇到了些什么问题？" class="headerlink" title="008Dubbo在使用过程中都遇到了些什么问题？"></a>008Dubbo在使用过程中都遇到了些什么问题？</h2><p>Dubbo 的设计目的是为了满足高并发小数据量的 rpc 调用，在大数据量下的性能表现并不好，建议使用 rmi 或 http 协议。</p>
+<h2 id="009Dubbo是如何做系统交互的？"><a href="#009Dubbo是如何做系统交互的？" class="headerlink" title="009Dubbo是如何做系统交互的？"></a>009Dubbo是如何做系统交互的？</h2><p><img src="http://www.bjpowernode.com/Public/Uploads/article/20220824/1661321186@ab7de23284a9f02092c75dc93873510a.png" alt="img"><br>Dubbo是一个分布式的服务框架，底层是通过RPC来完成服务和服务之间的调用的。RPC(Remote Procedure Call Protocol)是一种远程调用协议， 允许像调用本地服务那样调用远程其它服务，即实现跨进程交互。Dubbo分为四个模块，分别为：注册中心（Registry）、提供者（Provider）、消费者（Consumer）和监控（Monitor）。<br>1.注册中心（Registry）：可以是zookeeper、redis、multicast、simple（官方推荐使用Zookeeper）；<br>2.提供者（Provider）：服务启动时，Provider引用容器中的服务，并向Registry注册服务信息（包括IP地址，服务名，方法定义等），同时暴露服务（Consumer是直接和Provider通讯实现服务调用的）。<br>3.消费者（Consumer）：服务启动时，Consumer向Registry订阅服务，如果没有订阅到自己想获得的服务，它会不断的尝试订阅。新的服务注册到注册中心以后，注册中心会将这些服务通过notify到消费者。Consumer直接调用Provider提供的服务。<br>4.监控（Monitor）：Consumer和Provider会通过异步的方式定时向Monitor发送消息，报告服务的状态。Monitor在整个架构中是可选的，Monitor功能需要单独配置，不配置或者配置后挂掉并不会影响服务的调用。<br>所以，Dubbo的实现思路是通过注册中心实现服务的动态注册与发现，Provider暴露服务，Consumer直接和Provider通讯实现服务间的调用的。</p>
+<h2 id="010Dubbo服务之间的调用特点？"><a href="#010Dubbo服务之间的调用特点？" class="headerlink" title="010Dubbo服务之间的调用特点？"></a>010Dubbo服务之间的调用特点？</h2><p>1)Dubbo 提供了声明式缓存，用于加速热门数据的访问速度，以减少用户加缓存的工作量。<br>2)Dubbo 2.2.0 以上版本支持服务降级。<br>3)Dubbo目前暂时不支持，后续可能采用基于 JTA&#x2F;XA 规范实现。<br>4)Dubbo 允许配置多协议，在不同服务上支持不同协议或者同一服务上同时支持多种协议。</p>
+<h2 id="011当一个服务接口有多种实现时怎么做？"><a href="#011当一个服务接口有多种实现时怎么做？" class="headerlink" title="011当一个服务接口有多种实现时怎么做？"></a>011当一个服务接口有多种实现时怎么做？</h2><p>当一个接口有多种实现时，可以用 group 属性来分组，服务提供方和消费方都指定同一个 group 即可。</p>
+<h2 id="012Dubbo启动时如果依赖的服务不可用会怎样？"><a href="#012Dubbo启动时如果依赖的服务不可用会怎样？" class="headerlink" title="012Dubbo启动时如果依赖的服务不可用会怎样？"></a>012Dubbo启动时如果依赖的服务不可用会怎样？</h2><p>Dubbo 缺省会在启动时检查依赖的服务是否可用，不可用时会抛出异常，阻止 Spring 初始化完成，默认 check&#x3D;”true”，可以通过 check&#x3D;”false” 关闭检查。</p>
+<h2 id="013Dubbo-的注册中心集群挂掉，者和订阅者之间还能通信么？"><a href="#013Dubbo-的注册中心集群挂掉，者和订阅者之间还能通信么？" class="headerlink" title="013Dubbo 的注册中心集群挂掉，者和订阅者之间还能通信么？"></a>013Dubbo 的注册中心集群挂掉，者和订阅者之间还能通信么？</h2><p>可以的，启动 dubbo 时，消费者会从 zookeeper 拉取注册的生产者的地址接口等数据，缓存在本地。每次调用时，按照本地存储的地址进行调用。</p>
+<h2 id="014服务调用超时问题怎么解决？"><a href="#014服务调用超时问题怎么解决？" class="headerlink" title="014服务调用超时问题怎么解决？"></a>014服务调用超时问题怎么解决？</h2><p>去除dubbo超时重试机制，并重新评估设置超时时间。业务处理代码必须放在服务端，客户端只做参数验证和服务调用，不涉及业务流程处理。<br>当然Dubbo的重试机制其实是非常好的QOS保证，它的路由机制，是会帮你把超时的请求路由到其他机器上，而不是本机尝试，所以 dubbo的重试机器也能一定程度的保证服务的质量。但是请一定要综合线上的访问情况，给出综合的评估。</p>
+<h2 id="015服务注册不上怎么办？"><a href="#015服务注册不上怎么办？" class="headerlink" title="015服务注册不上怎么办？"></a>015服务注册不上怎么办？</h2><p>检查 dubbo 的 jar 包有没有在 classpath 中，以及有没有重复的 jar 包<br>检查暴露服务的 spring 配置有没有加载<br>在服务提供者机器上测试与注册中心的网络是否通</p>
+<h2 id="016服务上线怎么兼容旧版本？"><a href="#016服务上线怎么兼容旧版本？" class="headerlink" title="016服务上线怎么兼容旧版本？"></a>016服务上线怎么兼容旧版本？</h2><p>可以用版本号（version）过渡，多个不同版本的服务注册到注册中心，版本号不同的服务相互间不引用。这个和服务分组的概念有一点类似。</p>
+<h2 id="017Dubbo提供的容错策略有哪些？"><a href="#017Dubbo提供的容错策略有哪些？" class="headerlink" title="017Dubbo提供的容错策略有哪些？"></a>017Dubbo提供的容错策略有哪些？</h2><p>容错指的是某种系统控制在一定范围内的一种允许或包容犯错情况的发生。具体容错策略如下：<br>1.Failover Cluster失败自动切换：dubbo的默认容错方案，当调用失败时自动切换到其他可用的节点，具体的重试次数和间隔时间可通过引用服务的时候配置，默认重试次数为1也就是只调用一次。<br>2.Failback Cluster失败重新恢复：在调用失败，记录日志和调用信息，然后返回空结果给consumer，并且通过定时任务每隔5秒对失败的调用进行重试<br>3.Failfast Cluster快速失败：只会调用一次，失败后立刻抛出异常<br>4.Failsafe Cluster失败安全：调用出现异常，记录日志不抛出，返回空结果<br>5.Forking Cluster并行调用多个服务提供者：通过线程池创建多个线程，并发调用多个provider,结果保存到阻塞队列，只要有一个provider成功返回结果，就会立刻返回结果<br>6.Broadcast Cluster广播模式：逐个调用每个provider,如果其中一台报错，在循环调用结束后，抛出异常</p>
+<h2 id="018Dubbo的负载均衡策略？"><a href="#018Dubbo的负载均衡策略？" class="headerlink" title="018Dubbo的负载均衡策略？"></a>018Dubbo的负载均衡策略？</h2><p>RandomLoadBalance:随机负载均衡。随机的选择一个。是Dubbo的默认负载均衡策略。<br>RoundRobinLoadBalance:轮询负载均衡。轮询选择一个。<br>LeastActiveLoadBalance:最少活跃调用数，相同活跃数的随机。活跃数指调用前后计数差。使慢的 Provider 收到更少请求，因为越慢的 Provider 的调用前后计数差会越大。<br>ConsistentHashLoadBalance:一致性哈希负载均衡。相同参数的请求总是落在同一台机器上。</p>
+<h2 id="019Dubbo如何优雅停机？"><a href="#019Dubbo如何优雅停机？" class="headerlink" title="019Dubbo如何优雅停机？"></a>019Dubbo如何优雅停机？</h2><p>Dubbo是通过 JDK 的 ShutdownHook 来完成优雅停机的，所以如果使用 kill -9 PID 等强制关闭指令，是不会执行优雅停机的，只有通过 kill PID 时，才会执行。</p>
+<h2 id="020如何解决服务调用链过长的问题？"><a href="#020如何解决服务调用链过长的问题？" class="headerlink" title="020如何解决服务调用链过长的问题？"></a>020如何解决服务调用链过长的问题？</h2><p>Dubbo 可以使用 Pinpoint 和 Apache Skywalking(Incubator) 实现分布式服务追踪</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2024/03/22/HashMap/" data-toggle="tooltip" data-placement="top"
+                           title="">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2024/03/22/中间件/" data-toggle="tooltip" data-placement="top"
+                           title="">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Dubbo%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-text">Dubbo面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#001%E4%BB%80%E4%B9%88%E6%98%AFDubbo"><span class="toc-text">001什么是Dubbo?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#002%E4%B8%BA%E4%BB%80%E4%B9%88%E7%94%A8Dubbo"><span class="toc-text">002为什么用Dubbo?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#003Dubbo-%E5%92%8C-Spring-Cloud-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">003Dubbo 和 Spring Cloud 有什么区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#004Dubbo%E9%83%BD%E6%94%AF%E6%8C%81%E4%BB%80%E4%B9%88%E5%8D%8F%E8%AE%AE%EF%BC%8C%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="toc-text">004Dubbo都支持什么协议，优缺点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#005Dubbo-%E5%92%8C-Dubbox-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">005Dubbo 和 Dubbox 有什么区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#006Dubbo%E7%9A%84%E7%AE%A1%E7%90%86%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%83%BD%E5%81%9A%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">006Dubbo的管理控制台能做什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#007Dubbo%E7%9A%84%E6%A0%B8%E5%BF%83%E9%85%8D%E7%BD%AE%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">007Dubbo的核心配置有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#008Dubbo%E5%9C%A8%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%83%BD%E9%81%87%E5%88%B0%E4%BA%86%E4%BA%9B%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-text">008Dubbo在使用过程中都遇到了些什么问题？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#009Dubbo%E6%98%AF%E5%A6%82%E4%BD%95%E5%81%9A%E7%B3%BB%E7%BB%9F%E4%BA%A4%E4%BA%92%E7%9A%84%EF%BC%9F"><span class="toc-text">009Dubbo是如何做系统交互的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#010Dubbo%E6%9C%8D%E5%8A%A1%E4%B9%8B%E9%97%B4%E7%9A%84%E8%B0%83%E7%94%A8%E7%89%B9%E7%82%B9%EF%BC%9F"><span class="toc-text">010Dubbo服务之间的调用特点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#011%E5%BD%93%E4%B8%80%E4%B8%AA%E6%9C%8D%E5%8A%A1%E6%8E%A5%E5%8F%A3%E6%9C%89%E5%A4%9A%E7%A7%8D%E5%AE%9E%E7%8E%B0%E6%97%B6%E6%80%8E%E4%B9%88%E5%81%9A%EF%BC%9F"><span class="toc-text">011当一个服务接口有多种实现时怎么做？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#012Dubbo%E5%90%AF%E5%8A%A8%E6%97%B6%E5%A6%82%E6%9E%9C%E4%BE%9D%E8%B5%96%E7%9A%84%E6%9C%8D%E5%8A%A1%E4%B8%8D%E5%8F%AF%E7%94%A8%E4%BC%9A%E6%80%8E%E6%A0%B7%EF%BC%9F"><span class="toc-text">012Dubbo启动时如果依赖的服务不可用会怎样？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#013Dubbo-%E7%9A%84%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E9%9B%86%E7%BE%A4%E6%8C%82%E6%8E%89%EF%BC%8C%E8%80%85%E5%92%8C%E8%AE%A2%E9%98%85%E8%80%85%E4%B9%8B%E9%97%B4%E8%BF%98%E8%83%BD%E9%80%9A%E4%BF%A1%E4%B9%88%EF%BC%9F"><span class="toc-text">013Dubbo 的注册中心集群挂掉，者和订阅者之间还能通信么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#014%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8%E8%B6%85%E6%97%B6%E9%97%AE%E9%A2%98%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%EF%BC%9F"><span class="toc-text">014服务调用超时问题怎么解决？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#015%E6%9C%8D%E5%8A%A1%E6%B3%A8%E5%86%8C%E4%B8%8D%E4%B8%8A%E6%80%8E%E4%B9%88%E5%8A%9E%EF%BC%9F"><span class="toc-text">015服务注册不上怎么办？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#016%E6%9C%8D%E5%8A%A1%E4%B8%8A%E7%BA%BF%E6%80%8E%E4%B9%88%E5%85%BC%E5%AE%B9%E6%97%A7%E7%89%88%E6%9C%AC%EF%BC%9F"><span class="toc-text">016服务上线怎么兼容旧版本？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#017Dubbo%E6%8F%90%E4%BE%9B%E7%9A%84%E5%AE%B9%E9%94%99%E7%AD%96%E7%95%A5%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">017Dubbo提供的容错策略有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#018Dubbo%E7%9A%84%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%AD%96%E7%95%A5%EF%BC%9F"><span class="toc-text">018Dubbo的负载均衡策略？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#019Dubbo%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E5%81%9C%E6%9C%BA%EF%BC%9F"><span class="toc-text">019Dubbo如何优雅停机？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#020%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8%E9%93%BE%E8%BF%87%E9%95%BF%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-text">020如何解决服务调用链过长的问题？</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/ehazon">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/megahertz">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Haojen 2024
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://haojen.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
+</body>
+
+</html>

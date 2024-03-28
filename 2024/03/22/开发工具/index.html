@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="马浩珍在 Github 上的个人博客">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Haojen" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        Haojen&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://haojen.github.io/2024/03/22/开发工具/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Haojen
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1></h1>
+                    
+                    <span class="meta">
+                         作者 Haojen Ma
+                        <span>
+                          日期 2024-03-22
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="Java开发工具面试题"><a href="#Java开发工具面试题" class="headerlink" title="Java开发工具面试题"></a>Java开发工具面试题</h1><h2 id="001什么是Maven？"><a href="#001什么是Maven？" class="headerlink" title="001什么是Maven？"></a>001什么是Maven？</h2><p>Maven是一个项目管理工具，它包含了一个项目对象模型（POM：Project Object Model），一组标准集合，一个项目生命周期（Project LifeCycle），一个依赖管理系统（Dependency managerment System），和用来运行定义在生命周期（phase）中插件（plugin）目标（goal）的逻辑。</p>
+<h2 id="002Maven有什么好处？"><a href="#002Maven有什么好处？" class="headerlink" title="002Maven有什么好处？"></a>002Maven有什么好处？</h2><p>①首先，maven是一个优秀的项目构建工具。使用maven，可以很方便的对项目进行分模块构建，这样在开发和测试打包部署时，效率会提高很多。<br>②其次，maven可以进行依赖的管理。使用maven，可以将不同系统的依赖进行统一管理，并且可以进行依赖之间的传递和继承。</p>
+<h2 id="003Maven常用命令有哪些？"><a href="#003Maven常用命令有哪些？" class="headerlink" title="003Maven常用命令有哪些？"></a>003Maven常用命令有哪些？</h2><p>1)install 本地安装， 包含编译，打包，安装到本地仓库<br>2)clean 清除已编译信息，删除工程中的target目录。<br>3)compile 只编译。javac命令<br>4)deploy  部署。常见于结合私服使用的命令，相当于是install+上传jar到私服。<br>5)package 打包。包含编译，打包两个功能。</p>
+<h2 id="004Maven的生命周期？"><a href="#004Maven的生命周期？" class="headerlink" title="004Maven的生命周期？"></a>004Maven的生命周期？</h2><p>在Maven中有三套相互独立的生命周期，请注意这里说的是“三套”，而且“相互独立”，这三套生命周期分别是：<br>(1)Clean清理项目： 在进行真正的构建之前进行一些清理工作。 mvn clean<br>(2)Default构建项目： 构建的核心部分，编译，测试，打包，部署等等。 mvn compile test package install deploy<br>(3)Site生成项目站点： 生成项目报告，站点，发布站点。</p>
+<h2 id="005Maven仓库是什么？"><a href="#005Maven仓库是什么？" class="headerlink" title="005Maven仓库是什么？"></a>005Maven仓库是什么？</h2><p>Maven仓库是基于简单文件系统存储的，集中化管理Java API资源（构件）的一个服务。仓库中的任何一个构件都有其唯一的坐标，根据这个坐标可以定义其在仓库中的唯一存储路径。得益于 Maven 的坐标机制，任何 Maven项目使用任何一个构件的方式都是完全相同的，Maven 可以在某个位置统一存储所有的 Maven 项目共享的构件，这个统一的位置就是仓库，项目构建完毕后生成的构件也可以安装或者部署到仓库中，供其它项目使用。<br>对于Maven来说，仓库分为两类：本地仓库和远程仓库。</p>
+<h2 id="006Maven的工程类型有哪些？"><a href="#006Maven的工程类型有哪些？" class="headerlink" title="006Maven的工程类型有哪些？"></a>006Maven的工程类型有哪些？</h2><p>1)POM工程<br>POM工程是逻辑工程。用在父级工程或聚合工程中。用来做jar包的版本控制。<br>2)JAR工程<br>将会打包成jar用作jar包使用。即常见的本地工程 - Java Project。<br>3)WAR工程<br>将会打包成war，发布在服务器上的工程。如网站或服务。即常见的网络工程 - Dynamic Web Project。war工程默认没有WEB-INF目录及web.xml配置文件，IDE通常会显示工程错误，提供完整工程结构可以解决。</p>
+<h2 id="007Maven中如何保证这些传递依赖不会引起版本冲突？"><a href="#007Maven中如何保证这些传递依赖不会引起版本冲突？" class="headerlink" title="007Maven中如何保证这些传递依赖不会引起版本冲突？"></a>007Maven中如何保证这些传递依赖不会引起版本冲突？</h2><p>使用<dependency>的<exclusion>元素将会引起冲突的元素排除。</p>
+<h2 id="008使用Maven-经常遇到的问题有哪些怎么解决的？"><a href="#008使用Maven-经常遇到的问题有哪些怎么解决的？" class="headerlink" title="008使用Maven 经常遇到的问题有哪些怎么解决的？"></a>008使用Maven 经常遇到的问题有哪些怎么解决的？</h2><p>● 可能由于网络波动，每有下载完成，又缓存了，这个时候下载多少次都会失败，解决办法就是去本地仓库将对应的依赖全部删除再重新下载<br>● 由于依赖传递带来的版本冲突问题，解决办法就是排除依赖。</p>
+<h2 id="009什么是Git"><a href="#009什么是Git" class="headerlink" title="009什么是Git?"></a>009什么是Git?</h2><p>Git 是一个开源的分布式版本控制系统，是目前世界上最先进、最流行的版本控制系统。可以快速高效地处理从很小到非常大的项目版本管理。特点：项目越大越复杂，协同开发者越多，越能体现出 Git 的高性能和高可用性。</p>
+<h2 id="010Git常用的命令有哪些"><a href="#010Git常用的命令有哪些" class="headerlink" title="010Git常用的命令有哪些?"></a>010Git常用的命令有哪些?</h2><p>git add 添加文件到暂存区<br>git commit 提交文件到本地仓库<br>git pull 从远程仓库拉取项目到本地<br>git push 将本地仓库的新的改变推送到远程仓库<br>git clone 将远程仓库复制到本地<br>git fetch 抓取<br>git merge 合并</p>
+<h2 id="011git-pull、git-merge、git-fetch三个命令的区别？"><a href="#011git-pull、git-merge、git-fetch三个命令的区别？" class="headerlink" title="011git pull、git merge、git fetch三个命令的区别？"></a>011git pull、git merge、git fetch三个命令的区别？</h2><p>git clone：是在本地没有版本库的情况下，从远程仓库克隆一份到本地，是一个本地版本库从无到有的过程<br>git pull：是在本地仓库已经存在的情况下，将远程最新的commits抓取并合并到本地版本库的过程<br>git fetch： 从远程版本库抓取最新的commits，不会进行合并<br>git merge：合并<br>所以git pull &#x3D; git fetch + git merge</p>
+<h2 id="012push之前一定要进行哪个操作？"><a href="#012push之前一定要进行哪个操作？" class="headerlink" title="012push之前一定要进行哪个操作？"></a>012push之前一定要进行哪个操作？</h2><p>push之前一定要进行本地更新操作。使用git pull命令或者使用git fetch和git merge的命令组合。这时候，可能会出现版本冲突，如果出现的话，需要解决完冲突再进行代码push。</p>
+<h2 id="013Git如何解决版本冲突？"><a href="#013Git如何解决版本冲突？" class="headerlink" title="013Git如何解决版本冲突？"></a>013Git如何解决版本冲突？</h2><p>开发过程中，我们都有自己的特性分支，所以冲突发生的并不多，但也碰到过。诸如公共类的公共方法，我和别人同时修改同一个文件，他提交后我再提交就会报冲突的错误。发生冲突，在IDE里面一般都是对比本地文件和远程分支的文件，然后把远程分支上文件的内容手工修改到本地文件，然后再提交冲突的文件使其保证与远程分支的文件一致，这样才会消除冲突，然后再提交自己修改的部分。<br>特别要注意下，修改本地冲突文件使其与远程仓库的文件保持一致后，需要提交后才能消除冲突，否则无法继续提交。必要时可与同事交流，消除冲突。</p>
+<h2 id="014如果代码出现bug-你们用git是如何解决的"><a href="#014如果代码出现bug-你们用git是如何解决的" class="headerlink" title="014如果代码出现bug,你们用git是如何解决的?"></a>014如果代码出现bug,你们用git是如何解决的?</h2><p>创建一个bug分支,然后进行bug处理,处理完毕后,合并到review分支,组长review成功后才能够合并到master,合并完成之后删除bug分支,回到dev分支继续开发。</p>
+<h2 id="015git-rebase的作用"><a href="#015git-rebase的作用" class="headerlink" title="015git rebase的作用?"></a>015git rebase的作用?</h2><p>在公司开发忘记提交到github托管，在家里又继续开发新的功能，然后到公司昨天的代码跟你的新功能合并的时候可以用git fecth —&gt; git rebase,那么他的提交记录就不会出现分叉,保持了提交记录的整洁.</p>
+<h2 id="016使用的github-还是gitlab"><a href="#016使用的github-还是gitlab" class="headerlink" title="016使用的github 还是gitlab?"></a>016使用的github 还是gitlab?</h2><p>用的是github,因为公司比较小,所以没有自己搭建gitlab,<br>但是用github的时候代码一定要用保密的,9$(美元)建立一个仓库。</p>
+<h2 id="017你使用过git-stash命令吗？你一般什么情况下会使用它？"><a href="#017你使用过git-stash命令吗？你一般什么情况下会使用它？" class="headerlink" title="017你使用过git stash命令吗？你一般什么情况下会使用它？"></a>017你使用过git stash命令吗？你一般什么情况下会使用它？</h2><p>1)解决冲突文件时，会先执行git stash，然后解决冲突；<br>2)遇到紧急开发任务但目前任务不能提交时，会先执行git stash，然后进行紧急任务的开发，然后通过git stash pop取出栈区的内容继续开发；<br>3)切换分支时，当前工作空间内容不能提交时，会先执行git stash再进行分支切换；</p>
+<h2 id="018如何查看分支提交的历史记录？查看某个文件的历史记录呢？"><a href="#018如何查看分支提交的历史记录？查看某个文件的历史记录呢？" class="headerlink" title="018如何查看分支提交的历史记录？查看某个文件的历史记录呢？"></a>018如何查看分支提交的历史记录？查看某个文件的历史记录呢？</h2><p>查看分支的提交历史记录：<br>命令git log –number：表示查看当前分支前number个详细的提交历史记录；<br>命令git log –number –pretty&#x3D;oneline：在上个命令的基础上进行简化，只显示sha-1码和提交信息；<br>命令git reflog –number: 表示查看所有分支前number个简化的提交历史记录；<br>命令git reflog –number –pretty&#x3D;oneline：显示简化的信息历史信息；</p>
+<h2 id="019Git和SVN的区别？"><a href="#019Git和SVN的区别？" class="headerlink" title="019Git和SVN的区别？"></a>019Git和SVN的区别？</h2><p>相同点:git和svn都是版本控制系统，两者都有自己的服务器。<br>区别：<br>1.git是分布式，svn不是分布式。<br>2.git把内容按元数据方式存储，而svn按文件。<br>3.git分支和svn分支不同。<br>4.git没有一个全局版本号，svn有。<br>5.git版本号要优于svn</p>
+<h2 id="020SVN版本冲突问题如何解决？"><a href="#020SVN版本冲突问题如何解决？" class="headerlink" title="020SVN版本冲突问题如何解决？"></a>020SVN版本冲突问题如何解决？</h2><p>解决冲突有三种选择：<br>A.放弃自己的更新，使用svn revert（回滚），然后提交。在这种方式下不需要使用svn resolved（解决）<br>B.放弃自己的更新，使用别人的更新。使用最新获取的版本覆盖目标文件，执行resolved filename并提交(选择文件—右键—解决)。<br>C.手动解决：冲突发生时，通过和其他用户沟通之后，手动更新目标文件。然后执行resolved filename来解除冲突，最后提交。</p>
+<h2 id="021Ctrl系列快捷键有哪些？"><a href="#021Ctrl系列快捷键有哪些？" class="headerlink" title="021Ctrl系列快捷键有哪些？"></a>021Ctrl系列快捷键有哪些？</h2><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Ctrl + Y</td>
+<td>删除当前行</td>
+</tr>
+<tr>
+<td>Ctrl + D（Duplicate复制）</td>
+<td>直接在下一行复制出当前行</td>
+</tr>
+<tr>
+<td>Ctrl + W</td>
+<td>选中文本，连续按可以扩大选中范围（以单词为单位）</td>
+</tr>
+<tr>
+<td>Ctrl + Enter</td>
+<td>在当前行上面插入一行空行。注意：需要在行首使用该快捷键</td>
+</tr>
+<tr>
+<td>Ctrl + Backspace</td>
+<td>可以一下字删除整个单词</td>
+</tr>
+<tr>
+<td>Ctrl + “ + &#x2F; -“</td>
+<td>将当前方法块代码展开 &#x2F; 折叠</td>
+</tr>
+<tr>
+<td>Ctrl + &#x2F;</td>
+<td>添加注释和取消注释，【第一次是添加注释，第二次是取消注释】</td>
+</tr>
+<tr>
+<td>Ctrl + shift + &#x2F;</td>
+<td>添加&#x2F;取消多行注释，【第一次是添加注释，第二次是取消注释】</td>
+</tr>
+<tr>
+<td>Ctrl + F（Find 查找）</td>
+<td>在当前文件中查找文本</td>
+</tr>
+<tr>
+<td>Ctrl + R（Replace 替换）</td>
+<td>查找并替换文本，支持多行查找，或者只在代码中查找，或者只在注释中查找，或者使用正则表达式查找</td>
+</tr>
+<tr>
+<td>Ctrl + O</td>
+<td>快速重写基类或者接口中的方法</td>
+</tr>
+<tr>
+<td>Ctrl + 空格</td>
+<td>提示代码，在输入代码时可以提示关键字</td>
+</tr>
+<tr>
+<td>Ctrl + J</td>
+<td>提示代码，在输入代码时可以提示快捷键</td>
+</tr>
+<tr>
+<td>Ctrl + H（Hierarhcy层级）</td>
+<td>显示类结构图（类的继承层次）</td>
+</tr>
+<tr>
+<td>Ctrl + G</td>
+<td>快速定位到指定行指定列</td>
+</tr>
+<tr>
+<td>Ctrl + [</td>
+<td>快速定位到代码块开始位置</td>
+</tr>
+<tr>
+<td>Ctrl + ]</td>
+<td>快速定位到代码块结束位置</td>
+</tr>
+<tr>
+<td>Ctrl + N</td>
+<td>快速搜索和打开类</td>
+</tr>
+<tr>
+<td>Ctrl + B</td>
+<td>快速定位源码，将光标放在方法上输入Ctrl + B , 可以去到该方法的源码</td>
+</tr>
+<tr>
+<td>Ctrl + U</td>
+<td>快速转到当前类的父类</td>
+</tr>
+</tbody></table>
+<h2 id="022ALT系列快捷键有哪些？"><a href="#022ALT系列快捷键有哪些？" class="headerlink" title="022ALT系列快捷键有哪些？"></a>022ALT系列快捷键有哪些？</h2><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Alt + &#x2F;</td>
+<td>快速补全代码</td>
+</tr>
+<tr>
+<td>Alt+Q</td>
+<td>显示当前方法的声明</td>
+</tr>
+<tr>
+<td>Alt + Enter</td>
+<td>快速提示完成，在代码可能存在语法问题时，IDEA 会提示使用该快捷键可以快速自动修正（功能非常强大，最常使用）</td>
+</tr>
+<tr>
+<td>Alt + insert</td>
+<td>快速生成含有任意形参的构造器，和私有属性的 Getter &#x2F; Setter 方法等（最常使用）</td>
+</tr>
+<tr>
+<td>Alt + 1</td>
+<td>快速打开或隐藏 Project 面板</td>
+</tr>
+<tr>
+<td>Alt + 7</td>
+<td>快速显示类结构，可以显示类中包含的所有属性和方法</td>
+</tr>
+<tr>
+<td>Alt + left &#x2F; right</td>
+<td>快速切换代码视图</td>
+</tr>
+<tr>
+<td>Alt + Up &#x2F; Down</td>
+<td>在方法间快速移动定位（即光标以方法为单位移动）</td>
+</tr>
+</tbody></table>
+<h2 id="023Shift-系列快捷键"><a href="#023Shift-系列快捷键" class="headerlink" title="023Shift 系列快捷键"></a>023Shift 系列快捷键</h2><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Shift + Enter</td>
+<td>在当前行下面生成一行空行，光标自动移到空行行首</td>
+</tr>
+<tr>
+<td>F2 或 Shift + F2</td>
+<td>快速定位高亮错误或警告位置</td>
+</tr>
+</tbody></table>
+<h2 id="024Ctrl-Alt-系列快捷键有哪些？"><a href="#024Ctrl-Alt-系列快捷键有哪些？" class="headerlink" title="024Ctrl + Alt 系列快捷键有哪些？"></a>024Ctrl + Alt 系列快捷键有哪些？</h2><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Ctrl + Alt + L</td>
+<td>快速格式化代码</td>
+</tr>
+<tr>
+<td>Ctrl + Alt + I</td>
+<td>自动缩进行</td>
+</tr>
+<tr>
+<td>Ctrl+Alt+O</td>
+<td>优化导入的类和包</td>
+</tr>
+<tr>
+<td>Ctrl + Alt + T</td>
+<td>将选中的代码使用 if、while、try&#x2F;catch 等代码块包装起来（功能强大）</td>
+</tr>
+</tbody></table>
+<h2 id="025Ctrl-Shift-系列快捷键有哪些？"><a href="#025Ctrl-Shift-系列快捷键有哪些？" class="headerlink" title="025Ctrl + Shift 系列快捷键有哪些？"></a>025Ctrl + Shift 系列快捷键有哪些？</h2><table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Ctrl + Shift + Delete</td>
+<td>去除相关的代码块包装，是Ctrl + Alt + T的相反操作</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + 向上&#x2F;下箭头</td>
+<td>将光标所在的代码块向上&#x2F;下整体移动</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + F10</td>
+<td>快速运行当前的程序，当前你在哪个程序就运行该程序</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + &#x2F;</td>
+<td>添加&#x2F;取消多行注释，【第一次是添加注释，第二次是取消注释】</td>
+</tr>
+<tr>
+<td>Ctrl + Shift + J</td>
+<td>快速整合两行代码，将光标所在行和下一行的代码合并成一行</td>
+</tr>
+</tbody></table>
+<h2 id="026模板相关的快捷键有哪些？"><a href="#026模板相关的快捷键有哪些？" class="headerlink" title="026模板相关的快捷键有哪些？"></a>026模板相关的快捷键有哪些？</h2><p>1)快速生成主函数：psvm&#x2F; main<br>2)快速生成打印语句：sout<br>3)快速生成普通 for 循环：fori<br>4)快速生成增强 for循环：iter</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2024/03/22/权限管理框架/" data-toggle="tooltip" data-placement="top"
+                           title="">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2024/03/22/基础/" data-toggle="tooltip" data-placement="top"
+                           title="面试题">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-text">Java开发工具面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#001%E4%BB%80%E4%B9%88%E6%98%AFMaven%EF%BC%9F"><span class="toc-text">001什么是Maven？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#002Maven%E6%9C%89%E4%BB%80%E4%B9%88%E5%A5%BD%E5%A4%84%EF%BC%9F"><span class="toc-text">002Maven有什么好处？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#003Maven%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">003Maven常用命令有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#004Maven%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%EF%BC%9F"><span class="toc-text">004Maven的生命周期？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#005Maven%E4%BB%93%E5%BA%93%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">005Maven仓库是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#006Maven%E7%9A%84%E5%B7%A5%E7%A8%8B%E7%B1%BB%E5%9E%8B%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">006Maven的工程类型有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#007Maven%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E8%BF%99%E4%BA%9B%E4%BC%A0%E9%80%92%E4%BE%9D%E8%B5%96%E4%B8%8D%E4%BC%9A%E5%BC%95%E8%B5%B7%E7%89%88%E6%9C%AC%E5%86%B2%E7%AA%81%EF%BC%9F"><span class="toc-text">007Maven中如何保证这些传递依赖不会引起版本冲突？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#008%E4%BD%BF%E7%94%A8Maven-%E7%BB%8F%E5%B8%B8%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E6%9C%89%E5%93%AA%E4%BA%9B%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E7%9A%84%EF%BC%9F"><span class="toc-text">008使用Maven 经常遇到的问题有哪些怎么解决的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#009%E4%BB%80%E4%B9%88%E6%98%AFGit"><span class="toc-text">009什么是Git?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#010Git%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="toc-text">010Git常用的命令有哪些?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#011git-pull%E3%80%81git-merge%E3%80%81git-fetch%E4%B8%89%E4%B8%AA%E5%91%BD%E4%BB%A4%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">011git pull、git merge、git fetch三个命令的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#012push%E4%B9%8B%E5%89%8D%E4%B8%80%E5%AE%9A%E8%A6%81%E8%BF%9B%E8%A1%8C%E5%93%AA%E4%B8%AA%E6%93%8D%E4%BD%9C%EF%BC%9F"><span class="toc-text">012push之前一定要进行哪个操作？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#013Git%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E7%89%88%E6%9C%AC%E5%86%B2%E7%AA%81%EF%BC%9F"><span class="toc-text">013Git如何解决版本冲突？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#014%E5%A6%82%E6%9E%9C%E4%BB%A3%E7%A0%81%E5%87%BA%E7%8E%B0bug-%E4%BD%A0%E4%BB%AC%E7%94%A8git%E6%98%AF%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E7%9A%84"><span class="toc-text">014如果代码出现bug,你们用git是如何解决的?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#015git-rebase%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-text">015git rebase的作用?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#016%E4%BD%BF%E7%94%A8%E7%9A%84github-%E8%BF%98%E6%98%AFgitlab"><span class="toc-text">016使用的github 还是gitlab?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#017%E4%BD%A0%E4%BD%BF%E7%94%A8%E8%BF%87git-stash%E5%91%BD%E4%BB%A4%E5%90%97%EF%BC%9F%E4%BD%A0%E4%B8%80%E8%88%AC%E4%BB%80%E4%B9%88%E6%83%85%E5%86%B5%E4%B8%8B%E4%BC%9A%E4%BD%BF%E7%94%A8%E5%AE%83%EF%BC%9F"><span class="toc-text">017你使用过git stash命令吗？你一般什么情况下会使用它？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#018%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E5%88%86%E6%94%AF%E6%8F%90%E4%BA%A4%E7%9A%84%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95%EF%BC%9F%E6%9F%A5%E7%9C%8B%E6%9F%90%E4%B8%AA%E6%96%87%E4%BB%B6%E7%9A%84%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95%E5%91%A2%EF%BC%9F"><span class="toc-text">018如何查看分支提交的历史记录？查看某个文件的历史记录呢？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#019Git%E5%92%8CSVN%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">019Git和SVN的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#020SVN%E7%89%88%E6%9C%AC%E5%86%B2%E7%AA%81%E9%97%AE%E9%A2%98%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%EF%BC%9F"><span class="toc-text">020SVN版本冲突问题如何解决？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#021Ctrl%E7%B3%BB%E5%88%97%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">021Ctrl系列快捷键有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#022ALT%E7%B3%BB%E5%88%97%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">022ALT系列快捷键有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#023Shift-%E7%B3%BB%E5%88%97%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-text">023Shift 系列快捷键</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#024Ctrl-Alt-%E7%B3%BB%E5%88%97%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">024Ctrl + Alt 系列快捷键有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#025Ctrl-Shift-%E7%B3%BB%E5%88%97%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">025Ctrl + Shift 系列快捷键有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#026%E6%A8%A1%E6%9D%BF%E7%9B%B8%E5%85%B3%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">026模板相关的快捷键有哪些？</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/ehazon">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/megahertz">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Haojen 2024
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://haojen.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
+</body>
+
+</html>

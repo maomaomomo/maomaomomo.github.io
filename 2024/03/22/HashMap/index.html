@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="马浩珍在 Github 上的个人博客">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Haojen" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        Haojen&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://haojen.github.io/2024/03/22/HashMap/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Haojen
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1></h1>
+                    
+                    <span class="meta">
+                         作者 Haojen Ma
+                        <span>
+                          日期 2024-03-22
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="HashMap面试题"><a href="#HashMap面试题" class="headerlink" title="HashMap面试题"></a>HashMap面试题</h1><h2 id="001HashMap底层原理是什么？"><a href="#001HashMap底层原理是什么？" class="headerlink" title="001HashMap底层原理是什么？"></a>001HashMap底层原理是什么？</h2><p>在JDK1.6，JDK1.7中，HashMap采用数组+链表实现，而JDK1.8中，HashMap采用数组+链表+红黑树实现。以JDK1.7的为例，HashMap里面的每个元素都是通过键值对key,value形式存储的。首先它会通过key来计算对应的哈希值，并把key,value,hash值，下一个元素的地址封装成一个Entry对象；然后再通过让哈希值求模的形式来确定Entry对象在数组中的位置。假设在数组的下标为2的位置，那么首先会看下标为2的位置上是不是空，如果为空就直接将Entry对象放到2位置；如果下标为2的位置不为空，则会发生哈希碰撞，这时候需要遍历该位置元素下的链表，看看哈希值和key值是不是都相同，如果相等则覆盖原来的元素，如果不相等则在头节点追加元素形成链表形式。  </p>
+<p><img src="http://www.bjpowernode.com/Public/Uploads/article/20220909/1662687394@d709c455b42c7273646b41833aab3ff7.png" alt="img"></p>
+<h2 id="002HashMap的主要参数都有哪些？"><a href="#002HashMap的主要参数都有哪些？" class="headerlink" title="002HashMap的主要参数都有哪些？"></a>002HashMap的主要参数都有哪些？</h2><p>DEFAULT_INITIAL_CAPACITY：默认的初始化容量，1&lt;&lt;4位运算的结果是16，也就是默认的初始化容量为16，容量大小需要是2的整数倍。<br>MAXIMUM_CAPACITY：容量的最大值，1 &lt;&lt; 30位，2的30次幂。<br>DEFAULT_LOAD_FACTOR：默认的加载因子。<br>TREEIFY_THRESHOLD：因为jdk8以后，HashMap底层的存储结构改为了数组+链表+红黑树的存储结构（之前是数组+链表），刚开始存储元素产生碰撞时会在碰撞的数组后面挂上一个链表，当链表长度大于这个参数时，链表就可能会转化为红黑树(为什么是可能后面还有一个参数，需要他们两个都满足的时候才会转化)。<br>UNTREEIFY_THRESHOLD：介绍上面的参数时，我们知道当长度过大时可能会产生从链表到红黑树的转化，但是，元素不仅仅只能添加还可以删除，或者另一种情况，扩容后该数组槽位置上的元素数据不是很多了，还使用红黑树的结构就会很浪费，所以这时就可以把红黑树结构变回链表结构，什么时候变，就是元素数量等于这个值也就是6的时候变回来（元素数量指的是一个数组槽内的数量，不是HashMap中所有元素的数量）。<br>MIN_TREEIFY_CAPACITY：链表树化的一个标准，前面说过当数组槽内的元素数量大于8时可能会转化为红黑树，之所以说是可能就是因为这个值，当数组的长度小于这个值的时候，会先去进行扩容，扩容之后就有很大的可能让数组槽内的数据可以更分散一些了，也就不用转化数组槽后的存储结构了。当然，长度大于这个值并且槽内数据大于8时，那就转化为红黑树吧。</p>
+<h2 id="003HashMap中1-7和1-8版本的区别？"><a href="#003HashMap中1-7和1-8版本的区别？" class="headerlink" title="003HashMap中1.7和1.8版本的区别？"></a>003HashMap中1.7和1.8版本的区别？</h2><p><img src="http://www.bjpowernode.com/Public/Uploads/article/20220909/1662687726@9a45e22c1594b4dfdee0f44bd779824f.png" alt="img"></p>
+<h2 id="004Java8中为什么要引进红黑树，是为了解决什么场景的问题？"><a href="#004Java8中为什么要引进红黑树，是为了解决什么场景的问题？" class="headerlink" title="004Java8中为什么要引进红黑树，是为了解决什么场景的问题？"></a>004Java8中为什么要引进红黑树，是为了解决什么场景的问题？</h2><p>引入红黑树是为了避免hash性能急剧下降，引起HashMap的读写性能急剧下降的场景，正常情况下，一般是不会用到红黑树的，在一些极端场景下，假如客户端实现了一个性能拙劣的hashCode方法，可以保证HashMap的读写复杂度不会低于O(lgN)。</p>
+<h2 id="005HashMap中为什么需要使用加载因子？"><a href="#005HashMap中为什么需要使用加载因子？" class="headerlink" title="005HashMap中为什么需要使用加载因子？"></a>005HashMap中为什么需要使用加载因子？</h2><p>加载因子是用于表示数组中元素填满的程度。加载因子默认值是0.75。如果不指明初始大小，数组默认大小即初始容量为16，加载因子loadFactor&#x3D;0.75，默认初始容量是16*0.75&#x3D;12。如果填充比为0.5则空间利用率比较低。如果填充比1，说明利用的空间很多，那么形成冲突的机会就会越大，链表也会边长，这样查找的成本就变高。</p>
+<h2 id="006HashMap中初始值为什么是16？"><a href="#006HashMap中初始值为什么是16？" class="headerlink" title="006HashMap中初始值为什么是16？"></a>006HashMap中初始值为什么是16？</h2><p>关于这个默认容量的选择，JDK并没有给出官方解释，那么这应该就是个经验值，既然一定要设置一个默认的2^n 作为初始值，那么就需要在效率和内存使用上做一个权衡。这个值既不能太小，也不能太大。太小了就有可能频繁发生扩容，影响效率。太大了又浪费空间，不划算。所以，16就作为一个经验值被采用了。</p>
+<h2 id="007HashMap的长度可以为奇数嘛？"><a href="#007HashMap的长度可以为奇数嘛？" class="headerlink" title="007HashMap的长度可以为奇数嘛？"></a>007HashMap的长度可以为奇数嘛？</h2><p>不可以。从key映射到HashMap的数组的对应位置时，会用到一个hash函数:index &#x3D; HashCode（Key）&amp;（Length - 1）;<br>如果Length的长度为奇数，假设长度为15， Length-1转换为二进制后为 1110 ,假设此时的hashCode为 101110001110101110 1011, 做&amp;运算得出的index结果为: 101110001110101110 1010, 如果此时的hashCode为101110001110101110 1010,同样的做&amp;运算，发现得出啦相同的index。看似好像没有很大的问题，因为我们在用hashmap的时候出现哈希值相等的情况还是有的。再看一种情况，如果长度为9，那么Length-1 转换为二进制的结果为1000, 那么只要hashCode的最后三位不相同，计算出来的结果仍然是一样的，那么此时的index会更容易出现，并且此时的index的最后三位永远不会出现111的情况，这样的话，不符合Hash算法的均匀分布原则。<br>假如长度为16,那么length-1对应的二进制位1111,那么计算哈希code的时不会影响index出现的概率，符合均匀分布的设计原则。 因此HashMap的长度一般为2^n, 默认的长度为16。</p>
+<h2 id="008HashMap中为什么需要扩容呢？"><a href="#008HashMap中为什么需要扩容呢？" class="headerlink" title="008HashMap中为什么需要扩容呢？"></a>008HashMap中为什么需要扩容呢？</h2><p>如果一直不进行扩容的话，链表就会越来越长，这样查找的效率很低，因为链表的长度很大（当然最新版本使用了红黑树后会改进很多），扩容之后，将原来链表数组的每一个链表分成奇偶两个子链表分别挂在新链表数组的散列位置，这样就减少了每个链表的长度，增加查找效率。</p>
+<h2 id="009为什么HashMap的数组的大小是2的幂次方数？"><a href="#009为什么HashMap的数组的大小是2的幂次方数？" class="headerlink" title="009为什么HashMap的数组的大小是2的幂次方数？"></a>009为什么HashMap的数组的大小是2的幂次方数？</h2><p>JDK7的HashMap是数组+链表实现的，JDK8的HashMap是数组+链表+红黑树实现的；<br>当某个key-value对需要存储到数组中时，需要先生成一个数组下标index，并且这个index不能越界。在HashMap中，先得到key的hashcode，hashcode是一个数字，然后通过hashcode &amp; (table.length - 1) 运算得到一个数组下标index，是通过与运算计算出来一个数组下标的，而不是通过取余，与运算相比于取余运算速度更快，但是也有一个前提条件，就是数组的长度得是一个2的幂次方数。</p>
+<h2 id="010为什么说HashMap是线程不安全的？"><a href="#010为什么说HashMap是线程不安全的？" class="headerlink" title="010为什么说HashMap是线程不安全的？"></a>010为什么说HashMap是线程不安全的？</h2><p>HashMap在多线程并发时线程不安全，主要表现在下面两个方面：<br>(1) 当向HashMap中put(添加)元素时导致的多线程数据不一致<br>比如有两个线程 A 和 B ，首先 A 希望插入一个 key-value键值对到HashMap 中，它首先计算记录所要落到的 hash 桶的索引坐标，然后获取到该桶里面的链表头结点，此时线程 A 的时间片用完了，而此时线程 B 被调度得以执行，和线程 A 一样执行，只不过线程 B 成功将记录插到了桶里面。假设线程 A 插入的记录计算出来的 hash 桶索引和线程 B 要插入的记录计算出来的 hash 桶索引是一样的，那么当线程 B 成功插入之后，线程 A 再次被调度运行时，它依然持有过期的链表头但是它对此一无所知，以至于它认为它应该这样做，如此一来就覆盖了线程 B 插入的记录，这样线程 B 插入的记录就凭空消失了，造成了数据不一致的行为。<br>简单来说就是在多线程环境下，向HashMap集合中添加元素会存在覆盖的现象，导致了线程不安全。<br>(2) 当HashMap进行扩容调用resize()函数时引起死循环<br>HashMap在put的时候，插入的元素超过了容量（由负载因子决定）的范围就会触发扩容操作，就是rehash，这个会重新将原数组的内容重新hash到新的扩容数组中，在多线程的环境下，存在同时其他的元素也在进行put操作，如果hash值相同，可能出现同时在同一数组下用链表表示，造成闭环，导致在get时会出现死循环，所以HashMap是线程不安全的。<br>HashMap的线程不安全主要体现在下面两个方面：<br>1.在JDK1.7中，当并发执行扩容操作时会造成环形链和数据丢失的情况。<br>2.在JDK1.8中，在并发执行put操作时会发生数据覆盖的情况。</p>
+<h2 id="011HashMap如何存取数据的？"><a href="#011HashMap如何存取数据的？" class="headerlink" title="011HashMap如何存取数据的？"></a>011HashMap如何存取数据的？</h2><p>get(key)方法 ：<br>● 首先获取key的hash值，计算hash&amp;(n-1)得到在数组中的位置first&#x3D;tab[hash&amp;(n-1)]<br>● 先判断first的key是否与参数key相等，不等就遍历后面的链表找到相同的key值返回对应的Value值即可<br>put(key,value)方法：<br>● 1)判断键值对数组tab[]是否为空或为null，否则以默认大小resize()；<br>● 2)根据键值key计算hash值，hash值再计算得到插入的数组索引i，如果tab[i]&#x3D;&#x3D;null，直接新建节点添加，否则转入3<br>● 3)判断当前数组中处理hash冲突的方式为链表还是红黑树(check第一个节点类型即可),分别处理。</p>
+<h2 id="012HashMap触发扩容条件？"><a href="#012HashMap触发扩容条件？" class="headerlink" title="012HashMap触发扩容条件？"></a>012HashMap触发扩容条件？</h2><p>\1. hashMap默认的负载因子是0.75，即如果hashmap中的元素个数超过了总容量75%，则会触发扩容<br>\2. 如果某个桶中的链表长度大于等于8了，则会判断当前的hashmap的容量是否大于64，如果小于64，则会进行扩容；如果大于64，则将链表转为红黑树。</p>
+<h2 id="013HashMap如何有效减少碰撞？"><a href="#013HashMap如何有效减少碰撞？" class="headerlink" title="013HashMap如何有效减少碰撞？"></a>013HashMap如何有效减少碰撞？</h2><p>\1. 扰动函数：促使元素位置分布均匀，减少碰撞几率<br>\2. 使用final对象，并采用合适的equals()和hashCode()方法</p>
+<h2 id="014HashMap-和-ConcurrentHashMap的区别？"><a href="#014HashMap-和-ConcurrentHashMap的区别？" class="headerlink" title="014HashMap 和 ConcurrentHashMap的区别？"></a>014HashMap 和 ConcurrentHashMap的区别？</h2><p>1)ConcurrentHashMap对整个桶数组进行了分割分段(Segment)，然后在每一个分段上都用lock锁进行保护，相对于HashTable的synchronized锁的粒度更精细了一些，并发性能更好，而HashMap没有锁机制，不是线程安全的。（JDK1.8之后ConcurrentHashMap启用了一种全新的方式实现,利用CAS算法。）<br>2)HashMap的键值对允许有null，但是ConCurrentHashMap都不允许。</p>
+<h2 id="015ConcurrentHashMap-和-Hashtable-的区别？"><a href="#015ConcurrentHashMap-和-Hashtable-的区别？" class="headerlink" title="015ConcurrentHashMap 和 Hashtable 的区别？"></a>015ConcurrentHashMap 和 Hashtable 的区别？</h2><p>ConcurrentHashMap 结合了 HashMap 和 HashTable 二者的优势。HashMap 没有考虑同步，HashTable 考虑了同步的问题。但是 HashTable 在每次同步执行时都要锁住整个结构。ConcurrentHashMap 锁的方式是稍微细粒度的。ConcurrentHashMap 和 Hashtable 的区别主要体现在实现线程安全的方式上不同。<br>底层数据结构：JDK1.7的 ConcurrentHashMap 底层采用 分段的数组+链表 实现，JDK1.8 采用的数据结构跟HashMap1.8的结构一样，数组+链表&#x2F;红黑二叉树。Hashtable 和 JDK1.8 之前的 HashMap 的底层数据结构类似都是采用 数组+链表 的形式，数组是 HashMap 的主体，链表则是主要为了解决哈希冲突而存在的；<br>实现线程安全的方式（重要）：① 在JDK1.7的时候，ConcurrentHashMap（分段锁） 对整个桶数组进行了分割分段(Segment)，每一把锁只锁容器其中一部分数据，多线程访问容器里不同数据段的数据，就不会存在锁竞争，提高并发访问率。（默认分配16个Segment，比Hashtable效率提高16倍。） 到了 JDK1.8 的时候已经摒弃了Segment的概念，而是直接用 Node 数组+链表+红黑树的数据结构来实现，并发控制使用 synchronized 和 CAS 来操作。（JDK1.6以后 对 synchronized锁做了很多优化） 整个看起来就像是优化过且线程安全的 HashMap，虽然在JDK1.8中还能看到 Segment 的数据结构，但是已经简化了属性，只是为了兼容旧版本；② Hashtable(同一把锁) :使用 synchronized 来保证线程安全，效率非常低下。当一个线程访问同步方法时，其他线程也访问同步方法，可能会进入阻塞或轮询状态，如使用 put 添加元素，另一个线程不能使用 put 添加元素，也不能使用 get，竞争会越来越激烈效率越低。</p>
+<h2 id="016ConcurrentHashMap的并发度是什么"><a href="#016ConcurrentHashMap的并发度是什么" class="headerlink" title="016ConcurrentHashMap的并发度是什么?"></a>016ConcurrentHashMap的并发度是什么?</h2><p>程序运行时能够同时更新ConccurentHashMap且不产生锁竞争的最大线程数。默认为16,且可以在构造函数中设置。当用户设置并发度时,ConcurrentHashMap会使用大于等于该值的最小2幂指数作为实际并发度(假如用户设置并发度为17,实际并发度则为32)。</p>
+<h2 id="017ConCurrentHashmap-的key，value是否可以为null"><a href="#017ConCurrentHashmap-的key，value是否可以为null" class="headerlink" title="017ConCurrentHashmap 的key，value是否可以为null?"></a>017ConCurrentHashmap 的key，value是否可以为null?</h2><p>不行，如果key或者value为null会抛出空指针异常。</p>
+<h2 id="018ConcurrentHashMap使用什么技术来保证线程安全？"><a href="#018ConcurrentHashMap使用什么技术来保证线程安全？" class="headerlink" title="018ConcurrentHashMap使用什么技术来保证线程安全？"></a>018ConcurrentHashMap使用什么技术来保证线程安全？</h2><p>jdk1.7：Segment+HashEntry来进行实现的；<br>jdk1.8：放弃了Segment臃肿的设计，采用Node+CAS+Synchronized来保证线程安全；</p>
+<h2 id="019ConcurrentHashMap的get方法是否要加锁，为什么？"><a href="#019ConcurrentHashMap的get方法是否要加锁，为什么？" class="headerlink" title="019ConcurrentHashMap的get方法是否要加锁，为什么？"></a>019ConcurrentHashMap的get方法是否要加锁，为什么？</h2><p>不需要，get方法采用了unsafe方法，来保证线程安全。</p>
+<h2 id="020ConcurrentHashMap在JDK1-7和JDK1-8中实现有什么差别-JDK1-8解決了JDK1-7中什么问题？"><a href="#020ConcurrentHashMap在JDK1-7和JDK1-8中实现有什么差别-JDK1-8解決了JDK1-7中什么问题？" class="headerlink" title="020ConcurrentHashMap在JDK1.7和JDK1.8中实现有什么差别? JDK1.8解決了JDK1.7中什么问题？"></a>020ConcurrentHashMap在JDK1.7和JDK1.8中实现有什么差别? JDK1.8解決了JDK1.7中什么问题？</h2><p>HashTable : 使用了synchronized关键字对put等操作进行加锁;<br>ConcurrentHashMap JDK1.7:  使用分段锁机制实现;<br>ConcurrentHashMap JDK1.8: 则使用数组+链表+红黑树数据结构和CAS原子操作实现;</p>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2024/03/22/Hibernate/" data-toggle="tooltip" data-placement="top"
+                           title="">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2024/03/22/Dubbo/" data-toggle="tooltip" data-placement="top"
+                           title="">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HashMap%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-text">HashMap面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#001HashMap%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">001HashMap底层原理是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#002HashMap%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8F%82%E6%95%B0%E9%83%BD%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">002HashMap的主要参数都有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#003HashMap%E4%B8%AD1-7%E5%92%8C1-8%E7%89%88%E6%9C%AC%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">003HashMap中1.7和1.8版本的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#004Java8%E4%B8%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%BC%95%E8%BF%9B%E7%BA%A2%E9%BB%91%E6%A0%91%EF%BC%8C%E6%98%AF%E4%B8%BA%E4%BA%86%E8%A7%A3%E5%86%B3%E4%BB%80%E4%B9%88%E5%9C%BA%E6%99%AF%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-text">004Java8中为什么要引进红黑树，是为了解决什么场景的问题？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#005HashMap%E4%B8%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E4%BD%BF%E7%94%A8%E5%8A%A0%E8%BD%BD%E5%9B%A0%E5%AD%90%EF%BC%9F"><span class="toc-text">005HashMap中为什么需要使用加载因子？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#006HashMap%E4%B8%AD%E5%88%9D%E5%A7%8B%E5%80%BC%E4%B8%BA%E4%BB%80%E4%B9%88%E6%98%AF16%EF%BC%9F"><span class="toc-text">006HashMap中初始值为什么是16？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#007HashMap%E7%9A%84%E9%95%BF%E5%BA%A6%E5%8F%AF%E4%BB%A5%E4%B8%BA%E5%A5%87%E6%95%B0%E5%98%9B%EF%BC%9F"><span class="toc-text">007HashMap的长度可以为奇数嘛？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#008HashMap%E4%B8%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%89%A9%E5%AE%B9%E5%91%A2%EF%BC%9F"><span class="toc-text">008HashMap中为什么需要扩容呢？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#009%E4%B8%BA%E4%BB%80%E4%B9%88HashMap%E7%9A%84%E6%95%B0%E7%BB%84%E7%9A%84%E5%A4%A7%E5%B0%8F%E6%98%AF2%E7%9A%84%E5%B9%82%E6%AC%A1%E6%96%B9%E6%95%B0%EF%BC%9F"><span class="toc-text">009为什么HashMap的数组的大小是2的幂次方数？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#010%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4HashMap%E6%98%AF%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8%E7%9A%84%EF%BC%9F"><span class="toc-text">010为什么说HashMap是线程不安全的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#011HashMap%E5%A6%82%E4%BD%95%E5%AD%98%E5%8F%96%E6%95%B0%E6%8D%AE%E7%9A%84%EF%BC%9F"><span class="toc-text">011HashMap如何存取数据的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#012HashMap%E8%A7%A6%E5%8F%91%E6%89%A9%E5%AE%B9%E6%9D%A1%E4%BB%B6%EF%BC%9F"><span class="toc-text">012HashMap触发扩容条件？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#013HashMap%E5%A6%82%E4%BD%95%E6%9C%89%E6%95%88%E5%87%8F%E5%B0%91%E7%A2%B0%E6%92%9E%EF%BC%9F"><span class="toc-text">013HashMap如何有效减少碰撞？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#014HashMap-%E5%92%8C-ConcurrentHashMap%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">014HashMap 和 ConcurrentHashMap的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#015ConcurrentHashMap-%E5%92%8C-Hashtable-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">015ConcurrentHashMap 和 Hashtable 的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#016ConcurrentHashMap%E7%9A%84%E5%B9%B6%E5%8F%91%E5%BA%A6%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text">016ConcurrentHashMap的并发度是什么?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#017ConCurrentHashmap-%E7%9A%84key%EF%BC%8Cvalue%E6%98%AF%E5%90%A6%E5%8F%AF%E4%BB%A5%E4%B8%BAnull"><span class="toc-text">017ConCurrentHashmap 的key，value是否可以为null?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#018ConcurrentHashMap%E4%BD%BF%E7%94%A8%E4%BB%80%E4%B9%88%E6%8A%80%E6%9C%AF%E6%9D%A5%E4%BF%9D%E8%AF%81%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%EF%BC%9F"><span class="toc-text">018ConcurrentHashMap使用什么技术来保证线程安全？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#019ConcurrentHashMap%E7%9A%84get%E6%96%B9%E6%B3%95%E6%98%AF%E5%90%A6%E8%A6%81%E5%8A%A0%E9%94%81%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">019ConcurrentHashMap的get方法是否要加锁，为什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#020ConcurrentHashMap%E5%9C%A8JDK1-7%E5%92%8CJDK1-8%E4%B8%AD%E5%AE%9E%E7%8E%B0%E6%9C%89%E4%BB%80%E4%B9%88%E5%B7%AE%E5%88%AB-JDK1-8%E8%A7%A3%E6%B1%BA%E4%BA%86JDK1-7%E4%B8%AD%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-text">020ConcurrentHashMap在JDK1.7和JDK1.8中实现有什么差别? JDK1.8解決了JDK1.7中什么问题？</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/ehazon">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/megahertz">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Haojen 2024
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://haojen.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
+</body>
+
+</html>

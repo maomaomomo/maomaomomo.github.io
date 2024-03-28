@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="马浩珍在 Github 上的个人博客">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Haojen" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        Haojen&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://haojen.github.io/2024/03/22/Web前端/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Haojen
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1></h1>
+                    
+                    <span class="meta">
+                         作者 Haojen Ma
+                        <span>
+                          日期 2024-03-22
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="Web前端面试题"><a href="#Web前端面试题" class="headerlink" title="Web前端面试题"></a>Web前端面试题</h1><h2 id="001行内元素有哪些？块级元素有哪些？空（void）元素有哪些？"><a href="#001行内元素有哪些？块级元素有哪些？空（void）元素有哪些？" class="headerlink" title="001行内元素有哪些？块级元素有哪些？空（void）元素有哪些？"></a>001行内元素有哪些？块级元素有哪些？空（void）元素有哪些？</h2><p>行内元素：a、b、span、img、input、strong、select、label、em、button、textarea<br>块级元素：div、ul、li、dl、dt、dd、p、h1-h6、blockquote<br>空元素：即系没有内容的HTML元素，例如：br、hr、link、input、img、meta</p>
+<h2 id="002jpg和png格式的图片有什么区别？"><a href="#002jpg和png格式的图片有什么区别？" class="headerlink" title="002jpg和png格式的图片有什么区别？"></a>002jpg和png格式的图片有什么区别？</h2><p>jpg是有损压缩格式，png是无损压缩格式。所以，相同的图片，jpg体积会小。比如我们一些官网的banner图，一般都很大，所以适合用jpg类型的图片。但png分8位的和24位的，8位的体积会小很多，但在某些浏览器下8位的png图片会有锯齿。</p>
+<h2 id="003a标签在新窗口打开链接怎么加属性？"><a href="#003a标签在新窗口打开链接怎么加属性？" class="headerlink" title="003a标签在新窗口打开链接怎么加属性？"></a>003a标签在新窗口打开链接怎么加属性？</h2><p><a target="_blank">链接</a>target用法：_blank表示在新窗口打开被链接的文档；_self表示在相同的框架中打开被链接文档，这也是默认值；_parent表示在父框架打开被链接文档；_top表示在整个窗口中打开被链接文档。</p>
+<h2 id="004strong与em的异同？"><a href="#004strong与em的异同？" class="headerlink" title="004strong与em的异同？"></a>004strong与em的异同？</h2><p>strong:粗体强调标签，强调，表示内容的重要性；<br>em:斜体强调标签，更强烈强调，表示内容的强调点；</p>
+<h2 id="005说一下src和href的区别？"><a href="#005说一下src和href的区别？" class="headerlink" title="005说一下src和href的区别？"></a>005说一下src和href的区别？</h2><p>● src是引入外部资源下载到文档，会暂停其他资源的下载<br>● href是链接外部资源，不会暂停其他资源的下载</p>
+<h2 id="006请写出完整的注册表单。"><a href="#006请写出完整的注册表单。" class="headerlink" title="006请写出完整的注册表单。"></a>006请写出完整的注册表单。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;form action=&quot;http://localhost8080/xxx/register&quot; method=&quot;post&quot;&gt;</span><br><span class="line">        用户名&lt;input type=&quot;text&quot; name=&quot;username&quot; /&gt;</span><br><span class="line">	密码&lt;input type=&quot;password&quot; name=&quot;userpwd&quot; /&gt;</span><br><span class="line">	确认密码&lt;input type=&quot;password&quot; /&gt;</span><br><span class="line">	性别&lt;input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;male&quot; checked=&quot;checked&quot; /&gt;男</span><br><span class="line">	    &lt;input type=&quot;radio&quot; name=&quot;sex&quot; value=&quot;female&quot; /&gt;女&lt;br /&gt;</span><br><span class="line">	兴趣爱好&lt;input type=&quot;checkbox&quot; name=&quot;hobby&quot; value=&quot;singing&quot; /&gt;唱歌</span><br><span class="line">		   &lt;input type=&quot;checkbox&quot; name=&quot;hobby&quot; value=&quot;dancing&quot; /&gt;跳舞</span><br><span class="line">		   &lt;input type=&quot;checkbox&quot; name=&quot;hobby&quot; value=&quot;running&quot; checked=&quot;checked&quot; /&gt;跑步</span><br><span class="line">		   &lt;input type=&quot;checkbox&quot; name=&quot;hobby&quot; value=&quot;swimming&quot; /&gt;游泳</span><br><span class="line">		   &lt;input type=&quot;checkbox&quot; name=&quot;hobby&quot; value=&quot;climbing&quot; /&gt;攀爬&lt;br /&gt;</span><br><span class="line">	学历&lt;select name=&quot;education&quot;&gt;</span><br><span class="line">		   &lt;option value=&quot;gz&quot;&gt;高中&lt;/option&gt;</span><br><span class="line">		   &lt;option value=&quot;dz&quot;&gt;大专&lt;/option&gt;</span><br><span class="line">		   &lt;option value=&quot;bk&quot; selected=&quot;selected&quot;&gt;本科&lt;/option&gt;</span><br><span class="line">		   &lt;option value=&quot;ss&quot;&gt;硕士&lt;/option&gt;</span><br><span class="line">		   &lt;option value=&quot;bs&quot;&gt;博士&lt;/option&gt;</span><br><span class="line">		&lt;/select&gt;&lt;br /&gt;</span><br><span class="line">	简介&lt;textarea rows=&quot;5&quot; cols=&quot;30&quot; name=&quot;briefIntroduction&quot;&gt;&lt;/textarea&gt;&lt;br /&gt;</span><br><span class="line">	&lt;input type=&quot;submit&quot; value=&quot;注册&quot; /&gt;</span><br><span class="line">	&lt;input type=&quot;reset&quot; value=&quot;重置&quot; /&gt;&lt;br /&gt;</span><br><span class="line">&lt;/form&gt;		</span><br></pre></td></tr></table></figure>
+
+<h2 id="007请写出具有表格标题为”bjpowernode”的2行3列表格结构。"><a href="#007请写出具有表格标题为”bjpowernode”的2行3列表格结构。" class="headerlink" title="007请写出具有表格标题为”bjpowernode”的2行3列表格结构。"></a>007请写出具有表格标题为”bjpowernode”的2行3列表格结构。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;tableborder=&quot;1&quot;width=&quot;100%&quot;&gt;</span><br><span class="line">    &lt;!-- 补全代码 --&gt;</span><br><span class="line">    &lt;caption&gt;bjpowernode&lt;/caption&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;1&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;2&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;3&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">    &lt;tr&gt;</span><br><span class="line">        &lt;td&gt;3&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;3&lt;/td&gt;</span><br><span class="line">        &lt;td&gt;3&lt;/td&gt;</span><br><span class="line">    &lt;/tr&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="008请写出具有标题属性和代替文本属性的图片标签。"><a href="#008请写出具有标题属性和代替文本属性的图片标签。" class="headerlink" title="008请写出具有标题属性和代替文本属性的图片标签。"></a>008请写出具有标题属性和代替文本属性的图片标签。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;img alt=&quot;img&quot; src=&quot;xxx&quot; title=&quot;title&quot; /&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="009CSS选择器有哪些？"><a href="#009CSS选择器有哪些？" class="headerlink" title="009CSS选择器有哪些？"></a>009CSS选择器有哪些？</h2><p>CSS2选择器：元素选择器，id选择器，群组选择器，类选择器，*通配符选择器，后代选择器<br>CSS2伪类选择器：a:link&#x2F;visited&#x2F;hover&#x2F;active<br>CSS3选择器：空格 &gt; +相邻兄弟选择器 ~通用选择器（查找后面所有）</p>
+<h2 id="010什么是CSS盒子模型？"><a href="#010什么是CSS盒子模型？" class="headerlink" title="010什么是CSS盒子模型？"></a>010什么是CSS盒子模型？</h2><p>一个css盒子从外到内可以分成四个部分：margin(外边距),border(边框),padding(内边距),content（内容）<br>默认情况下，盒子的width和height属性只是设置content（内容）的宽和高<br>盒子真正的宽应该是：内容宽度+左右填充+左右边距+左右边框<br>盒子真正的高应该是：内容高度+上下填充+上下边距+上下边框;</p>
+<h2 id="011position的属性值有何区别？"><a href="#011position的属性值有何区别？" class="headerlink" title="011position的属性值有何区别？"></a>011position的属性值有何区别？</h2><p>position 的常见四个属性值： relative，absolute，fixed，static。一般都要配合”left”、“top”、“right”以及”bottom” 属性使用。　　<br>1]static：默认位置，（static 元素会忽略任何top、bottom、left 或right 声明）一般不常用。<br>2]relative：位置被设置为relative 的元素，偏移的top，right，bottom，left 的值都以它原来的位置为基准偏移。注意relative 移动后的元素在原来的位置仍占据空间。<br>3]absolute：位置设置为absolute 的元素，可定位于相对于包含它的元素的指定坐标。意思就是如果它的父容器设置了position 属性，并且position 的属性值为absolute 或者relative，那么就会依据父容器进行偏移。如果其父容器没有设置position 属性，那么偏移是以body为依据。注意设置absolute 属性的元素在标准流中不占位置。<br>4]fixed：位置被设置为fixed 的元素，可定位于相对于浏览器窗口的指定坐标。不论窗口滚动与否，元素都会留在那个位置。它始终是以body 为依据的。注意设置fixed 属性的元素在标准流中不占位置。<br>总结：position设置为absolute和fixed的元素都脱离了文档标准流;</p>
+<h2 id="012px，rem，em的区别？"><a href="#012px，rem，em的区别？" class="headerlink" title="012px，rem，em的区别？"></a>012px，rem，em的区别？</h2><p>px实际上就是像素，用PX设置字体大小时，比较稳定和精确。<br>px像素（Pixel）。相对长度单位。像素px是相对于显示器屏幕分辨率而言的。<br>em的值并不是固定的；<br>em会继承父级元素的字体大小。<br>rem是CSS3新增的一个相对单位（root em，根em），使用rem为元素设定字体大小时，相对的是HTML根元素。</p>
+<h2 id="013JS-的内置类型有哪些？"><a href="#013JS-的内置类型有哪些？" class="headerlink" title="013JS 的内置类型有哪些？"></a>013JS 的内置类型有哪些？</h2><p>基本类型：null、undefined、boolean、number、string、symbol<br>对象（Object）：引用类型（也称为复杂类型）<br>注意: NaN 也属于 number 类型，并且 NaN 不等于自身。</p>
+<h2 id="014NaN是什么？NaN-NaN吗？"><a href="#014NaN是什么？NaN-NaN吗？" class="headerlink" title="014NaN是什么？NaN &#x3D;&#x3D; NaN吗？"></a>014NaN是什么？NaN &#x3D;&#x3D; NaN吗？</h2><p>NaN（Not a Number，非数字）是计算机科学中数值数据类型的一类值，表示未定义或不可表示的值。<br>虽然 NaN 是“Not a Number”，但是它的类型还是数值类型</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">console.log(typeof NaN === &quot;number&quot;);  //true</span><br></pre></td></tr></table></figure>
+
+<p>NaN 和任何东西都不相等——甚至是它自己本身!</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">console.log(NaN === NaN);  //false</span><br></pre></td></tr></table></figure>
+
+<h2 id="015js中null与undefined区别"><a href="#015js中null与undefined区别" class="headerlink" title="015js中null与undefined区别?"></a>015js中null与undefined区别?</h2><p>undefined是undefined类型。表示”缺少值”，就是此处应该有一个值，但是还没有定义<br>(1)作为函数的参数，表示该函数的参数不是对象。<br>(2)作为对象原型链的终点。<br>null是object类型，代表“空值”，代表一个空对象指针<br>(1)变量被声明了，但没有赋值时，就等于undefined。<br>(2)调用函数时，应该提供的参数没有提供，该参数等于undefined。<br>(3)对象没有赋值的属性，该属性的值为undefined。<br>(4)函数没有返回值时或者return后面什么也没有，返回undefined。</p>
+<h2 id="016什么是事件冒泡？"><a href="#016什么是事件冒泡？" class="headerlink" title="016什么是事件冒泡？"></a>016什么是事件冒泡？</h2><p>在一个对象上触发某类事件（比如单击onclick事件），如果此对象定义了此事件的处理程序，那么此事件就会调用这个处理程序，如果没有定义此事 件处理程序或者事件返回true，那么这个事件会向这个对象的父级对象传播，从里到外，直至它被处理（父级对象所有同类事件都将被激活），或者它到达了对 象层次的最顶层，即document对象（有些浏览器是window）。<br>打个比方说：你在地方法院要上诉一件案子，如果地方没有处理此类案件的法院，地方相关部门会帮你继续往上级法院上诉，比如从市级到省级，直至到中央法院，最终使你的案件得以处理。</p>
+<h2 id="017说一下同步和异步的区别"><a href="#017说一下同步和异步的区别" class="headerlink" title="017说一下同步和异步的区别?"></a>017说一下同步和异步的区别?</h2><p>同步会阻塞，异步不会阻塞<br>同步：程序运行从上而下，浏览器必须把这个任务执行完毕，才能继续执行下一个任务<br>异步：程序运行从上而下，浏览器任务没有执行完，但是可以继续执行下一行代码，当被调用者得到结果之后会通过回调函数主动通知调用者。</p>
+<h2 id="018split-和-join-的区别？"><a href="#018split-和-join-的区别？" class="headerlink" title="018split()和 join() 的区别？"></a>018split()和 join() 的区别？</h2><p>前者是切割成数组的形式，后者是将数组转换成字符串；</p>
+<h2 id="019”-”和”-”的不同？"><a href="#019”-”和”-”的不同？" class="headerlink" title="019”&#x3D;&#x3D;”和”&#x3D;&#x3D;&#x3D;”的不同？"></a>019”&#x3D;&#x3D;”和”&#x3D;&#x3D;&#x3D;”的不同？</h2><p>“&#x3D;&#x3D;”会自动转换类型，因此直接判断两边的值<br>“&#x3D;&#x3D;&#x3D;”先判断左右两边的数据类型，然后再判断两边的值</p>
+<h2 id="020Javascript如何实现继承？"><a href="#020Javascript如何实现继承？" class="headerlink" title="020Javascript如何实现继承？"></a>020Javascript如何实现继承？</h2><p>原型链继承，借用构造函数继承，组合继承，寄生式继承，寄生组合继承</p>
+<h2 id="021把-Script-标签-放在页面的最底部的body封闭之前-和封闭之后有什么区别？浏览器会如何解析它们？"><a href="#021把-Script-标签-放在页面的最底部的body封闭之前-和封闭之后有什么区别？浏览器会如何解析它们？" class="headerlink" title="021把 Script 标签 放在页面的最底部的body封闭之前 和封闭之后有什么区别？浏览器会如何解析它们？"></a>021把 Script 标签 放在页面的最底部的body封闭之前 和封闭之后有什么区别？浏览器会如何解析它们？</h2><p>如果说放在body的封闭之前，将会阻塞其他资源的加载；<br>如果放在body封闭之后，不会影响body内元素的加载；</p>
+<h2 id="022documen-write和-innerHTML-的区别？"><a href="#022documen-write和-innerHTML-的区别？" class="headerlink" title="022documen.write和 innerHTML 的区别？"></a>022documen.write和 innerHTML 的区别？</h2><p>document.write 只能重绘整个页面；<br>innerHTML 可以重绘页面的一部分；</p>
+<h2 id="023闭包是什么，有什么特性？"><a href="#023闭包是什么，有什么特性？" class="headerlink" title="023闭包是什么，有什么特性？"></a>023闭包是什么，有什么特性？</h2><p>闭包就是能够读取其他函数内部变量的函数。<br>闭包的缺点：滥用闭包函数会造成内存泄露，因为闭包中引用到的包裹函数中定义的变量都永远不会被释放，所以我们应该在必要的时候，及时释放这个闭包函数。</p>
+<h2 id="024已知ID的Input输入框，希望获取这个输入框的输入值，怎么做？"><a href="#024已知ID的Input输入框，希望获取这个输入框的输入值，怎么做？" class="headerlink" title="024已知ID的Input输入框，希望获取这个输入框的输入值，怎么做？"></a>024已知ID的Input输入框，希望获取这个输入框的输入值，怎么做？</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">document.getElementById(“ID”).value;</span><br></pre></td></tr></table></figure>
+
+<h2 id="025获取到页面中所有的checkbox怎么做？"><a href="#025获取到页面中所有的checkbox怎么做？" class="headerlink" title="025获取到页面中所有的checkbox怎么做？"></a>025获取到页面中所有的checkbox怎么做？</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var domList = document.getElementsByTagName(‘input’)</span><br><span class="line">var checkBoxList = [];//返回的所有的checkbox</span><br><span class="line">var len = domList.length;　　//缓存到局部变量</span><br><span class="line">while (len--) &#123;　　//使用while的效率会比for循环更高</span><br><span class="line">　　if (domList[len].type == ‘checkbox’) &#123;</span><br><span class="line">    　　checkBoxList.push(domList[len]);</span><br><span class="line">　　&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="026设置一个已知ID的DIV的html内容为xxxx，字体颜色设置为黑色。"><a href="#026设置一个已知ID的DIV的html内容为xxxx，字体颜色设置为黑色。" class="headerlink" title="026设置一个已知ID的DIV的html内容为xxxx，字体颜色设置为黑色。"></a>026设置一个已知ID的DIV的html内容为xxxx，字体颜色设置为黑色。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var dom = document.getElementById(“ID”);</span><br><span class="line">dom.innerHTML = “xxxx”;</span><br><span class="line">dom.style.color = “#000”;</span><br></pre></td></tr></table></figure>
+
+<h2 id="027用js实现随机选取10–100之间的10个数字，存入一个数组，并排序。"><a href="#027用js实现随机选取10–100之间的10个数字，存入一个数组，并排序。" class="headerlink" title="027用js实现随机选取10–100之间的10个数字，存入一个数组，并排序。"></a>027用js实现随机选取10–100之间的10个数字，存入一个数组，并排序。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var iArray = [];</span><br><span class="line">funtion getRandom(istart, iend)&#123;</span><br><span class="line">    var iChoice = istart - iend +1;</span><br><span class="line">    return Math.floor(Math.random() * iChoice + istart;</span><br><span class="line">&#125;</span><br><span class="line">//Math.random()就是获取0-1之间的随机数（永远获取不到1）</span><br><span class="line">for(var i=0; i&lt;10; i++)&#123;</span><br><span class="line">    var result= getRandom(10,100);</span><br><span class="line">    iArray.push(result);</span><br><span class="line">&#125;</span><br><span class="line">iArray.sort();</span><br></pre></td></tr></table></figure>
+
+<h2 id="028把两个数组合并，并删除第二个元素。"><a href="#028把两个数组合并，并删除第二个元素。" class="headerlink" title="028把两个数组合并，并删除第二个元素。"></a>028把两个数组合并，并删除第二个元素。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var array1 = [&#x27;a&#x27;,&#x27;b&#x27;,&#x27;c&#x27;];</span><br><span class="line">var bArray = [&#x27;d&#x27;,&#x27;e&#x27;,&#x27;f&#x27;];</span><br><span class="line">var cArray = array1.concat(bArray);</span><br><span class="line">cArray.splice(1,1);</span><br></pre></td></tr></table></figure>
+
+<h2 id="029怎样添加、移除、移动、复制、创建和查找节点？"><a href="#029怎样添加、移除、移动、复制、创建和查找节点？" class="headerlink" title="029怎样添加、移除、移动、复制、创建和查找节点？"></a>029怎样添加、移除、移动、复制、创建和查找节点？</h2><p>1)创建新节点</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">createDocumentFragment(); //创建一个DOM片段</span><br><span class="line">createElement(); //创建一个具体的元素</span><br><span class="line">createTextNode(); //创建一个文本节点</span><br></pre></td></tr></table></figure>
+
+<p>2)添加、移除、替换、插入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">appendChild();  //添加</span><br><span class="line">removeChild();  //移除</span><br><span class="line">replaceChild(); //替换</span><br><span class="line">insertBefore(); //插入</span><br></pre></td></tr></table></figure>
+
+<p>3)查找</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">getElementsByTagName(); //通过标签名称</span><br><span class="line">getElementsByName(); //通过元素的Name属性的值</span><br><span class="line">getElementById(); //通过元素Id，唯一性</span><br></pre></td></tr></table></figure>
+
+<h2 id="030字符串反转，如将-‘12345678’-变成-‘87654321’"><a href="#030字符串反转，如将-‘12345678’-变成-‘87654321’" class="headerlink" title="030字符串反转，如将 ‘12345678’ 变成 ‘87654321’"></a>030字符串反转，如将 ‘12345678’ 变成 ‘87654321’</h2><p>&#x2F;&#x2F;思路：先将字符串转换为数组 split()，利用数组的反序函数 reverse()颠倒数组，再利用 join() 转换为字符串</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var str = &#x27;12345678&#x27;;</span><br><span class="line">str = str.split(&#x27;&#x27;).reverse().join(&#x27;&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="031将数字-12345678-转化成-RMB形式-如：-12-345-678"><a href="#031将数字-12345678-转化成-RMB形式-如：-12-345-678" class="headerlink" title="031将数字 12345678 转化成 RMB形式 如： 12,345,678"></a>031将数字 12345678 转化成 RMB形式 如： 12,345,678</h2><p>&#x2F;&#x2F;思路：先将数字转为字符， str&#x3D; str + ‘’ ;</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//利用反转函数，每三位字符加一个 &#x27;,&#x27;最后一位不加； re()是自定义的反转函数，最后再反转回去！</span><br><span class="line">for(var i = 1; i &lt;= re(str).length; i++)&#123;</span><br><span class="line">    tmp += re(str)[i - 1];</span><br><span class="line">    if(i % 3 == 0 &amp;&amp; i != re(str).length)&#123;</span><br><span class="line">        tmp += &#x27;,&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="032生成5个不同的随机数；"><a href="#032生成5个不同的随机数；" class="headerlink" title="032生成5个不同的随机数；"></a>032生成5个不同的随机数；</h2><p>&#x2F;&#x2F;思路：5个不同的数，每生成一次就和前面的所有数字相比较，如果有相同的，则放弃当前生成的数字！</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">var num1 = [];</span><br><span class="line">for(var i = 0; i &lt; 5; i++)&#123;</span><br><span class="line">    num1[i] = Math.floor(Math.random()*10) + 1; //范围是 [1, 10]</span><br><span class="line">    for(var j = 0; j &lt; i; j++)&#123;</span><br><span class="line">        if(num1[i] == num1[j])&#123;</span><br><span class="line">            i--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="033去掉数组中重复的数字方法一；"><a href="#033去掉数组中重复的数字方法一；" class="headerlink" title="033去掉数组中重复的数字方法一；"></a>033去掉数组中重复的数字方法一；</h2><p>&#x2F;&#x2F;思路：每遍历一次就和之前的所有做比较，不相等则放入新的数组中！</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">rray.prototype.unique = function()&#123;</span><br><span class="line">    var len = this.length,</span><br><span class="line">        newArr = [],</span><br><span class="line">        flag = 1;</span><br><span class="line">    for(var i = 0; i &lt; len; i++, flag = 1)&#123;</span><br><span class="line">        for(var j = 0; j &lt; i; j++)&#123;</span><br><span class="line">            if(this[i] == this[j])&#123;</span><br><span class="line">                flag = 0;        //找到相同的数字后，不执行添加数据</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        flag ? newArr.push(this[i]) : &#x27;&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">    return newArr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="034什么是AJAX？"><a href="#034什么是AJAX？" class="headerlink" title="034什么是AJAX？"></a>034什么是AJAX？</h2><p>AJAX（Asynchronous Javascript And XML）其实就是异步的javaScript和XML。它是一组用于异步显示数据的相关技术。换句话说，它在不重新加载网页的情况下发送和检索数据。</p>
+<h2 id="035简述AJAX的优点？"><a href="#035简述AJAX的优点？" class="headerlink" title="035简述AJAX的优点？"></a>035简述AJAX的优点？</h2><p>1.页面局部刷新。在读取数据的过程中，用户所面对的不是白屏，而是原来页面的转台，或者正在更新的信息提示状态，只有当接收到全部数据后才能更新相应的内容，而这种更新也是瞬间的用户几乎感受不到。<br>2.可以充分利用客户端闲置的处理能力，减轻服务器和网络传输的负担。<br>3.使得web中界面与应用相分离 也可以说是数据与呈现相分离。</p>
+<h2 id="036简述AJAX的缺点？"><a href="#036简述AJAX的缺点？" class="headerlink" title="036简述AJAX的缺点？"></a>036简述AJAX的缺点？</h2><p>1.AJAX干掉了Back和History功能，即对浏览器机制的破坏。<br>2.AJAX安全问题<br>3.对搜索引擎支持较弱<br>4.不好调试<br>5.违背了URL和资源定位的初衷<br>6.AJAX不是很好支持移动设备</p>
+<h2 id="037AJAX如何处理网络请求？"><a href="#037AJAX如何处理网络请求？" class="headerlink" title="037AJAX如何处理网络请求？"></a>037AJAX如何处理网络请求？</h2><p>AJAX模块在处理网络请求的时候包括以下四个步骤<br>①通过XMLHttpRequest类创建xhr对象<br>②为xhr对象添加属性与回调方法<br>③令xhr对象执行open()方法，指明请求被发往某处<br>④令xhr对象执行send()方法，发出请求。<br>补充：Ajax可以发出同步请求，也可以发出异步请求。但大多数情况下指的是异步请求，因为同步的Ajax请求对浏览器会产生‘阻塞效应。</p>
+<h2 id="038原生JS是如何实现AJax的？"><a href="#038原生JS是如何实现AJax的？" class="headerlink" title="038原生JS是如何实现AJax的？"></a>038原生JS是如何实现AJax的？</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//创建 XMLHttpRequest 对象</span><br><span class="line">var ajax = new XMLHttpRequest(); //规定请求的类型、URL 以及是否异步处理请求。 </span><br><span class="line">ajax.open(&#x27;GET&#x27;,url,true); //发送信息至服务器时内容编码类型 </span><br><span class="line">ajax.setRequestHeader(&quot;Content-type&quot;, &quot;application/x-www-form-urlencoded&quot;); //发送请求 </span><br><span class="line">ajax.send(null); //接受服务器响应数据 </span><br><span class="line">ajax.onreadystatechange = function () &#123; </span><br><span class="line">    if (obj.readyState == 4 &amp;&amp; (obj.status == 200 || obj.status == 304)) &#123;</span><br><span class="line">        //业务处理</span><br><span class="line">    &#125; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="039AJAX几种请求方式？他们的优缺点？"><a href="#039AJAX几种请求方式？他们的优缺点？" class="headerlink" title="039AJAX几种请求方式？他们的优缺点？"></a>039AJAX几种请求方式？他们的优缺点？</h2><p>常用的post,get,delete。不常用copy、head、link等等。<br>区别：<br>(1)post比get安全 (因为post参数在请求体中。get参数在url上面)<br>(2)get传输速度比post快 根据传参决定的。(post通过请求体传参，后台通过数据流接收。速度稍微慢一些。而get通过url传参可以直接获取)<br>(3)post传输文件大理论没有限制  get传输文件小大概7-8k ie4k左右<br>(4)get获取数据 post上传数据(上传的数据比较多  而且上传数据都是重要数据。所以不论在安全性还是数据量级 post是最好的选择)。</p>
+<h2 id="040同步和异步请求有什么区别？"><a href="#040同步和异步请求有什么区别？" class="headerlink" title="040同步和异步请求有什么区别？"></a>040同步和异步请求有什么区别？</h2><p>同步请求会阻止用户，直到检索到响应，而异步不会阻止用户。</p>
+<h2 id="041回调函数在AJAX中的作用是什么？"><a href="#041回调函数在AJAX中的作用是什么？" class="headerlink" title="041回调函数在AJAX中的作用是什么？"></a>041回调函数在AJAX中的作用是什么？</h2><p>回调函数将函数作为参数传递给另一个函数。如果我们必须在网站上执行各种AJAX任务，那么我们可以创建一个用于执行XMLHttpRequest的函数和一个用于执行每个AJAX任务的回调函数。</p>
+<h2 id="042调试AJAX应用程序的工具有哪些？"><a href="#042调试AJAX应用程序的工具有哪些？" class="headerlink" title="042调试AJAX应用程序的工具有哪些？"></a>042调试AJAX应用程序的工具有哪些？</h2><p>有几种用于调试AJAX应用程序的工具。<br>● 适用于Mozilla Firefox的Firebug<br>● 适用于IE的Fiddler（Internet Explorer）<br>● JavaScript HTML调试器<br>● MyEclipse AJAX工具<br>● 脚本调试器</p>
+<h2 id="043AJAX中请求的准备状态有哪些？"><a href="#043AJAX中请求的准备状态有哪些？" class="headerlink" title="043AJAX中请求的准备状态有哪些？"></a>043AJAX中请求的准备状态有哪些？</h2><p>在AJAX中有5个请求的就绪状态。<br>● 0：意味着未被发现<br>● 1：表示已打开<br>● 2：表示HEADERS_RECEIVED<br>● 3：表示装载<br>● 4：表示完成</p>
+<h2 id="044jQuery的美元符号-有什么作用？"><a href="#044jQuery的美元符号-有什么作用？" class="headerlink" title="044jQuery的美元符号$有什么作用？"></a>044jQuery的美元符号$有什么作用？</h2><p>其实美元符号$只是jQuery的别名，它是jQuery的选择器</p>
+<h2 id="045body中的onload-函数和jQuery中document-ready-有什么区别？"><a href="#045body中的onload-函数和jQuery中document-ready-有什么区别？" class="headerlink" title="045body中的onload()函数和jQuery中document.ready()有什么区别？"></a>045body中的onload()函数和jQuery中document.ready()有什么区别？</h2><p>1.我们可以在页面中使用多个document.ready()，但只能使用一次onload()。<br>2.document.ready()函数在页面DOM元素加载完以后就会被调用，而onload()函数则要在所有的关联资源（包括图像、音频）加载完毕后才会调用。</p>
+<h2 id="046jQuery中有哪几种类型的选择器？"><a href="#046jQuery中有哪几种类型的选择器？" class="headerlink" title="046jQuery中有哪几种类型的选择器？"></a>046jQuery中有哪几种类型的选择器？</h2><p>正常是有9中，但我们常用的就3种：<br>1.基本选择器：直接根据id、css类名、元素名返回匹配的dom元素。<br>2.层次选择器：也叫做路径选择器，可以根据路径层次来选择相应的DOM元素。<br>3.过滤选择器：在前面的基础上过滤相关条件，得到匹配的dom元素。</p>
+<h2 id="047jQuery对象和DOM对象是怎样转换的？"><a href="#047jQuery对象和DOM对象是怎样转换的？" class="headerlink" title="047jQuery对象和DOM对象是怎样转换的？"></a>047jQuery对象和DOM对象是怎样转换的？</h2><p>jQuery对象是一个包含了dom对象的数组 可以通过jQuery对象[下标]获取dom对象<br>将dom对象放入$(“”)中转为jQuery对象</p>
+<h2 id="048jQuery中的delegate-函数有什么作用？"><a href="#048jQuery中的delegate-函数有什么作用？" class="headerlink" title="048jQuery中的delegate()函数有什么作用？"></a>048jQuery中的delegate()函数有什么作用？</h2><p>如果你有一个父元素，需要给其下的子元素添加事件，这时你可以使用delegate（）了，代码如下：<br>$(“ul”).delegate(“li”,”click”,function(){$(this).hide();}) 当元素在当前页面不可用时，可以使用delegate()</p>
+<h2 id="049使用jQuery将页面上的所有元素边框设置为2px宽的虚线？"><a href="#049使用jQuery将页面上的所有元素边框设置为2px宽的虚线？" class="headerlink" title="049使用jQuery将页面上的所有元素边框设置为2px宽的虚线？"></a>049使用jQuery将页面上的所有元素边框设置为2px宽的虚线？</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;script language=&quot;javascript&quot; type=&quot;text/javascript&quot;&gt;</span><br><span class="line">   $(&quot;*&quot;).css(&quot;border&quot;, &quot;2px dotted red&quot;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="050如何使用jQuery实现点击按钮弹出一个对话框？"><a href="#050如何使用jQuery实现点击按钮弹出一个对话框？" class="headerlink" title="050如何使用jQuery实现点击按钮弹出一个对话框？"></a>050如何使用jQuery实现点击按钮弹出一个对话框？</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt; </span><br><span class="line">$(document).ready(function () &#123; </span><br><span class="line">    $(&#x27;#Button1&#x27;).click(function () &#123; </span><br><span class="line">        alert($(&#x27;#inputField&#x27;).attr(&quot;value&quot;)); </span><br><span class="line">    &#125;); </span><br><span class="line">&#125;); </span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="051如何用jQuery禁用浏览器的前进后退按钮？"><a href="#051如何用jQuery禁用浏览器的前进后退按钮？" class="headerlink" title="051如何用jQuery禁用浏览器的前进后退按钮？"></a>051如何用jQuery禁用浏览器的前进后退按钮？</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot; language=&quot;javascript&quot;&gt;</span><br><span class="line">$(document).ready(function() &#123;</span><br><span class="line">    window.history.forward(1);</span><br><span class="line">    //OR</span><br><span class="line">    window.history.forward(-1);</span><br><span class="line">&#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2024/03/22/并发编程/" data-toggle="tooltip" data-placement="top"
+                           title="">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2024/03/22/Web后端/" data-toggle="tooltip" data-placement="top"
+                           title="">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Web%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-text">Web前端面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#001%E8%A1%8C%E5%86%85%E5%85%83%E7%B4%A0%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F%E5%9D%97%E7%BA%A7%E5%85%83%E7%B4%A0%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F%E7%A9%BA%EF%BC%88void%EF%BC%89%E5%85%83%E7%B4%A0%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">001行内元素有哪些？块级元素有哪些？空（void）元素有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#002jpg%E5%92%8Cpng%E6%A0%BC%E5%BC%8F%E7%9A%84%E5%9B%BE%E7%89%87%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">002jpg和png格式的图片有什么区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#003a%E6%A0%87%E7%AD%BE%E5%9C%A8%E6%96%B0%E7%AA%97%E5%8F%A3%E6%89%93%E5%BC%80%E9%93%BE%E6%8E%A5%E6%80%8E%E4%B9%88%E5%8A%A0%E5%B1%9E%E6%80%A7%EF%BC%9F"><span class="toc-text">003a标签在新窗口打开链接怎么加属性？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#004strong%E4%B8%8Eem%E7%9A%84%E5%BC%82%E5%90%8C%EF%BC%9F"><span class="toc-text">004strong与em的异同？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#005%E8%AF%B4%E4%B8%80%E4%B8%8Bsrc%E5%92%8Chref%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">005说一下src和href的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#006%E8%AF%B7%E5%86%99%E5%87%BA%E5%AE%8C%E6%95%B4%E7%9A%84%E6%B3%A8%E5%86%8C%E8%A1%A8%E5%8D%95%E3%80%82"><span class="toc-text">006请写出完整的注册表单。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#007%E8%AF%B7%E5%86%99%E5%87%BA%E5%85%B7%E6%9C%89%E8%A1%A8%E6%A0%BC%E6%A0%87%E9%A2%98%E4%B8%BA%E2%80%9Dbjpowernode%E2%80%9D%E7%9A%842%E8%A1%8C3%E5%88%97%E8%A1%A8%E6%A0%BC%E7%BB%93%E6%9E%84%E3%80%82"><span class="toc-text">007请写出具有表格标题为”bjpowernode”的2行3列表格结构。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#008%E8%AF%B7%E5%86%99%E5%87%BA%E5%85%B7%E6%9C%89%E6%A0%87%E9%A2%98%E5%B1%9E%E6%80%A7%E5%92%8C%E4%BB%A3%E6%9B%BF%E6%96%87%E6%9C%AC%E5%B1%9E%E6%80%A7%E7%9A%84%E5%9B%BE%E7%89%87%E6%A0%87%E7%AD%BE%E3%80%82"><span class="toc-text">008请写出具有标题属性和代替文本属性的图片标签。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#009CSS%E9%80%89%E6%8B%A9%E5%99%A8%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">009CSS选择器有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#010%E4%BB%80%E4%B9%88%E6%98%AFCSS%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B%EF%BC%9F"><span class="toc-text">010什么是CSS盒子模型？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#011position%E7%9A%84%E5%B1%9E%E6%80%A7%E5%80%BC%E6%9C%89%E4%BD%95%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">011position的属性值有何区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#012px%EF%BC%8Crem%EF%BC%8Cem%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">012px，rem，em的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#013JS-%E7%9A%84%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">013JS 的内置类型有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#014NaN%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9FNaN-NaN%E5%90%97%EF%BC%9F"><span class="toc-text">014NaN是什么？NaN &#x3D;&#x3D; NaN吗？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#015js%E4%B8%ADnull%E4%B8%8Eundefined%E5%8C%BA%E5%88%AB"><span class="toc-text">015js中null与undefined区别?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#016%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%8B%E4%BB%B6%E5%86%92%E6%B3%A1%EF%BC%9F"><span class="toc-text">016什么是事件冒泡？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#017%E8%AF%B4%E4%B8%80%E4%B8%8B%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">017说一下同步和异步的区别?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#018split-%E5%92%8C-join-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">018split()和 join() 的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#019%E2%80%9D-%E2%80%9D%E5%92%8C%E2%80%9D-%E2%80%9D%E7%9A%84%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="toc-text">019”&#x3D;&#x3D;”和”&#x3D;&#x3D;&#x3D;”的不同？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#020Javascript%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%BB%A7%E6%89%BF%EF%BC%9F"><span class="toc-text">020Javascript如何实现继承？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#021%E6%8A%8A-Script-%E6%A0%87%E7%AD%BE-%E6%94%BE%E5%9C%A8%E9%A1%B5%E9%9D%A2%E7%9A%84%E6%9C%80%E5%BA%95%E9%83%A8%E7%9A%84body%E5%B0%81%E9%97%AD%E4%B9%8B%E5%89%8D-%E5%92%8C%E5%B0%81%E9%97%AD%E4%B9%8B%E5%90%8E%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F%E6%B5%8F%E8%A7%88%E5%99%A8%E4%BC%9A%E5%A6%82%E4%BD%95%E8%A7%A3%E6%9E%90%E5%AE%83%E4%BB%AC%EF%BC%9F"><span class="toc-text">021把 Script 标签 放在页面的最底部的body封闭之前 和封闭之后有什么区别？浏览器会如何解析它们？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#022documen-write%E5%92%8C-innerHTML-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">022documen.write和 innerHTML 的区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#023%E9%97%AD%E5%8C%85%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%8C%E6%9C%89%E4%BB%80%E4%B9%88%E7%89%B9%E6%80%A7%EF%BC%9F"><span class="toc-text">023闭包是什么，有什么特性？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#024%E5%B7%B2%E7%9F%A5ID%E7%9A%84Input%E8%BE%93%E5%85%A5%E6%A1%86%EF%BC%8C%E5%B8%8C%E6%9C%9B%E8%8E%B7%E5%8F%96%E8%BF%99%E4%B8%AA%E8%BE%93%E5%85%A5%E6%A1%86%E7%9A%84%E8%BE%93%E5%85%A5%E5%80%BC%EF%BC%8C%E6%80%8E%E4%B9%88%E5%81%9A%EF%BC%9F"><span class="toc-text">024已知ID的Input输入框，希望获取这个输入框的输入值，怎么做？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#025%E8%8E%B7%E5%8F%96%E5%88%B0%E9%A1%B5%E9%9D%A2%E4%B8%AD%E6%89%80%E6%9C%89%E7%9A%84checkbox%E6%80%8E%E4%B9%88%E5%81%9A%EF%BC%9F"><span class="toc-text">025获取到页面中所有的checkbox怎么做？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#026%E8%AE%BE%E7%BD%AE%E4%B8%80%E4%B8%AA%E5%B7%B2%E7%9F%A5ID%E7%9A%84DIV%E7%9A%84html%E5%86%85%E5%AE%B9%E4%B8%BAxxxx%EF%BC%8C%E5%AD%97%E4%BD%93%E9%A2%9C%E8%89%B2%E8%AE%BE%E7%BD%AE%E4%B8%BA%E9%BB%91%E8%89%B2%E3%80%82"><span class="toc-text">026设置一个已知ID的DIV的html内容为xxxx，字体颜色设置为黑色。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#027%E7%94%A8js%E5%AE%9E%E7%8E%B0%E9%9A%8F%E6%9C%BA%E9%80%89%E5%8F%9610%E2%80%93100%E4%B9%8B%E9%97%B4%E7%9A%8410%E4%B8%AA%E6%95%B0%E5%AD%97%EF%BC%8C%E5%AD%98%E5%85%A5%E4%B8%80%E4%B8%AA%E6%95%B0%E7%BB%84%EF%BC%8C%E5%B9%B6%E6%8E%92%E5%BA%8F%E3%80%82"><span class="toc-text">027用js实现随机选取10–100之间的10个数字，存入一个数组，并排序。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#028%E6%8A%8A%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E5%90%88%E5%B9%B6%EF%BC%8C%E5%B9%B6%E5%88%A0%E9%99%A4%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%85%83%E7%B4%A0%E3%80%82"><span class="toc-text">028把两个数组合并，并删除第二个元素。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#029%E6%80%8E%E6%A0%B7%E6%B7%BB%E5%8A%A0%E3%80%81%E7%A7%BB%E9%99%A4%E3%80%81%E7%A7%BB%E5%8A%A8%E3%80%81%E5%A4%8D%E5%88%B6%E3%80%81%E5%88%9B%E5%BB%BA%E5%92%8C%E6%9F%A5%E6%89%BE%E8%8A%82%E7%82%B9%EF%BC%9F"><span class="toc-text">029怎样添加、移除、移动、复制、创建和查找节点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#030%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%8D%E8%BD%AC%EF%BC%8C%E5%A6%82%E5%B0%86-%E2%80%9812345678%E2%80%99-%E5%8F%98%E6%88%90-%E2%80%9887654321%E2%80%99"><span class="toc-text">030字符串反转，如将 ‘12345678’ 变成 ‘87654321’</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#031%E5%B0%86%E6%95%B0%E5%AD%97-12345678-%E8%BD%AC%E5%8C%96%E6%88%90-RMB%E5%BD%A2%E5%BC%8F-%E5%A6%82%EF%BC%9A-12-345-678"><span class="toc-text">031将数字 12345678 转化成 RMB形式 如： 12,345,678</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#032%E7%94%9F%E6%88%905%E4%B8%AA%E4%B8%8D%E5%90%8C%E7%9A%84%E9%9A%8F%E6%9C%BA%E6%95%B0%EF%BC%9B"><span class="toc-text">032生成5个不同的随机数；</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#033%E5%8E%BB%E6%8E%89%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9B"><span class="toc-text">033去掉数组中重复的数字方法一；</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#034%E4%BB%80%E4%B9%88%E6%98%AFAJAX%EF%BC%9F"><span class="toc-text">034什么是AJAX？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#035%E7%AE%80%E8%BF%B0AJAX%E7%9A%84%E4%BC%98%E7%82%B9%EF%BC%9F"><span class="toc-text">035简述AJAX的优点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#036%E7%AE%80%E8%BF%B0AJAX%E7%9A%84%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="toc-text">036简述AJAX的缺点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#037AJAX%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%EF%BC%9F"><span class="toc-text">037AJAX如何处理网络请求？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#038%E5%8E%9F%E7%94%9FJS%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0AJax%E7%9A%84%EF%BC%9F"><span class="toc-text">038原生JS是如何实现AJax的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#039AJAX%E5%87%A0%E7%A7%8D%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F%EF%BC%9F%E4%BB%96%E4%BB%AC%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="toc-text">039AJAX几种请求方式？他们的优缺点？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#040%E5%90%8C%E6%AD%A5%E5%92%8C%E5%BC%82%E6%AD%A5%E8%AF%B7%E6%B1%82%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">040同步和异步请求有什么区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#041%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E5%9C%A8AJAX%E4%B8%AD%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">041回调函数在AJAX中的作用是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#042%E8%B0%83%E8%AF%95AJAX%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%B7%A5%E5%85%B7%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">042调试AJAX应用程序的工具有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#043AJAX%E4%B8%AD%E8%AF%B7%E6%B1%82%E7%9A%84%E5%87%86%E5%A4%87%E7%8A%B6%E6%80%81%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-text">043AJAX中请求的准备状态有哪些？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#044jQuery%E7%9A%84%E7%BE%8E%E5%85%83%E7%AC%A6%E5%8F%B7-%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-text">044jQuery的美元符号$有什么作用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#045body%E4%B8%AD%E7%9A%84onload-%E5%87%BD%E6%95%B0%E5%92%8CjQuery%E4%B8%ADdocument-ready-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-text">045body中的onload()函数和jQuery中document.ready()有什么区别？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#046jQuery%E4%B8%AD%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E7%B1%BB%E5%9E%8B%E7%9A%84%E9%80%89%E6%8B%A9%E5%99%A8%EF%BC%9F"><span class="toc-text">046jQuery中有哪几种类型的选择器？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#047jQuery%E5%AF%B9%E8%B1%A1%E5%92%8CDOM%E5%AF%B9%E8%B1%A1%E6%98%AF%E6%80%8E%E6%A0%B7%E8%BD%AC%E6%8D%A2%E7%9A%84%EF%BC%9F"><span class="toc-text">047jQuery对象和DOM对象是怎样转换的？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#048jQuery%E4%B8%AD%E7%9A%84delegate-%E5%87%BD%E6%95%B0%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-text">048jQuery中的delegate()函数有什么作用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#049%E4%BD%BF%E7%94%A8jQuery%E5%B0%86%E9%A1%B5%E9%9D%A2%E4%B8%8A%E7%9A%84%E6%89%80%E6%9C%89%E5%85%83%E7%B4%A0%E8%BE%B9%E6%A1%86%E8%AE%BE%E7%BD%AE%E4%B8%BA2px%E5%AE%BD%E7%9A%84%E8%99%9A%E7%BA%BF%EF%BC%9F"><span class="toc-text">049使用jQuery将页面上的所有元素边框设置为2px宽的虚线？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#050%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8jQuery%E5%AE%9E%E7%8E%B0%E7%82%B9%E5%87%BB%E6%8C%89%E9%92%AE%E5%BC%B9%E5%87%BA%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%AF%9D%E6%A1%86%EF%BC%9F"><span class="toc-text">050如何使用jQuery实现点击按钮弹出一个对话框？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#051%E5%A6%82%E4%BD%95%E7%94%A8jQuery%E7%A6%81%E7%94%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%89%8D%E8%BF%9B%E5%90%8E%E9%80%80%E6%8C%89%E9%92%AE%EF%BC%9F"><span class="toc-text">051如何用jQuery禁用浏览器的前进后退按钮？</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/ehazon">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/megahertz">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Haojen 2024
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://haojen.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
+</body>
+
+</html>

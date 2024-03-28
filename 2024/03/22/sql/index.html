@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="马浩珍在 Github 上的个人博客">
+    <meta name="keyword" content="">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-person-128.png">
+    <link rel="alternate" type="application/atom+xml" title="Haojen" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        Haojen&#39;s blog
+        
+    </title>
+
+    <link rel="canonical" href="http://haojen.github.io/2024/03/22/sql/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Haojen
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1></h1>
+                    
+                    <span class="meta">
+                         作者 Haojen Ma
+                        <span>
+                          日期 2024-03-22
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="SQL语句面试题"><a href="#SQL语句面试题" class="headerlink" title="SQL语句面试题"></a>SQL语句面试题</h1><h2 id="001经典SQL笔试题题干"><a href="#001经典SQL笔试题题干" class="headerlink" title="001经典SQL笔试题题干"></a>001经典SQL笔试题题干</h2><p>学生表：student(学号sno,学生姓名sname,出生年月sbirth,性别ssex)<br>成绩表：score(学号sno,课程号cno,成绩score)<br>课程表：course(课程号cno,课程名称cname,教师号ctno)<br>教师表：teacher(教师号tno,教师姓名tname)<br>注意：下面SQL的实现以MySQL为主</p>
+<h2 id="002查询课程编号为“0004”且分数小于60的学生学号，结果按按分数降序排列。"><a href="#002查询课程编号为“0004”且分数小于60的学生学号，结果按按分数降序排列。" class="headerlink" title="002查询课程编号为“0004”且分数小于60的学生学号，结果按按分数降序排列。"></a>002查询课程编号为“0004”且分数小于60的学生学号，结果按按分数降序排列。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/* </span><br><span class="line">分析思路</span><br><span class="line">select 查询结果 []</span><br><span class="line">from 从哪张表中查找数据 [成绩表score]</span><br><span class="line">where 查询条件 [课程编号为“04”且分数小于60]</span><br><span class="line">group by 分组 [没有]</span><br><span class="line">having 对分组结果指定条件 []</span><br><span class="line">order by 对查询结果排序[查询结果按按分数降序排列];</span><br><span class="line">*/</span><br><span class="line">select 学号 from score where 课程号=&#x27;04&#x27; and 成绩 &lt;60</span><br><span class="line">order by 成绩 desc;</span><br></pre></td></tr></table></figure>
+
+<h2 id="003查询姓“孟”老师的个数。"><a href="#003查询姓“孟”老师的个数。" class="headerlink" title="003查询姓“孟”老师的个数。"></a>003查询姓“孟”老师的个数。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select count(教师号) from teacher where 教师姓名 like &#x27;孟%&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="004查询1990年出生的学生名单。"><a href="#004查询1990年出生的学生名单。" class="headerlink" title="004查询1990年出生的学生名单。"></a>004查询1990年出生的学生名单。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/*</span><br><span class="line">查找1990年出生的学生名单</span><br><span class="line">学生表中出生日期列的类型是datetime</span><br><span class="line">*/</span><br><span class="line">select 学号,姓名 from student where year(出生日期)=1990;</span><br></pre></td></tr></table></figure>
+
+<h2 id="005查询课程编号为“0002”的总成绩。"><a href="#005查询课程编号为“0002”的总成绩。" class="headerlink" title="005查询课程编号为“0002”的总成绩。"></a>005查询课程编号为“0002”的总成绩。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select sum(成绩) from score where 课程号 = &#x27;0002&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="006查询选了课程的学生人数。"><a href="#006查询选了课程的学生人数。" class="headerlink" title="006查询选了课程的学生人数。"></a>006查询选了课程的学生人数。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select count(distinct 学号) as 学生人数 from score;</span><br></pre></td></tr></table></figure>
+
+<h2 id="007查询每门课程被选修的学生数。"><a href="#007查询每门课程被选修的学生数。" class="headerlink" title="007查询每门课程被选修的学生数。"></a>007查询每门课程被选修的学生数。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select 课程号, count(学号) from score group by 课程号;</span><br></pre></td></tr></table></figure>
+
+<h2 id="008查询男生、女生人数。"><a href="#008查询男生、女生人数。" class="headerlink" title="008查询男生、女生人数。"></a>008查询男生、女生人数。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/*</span><br><span class="line">分析思路</span><br><span class="line">group by 分组 [男生、女生人数：按性别分组</span><br><span class="line">having 对分组结果指定条件 [没有]</span><br><span class="line">order by 对查询结果排序[没有];</span><br><span class="line">*/</span><br><span class="line">select 性别,count(*) from student group by 性别;</span><br></pre></td></tr></table></figure>
+
+<h2 id="009查询不及格的课程并按课程号从大到小排列。"><a href="#009查询不及格的课程并按课程号从大到小排列。" class="headerlink" title="009查询不及格的课程并按课程号从大到小排列。"></a>009查询不及格的课程并按课程号从大到小排列。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select 课程号 from score where 成绩&lt;60 order by 课程号 desc;</span><br></pre></td></tr></table></figure>
+
+<h2 id="010经典SQL笔试题题干"><a href="#010经典SQL笔试题题干" class="headerlink" title="010经典SQL笔试题题干"></a>010经典SQL笔试题题干</h2><p>学生表：student(学号sno,学生姓名sname,出生年月sbirth,性别ssex)<br>成绩表：score(学号sno,课程号cno,成绩score)<br>课程表：course(课程号cno,课程名称cname,教师号ctno)<br>教师表：teacher(教师号tno,教师姓名tname)<br>注意：下面SQL的实现以MySQL为主</p>
+<h2 id="011查询各科成绩最高和最低的分，-以如下的形式显示：课程号，最高分，最低分"><a href="#011查询各科成绩最高和最低的分，-以如下的形式显示：课程号，最高分，最低分" class="headerlink" title="011查询各科成绩最高和最低的分， 以如下的形式显示：课程号，最高分，最低分"></a>011查询各科成绩最高和最低的分， 以如下的形式显示：课程号，最高分，最低分</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/*</span><br><span class="line">分析思路</span><br><span class="line">select 查询结果 [课程ID：是课程号的别名,最高分：max(成绩) ,最低分：min(成绩)]</span><br><span class="line">from 从哪张表中查找数据 [成绩表score]</span><br><span class="line">where 查询条件 [没有]</span><br><span class="line">group by 分组 [各科成绩：也就是每门课程的成绩，需要按课程号分组];</span><br><span class="line">*/</span><br><span class="line">select 课程号,max(成绩) as 最高分,min(成绩) as 最低分from score</span><br><span class="line">group by 课程号;</span><br></pre></td></tr></table></figure>
+
+<h2 id="012查询平均成绩大于60分学生的学号和平均成绩。"><a href="#012查询平均成绩大于60分学生的学号和平均成绩。" class="headerlink" title="012查询平均成绩大于60分学生的学号和平均成绩。"></a>012查询平均成绩大于60分学生的学号和平均成绩。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/* </span><br><span class="line">题目翻译成大白话：</span><br><span class="line">平均成绩：展开来说就是计算每个学生的平均成绩</span><br><span class="line">这里涉及到“每个”就是要分组了</span><br><span class="line">平均成绩大于60分，就是对分组结果指定条件</span><br><span class="line">*/</span><br><span class="line">select 学号, avg(成绩)from score group by 学号having avg(成绩)&gt;60;</span><br></pre></td></tr></table></figure>
+
+<h2 id="013查询至少选修两门课程的学生学号。"><a href="#013查询至少选修两门课程的学生学号。" class="headerlink" title="013查询至少选修两门课程的学生学号。"></a>013查询至少选修两门课程的学生学号。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/* </span><br><span class="line">翻译成大白话：</span><br><span class="line">第1步，需要先计算出每个学生选修的课程数据，需要按学号分组</span><br><span class="line">第2步，至少选修两门课程：也就是每个学生选修课程数目&gt;=2，对分组结果指定条件</span><br><span class="line">*/</span><br><span class="line">select 学号, count(课程号) as 选修课程数目from score group by 学号 having count(课程号)&gt;=2;</span><br></pre></td></tr></table></figure>
+
+<h2 id="014查询同名同性学生名单并统计同名人数。"><a href="#014查询同名同性学生名单并统计同名人数。" class="headerlink" title="014查询同名同性学生名单并统计同名人数。"></a>014查询同名同性学生名单并统计同名人数。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/* </span><br><span class="line">翻译成大白话，问题解析：</span><br><span class="line">1）查找出姓名相同的学生有谁，每个姓名相同学生的人数</span><br><span class="line">查询结果：姓名,人数</span><br><span class="line">条件：怎么算姓名相同？按姓名分组后人数大于等于2，因为同名的人数大于等于2</span><br><span class="line">*/</span><br><span class="line">select 姓名,count(*) as 人数 from student group by 姓名</span><br><span class="line">having count(*)&gt;=2;</span><br></pre></td></tr></table></figure>
+
+<h2 id="015查询每门课程的平均成绩，结果按平均成绩升序排序，平均成绩相同时，按课程号降序排列。"><a href="#015查询每门课程的平均成绩，结果按平均成绩升序排序，平均成绩相同时，按课程号降序排列。" class="headerlink" title="015查询每门课程的平均成绩，结果按平均成绩升序排序，平均成绩相同时，按课程号降序排列。"></a>015查询每门课程的平均成绩，结果按平均成绩升序排序，平均成绩相同时，按课程号降序排列。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select 课程号, avg(成绩) as 平均成绩from score</span><br><span class="line">group by 课程号 order by 平均成绩 asc,课程号 desc;</span><br></pre></td></tr></table></figure>
+
+<h2 id="016统计每门课程的学生选修人数-超过2人的课程才统计-。"><a href="#016统计每门课程的学生选修人数-超过2人的课程才统计-。" class="headerlink" title="016统计每门课程的学生选修人数(超过2人的课程才统计)。"></a>016统计每门课程的学生选修人数(超过2人的课程才统计)。</h2><p>要求输出课程号和选修人数，查询结果按人数降序排序，若人数相同，按课程号升序排序。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select 课程号, count(学号) as &#x27;选修人数&#x27;</span><br><span class="line">from score group by 课程号having count(学号)&gt;2</span><br><span class="line">order by count(学号) desc,课程号 asc;</span><br></pre></td></tr></table></figure>
+
+<h2 id="017查询两门以上不及格课程的同学的学号及其平均成绩。"><a href="#017查询两门以上不及格课程的同学的学号及其平均成绩。" class="headerlink" title="017查询两门以上不及格课程的同学的学号及其平均成绩。"></a>017查询两门以上不及格课程的同学的学号及其平均成绩。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/*第1步：得到每个学生的平均成绩，显示学号，平均成绩*/</span><br><span class="line">select 学号, avg(成绩) as 平均成绩 from score group by 学号;</span><br><span class="line">/* 第2步：再加上限制条件：*/</span><br><span class="line">select 学号, avg(成绩) as 平均成绩from score where 成绩 &lt;60 group by 学号 having count(课程号)&gt;=2;</span><br></pre></td></tr></table></figure>
+
+<h2 id="018经典SQL笔试题题干"><a href="#018经典SQL笔试题题干" class="headerlink" title="018经典SQL笔试题题干"></a>018经典SQL笔试题题干</h2><p>学生表：student(学号sno,学生姓名sname,出生年月sbirth,性别ssex)<br>成绩表：score(学号sno,课程号cno,成绩score)<br>课程表：course(课程号cno,课程名称cname,教师号ctno)<br>教师表：teacher(教师号tno,教师姓名tname)<br>注意：下面SQL的实现以MySQL为主</p>
+<h2 id="019查询所有课程成绩小于60分学生的学号、姓名。"><a href="#019查询所有课程成绩小于60分学生的学号、姓名。" class="headerlink" title="019查询所有课程成绩小于60分学生的学号、姓名。"></a>019查询所有课程成绩小于60分学生的学号、姓名。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/*</span><br><span class="line">第1步，写子查询（所有课程成绩 &lt; 60 的学生）*/</span><br><span class="line">select 学号  from score where 成绩 &lt; 60;</span><br><span class="line">/*第2步，查询结果：学生学号，姓名，条件是前面1步查到的学号*/</span><br><span class="line">select 学号,姓名 from student where  学号 in ( select 学号 </span><br><span class="line">from score where 成绩 &lt; 60);</span><br></pre></td></tr></table></figure>
+
+<h2 id="020查询没有学全所有课的学生的学号、姓名。"><a href="#020查询没有学全所有课的学生的学号、姓名。" class="headerlink" title="020查询没有学全所有课的学生的学号、姓名。"></a>020查询没有学全所有课的学生的学号、姓名。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/*</span><br><span class="line">查找出学号，条件：没有学全所有课，也就是该学生选修的课程数 &lt; 总的课程数</span><br><span class="line">【考察知识点】in，子查询</span><br><span class="line">*/</span><br><span class="line">select 学号,姓名from student where 学号 in( select 学号 from score</span><br><span class="line">group by 学号 having count(课程号) &lt; (select count(课程号) from course));</span><br></pre></td></tr></table></figure>
+
+<h2 id="021查询出只选修了两门课程的全部学生的学号和姓名。"><a href="#021查询出只选修了两门课程的全部学生的学号和姓名。" class="headerlink" title="021查询出只选修了两门课程的全部学生的学号和姓名。"></a>021查询出只选修了两门课程的全部学生的学号和姓名。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select 学号,姓名from student where 学号 in( select 学号 from score</span><br><span class="line">group by 学号having count(课程号)=2);</span><br></pre></td></tr></table></figure>
+
+<h2 id="022按课程号分组取成绩最大值所在行的数据。"><a href="#022按课程号分组取成绩最大值所在行的数据。" class="headerlink" title="022按课程号分组取成绩最大值所在行的数据。"></a>022按课程号分组取成绩最大值所在行的数据。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/*我们可以使用分组（group by）和汇总函数得到每个组里的一个值（最大值，最小值，平均值等）。</span><br><span class="line">但是无法得到成绩最大值所在行的数据。*/</span><br><span class="line">select 课程号,max(成绩) as 最大成绩 from score group by 课程号;</span><br><span class="line">/*我们可以使用关联子查询来实现：*/</span><br><span class="line">select * from score as a where 成绩 = (select max(成绩) </span><br><span class="line">from score as b where b.课程号 = a.课程号);</span><br><span class="line">/*上面查询结果课程号“0001”有2行数据，是因为最大成绩80有2个</span><br><span class="line">分组取每组最小值：按课程号分组取成绩最小值所在行的数据*/</span><br><span class="line">select * from score as a where 成绩 = (select min(成绩) </span><br><span class="line">from score as b where b.课程号 = a.课程号);</span><br></pre></td></tr></table></figure>
+
+<h2 id="023查询各科成绩前两名的记录。"><a href="#023查询各科成绩前两名的记录。" class="headerlink" title="023查询各科成绩前两名的记录。"></a>023查询各科成绩前两名的记录。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">/*第1步，查出有哪些组，我们可以按课程号分组，查询出有哪些组，对应这个问题里就是有哪些课程号*/</span><br><span class="line">select 课程号,max(成绩) as 最大成绩from score group by 课程号;</span><br><span class="line">/*第2步：先使用order by子句按成绩降序排序（desc），然后使用limt子句返回topN（对应这个问题返回的成绩前两名*/</span><br><span class="line">select * from score where 课程号 = &#x27;0001&#x27; order by 成绩  desc limit 2;</span><br><span class="line">/*第3步，使用union all 将每组选出的数据合并到一起.同样的，可以写出其他组的（其他课程号）取出成绩前2名的sql*/</span><br><span class="line">(select * from score where 课程号 = &#x27;0001&#x27; order by 成绩  desc limit 2) union all</span><br><span class="line">(select * from score where 课程号 = &#x27;0002&#x27; order by 成绩  desc limit 2) union all</span><br><span class="line">(select * from score where 课程号 = &#x27;0003&#x27; order by 成绩  desc limit 2);</span><br></pre></td></tr></table></figure>
+
+<h2 id="024查询所有学生的学号、姓名、选课数、总成绩。"><a href="#024查询所有学生的学号、姓名、选课数、总成绩。" class="headerlink" title="024查询所有学生的学号、姓名、选课数、总成绩。"></a>024查询所有学生的学号、姓名、选课数、总成绩。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select a.学号,a.姓名,count(b.课程号) as 选课数,sum(b.成绩) as 总成绩</span><br><span class="line">from student as a left join score as b on a.学号 = b.学号group by a.学号;</span><br></pre></td></tr></table></figure>
+
+<h2 id="025查询平均成绩大于85的所有学生的学号、姓名和平均成绩。"><a href="#025查询平均成绩大于85的所有学生的学号、姓名和平均成绩。" class="headerlink" title="025查询平均成绩大于85的所有学生的学号、姓名和平均成绩。"></a>025查询平均成绩大于85的所有学生的学号、姓名和平均成绩。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select a.学号,a.姓名, avg(b.成绩) as 平均成绩</span><br><span class="line">from student as a left join score as b</span><br><span class="line">on a.学号 = b.学号group by a.学号having avg(b.成绩)&gt;85;</span><br></pre></td></tr></table></figure>
+
+<h2 id="026查询学生的选课情况：学号，姓名，课程号，课程名称。"><a href="#026查询学生的选课情况：学号，姓名，课程号，课程名称。" class="headerlink" title="026查询学生的选课情况：学号，姓名，课程号，课程名称。"></a>026查询学生的选课情况：学号，姓名，课程号，课程名称。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select a.学号, a.姓名, c.课程号,c.课程名称</span><br><span class="line">from student a inner join score b on a.学号=b.学号</span><br><span class="line">inner join course c on b.课程号=c.课程号;</span><br></pre></td></tr></table></figure>
+
+<h2 id="027查询课程编号为0003且课程成绩在80分以上的学生的学号和姓名。"><a href="#027查询课程编号为0003且课程成绩在80分以上的学生的学号和姓名。" class="headerlink" title="027查询课程编号为0003且课程成绩在80分以上的学生的学号和姓名。"></a>027查询课程编号为0003且课程成绩在80分以上的学生的学号和姓名。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select a.学号,a.姓名</span><br><span class="line">from student  as a inner join score as b on a.学号=b.学号</span><br><span class="line">where b.课程号=&#x27;0003&#x27; and b.成绩&gt;80;</span><br></pre></td></tr></table></figure>
+
+<h2 id="028将每个userid对应的多个科目的成绩查出来，通过UNION-ALL将结果集加起来。"><a href="#028将每个userid对应的多个科目的成绩查出来，通过UNION-ALL将结果集加起来。" class="headerlink" title="028将每个userid对应的多个科目的成绩查出来，通过UNION ALL将结果集加起来。"></a>028将每个userid对应的多个科目的成绩查出来，通过UNION ALL将结果集加起来。</h2><p><img src="http://www.bjpowernode.com/Public/Uploads/article/20220902/1662089796@b2ab1971419068666ce6b560f722b0d2.png" alt="img"></p>
+<p>变成</p>
+<p><img src="http://www.bjpowernode.com/Public/Uploads/article/20220902/1662089849@f2ca4acf2e35d43eed4927ca49f9fd6e.png" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">select userId,&#x27;语文&#x27; as subjectName,chinese_score as score from tb_score1</span><br><span class="line">union all</span><br><span class="line">select userId,&#x27;数学&#x27; as subjectName,math_score as score from tb_score1</span><br><span class="line">union all</span><br><span class="line">select userId,&#x27;英语&#x27; as subjectName,english_score as score from tb_score1</span><br><span class="line">union all</span><br><span class="line">select userId,&#x27;政治&#x27; as subjectName,politics_score as score from tb_score1;</span><br></pre></td></tr></table></figure>
+
+<h2 id="029使用分段-100-85-85-70-70-60"><a href="#029使用分段-100-85-85-70-70-60" class="headerlink" title="029使用分段[100-85],[85-70],[70-60],[&lt;60]来统计各科成绩，分别统计：各分数段人数，课程号和课程名称。"></a>029使用分段[100-85],[85-70],[70-60],[&lt;60]来统计各科成绩，分别统计：各分数段人数，课程号和课程名称。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 考察case表达式</span><br><span class="line">select a.课程号,b.课程名称,</span><br><span class="line">sum(case when 成绩 between 85 and 100 then 1 else 0 end) as &#x27;[100-85]&#x27;,</span><br><span class="line">sum(case when 成绩 &gt;=70 and 成&lt;85 then 1 else 0 end) as &#x27;[85-70]&#x27;,</span><br><span class="line">sum(case when 成绩&gt;=60 and 成绩&lt;70 then 1 else 0 end) as &#x27;[70-60]&#x27;,</span><br><span class="line">sum(case when 成绩&lt;60 then 1 else 0 end) as &#x27;[&lt;60]&#x27;</span><br><span class="line">from score as a right join course as b </span><br><span class="line">on a.课程号=b.课程号 group by a.课程号,b.课程名称;</span><br></pre></td></tr></table></figure>
+
+<h2 id="030查询出每门课程的及格人数和不及格人数。"><a href="#030查询出每门课程的及格人数和不及格人数。" class="headerlink" title="030查询出每门课程的及格人数和不及格人数。"></a>030查询出每门课程的及格人数和不及格人数。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-- 考察case表达式</span><br><span class="line">select 课程号,</span><br><span class="line">sum(case when 成绩&gt;=60 then 1 else 0 end) as 及格人数,</span><br><span class="line">sum(case when 成绩 &lt;  60 then 1 else 0 end) as 不及格人数</span><br><span class="line">from score group by 课程号;</span><br></pre></td></tr></table></figure>
+
+<h2 id="031使用case…when…then-实现原本同一列下多行的不同内容作为多个字段，输出对应内容。"><a href="#031使用case…when…then-实现原本同一列下多行的不同内容作为多个字段，输出对应内容。" class="headerlink" title="031使用case…when…then 实现原本同一列下多行的不同内容作为多个字段，输出对应内容。"></a>031使用case…when…then 实现原本同一列下多行的不同内容作为多个字段，输出对应内容。</h2><p><img src="https://img-blog.csdnimg.cn/20201030230539735.png" alt="img"></p>
+<p>转化后</p>
+<p><img src="https://img-blog.csdnimg.cn/20201030231412900.png" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	userid,</span><br><span class="line">	SUM( CASE subjectName WHEN &#x27;语文&#x27; THEN score ELSE 0 END ) &#x27;语文&#x27;,</span><br><span class="line">	SUM( CASE subjectName WHEN &#x27;数学&#x27; THEN score ELSE 0 END ) &#x27;数学&#x27;,</span><br><span class="line">	SUM( CASE subjectName WHEN &#x27;英语&#x27; THEN score ELSE 0 END ) &#x27;英语&#x27;,</span><br><span class="line">	SUM( CASE subjectName WHEN &#x27;政治&#x27; THEN score ELSE 0 END ) &#x27;政治&#x27; </span><br><span class="line">FROM</span><br><span class="line">	tb_score </span><br><span class="line">GROUP BY</span><br><span class="line">	userid;</span><br></pre></td></tr></table></figure>
+
+<h2 id="032使用SUM-IF-实现原本同一列下多行的不同内容作为多个字段，输出对应内容。"><a href="#032使用SUM-IF-实现原本同一列下多行的不同内容作为多个字段，输出对应内容。" class="headerlink" title="032使用SUM(IF()) 实现原本同一列下多行的不同内容作为多个字段，输出对应内容。"></a>032使用SUM(IF()) 实现原本同一列下多行的不同内容作为多个字段，输出对应内容。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	userid,</span><br><span class="line">	SUM( IF ( subjectName = &#x27;语文&#x27;, score, 0 ) ) &#x27;语文&#x27;,</span><br><span class="line">	SUM( IF ( subjectName = &#x27;数学&#x27;, score, 0 ) ) &#x27;数学&#x27;,</span><br><span class="line">	SUM( IF ( subjectName = &#x27;英语&#x27;, score, 0 ) ) &#x27;英语&#x27;,</span><br><span class="line">	SUM( IF ( subjectName = &#x27;政治&#x27;, score, 0 ) ) &#x27;政治&#x27; </span><br><span class="line">FROM</span><br><span class="line">	tb_score </span><br><span class="line">GROUP BY</span><br><span class="line">	userid;</span><br></pre></td></tr></table></figure>
+
+<h2 id="033使用SUM-IF-生成列-WITH-ROLLUP-生成汇总行-。"><a href="#033使用SUM-IF-生成列-WITH-ROLLUP-生成汇总行-。" class="headerlink" title="033使用SUM(IF()) 生成列 + WITH ROLLUP 生成汇总行 。"></a>033使用SUM(IF()) 生成列 + WITH ROLLUP 生成汇总行 。</h2><p>MySQL提供了 group by with rollup 函数进行group by 字段的汇总，但是与order by 互斥的不能同时用。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT</span><br><span class="line">	IFNULL( userid, &#x27;total&#x27; ) AS userid,</span><br><span class="line">	SUM( IF ( subjectName = &#x27;语文&#x27;, score, 0 ) ) &#x27;语文&#x27;,</span><br><span class="line">	SUM( IF ( subjectName = &#x27;数学&#x27;, score, 0 ) ) &#x27;数学&#x27;,</span><br><span class="line">	SUM( IF ( subjectName = &#x27;英语&#x27;, score, 0 ) ) &#x27;英语&#x27;,</span><br><span class="line">	SUM( IF ( subjectName = &#x27;政治&#x27;, score, 0 ) ) &#x27;政治&#x27;,</span><br><span class="line">	SUM( IF ( subjectName = &#x27;total&#x27;, score, 0 ) ) AS &#x27;total&#x27; </span><br><span class="line">FROM</span><br><span class="line">	(</span><br><span class="line">		SELECT</span><br><span class="line">			userid,</span><br><span class="line">			IFNULL( subjectName, &#x27;total&#x27; ) AS subjectName,</span><br><span class="line">			SUM( score ) AS score </span><br><span class="line">		FROM</span><br><span class="line">			tb_score </span><br><span class="line">		GROUP BY userid, subjectName WITH ROLLUP </span><br><span class="line">	) AS a</span><br><span class="line">GROUP BY userid</span><br><span class="line">WITH ROLLUP;</span><br></pre></td></tr></table></figure>
+
+<h2 id="034使用SUM-IF-生成列，直接生成汇总结果，不再利用子查询。"><a href="#034使用SUM-IF-生成列，直接生成汇总结果，不再利用子查询。" class="headerlink" title="034使用SUM(IF()) 生成列，直接生成汇总结果，不再利用子查询。"></a>034使用SUM(IF()) 生成列，直接生成汇总结果，不再利用子查询。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT IFNULL(userid,&#x27;total&#x27;) AS userid,</span><br><span class="line">SUM(IF(subjectName=&#x27;语文&#x27;,score,0)) AS &#x27;语文&#x27;,</span><br><span class="line">SUM(IF(subjectName=&#x27;数学&#x27;,score,0)) AS &#x27;数学&#x27;,</span><br><span class="line">SUM(IF(subjectName=&#x27;英语&#x27;,score,0)) AS &#x27;英语&#x27;,</span><br><span class="line">SUM(IF(subjectName=&#x27;政治&#x27;,score,0)) AS &#x27;政治&#x27;,</span><br><span class="line">SUM(score) AS total</span><br><span class="line">FROM tb_score</span><br><span class="line">GROUP BY userid WITH ROLLUP;</span><br></pre></td></tr></table></figure>
+
+<h2 id="035使用SUM-IF-生成列-UNION-生成汇总行-并利用-IFNULL将汇总行标题显示为-Total。"><a href="#035使用SUM-IF-生成列-UNION-生成汇总行-并利用-IFNULL将汇总行标题显示为-Total。" class="headerlink" title="035使用SUM(IF()) 生成列 + UNION 生成汇总行,并利用 IFNULL将汇总行标题显示为 Total。"></a>035使用SUM(IF()) 生成列 + UNION 生成汇总行,并利用 IFNULL将汇总行标题显示为 Total。</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT userid,</span><br><span class="line">SUM(IF(subjectName=&#x27;语文&#x27;,score,0)) AS &#x27;语文&#x27;,</span><br><span class="line">SUM(IF(subjectName=&#x27;数学&#x27;,score,0)) AS &#x27;数学&#x27;,</span><br><span class="line">SUM(IF(subjectName=&#x27;英语&#x27;,score,0)) AS &#x27;英语&#x27;,</span><br><span class="line">SUM(IF(subjectName=&#x27;政治&#x27;,score,0)) AS &#x27;政治&#x27;,</span><br><span class="line">SUM(score) AS total</span><br><span class="line">FROM tb_score</span><br><span class="line">GROUP BY userid</span><br><span class="line">UNION</span><br><span class="line">SELECT &#x27;total&#x27;,SUM(IF(subjectName=&#x27;语文&#x27;,score,0)) AS &#x27;语文&#x27;,</span><br><span class="line">SUM(IF(subjectName=&#x27;数学&#x27;,score,0)) AS &#x27;数学&#x27;,</span><br><span class="line">SUM(IF(subjectName=&#x27;英语&#x27;,score,0)) AS &#x27;英语&#x27;,</span><br><span class="line">SUM(IF(subjectName=&#x27;政治&#x27;,score,0)) AS &#x27;政治&#x27;,</span><br><span class="line">SUM(score) FROM tb_score;</span><br></pre></td></tr></table></figure>
+
+<h2 id="036group-concat-合并字段显示如下内容。"><a href="#036group-concat-合并字段显示如下内容。" class="headerlink" title="036group_concat()合并字段显示如下内容。"></a>036group_concat()合并字段显示如下内容。</h2><p><img src="https://img-blog.csdnimg.cn/20201031172639456.png" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">SELECT userid,GROUP_CONCAT(`subjectName`,&quot;:&quot;,score)AS 成绩 FROM tb_score GROUP BY userid;</span><br></pre></td></tr></table></figure>
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2024/03/22/Stust2/" data-toggle="tooltip" data-placement="top"
+                           title="">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2024/03/22/SpringCloud/" data-toggle="tooltip" data-placement="top"
+                           title="">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL%E8%AF%AD%E5%8F%A5%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-text">SQL语句面试题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#001%E7%BB%8F%E5%85%B8SQL%E7%AC%94%E8%AF%95%E9%A2%98%E9%A2%98%E5%B9%B2"><span class="toc-text">001经典SQL笔试题题干</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#002%E6%9F%A5%E8%AF%A2%E8%AF%BE%E7%A8%8B%E7%BC%96%E5%8F%B7%E4%B8%BA%E2%80%9C0004%E2%80%9D%E4%B8%94%E5%88%86%E6%95%B0%E5%B0%8F%E4%BA%8E60%E7%9A%84%E5%AD%A6%E7%94%9F%E5%AD%A6%E5%8F%B7%EF%BC%8C%E7%BB%93%E6%9E%9C%E6%8C%89%E6%8C%89%E5%88%86%E6%95%B0%E9%99%8D%E5%BA%8F%E6%8E%92%E5%88%97%E3%80%82"><span class="toc-text">002查询课程编号为“0004”且分数小于60的学生学号，结果按按分数降序排列。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#003%E6%9F%A5%E8%AF%A2%E5%A7%93%E2%80%9C%E5%AD%9F%E2%80%9D%E8%80%81%E5%B8%88%E7%9A%84%E4%B8%AA%E6%95%B0%E3%80%82"><span class="toc-text">003查询姓“孟”老师的个数。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#004%E6%9F%A5%E8%AF%A21990%E5%B9%B4%E5%87%BA%E7%94%9F%E7%9A%84%E5%AD%A6%E7%94%9F%E5%90%8D%E5%8D%95%E3%80%82"><span class="toc-text">004查询1990年出生的学生名单。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#005%E6%9F%A5%E8%AF%A2%E8%AF%BE%E7%A8%8B%E7%BC%96%E5%8F%B7%E4%B8%BA%E2%80%9C0002%E2%80%9D%E7%9A%84%E6%80%BB%E6%88%90%E7%BB%A9%E3%80%82"><span class="toc-text">005查询课程编号为“0002”的总成绩。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#006%E6%9F%A5%E8%AF%A2%E9%80%89%E4%BA%86%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%AD%A6%E7%94%9F%E4%BA%BA%E6%95%B0%E3%80%82"><span class="toc-text">006查询选了课程的学生人数。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#007%E6%9F%A5%E8%AF%A2%E6%AF%8F%E9%97%A8%E8%AF%BE%E7%A8%8B%E8%A2%AB%E9%80%89%E4%BF%AE%E7%9A%84%E5%AD%A6%E7%94%9F%E6%95%B0%E3%80%82"><span class="toc-text">007查询每门课程被选修的学生数。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#008%E6%9F%A5%E8%AF%A2%E7%94%B7%E7%94%9F%E3%80%81%E5%A5%B3%E7%94%9F%E4%BA%BA%E6%95%B0%E3%80%82"><span class="toc-text">008查询男生、女生人数。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#009%E6%9F%A5%E8%AF%A2%E4%B8%8D%E5%8F%8A%E6%A0%BC%E7%9A%84%E8%AF%BE%E7%A8%8B%E5%B9%B6%E6%8C%89%E8%AF%BE%E7%A8%8B%E5%8F%B7%E4%BB%8E%E5%A4%A7%E5%88%B0%E5%B0%8F%E6%8E%92%E5%88%97%E3%80%82"><span class="toc-text">009查询不及格的课程并按课程号从大到小排列。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#010%E7%BB%8F%E5%85%B8SQL%E7%AC%94%E8%AF%95%E9%A2%98%E9%A2%98%E5%B9%B2"><span class="toc-text">010经典SQL笔试题题干</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#011%E6%9F%A5%E8%AF%A2%E5%90%84%E7%A7%91%E6%88%90%E7%BB%A9%E6%9C%80%E9%AB%98%E5%92%8C%E6%9C%80%E4%BD%8E%E7%9A%84%E5%88%86%EF%BC%8C-%E4%BB%A5%E5%A6%82%E4%B8%8B%E7%9A%84%E5%BD%A2%E5%BC%8F%E6%98%BE%E7%A4%BA%EF%BC%9A%E8%AF%BE%E7%A8%8B%E5%8F%B7%EF%BC%8C%E6%9C%80%E9%AB%98%E5%88%86%EF%BC%8C%E6%9C%80%E4%BD%8E%E5%88%86"><span class="toc-text">011查询各科成绩最高和最低的分， 以如下的形式显示：课程号，最高分，最低分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#012%E6%9F%A5%E8%AF%A2%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9%E5%A4%A7%E4%BA%8E60%E5%88%86%E5%AD%A6%E7%94%9F%E7%9A%84%E5%AD%A6%E5%8F%B7%E5%92%8C%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9%E3%80%82"><span class="toc-text">012查询平均成绩大于60分学生的学号和平均成绩。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#013%E6%9F%A5%E8%AF%A2%E8%87%B3%E5%B0%91%E9%80%89%E4%BF%AE%E4%B8%A4%E9%97%A8%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%AD%A6%E7%94%9F%E5%AD%A6%E5%8F%B7%E3%80%82"><span class="toc-text">013查询至少选修两门课程的学生学号。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#014%E6%9F%A5%E8%AF%A2%E5%90%8C%E5%90%8D%E5%90%8C%E6%80%A7%E5%AD%A6%E7%94%9F%E5%90%8D%E5%8D%95%E5%B9%B6%E7%BB%9F%E8%AE%A1%E5%90%8C%E5%90%8D%E4%BA%BA%E6%95%B0%E3%80%82"><span class="toc-text">014查询同名同性学生名单并统计同名人数。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#015%E6%9F%A5%E8%AF%A2%E6%AF%8F%E9%97%A8%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9%EF%BC%8C%E7%BB%93%E6%9E%9C%E6%8C%89%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9%E5%8D%87%E5%BA%8F%E6%8E%92%E5%BA%8F%EF%BC%8C%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9%E7%9B%B8%E5%90%8C%E6%97%B6%EF%BC%8C%E6%8C%89%E8%AF%BE%E7%A8%8B%E5%8F%B7%E9%99%8D%E5%BA%8F%E6%8E%92%E5%88%97%E3%80%82"><span class="toc-text">015查询每门课程的平均成绩，结果按平均成绩升序排序，平均成绩相同时，按课程号降序排列。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#016%E7%BB%9F%E8%AE%A1%E6%AF%8F%E9%97%A8%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%AD%A6%E7%94%9F%E9%80%89%E4%BF%AE%E4%BA%BA%E6%95%B0-%E8%B6%85%E8%BF%872%E4%BA%BA%E7%9A%84%E8%AF%BE%E7%A8%8B%E6%89%8D%E7%BB%9F%E8%AE%A1-%E3%80%82"><span class="toc-text">016统计每门课程的学生选修人数(超过2人的课程才统计)。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#017%E6%9F%A5%E8%AF%A2%E4%B8%A4%E9%97%A8%E4%BB%A5%E4%B8%8A%E4%B8%8D%E5%8F%8A%E6%A0%BC%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%90%8C%E5%AD%A6%E7%9A%84%E5%AD%A6%E5%8F%B7%E5%8F%8A%E5%85%B6%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9%E3%80%82"><span class="toc-text">017查询两门以上不及格课程的同学的学号及其平均成绩。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#018%E7%BB%8F%E5%85%B8SQL%E7%AC%94%E8%AF%95%E9%A2%98%E9%A2%98%E5%B9%B2"><span class="toc-text">018经典SQL笔试题题干</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#019%E6%9F%A5%E8%AF%A2%E6%89%80%E6%9C%89%E8%AF%BE%E7%A8%8B%E6%88%90%E7%BB%A9%E5%B0%8F%E4%BA%8E60%E5%88%86%E5%AD%A6%E7%94%9F%E7%9A%84%E5%AD%A6%E5%8F%B7%E3%80%81%E5%A7%93%E5%90%8D%E3%80%82"><span class="toc-text">019查询所有课程成绩小于60分学生的学号、姓名。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#020%E6%9F%A5%E8%AF%A2%E6%B2%A1%E6%9C%89%E5%AD%A6%E5%85%A8%E6%89%80%E6%9C%89%E8%AF%BE%E7%9A%84%E5%AD%A6%E7%94%9F%E7%9A%84%E5%AD%A6%E5%8F%B7%E3%80%81%E5%A7%93%E5%90%8D%E3%80%82"><span class="toc-text">020查询没有学全所有课的学生的学号、姓名。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#021%E6%9F%A5%E8%AF%A2%E5%87%BA%E5%8F%AA%E9%80%89%E4%BF%AE%E4%BA%86%E4%B8%A4%E9%97%A8%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%85%A8%E9%83%A8%E5%AD%A6%E7%94%9F%E7%9A%84%E5%AD%A6%E5%8F%B7%E5%92%8C%E5%A7%93%E5%90%8D%E3%80%82"><span class="toc-text">021查询出只选修了两门课程的全部学生的学号和姓名。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#022%E6%8C%89%E8%AF%BE%E7%A8%8B%E5%8F%B7%E5%88%86%E7%BB%84%E5%8F%96%E6%88%90%E7%BB%A9%E6%9C%80%E5%A4%A7%E5%80%BC%E6%89%80%E5%9C%A8%E8%A1%8C%E7%9A%84%E6%95%B0%E6%8D%AE%E3%80%82"><span class="toc-text">022按课程号分组取成绩最大值所在行的数据。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#023%E6%9F%A5%E8%AF%A2%E5%90%84%E7%A7%91%E6%88%90%E7%BB%A9%E5%89%8D%E4%B8%A4%E5%90%8D%E7%9A%84%E8%AE%B0%E5%BD%95%E3%80%82"><span class="toc-text">023查询各科成绩前两名的记录。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#024%E6%9F%A5%E8%AF%A2%E6%89%80%E6%9C%89%E5%AD%A6%E7%94%9F%E7%9A%84%E5%AD%A6%E5%8F%B7%E3%80%81%E5%A7%93%E5%90%8D%E3%80%81%E9%80%89%E8%AF%BE%E6%95%B0%E3%80%81%E6%80%BB%E6%88%90%E7%BB%A9%E3%80%82"><span class="toc-text">024查询所有学生的学号、姓名、选课数、总成绩。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#025%E6%9F%A5%E8%AF%A2%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9%E5%A4%A7%E4%BA%8E85%E7%9A%84%E6%89%80%E6%9C%89%E5%AD%A6%E7%94%9F%E7%9A%84%E5%AD%A6%E5%8F%B7%E3%80%81%E5%A7%93%E5%90%8D%E5%92%8C%E5%B9%B3%E5%9D%87%E6%88%90%E7%BB%A9%E3%80%82"><span class="toc-text">025查询平均成绩大于85的所有学生的学号、姓名和平均成绩。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#026%E6%9F%A5%E8%AF%A2%E5%AD%A6%E7%94%9F%E7%9A%84%E9%80%89%E8%AF%BE%E6%83%85%E5%86%B5%EF%BC%9A%E5%AD%A6%E5%8F%B7%EF%BC%8C%E5%A7%93%E5%90%8D%EF%BC%8C%E8%AF%BE%E7%A8%8B%E5%8F%B7%EF%BC%8C%E8%AF%BE%E7%A8%8B%E5%90%8D%E7%A7%B0%E3%80%82"><span class="toc-text">026查询学生的选课情况：学号，姓名，课程号，课程名称。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#027%E6%9F%A5%E8%AF%A2%E8%AF%BE%E7%A8%8B%E7%BC%96%E5%8F%B7%E4%B8%BA0003%E4%B8%94%E8%AF%BE%E7%A8%8B%E6%88%90%E7%BB%A9%E5%9C%A880%E5%88%86%E4%BB%A5%E4%B8%8A%E7%9A%84%E5%AD%A6%E7%94%9F%E7%9A%84%E5%AD%A6%E5%8F%B7%E5%92%8C%E5%A7%93%E5%90%8D%E3%80%82"><span class="toc-text">027查询课程编号为0003且课程成绩在80分以上的学生的学号和姓名。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#028%E5%B0%86%E6%AF%8F%E4%B8%AAuserid%E5%AF%B9%E5%BA%94%E7%9A%84%E5%A4%9A%E4%B8%AA%E7%A7%91%E7%9B%AE%E7%9A%84%E6%88%90%E7%BB%A9%E6%9F%A5%E5%87%BA%E6%9D%A5%EF%BC%8C%E9%80%9A%E8%BF%87UNION-ALL%E5%B0%86%E7%BB%93%E6%9E%9C%E9%9B%86%E5%8A%A0%E8%B5%B7%E6%9D%A5%E3%80%82"><span class="toc-text">028将每个userid对应的多个科目的成绩查出来，通过UNION ALL将结果集加起来。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#029%E4%BD%BF%E7%94%A8%E5%88%86%E6%AE%B5-100-85-85-70-70-60"><span class="toc-text">029使用分段[100-85],[85-70],[70-60],[&lt;60]来统计各科成绩，分别统计：各分数段人数，课程号和课程名称。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#030%E6%9F%A5%E8%AF%A2%E5%87%BA%E6%AF%8F%E9%97%A8%E8%AF%BE%E7%A8%8B%E7%9A%84%E5%8F%8A%E6%A0%BC%E4%BA%BA%E6%95%B0%E5%92%8C%E4%B8%8D%E5%8F%8A%E6%A0%BC%E4%BA%BA%E6%95%B0%E3%80%82"><span class="toc-text">030查询出每门课程的及格人数和不及格人数。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#031%E4%BD%BF%E7%94%A8case%E2%80%A6when%E2%80%A6then-%E5%AE%9E%E7%8E%B0%E5%8E%9F%E6%9C%AC%E5%90%8C%E4%B8%80%E5%88%97%E4%B8%8B%E5%A4%9A%E8%A1%8C%E7%9A%84%E4%B8%8D%E5%90%8C%E5%86%85%E5%AE%B9%E4%BD%9C%E4%B8%BA%E5%A4%9A%E4%B8%AA%E5%AD%97%E6%AE%B5%EF%BC%8C%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E5%86%85%E5%AE%B9%E3%80%82"><span class="toc-text">031使用case…when…then 实现原本同一列下多行的不同内容作为多个字段，输出对应内容。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#032%E4%BD%BF%E7%94%A8SUM-IF-%E5%AE%9E%E7%8E%B0%E5%8E%9F%E6%9C%AC%E5%90%8C%E4%B8%80%E5%88%97%E4%B8%8B%E5%A4%9A%E8%A1%8C%E7%9A%84%E4%B8%8D%E5%90%8C%E5%86%85%E5%AE%B9%E4%BD%9C%E4%B8%BA%E5%A4%9A%E4%B8%AA%E5%AD%97%E6%AE%B5%EF%BC%8C%E8%BE%93%E5%87%BA%E5%AF%B9%E5%BA%94%E5%86%85%E5%AE%B9%E3%80%82"><span class="toc-text">032使用SUM(IF()) 实现原本同一列下多行的不同内容作为多个字段，输出对应内容。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#033%E4%BD%BF%E7%94%A8SUM-IF-%E7%94%9F%E6%88%90%E5%88%97-WITH-ROLLUP-%E7%94%9F%E6%88%90%E6%B1%87%E6%80%BB%E8%A1%8C-%E3%80%82"><span class="toc-text">033使用SUM(IF()) 生成列 + WITH ROLLUP 生成汇总行 。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#034%E4%BD%BF%E7%94%A8SUM-IF-%E7%94%9F%E6%88%90%E5%88%97%EF%BC%8C%E7%9B%B4%E6%8E%A5%E7%94%9F%E6%88%90%E6%B1%87%E6%80%BB%E7%BB%93%E6%9E%9C%EF%BC%8C%E4%B8%8D%E5%86%8D%E5%88%A9%E7%94%A8%E5%AD%90%E6%9F%A5%E8%AF%A2%E3%80%82"><span class="toc-text">034使用SUM(IF()) 生成列，直接生成汇总结果，不再利用子查询。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#035%E4%BD%BF%E7%94%A8SUM-IF-%E7%94%9F%E6%88%90%E5%88%97-UNION-%E7%94%9F%E6%88%90%E6%B1%87%E6%80%BB%E8%A1%8C-%E5%B9%B6%E5%88%A9%E7%94%A8-IFNULL%E5%B0%86%E6%B1%87%E6%80%BB%E8%A1%8C%E6%A0%87%E9%A2%98%E6%98%BE%E7%A4%BA%E4%B8%BA-Total%E3%80%82"><span class="toc-text">035使用SUM(IF()) 生成列 + UNION 生成汇总行,并利用 IFNULL将汇总行标题显示为 Total。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#036group-concat-%E5%90%88%E5%B9%B6%E5%AD%97%E6%AE%B5%E6%98%BE%E7%A4%BA%E5%A6%82%E4%B8%8B%E5%86%85%E5%AE%B9%E3%80%82"><span class="toc-text">036group_concat()合并字段显示如下内容。</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                    <li>
+                        <a target="_blank" href="https://twitter.com/ehazon">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+                
+                    <li>
+                        <a target="_blank" href="https://www.zhihu.com/people/megahertz">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa  fa-stack-1x fa-inverse">知</i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/haojen">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Haojen 2024
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://haojen.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="">
+</body>
+
+</html>
